@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+  <skin>
+    <id>SkinERPSolSCM.jsf.desktop</id>
+    <family>SkinERPSolSCM.jsf</family>
+    <extends>skyros-v1.desktop</extends>
+    <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+    <style-sheet-name>skins/SkinERPSolSCM.jsf/SkinERPSolSCM.jsf.css</style-sheet-name>
+    <bundle-name>erpsolscm.erpsolscmview.skinBundle</bundle-name>
+  </skin>
+</skins>
