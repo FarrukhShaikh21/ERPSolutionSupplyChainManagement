@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="erpsolscm.erpsolscmview" ClientType="Generic">
+  <pageMap>
+    <page path="/SO_0167.jsf" usageId="erpsolscm_erpsolscmview_SO_0167PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="erpsolscm_erpsolscmview_SO_0167PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0167PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="ERPSolSCMAppModuleDataControl" Package="erpsolscm.erpsolscmmodel.erpsolscmam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolSCMAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

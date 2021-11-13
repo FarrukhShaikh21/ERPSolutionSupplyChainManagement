@@ -27,6 +27,32 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ListBinding
+    Name="LovtxtCustomerName"
+    ListVOName="AccAllCustomersView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtCustomerName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Customerid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerName"/>
+      <Item Value="Customerid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustomerName"/>
+      <Item Value="Customerid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AllCustomersViewFindVC"
+      Hint="showAndExecute"/>
+  </ListBinding>
   <EntityUsage
     Name="SoSalesOrder"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder"/>
@@ -532,7 +558,15 @@
     PrecisionRule="true"
     EntityAttrName="txtCustomerName"
     EntityUsage="SoSalesOrder"
-    AliasName="TXT_CUSTOMER_NAME"/>
+    AliasName="TXT_CUSTOMER_NAME"
+    LOVName="LovtxtCustomerName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="SoSalesOrderLinesView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

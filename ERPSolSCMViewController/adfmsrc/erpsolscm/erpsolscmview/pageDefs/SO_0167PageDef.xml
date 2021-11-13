@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0167PageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SoSalesOrderViewCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesOrderViewCRUDIterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="SoSalesOrderViewCRUDIterator" StaticList="false" Uses="LovtxtCustomerName"
+                  id="txtCustomerName"/>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Salesorderid">
+      <AttrNames>
+        <Item Value="Salesorderid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Customerid">
+      <AttrNames>
+        <Item Value="Customerid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Sotypeid">
+      <AttrNames>
+        <Item Value="Sotypeid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="ConfirmDate">
+      <AttrNames>
+        <Item Value="ConfirmDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Salespersonid">
+      <AttrNames>
+        <Item Value="Salespersonid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="ContactName">
+      <AttrNames>
+        <Item Value="ContactName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Paymenttermid">
+      <AttrNames>
+        <Item Value="Paymenttermid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="OthDeposit">
+      <AttrNames>
+        <Item Value="OthDeposit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Storeid">
+      <AttrNames>
+        <Item Value="Storeid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="SoType">
+      <AttrNames>
+        <Item Value="SoType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Supplierid">
+      <AttrNames>
+        <Item Value="Supplierid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="ReadyForIssue">
+      <AttrNames>
+        <Item Value="ReadyForIssue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="RemainingCreditLimit">
+      <AttrNames>
+        <Item Value="RemainingCreditLimit"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SoSalesOrderViewCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SoSalesOrderViewCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SoSalesOrderViewCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="SoSalesOrderViewCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

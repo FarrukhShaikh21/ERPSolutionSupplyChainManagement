@@ -829,7 +829,7 @@
     Scale="0"
     ColumnName="POS_HEADER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER"/>
   <Attribute
@@ -850,7 +850,7 @@
     Scale="0"
     ColumnName="INSTALLMENT_HEADER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER"/>
   <Attribute
@@ -859,7 +859,7 @@
     Scale="0"
     ColumnName="SALES_HEADER_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER"/>
   <Attribute
