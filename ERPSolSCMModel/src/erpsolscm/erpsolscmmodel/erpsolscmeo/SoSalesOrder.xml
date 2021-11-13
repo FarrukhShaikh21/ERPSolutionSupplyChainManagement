@@ -953,6 +953,30 @@
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="txtCustomerName"
+    Precision="80"
+    ColumnName="TXT_CUSTOMER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[AllCustomers?.CustomerName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.txtCustomerName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="Customerid"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="SoSalesOrderLines"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SalesOrderSaleOrderLinesSalesOrderSeqAssoc"
