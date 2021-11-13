@@ -511,4 +511,9 @@
     EntityAttrName="Rnoteno"
     EntityUsage="SoSalesOrder"
     AliasName="RNOTENO"/>
+  <ViewLinkAccessor
+    Name="SoSalesOrderLinesView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

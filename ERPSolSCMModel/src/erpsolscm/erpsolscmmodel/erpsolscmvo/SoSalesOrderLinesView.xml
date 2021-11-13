@@ -545,4 +545,10 @@
     EntityAttrName="CostPrice"
     EntityUsage="SoSalesOrderLines"
     AliasName="COST_PRICE"/>
+  <ViewLinkAccessor
+    Name="SoSalesOrderView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

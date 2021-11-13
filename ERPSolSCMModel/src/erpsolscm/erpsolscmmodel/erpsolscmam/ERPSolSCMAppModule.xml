@@ -7,16 +7,4 @@
   Version="12.1.3.10.47"
   InheritPersonalization="merge"
   ClearCacheOnRollback="true">
-  <ViewUsage
-    Name="SoDiscountView1"
-    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoDiscountView"/>
-  <ViewUsage
-    Name="SoSalesOrderImeiView1"
-    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderImeiView"/>
-  <ViewUsage
-    Name="SoSalesOrderLinesView1"
-    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesView"/>
-  <ViewUsage
-    Name="SoSalesOrderView1"
-    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderView"/>
 </AppModule>
