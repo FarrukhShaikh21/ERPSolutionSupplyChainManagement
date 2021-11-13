@@ -953,6 +953,13 @@
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
+  <AccessorAttribute
+    Name="SoSalesOrder"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoSalesOrderCustomerIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoSalesOrderCustomerIdAssoc.SoSalesOrder"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoSalesOrderCustomerIdAssoc.AllCustomers"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="ChkAllCustRestGift">
     <DesignTime>

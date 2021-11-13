@@ -519,4 +519,9 @@
     EntityAttrName="Status"
     EntityUsage="AllCustomers"
     AliasName="STATUS"/>
+  <ViewLinkAccessor
+    Name="SoSalesOrderView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCustomersSoSalesOrderCustomerIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

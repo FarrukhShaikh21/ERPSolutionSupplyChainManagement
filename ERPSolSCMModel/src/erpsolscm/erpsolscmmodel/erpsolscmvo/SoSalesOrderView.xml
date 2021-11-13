@@ -516,4 +516,10 @@
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllCustomersView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCustomersSoSalesOrderCustomerIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>
