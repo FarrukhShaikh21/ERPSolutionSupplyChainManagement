@@ -15,7 +15,7 @@
     IsNotNull="true"
     ColumnName="SALESORDERSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER"
     PrimaryKey="true"/>
@@ -151,7 +151,7 @@
     Name="ExchangeRate"
     ColumnName="EXCHANGE_RATE"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Double"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER"/>
   <Attribute
@@ -182,21 +182,21 @@
     Name="CustomerDocDate"
     ColumnName="CUSTOMER_DOC_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_ORDER"/>
   <Attribute
     Name="TransactionDate"
     ColumnName="TRANSACTION_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_ORDER"/>
   <Attribute
     Name="DepositAmount"
     ColumnName="DEPOSIT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Double"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER"/>
   <Attribute
@@ -275,7 +275,7 @@
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_ORDER"/>
   <Attribute
@@ -294,14 +294,14 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_ORDER"/>
   <Attribute
     Name="EarnestMoney"
     ColumnName="EARNEST_MONEY"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Double"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER"/>
   <Attribute
@@ -391,7 +391,7 @@
     Scale="2"
     ColumnName="ST_PERCENT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Double"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER"/>
   <Attribute
@@ -400,21 +400,21 @@
     Scale="2"
     ColumnName="OTH_DEPOSIT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Double"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER"/>
   <Attribute
     Name="DueDate"
     ColumnName="DUE_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_ORDER"/>
   <Attribute
     Name="ConfirmDate"
     ColumnName="CONFIRM_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_ORDER"/>
   <Attribute
@@ -445,7 +445,7 @@
     Name="Pid"
     ColumnName="PID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER"/>
   <Attribute
@@ -536,7 +536,7 @@
     Name="GiftPid"
     ColumnName="GIFT_PID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER"/>
   <Attribute
@@ -593,7 +593,7 @@
     Scale="2"
     ColumnName="SED_PERCENT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Double"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER"/>
   <Attribute
@@ -602,7 +602,7 @@
     Scale="2"
     ColumnName="EXTRA_TAX_PERCENT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Double"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER"/>
   <Attribute
@@ -707,7 +707,7 @@
     Scale="6"
     ColumnName="REMAINING_CREDIT_LIMIT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER"/>
   <Attribute
@@ -738,7 +738,7 @@
     Name="MigratedDate"
     ColumnName="MIGRATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_ORDER"/>
   <Attribute
@@ -820,7 +820,7 @@
     Name="SubmitDate"
     ColumnName="SUBMIT_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_ORDER"/>
   <Attribute
