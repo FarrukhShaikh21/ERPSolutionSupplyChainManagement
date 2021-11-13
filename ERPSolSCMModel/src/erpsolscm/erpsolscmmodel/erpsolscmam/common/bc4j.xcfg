@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule">
+      <AppModuleConfig name="ERPSolSCMAppModuleLocal" jbo.project="erpsolscm.erpsolscmmodel.ERPSolSCMModel" ApplicationName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule" DeployPlatform="LOCAL">
+         <Database jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/ERPSolSCMConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="ERPSolSCMAppModuleShared" jbo.project="erpsolscm.erpsolscmmodel.ERPSolSCMModel" ApplicationName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule" DeployPlatform="LOCAL">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Database jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/ERPSolSCMConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

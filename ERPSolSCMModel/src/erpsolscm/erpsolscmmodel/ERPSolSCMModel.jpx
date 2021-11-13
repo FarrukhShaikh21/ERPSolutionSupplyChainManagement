@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+<JboProject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ERPSolSCMModel"
+  Version="12.1.3.10.47"
+  SeparateXMLFiles="true"
+  PackageName="erpsolscm.erpsolscmmodel">
+  <DesignTime>
+    <Attr Name="_jprName" Value="../../../ERPSolSCMModel.jpr"/>
+    <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
+    <Attr Name="_NamedConnection" Value="ERPSolSCMConn"/>
+    <Attr Name="_appModuleNames0" Value="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule"/>
+  </DesignTime>
+  <Containee
+    Name="erpsolscmam"
+    PackageName="erpsolscm.erpsolscmmodel.erpsolscmam"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AM" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="erpsolscmeo"
+    PackageName="erpsolscm.erpsolscmmodel.erpsolscmeo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="erpsolscmvo"
+    PackageName="erpsolscm.erpsolscmmodel.erpsolscmvo"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+</JboProject>

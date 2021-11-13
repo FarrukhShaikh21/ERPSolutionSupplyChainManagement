@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ERPSolSCMAppModule"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="SoDiscountView1"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoDiscountView"/>
+  <ViewUsage
+    Name="SoSalesOrderImeiView1"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderImeiView"/>
+  <ViewUsage
+    Name="SoSalesOrderLinesView1"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesView"/>
+  <ViewUsage
+    Name="SoSalesOrderView1"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderView"/>
+</AppModule>
