@@ -6,6 +6,10 @@
     <variableIterator id="variables"/>
     <iterator Binds="SoSalesOrderViewCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="SoSalesOrderViewCRUDIterator"/>
+    <iterator Binds="SoSalesOrderLinesDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesOrderLinesDetCRUDIterator"/>
+    <searchRegion Binds="SoSalesOrderLinesDetCRUDIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SoSalesOrderLinesDetCRUDQuery"/>
   </executables>
   <bindings>
     <listOfValues IterBinding="SoSalesOrderViewCRUDIterator" StaticList="false" Uses="LovtxtCustomerName"
@@ -95,5 +99,30 @@
             DataControl="ERPSolSCMAppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSolSCMAppModuleDataControl"/>
+    <tree IterBinding="SoSalesOrderLinesDetCRUDIterator" id="SoSalesOrderLinesDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesView"
+                      Name="SoSalesOrderLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="Lineno"/>
+          <Item Value="Productid"/>
+          <Item Value="ModelNo"/>
+          <Item Value="AvailQty"/>
+          <Item Value="CurrQty"/>
+          <Item Value="Quantity"/>
+          <Item Value="ActUnitPriceOcurr"/>
+          <Item Value="ActLineGrAmtOcurr"/>
+          <Item Value="LineNetAmtOcurr"/>
+          <Item Value="DiscountAmountBc"/>
+          <Item Value="DiscountAmountOc"/>
+          <Item Value="GiftQuantity"/>
+          <Item Value="SoQuantity"/>
+          <Item Value="DiscountUnit"/>
+          <Item Value="DiscountPercent"/>
+          <Item Value="AddDiscountUnit"/>
+          <Item Value="AddDiscountPercent"/>
+          <Item Value="AddDiscountTotal"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

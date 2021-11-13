@@ -10,4 +10,13 @@
   <ViewUsage
     Name="SoSalesOrderViewCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderView"/>
+  <ViewUsage
+    Name="SoSalesOrderLinesDetCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesView"/>
+  <ViewLinkUsage
+    Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderViewCRUD"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderLinesDetCRUD"
+    Reversed="false"/>
 </AppModule>

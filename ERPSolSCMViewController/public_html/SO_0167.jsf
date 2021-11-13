@@ -13,15 +13,15 @@
                        disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"/>
             <af:button actionListener="#{bindings.Next.execute}" text="Next" disabled="#{!bindings.Next.enabled}"
                        partialSubmit="true" id="b3"/>
-            <af:button actionListener="#{bindings.Delete.execute}" text="Delete" disabled="#{!bindings.Delete.enabled}"
+            <af:button actionListener="#{bindings.Delete.execute}" text="Delete Order" disabled="#{!bindings.Delete.enabled}"
                        id="b2"/>
-            <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+            <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Order"
                        disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
-            <af:button actionListener="#{bindings.Rollback.execute}" text="Undo"
+            <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes"
                        disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b6">
               <af:resetActionListener/>
             </af:button>
-            <af:button actionListener="#{bindings.Commit.execute}" text="Save" disabled="#{!bindings.Commit.enabled}"
+            <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" disabled="#{!bindings.Commit.enabled}"
                        id="b5"/>
           </af:toolbar>
         </f:facet>
@@ -176,6 +176,270 @@
             </af:gridCell>
           </af:gridRow>
         </af:panelGridLayout>
+        <af:panelBox text="Sale Order Product Information" id="pb4" showDisclosure="false" styleClass="AFStretchWidth">
+          <f:facet name="toolbar"/>
+          <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.SoSalesOrderLinesDetCRUD.collectionModel}" var="row"
+                      rows="#{bindings.SoSalesOrderLinesDetCRUD.rangeSize}"
+                      emptyText="#{bindings.SoSalesOrderLinesDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.SoSalesOrderLinesDetCRUD.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.SoSalesOrderLinesDetCRUD.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.SoSalesOrderLinesDetCRUD.rangeSize}"
+                      filterModel="#{bindings.SoSalesOrderLinesDetCRUDQuery.queryDescriptor}"
+                      queryListener="#{bindings.SoSalesOrderLinesDetCRUDQuery.processQuery}" filterVisible="true"
+                      varStatus="vs" id="t2" styleClass="AFStretchWidth">
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.name}" filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.label}" id="c1">
+                <af:inputText value="#{row.bindings.Lineno.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.tooltip}" id="it10"
+                              readOnly="true">
+                  <f:validator binding="#{row.bindings.Lineno.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.name}" filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.label}" id="c2">
+                <af:inputText value="#{row.bindings.Productid.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.tooltip}" id="it16">
+                  <f:validator binding="#{row.bindings.Productid.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.ModelNo.name}" filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.ModelNo.label}" id="c3">
+                <af:inputText value="#{row.bindings.ModelNo.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.ModelNo.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.ModelNo.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.ModelNo.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.ModelNo.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.ModelNo.tooltip}" id="it17">
+                  <f:validator binding="#{row.bindings.ModelNo.validator}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.name}" filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.label}" id="c4">
+                <af:inputText value="#{row.bindings.AvailQty.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.tooltip}" id="it18"
+                              readOnly="true">
+                  <f:validator binding="#{row.bindings.AvailQty.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.name}" filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.label}" id="c5">
+                <af:inputText value="#{row.bindings.CurrQty.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.tooltip}" id="it19"
+                              readOnly="true">
+                  <f:validator binding="#{row.bindings.CurrQty.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.name}" filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.label}" id="c6">
+                <af:inputText value="#{row.bindings.Quantity.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.tooltip}" id="it20">
+                  <f:validator binding="#{row.bindings.Quantity.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.name}"
+                         filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.label}" id="c7">
+                <af:inputText value="#{row.bindings.ActUnitPriceOcurr.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.tooltip}"
+                              id="it21">
+                  <f:validator binding="#{row.bindings.ActUnitPriceOcurr.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.name}"
+                         filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.label}" id="c8">
+                <af:inputText value="#{row.bindings.ActLineGrAmtOcurr.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.tooltip}"
+                              id="it22">
+                  <f:validator binding="#{row.bindings.ActLineGrAmtOcurr.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.name}"
+                         filterable="true" headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.label}"
+                         id="c9">
+                <af:inputText value="#{row.bindings.LineNetAmtOcurr.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.tooltip}" id="it23">
+                  <f:validator binding="#{row.bindings.LineNetAmtOcurr.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountBc.name}"
+                         filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountBc.label}" id="c10">
+                <af:inputText value="#{row.bindings.DiscountAmountBc.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountBc.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountBc.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountBc.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountBc.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountBc.tooltip}" id="it24">
+                  <f:validator binding="#{row.bindings.DiscountAmountBc.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountBc.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.name}"
+                         filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.label}" id="c11">
+                <af:inputText value="#{row.bindings.DiscountAmountOc.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.tooltip}" id="it25">
+                  <f:validator binding="#{row.bindings.DiscountAmountOc.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.name}" filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.label}" id="c12">
+                <af:inputText value="#{row.bindings.GiftQuantity.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.tooltip}" id="it26">
+                  <f:validator binding="#{row.bindings.GiftQuantity.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.SoQuantity.name}" filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.SoQuantity.label}" id="c13">
+                <af:inputText value="#{row.bindings.SoQuantity.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.SoQuantity.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.SoQuantity.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.SoQuantity.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.SoQuantity.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.SoQuantity.tooltip}" id="it27">
+                  <f:validator binding="#{row.bindings.SoQuantity.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.SoQuantity.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountUnit.name}" filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountUnit.label}" id="c14">
+                <af:inputText value="#{row.bindings.DiscountUnit.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountUnit.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountUnit.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountUnit.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountUnit.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountUnit.tooltip}" id="it28">
+                  <f:validator binding="#{row.bindings.DiscountUnit.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountUnit.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.name}"
+                         filterable="true" headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.label}"
+                         id="c15">
+                <af:inputText value="#{row.bindings.DiscountPercent.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.tooltip}" id="it29">
+                  <f:validator binding="#{row.bindings.DiscountPercent.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountUnit.name}"
+                         filterable="true" headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountUnit.label}"
+                         id="c16">
+                <af:inputText value="#{row.bindings.AddDiscountUnit.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountUnit.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountUnit.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountUnit.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountUnit.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountUnit.tooltip}" id="it30">
+                  <f:validator binding="#{row.bindings.AddDiscountUnit.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountUnit.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountPercent.name}"
+                         filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountPercent.label}" id="c17">
+                <af:inputText value="#{row.bindings.AddDiscountPercent.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountPercent.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountPercent.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountPercent.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountPercent.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountPercent.tooltip}"
+                              id="it31">
+                  <f:validator binding="#{row.bindings.AddDiscountPercent.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountPercent.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountTotal.name}"
+                         filterable="true"
+                         headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountTotal.label}" id="c18">
+                <af:inputText value="#{row.bindings.AddDiscountTotal.inputValue}"
+                              label="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountTotal.label}"
+                              required="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountTotal.mandatory}"
+                              columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountTotal.displayWidth}"
+                              maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountTotal.precision}"
+                              shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountTotal.tooltip}" id="it32">
+                  <f:validator binding="#{row.bindings.AddDiscountTotal.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.AddDiscountTotal.format}"/>
+                </af:inputText>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelBox>
       </af:panelHeader>
     </af:form>
   </af:document>
