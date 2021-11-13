@@ -15,7 +15,7 @@
     IsNotNull="true"
     ColumnName="CUSTOMERSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="ALL_CUSTOMERS"
     PrimaryKey="true"/>
@@ -32,6 +32,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers.Customerid_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="CustomerName"
@@ -44,6 +52,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers.CustomerName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Technicalpersonid"
@@ -173,14 +189,14 @@
     Name="AcOpeningDate"
     ColumnName="AC_OPENING_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="ALL_CUSTOMERS"/>
   <Attribute
     Name="CreditLimit"
     ColumnName="CREDIT_LIMIT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="ALL_CUSTOMERS"/>
   <Attribute
@@ -305,7 +321,7 @@
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="ALL_CUSTOMERS"/>
   <Attribute
@@ -324,7 +340,7 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="ALL_CUSTOMERS"/>
   <Attribute
@@ -453,14 +469,14 @@
     Scale="0"
     ColumnName="COMM_EXCR_DAYS"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="ALL_CUSTOMERS"/>
   <Attribute
     Name="TaxCode"
     ColumnName="TAX_CODE"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="ALL_CUSTOMERS"/>
   <Attribute
@@ -527,7 +543,7 @@
     Name="SrtaxCode"
     ColumnName="SRTAX_CODE"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="ALL_CUSTOMERS"/>
   <Attribute
@@ -682,7 +698,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMERS">
+    TableName="ALL_CUSTOMERS"
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -695,7 +712,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMERS">
+    TableName="ALL_CUSTOMERS"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -999,4 +1017,8 @@
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers.Customerid"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
 </Entity>

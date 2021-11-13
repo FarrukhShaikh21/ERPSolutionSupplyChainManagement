@@ -13,6 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_LOCATIONID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="AllCustomers"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers"/>
@@ -519,6 +523,112 @@
     EntityAttrName="Status"
     EntityUsage="AllCustomers"
     AliasName="STATUS"/>
+  <ViewCriteria
+    Name="AllCustomersViewByLocationVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="AllCustomersViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Locationid"
+        ViewAttribute="Locationid"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_LOCATIONID"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="AllCustomersViewFindVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="AllCustomersViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Customerid"
+        ViewAttribute="Customerid"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CustomerName"
+        ViewAttribute="CustomerName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="AllCustomersViewCriteria_AllCustomersViewCriteria_row_0_AcOpeningDate"
+        ViewAttribute="AcOpeningDate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="MobileNo"
+        ViewAttribute="MobileNo"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Email"
+        ViewAttribute="Email"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CnicNo"
+        ViewAttribute="CnicNo"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=""
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SoSalesOrderView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCustomersSoSalesOrderCustomerIdLink"

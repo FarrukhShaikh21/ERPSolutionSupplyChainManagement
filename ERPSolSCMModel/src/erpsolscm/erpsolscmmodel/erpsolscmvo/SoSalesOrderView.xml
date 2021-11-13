@@ -13,6 +13,20 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccAllCustomersView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AllCustomersViewByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView.AllCustomersViewByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <EntityUsage
     Name="SoSalesOrder"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder"/>
@@ -511,6 +525,14 @@
     EntityAttrName="Rnoteno"
     EntityUsage="SoSalesOrder"
     AliasName="RNOTENO"/>
+  <ViewAttribute
+    Name="txtCustomerName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtCustomerName"
+    EntityUsage="SoSalesOrder"
+    AliasName="TXT_CUSTOMER_NAME"/>
   <ViewLinkAccessor
     Name="SoSalesOrderLinesView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
