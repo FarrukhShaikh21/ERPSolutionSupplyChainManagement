@@ -3,9 +3,12 @@
              SeparateXMLFiles="false" Package="erpsolscm.erpsolscmview" ClientType="Generic">
   <pageMap>
     <page path="/SO_0167.jsf" usageId="erpsolscm_erpsolscmview_SO_0167PageDef"/>
+    <page path="/ERPSolSCMMain.jsf" usageId="erpsolscm_erpsolscmview_ERPSolSCMMainPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolscm_erpsolscmview_SO_0167PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0167PageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSolSCMMainPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSolSCMMainPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolSCMAppModuleDataControl" Package="erpsolscm.erpsolscmmodel.erpsolscmam"

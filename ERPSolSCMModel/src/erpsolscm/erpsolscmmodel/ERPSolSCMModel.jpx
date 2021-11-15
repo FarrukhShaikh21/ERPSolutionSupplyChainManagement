@@ -53,4 +53,12 @@
       <Attr Name="_VO" Value="true"/>
     </DesignTime>
   </Containee>
+  <AppContainee
+    Name="ERPSolGlobModel"
+    FullName="erpsolglob.erpsolglobmodel.ERPSolGlobModel"
+    ObjectType="JboProject">
+    <DesignTime>
+      <Attr Name="_SourceName" Value="ERPSolGlobalModelLib.jar"/>
+    </DesignTime>
+  </AppContainee>
 </JboProject>
