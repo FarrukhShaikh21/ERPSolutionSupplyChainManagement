@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="ERPSOLSCMBTF">
-    <default-activity>ERPSolSCMMain</default-activity>
+    <default-activity>doERPSolSCMSessionGlobals</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
@@ -55,6 +55,12 @@
         <name>ERPSOL-RETURN-FROM-SCM</name>
       </outcome>
     </task-flow-return>
+    <method-call id="doERPSolSCMSessionGlobals">
+      <method>#{pageFlowScope.ERPSolSCMPageFlowBean.doSetERPSolSCMSessionGlobals}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -80,5 +86,15 @@
         <to-activity-id>ERPSOL-RETURN-FROM-SCM</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>doERPSolSCMSessionGlobals</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
+        <to-activity-id>ERPSolSCMMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility>
+      <url-invoke-allowed/>
+    </visibility>
   </task-flow-definition>
 </adfc-config>

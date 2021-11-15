@@ -1,9 +1,3 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
-  <managed-bean id="__1">
-    <managed-bean-name>backing_ERPSolSCMMain</managed-bean-name>
-    <managed-bean-class>erpsolscm.erpsolscmview.backing.ERPSolSCMMain</managed-bean-class>
-    <managed-bean-scope>backingBean</managed-bean-scope>
-    <!--oracle-jdev-comment:managed-bean-jsp-link:1ERPSolSCMMain.jsf-->
-  </managed-bean>
 </adfc-config>

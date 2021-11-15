@@ -13,6 +13,7 @@ public class ERPSolSCMBean {
     String ERPSolStrUserStoreCode;
     
     public void doSetERPSolSCMSessionGlobals() {
+        System.out.println("glob user code"+getERPSolStrUserCode());
         ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_CODE", getERPSolStrUserCode());
         ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_REGION", getERPSolStrUserRegionCode());
         ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_LOCATION", getERPSolStrUserLocationCode());

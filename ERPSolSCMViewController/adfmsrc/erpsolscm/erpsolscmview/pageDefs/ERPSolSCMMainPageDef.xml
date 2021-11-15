@@ -4,6 +4,7 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
   </executables>
   <bindings/>
 </pageDefinition>

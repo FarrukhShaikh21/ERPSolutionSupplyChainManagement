@@ -100,9 +100,9 @@
       <property
          name="page">/ERPSolSCMMain.jsf</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>ERPSolSCMMain&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>ERPSolSCMMain&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -143,5 +143,30 @@
          name="fromOutcome">ACT-ERPSOL-RETURN-FROM-SCM</property>
       <property
          name="sdm:polyPoints">B50,483.0,16.169434,483.0,16.169434,T50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall13">
+      <property
+         name="activityId">doERPSolSCMSessionGlobals</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>doERPSolSCMSessionGlobals&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">32.5459</property>
+      <property
+         name="x">2.0</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase14"
+      from="MethodCall13"
+      to="View9">
+      <property
+         name="fromOutcome">ACT-ERP-SOL-GOTO-SCM-MAIN</property>
+      <property
+         name="sdm:polyPoints">B50,2.0,102.82178,45.34668,102.82178,T50</property>
    </ControlFlowCase>
 </SDM>
