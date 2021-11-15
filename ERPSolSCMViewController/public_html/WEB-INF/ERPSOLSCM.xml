@@ -5,6 +5,31 @@
     <data-control-scope>
       <shared/>
     </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>P_ADF_USERCODE</name>
+      <value>#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolStrUserCode}</value>
+      <class>erpsolscm.erpsolscmview.erpsolscmclass.ERPSolSCMBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__2">
+      <name>P_ADF_USER_LOCATIONCODE</name>
+      <value>#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolStrUserLocationCode}</value>
+      <class>erpsolscm.erpsolscmview.erpsolscmclass.ERPSolSCMBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__3">
+      <name>P_ADF_USER_STORECODE</name>
+      <value>#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolStrUserStoreCode}</value>
+      <class>erpsolscm.erpsolscmview.erpsolscmclass.ERPSolSCMBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__4">
+      <name>P_ADF_USER_REGIONCODE</name>
+      <value>#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolStrUserRegionCode}</value>
+      <class>erpsolscm.erpsolscmview.erpsolscmclass.ERPSolSCMBean</class>
+    </input-parameter-definition>
+    <managed-bean id="__5">
+      <managed-bean-name>ERPSolSCMPageFlowBean</managed-bean-name>
+      <managed-bean-class>erpsolscm.erpsolscmview.erpsolscmclass.ERPSolSCMBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
     <view id="SO_0167">
       <page>/SO_0167.jsf</page>
     </view>
