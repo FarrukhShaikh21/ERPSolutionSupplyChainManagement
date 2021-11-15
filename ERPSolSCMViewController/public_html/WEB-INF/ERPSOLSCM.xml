@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="ERPSOLSCMBTF">
-    <default-activity>SO_0167</default-activity>
+    <default-activity>ERPSolSCMMain</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
@@ -30,8 +30,55 @@
       <managed-bean-class>erpsolscm.erpsolscmview.erpsolscmclass.ERPSolSCMBean</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__12">
+      <managed-bean-name>ERPSolTempBean</managed-bean-name>
+      <managed-bean-class>erpsoltemp.erpsoltempview.erptempclass.ERPSolutionTemplateBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
     <view id="SO_0167">
       <page>/SO_0167.jsf</page>
     </view>
+    <method-call id="doERPGotoSCMActivity">
+      <method>#{pageFlowScope.ERPSolTempBean.doERPSolGotoActivity}</method>
+      <outcome>
+        <to-string/>
+      </outcome>
+    </method-call>
+    <view id="SO_0161">
+      <page>/SO_0161.jsf</page>
+    </view>
+    <view id="ERPSolSCMMain">
+      <page>/ERPSolSCMMain.jsf</page>
+    </view>
+    <task-flow-return id="ERPSOL-RETURN-FROM-SCM">
+      <outcome>
+        <name>ERPSOL-RETURN-FROM-SCM</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__6">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
+        <to-activity-id>doERPGotoSCMActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>doERPGotoSCMActivity</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>ACT-SO-0167</from-outcome>
+        <to-activity-id>SO_0167</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>ACT-SO-0161</from-outcome>
+        <to-activity-id>SO_0161</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>ACT-ERPSOL-RETURN-FROM-SCM</from-outcome>
+        <to-activity-id>ERPSOL-RETURN-FROM-SCM</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
   </task-flow-definition>
 </adfc-config>

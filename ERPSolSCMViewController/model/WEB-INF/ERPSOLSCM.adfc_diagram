@@ -1,7 +1,14 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <SDM>
    <OverallProperties
-      id="OverallProperties1"/>
+      id="OverallProperties1">
+      <property
+         name="linkStyle">Orthogonal</property>
+      <property
+         name="y">83.5</property>
+      <property
+         name="x">88.01758</property>
+   </OverallProperties>
    <View
       id="View2">
       <property
@@ -9,14 +16,132 @@
       <property
          name="page">/SO_0167.jsf</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>SO_0167&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>SO_0167&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">171.79883</property>
+         name="y">434.20117</property>
       <property
-         name="x">245.5</property>
+         name="x">157.53516</property>
    </View>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule3">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">84.0</property>
+      <property
+         name="x">241.03516</property>
+   </WildcardControlFlowRule>
+   <MethodCall
+      id="MethodCall4">
+      <property
+         name="activityId">doERPGotoSCMActivity</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>doERPGotoSCMActivity&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">251.20117</property>
+      <property
+         name="x">241.03516</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="WildcardControlFlowRule3"
+      to="MethodCall4">
+      <property
+         name="fromOutcome">ACTStartERPSolutionTaskFlow</property>
+      <property
+         name="sdm:polyPoints">B50,241.03516,161.75,241.03516,161.75,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="MethodCall4"
+      to="View2">
+      <property
+         name="fromOutcome">ACT-SO-0167</property>
+      <property
+         name="sdm:polyPoints">L50,157.53516,250.85059,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View7">
+      <property
+         name="activityId">SO_0161</property>
+      <property
+         name="page">/SO_0161.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SO_0161&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">426.55176</property>
+      <property
+         name="x">324.53516</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="MethodCall4"
+      to="View7">
+      <property
+         name="fromOutcome">ACT-SO-0161</property>
+      <property
+         name="sdm:polyPoints">B50,241.03516,426.20117,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View9">
+      <property
+         name="activityId">ERPSolSCMMain</property>
+      <property
+         name="page">/ERPSolSCMMain.jsf</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ERPSolSCMMain&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">173.79883</property>
+      <property
+         name="x">45.34668</property>
+   </View>
+   <TaskFlowReturn
+      id="TaskFlowReturn10">
+      <property
+         name="activityId">ERPSOL-RETURN-FROM-SCM</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ERPSOL-RETURN-FROM-SCM&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  ERPSOL-RETURN-FROM-SCM&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">91.84473</property>
+      <property
+         name="x">483.0</property>
+   </TaskFlowReturn>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule11">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">-47.804688</property>
+      <property
+         name="x">483.0</property>
+   </WildcardControlFlowRule>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase13"
+      from="WildcardControlFlowRule11"
+      to="TaskFlowReturn10">
+      <property
+         name="fromOutcome">ACT-ERPSOL-RETURN-FROM-SCM</property>
+      <property
+         name="sdm:polyPoints">B50,483.0,16.169434,483.0,16.169434,T50</property>
+   </ControlFlowCase>
 </SDM>
