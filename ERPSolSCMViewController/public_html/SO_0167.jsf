@@ -60,7 +60,8 @@
                                                 model="#{bindings.txtStoreName.listOfValuesModel}"
                                                 required="#{bindings.txtStoreName.hints.mandatory}"
                                                 columns="#{bindings.txtStoreName.hints.displayWidth}"
-                                                shortDesc="#{bindings.txtStoreName.hints.tooltip}" autoSubmit="true">
+                                                shortDesc="#{bindings.txtStoreName.hints.tooltip}" autoSubmit="true"
+                                                contentStyle="width:100%">
                     <f:validator binding="#{bindings.txtStoreName.validator}"/>
                   </af:inputComboboxListOfValues>
                   <af:inputText value="#{bindings.Storeid.inputValue}" label="#{bindings.Storeid.hints.label}"
@@ -78,7 +79,8 @@
                                                 model="#{bindings.txtCustomerName.listOfValuesModel}"
                                                 required="#{bindings.txtCustomerName.hints.mandatory}"
                                                 columns="#{bindings.txtCustomerName.hints.displayWidth}"
-                                                shortDesc="#{bindings.txtCustomerName.hints.tooltip}">
+                                                shortDesc="#{bindings.txtCustomerName.hints.tooltip}"
+                                                contentStyle="width:100%">
                     <f:validator binding="#{bindings.txtCustomerName.validator}"/>
                   </af:inputComboboxListOfValues>
                   <af:inputText value="#{bindings.Customerid.inputValue}" label="#{bindings.Customerid.hints.label}"
