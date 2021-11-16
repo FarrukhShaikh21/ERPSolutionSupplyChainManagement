@@ -158,17 +158,7 @@
          <hash n="Default">
             <value n="custom" v="false"/>
             <value n="name" v="Default"/>
-            <hash n="oracle.adfdt.controller.adfc.source.runner.AdfcRunnerLaunchSettings">
-               <hash n="inputParameterValues">
-                  <value n="P_ADF_USER_LOCATIONCODE" v=""/>
-                  <value n="P_ADF_USER_REGIONCODE" v=""/>
-                  <value n="P_ADF_USER_STORECODE" v=""/>
-                  <value n="P_ADF_USERCODE" v=""/>
-               </hash>
-               <value n="taskFlowId" v="ERPSOLSCMBTF"/>
-               <value n="unboundedTaskFlow" v="false"/>
-            </hash>
-            <url n="targetURL" path="public_html/WEB-INF/ERPSOLSCM.xml"/>
+            <value n="targetURL"/>
          </hash>
       </hash>
    </hash>

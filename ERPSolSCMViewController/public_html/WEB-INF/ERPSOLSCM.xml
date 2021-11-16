@@ -39,7 +39,7 @@
       <page>/SO_0167.jsf</page>
     </view>
     <method-call id="doERPGotoSCMActivity">
-      <method>#{pageFlowScope.ERPSolTempBean.doERPSolGotoActivity}</method>
+      <method>#{pageFlowScope.ERPSolTempBean.doGotoERPSolActivity}</method>
       <outcome>
         <to-string/>
       </outcome>
@@ -71,7 +71,7 @@
     <control-flow-rule id="__8">
       <from-activity-id>doERPGotoSCMActivity</from-activity-id>
       <control-flow-case id="__9">
-        <from-outcome>ACT-SO-0167</from-outcome>
+        <from-outcome>ERP-ACT-SO-0167</from-outcome>
         <to-activity-id>SO_0167</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__10">

@@ -18,6 +18,7 @@ public class ERPSolSCMBean {
         ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_REGION", getERPSolStrUserRegionCode());
         ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_LOCATION", getERPSolStrUserLocationCode());
         ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_STORE", getERPSolStrUserStoreCode());
+        ADFContext.getCurrent().getPageFlowScope().put("GLOB_COMPANY_CODE", 2);
     }
 
 

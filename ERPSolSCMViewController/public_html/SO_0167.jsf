@@ -4,7 +4,7 @@
   <af:document title="SO_0167.jsf" id="d1">
     <af:messages id="m1"/>
     <af:form id="f1">
-      <af:panelHeader text="Sale Order" id="ph1">
+      <af:panelHeader text="Sale Order" id="ph1" partialTriggers="b5 b4 b3 b2 b1 b6">
         <f:facet name="context"/>
         <f:facet name="menuBar"/>
         <f:facet name="toolbar">
@@ -17,11 +17,10 @@
                        id="b2"/>
             <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Order"
                        disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
-            <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes"
-                       disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b6">
+            <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true" id="b6">
               <af:resetActionListener/>
             </af:button>
-            <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" disabled="#{!bindings.Commit.enabled}"
+            <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction"
                        id="b5"/>
           </af:toolbar>
         </f:facet>
@@ -160,17 +159,14 @@
                                 required="#{bindings.Remarks.hints.mandatory}"
                                 columns="#{bindings.Remarks.hints.displayWidth}"
                                 maximumLength="#{bindings.Remarks.hints.precision}"
-                                shortDesc="#{bindings.Remarks.hints.tooltip}" id="it9" rows="5">
+                                shortDesc="#{bindings.Remarks.hints.tooltip}" id="it9" rows="5"
+                                contentStyle="width:200px">
                     <f:validator binding="#{bindings.Remarks.validator}"/>
                   </af:inputText>
-                  <af:inputText value="#{bindings.ReadyForIssue.inputValue}"
-                                label="#{bindings.ReadyForIssue.hints.label}"
-                                required="#{bindings.ReadyForIssue.hints.mandatory}"
-                                columns="#{bindings.ReadyForIssue.hints.displayWidth}"
-                                maximumLength="#{bindings.ReadyForIssue.hints.precision}"
-                                shortDesc="#{bindings.ReadyForIssue.hints.tooltip}" id="it13">
-                    <f:validator binding="#{bindings.ReadyForIssue.validator}"/>
-                  </af:inputText>
+                  <af:selectOneChoice label="#{bindings.ReadyForIssue.hints.label}" value="#{bindings.ReadyForIssue.inputValue}" id="soc1">
+                    <af:selectItem label="Yes" value="Y" id="si1"/>
+                    <af:selectItem label="No" value="N" id="si2"/>
+                  </af:selectOneChoice>
                 </af:panelFormLayout>
               </af:panelBox>
             </af:gridCell>

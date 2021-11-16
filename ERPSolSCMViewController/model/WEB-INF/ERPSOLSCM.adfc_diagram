@@ -64,7 +64,7 @@
       from="MethodCall4"
       to="View2">
       <property
-         name="fromOutcome">ACT-SO-0167</property>
+         name="fromOutcome">ERP-ACT-SO-0167</property>
       <property
          name="sdm:polyPoints">L50,157.53516,250.85059,T50</property>
    </ControlFlowCase>

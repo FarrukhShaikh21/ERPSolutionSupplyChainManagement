@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="SO_SALES_ORDER"
   AliasName="SoSalesOrder"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="Salesorderseq"
     IsNotNull="true"
@@ -28,7 +34,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_ORDER">
+    TableName="SO_SALES_ORDER"
+    DefaultValue="1">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -49,7 +56,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_ORDER">
+    TableName="SO_SALES_ORDER"
+    DefaultValue="1">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -88,7 +96,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_ORDER">
+    TableName="SO_SALES_ORDER"
+    DefaultValue="O">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -444,6 +453,8 @@
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_ORDER">
+    <TransientExpression
+      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -775,7 +786,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_ORDER">
+    TableName="SO_SALES_ORDER"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>

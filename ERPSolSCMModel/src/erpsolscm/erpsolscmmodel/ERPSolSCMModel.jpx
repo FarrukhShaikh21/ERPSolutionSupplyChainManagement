@@ -35,6 +35,7 @@
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_EO" Value="true"/>
+      <Attr Name="_AS" Value="true"/>
     </DesignTime>
   </Containee>
   <Containee
@@ -51,6 +52,7 @@
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_VO" Value="true"/>
+      <Attr Name="_VL" Value="true"/>
     </DesignTime>
   </Containee>
   <AppContainee
