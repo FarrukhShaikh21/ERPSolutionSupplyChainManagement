@@ -53,11 +53,22 @@
                                 shortDesc="#{bindings.Locationid.hints.tooltip}" id="it4" readOnly="true">
                     <f:validator binding="#{bindings.Locationid.validator}"/>
                   </af:inputText>
+                  <af:inputComboboxListOfValues id="txtStoreNameId"
+                                                popupTitle="Search and Select: #{bindings.txtStoreName.hints.label}"
+                                                value="#{bindings.txtStoreName.inputValue}"
+                                                label="#{bindings.txtStoreName.hints.label}"
+                                                model="#{bindings.txtStoreName.listOfValuesModel}"
+                                                required="#{bindings.txtStoreName.hints.mandatory}"
+                                                columns="#{bindings.txtStoreName.hints.displayWidth}"
+                                                shortDesc="#{bindings.txtStoreName.hints.tooltip}" autoSubmit="true">
+                    <f:validator binding="#{bindings.txtStoreName.validator}"/>
+                  </af:inputComboboxListOfValues>
                   <af:inputText value="#{bindings.Storeid.inputValue}" label="#{bindings.Storeid.hints.label}"
                                 required="#{bindings.Storeid.hints.mandatory}"
                                 columns="#{bindings.Storeid.hints.displayWidth}"
                                 maximumLength="#{bindings.Storeid.hints.precision}"
-                                shortDesc="#{bindings.Storeid.hints.tooltip}" id="it15">
+                                shortDesc="#{bindings.Storeid.hints.tooltip}" id="it15" readOnly="true"
+                                partialTriggers="txtStoreNameId">
                     <f:validator binding="#{bindings.Storeid.validator}"/>
                   </af:inputText>
                   <af:inputComboboxListOfValues id="txtCustomerNameId"

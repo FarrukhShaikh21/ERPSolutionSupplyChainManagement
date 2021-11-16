@@ -124,5 +124,7 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <listOfValues IterBinding="SoSalesOrderViewCRUDIterator" StaticList="false" Uses="LovtxtStoreName"
+                  id="txtStoreName"/>
   </bindings>
 </pageDefinition>

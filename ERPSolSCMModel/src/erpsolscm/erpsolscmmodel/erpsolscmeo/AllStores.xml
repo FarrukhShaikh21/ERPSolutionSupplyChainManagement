@@ -562,6 +562,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmeo.RPstoreAssoc.AllStores"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SoSalesOrder"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStoreSoSalesOrderStoreIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStoreSoSalesOrderStoreIdAssoc.SoSalesOrder"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStoreSoSalesOrderStoreIdAssoc.AllStores"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpkallStores"
     PrimaryKey="true">
@@ -605,4 +612,8 @@
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllStores.ParentStore"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
 </Entity>

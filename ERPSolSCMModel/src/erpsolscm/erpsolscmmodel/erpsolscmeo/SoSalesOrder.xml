@@ -453,8 +453,7 @@
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_ORDER">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[adf.currentDate]]></TransientExpression>
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -989,6 +988,30 @@
         Value="Customerid"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtStoreName"
+    Precision="80"
+    ColumnName="TXT_STORE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[AllStores?.StoreName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.txtStoreName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="Storeid"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="SoSalesOrderLines"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SalesOrderSaleOrderLinesSalesOrderSeqAssoc"
@@ -1001,6 +1024,13 @@
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoSalesOrderCustomerIdAssoc"
     AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoSalesOrderCustomerIdAssoc.AllCustomers"
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoSalesOrderCustomerIdAssoc.SoSalesOrder"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AllStores"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStoreSoSalesOrderStoreIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStoreSoSalesOrderStoreIdAssoc.AllStores"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStoreSoSalesOrderStoreIdAssoc.SoSalesOrder"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <Key
@@ -1032,6 +1062,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.Customerid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SoSalesOrder1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKALL_STORES"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SO_SALES_ORDER1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.Storeid"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

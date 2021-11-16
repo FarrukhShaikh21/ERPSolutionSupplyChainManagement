@@ -104,8 +104,10 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         EbsSalespersonId,
         Rnoteno,
         txtCustomerName,
+        txtStoreName,
         SoSalesOrderLines,
-        AllCustomers;
+        AllCustomers,
+        AllStores;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -128,6 +130,8 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
             return vals;
         }
     }
+
+
     public static final int SALESORDERSEQ = AttributesEnum.Salesorderseq.index();
     public static final int SALESORDERID = AttributesEnum.Salesorderid.index();
     public static final int SALESTERRITORYID = AttributesEnum.Salesterritoryid.index();
@@ -210,14 +214,24 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public static final int EBSSALESPERSONID = AttributesEnum.EbsSalespersonId.index();
     public static final int RNOTENO = AttributesEnum.Rnoteno.index();
     public static final int TXTCUSTOMERNAME = AttributesEnum.txtCustomerName.index();
+    public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
     public static final int SOSALESORDERLINES = AttributesEnum.SoSalesOrderLines.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
+    public static final int ALLSTORES = AttributesEnum.AllStores.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public SoSalesOrderImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder");
+    }
+
 
     /**
      * Gets the attribute value for Salesorderseq, using the alias name Salesorderseq.
@@ -1532,6 +1546,22 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtStoreName, using the alias name txtStoreName.
+     * @return the value of txtStoreName
+     */
+    public String gettxtStoreName() {
+        return (String) getAttributeInternal(TXTSTORENAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtStoreName.
+     * @param value value to set the txtStoreName
+     */
+    public void settxtStoreName(String value) {
+        setAttributeInternal(TXTSTORENAME, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSoSalesOrderLines() {
@@ -1552,6 +1582,22 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(ALLCUSTOMERS, value);
     }
 
+
+    /**
+     * @return the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public EntityImpl getAllStores() {
+        return (EntityImpl) getAttributeInternal(ALLSTORES);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public void setAllStores(EntityImpl value) {
+        setAttributeInternal(ALLSTORES, value);
+    }
+
+
     /**
      * @param salesorderseq key constituent
 
@@ -1559,13 +1605,6 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
      */
     public static Key createPrimaryKey(Integer salesorderseq) {
         return new Key(new Object[] { salesorderseq });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder");
     }
 
     /**
@@ -1583,7 +1622,7 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     protected void doDML(int operation, TransactionEvent e) {
         
         if (operation==DML_INSERT) {
-            String pkValue=" SALESORDER_ID('"+ERPSolGlobClassModel.doGetUserCompanyCode()+"','"+ERPSolGlobClassModel.doGetUserLocationCode()+"','"+ERPSolGlobClassModel.doGetUserStoreCode()+"',TO_DATE('"+getConfirmDate()+"','YYYY-MM-DD'))";
+            String pkValue=" SALESORDER_ID('"+ERPSolGlobClassModel.doGetUserCompanyCode()+"','"+ERPSolGlobClassModel.doGetUserLocationCode()+"','"+getStoreid()+"',TO_DATE('"+getConfirmDate()+"','YYYY-MM-DD'))";
             System.out.println(pkValue + "pk value");
             String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
             populateAttributeAsChanged(SALESORDERID, result);

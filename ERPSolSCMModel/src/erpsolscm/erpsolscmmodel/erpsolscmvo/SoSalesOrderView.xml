@@ -27,6 +27,20 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccAllStoresView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AllStoresViewByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView.AllStoresViewByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATION_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtCustomerName"
     ListVOName="AccAllCustomersView"
@@ -52,6 +66,33 @@
     <DisplayCriteria
       Name="AllCustomersViewFindVC"
       Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtStoreName"
+    ListVOName="AccAllStoresView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtStoreName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Storeid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StoreName"/>
+      <Item Value="Storeid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StoreName"/>
+      <Item Value="Storeid"/>
+      <Item Value="Phone"/>
+      <Item Value="Email"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AllStoresViewFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="SoSalesOrder"
@@ -567,6 +608,22 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtStoreName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtStoreName"
+    EntityUsage="SoSalesOrder"
+    AliasName="TXT_STORE_NAME"
+    LOVName="LovtxtStoreName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="SoSalesOrderLinesView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
@@ -575,6 +632,12 @@
   <ViewLinkAccessor
     Name="AllCustomersView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCustomersSoSalesOrderCustomerIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllStoresView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllStoreSoSalesOrderStoreIdLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
