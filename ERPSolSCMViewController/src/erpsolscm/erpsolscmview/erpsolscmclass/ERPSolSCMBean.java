@@ -106,4 +106,40 @@ public class ERPSolSCMBean {
         
     }   
 
+    public List<SelectItem> doERPSolGetAutoSuggestedSalesPersonValues(String pStringValues) {
+    //public static List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
+        //public List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
+        List<SelectItem> ResultList=new ArrayList<SelectItem>();
+        System.out.println("a");
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        System.out.println("b");
+        DCIteratorBinding ERPSolib =(DCIteratorBinding)ERPSolbc.get("SoSalesOrderViewCRUDIterator");
+        System.out.println("c");
+        String ERPLocid=ERPSolib.getCurrentRow().getAttribute("Locationid").toString();
+        System.out.println("d");
+        System.out.println(ERPLocid);//ERPSolGlobalViewBean.
+        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "SoSalesPersonsAutoSuggestRO",
+                                                            "LOCATIONID='"+ERPLocid+"' AND UPPER(CONCAT(Salespersonid,name))", "Name", "Salespersonid", 10);
+        return ResultList;
+        
+    }   
+   
+    public List<SelectItem> doERPSolGetAutoSuggestedSupplierValues(String pStringValues) {
+    //public static List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
+        //public List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
+        List<SelectItem> ResultList=new ArrayList<SelectItem>();
+        System.out.println("a");
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        System.out.println("b");
+        DCIteratorBinding ERPSolib =(DCIteratorBinding)ERPSolbc.get("SoSalesOrderViewCRUDIterator");
+        System.out.println("c");
+        String ERPLocid=ERPSolib.getCurrentRow().getAttribute("Locationid").toString();
+        System.out.println("d");
+        System.out.println(ERPLocid);//ERPSolGlobalViewBean.
+        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "PuSuppliersAutoSuggestRO",
+                                                            "LOCATIONID='"+ERPLocid+"' AND UPPER(CONCAT(SUPPLIERID,SUPP_NAME))", "SuppName", "Supplierid", 10);
+        return ResultList;
+        
+    }   
+     
 }

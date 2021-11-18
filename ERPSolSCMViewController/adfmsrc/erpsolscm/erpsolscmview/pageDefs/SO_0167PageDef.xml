@@ -63,11 +63,6 @@
         <Item Value="CustomerDocRef"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Supplierid">
-      <AttrNames>
-        <Item Value="Supplierid"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Flexfield1">
       <AttrNames>
         <Item Value="Flexfield1"/>
@@ -76,6 +71,15 @@
     <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Remarks">
       <AttrNames>
         <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SoSalesOrderViewCRUDIterator" StaticList="false" Uses="LovtxtSalesPersonName"
+                  id="txtSalesPersonName"/>
+    <listOfValues IterBinding="SoSalesOrderViewCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Supplierid">
+      <AttrNames>
+        <Item Value="Supplierid"/>
       </AttrNames>
     </attributeValues>
   </bindings>

@@ -19,6 +19,12 @@
   <ViewUsage
     Name="AllCustomersAutoSuggestRO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView"/>
+  <ViewUsage
+    Name="SoSalesPersonsAutoSuggestRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"/>
+  <ViewUsage
+    Name="PuSuppliersAutoSuggestRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuSuppliersView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

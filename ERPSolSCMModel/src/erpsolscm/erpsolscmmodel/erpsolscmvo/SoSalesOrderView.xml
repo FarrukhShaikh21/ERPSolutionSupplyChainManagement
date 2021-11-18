@@ -41,6 +41,24 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccSoSalesPersonsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SoSalesPersonsByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView.SoSalesPersonsByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccPuSuppliersView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuSuppliersView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtCustomerName"
     ListVOName="AccAllCustomersView"
@@ -93,6 +111,56 @@
     </AttrArray>
     <DisplayCriteria
       Name="AllStoresViewFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSalesPersonName"
+    ListVOName="AccSoSalesPersonsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSalesPersonName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Salespersonid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="txtLovSearch"/>
+      <Item Value="Salespersonid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+      <Item Value="Salespersonid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="SoSalesPersonsFindVc"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSupplierName"
+    ListVOName="AccPuSuppliersView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSupplierName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="txtLovSearch"/>
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SuppName"/>
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="PuSuppliersViewFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="SoSalesOrder"
@@ -624,6 +692,36 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtSalesPersonName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSalesPersonName"
+    EntityUsage="SoSalesOrder"
+    AliasName="TXT_SALES_PERSON_NAME"
+    LOVName="LovtxtSalesPersonName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtSupplierName"
+    PrecisionRule="true"
+    EntityAttrName="txtSupplierName"
+    EntityUsage="SoSalesOrder"
+    AliasName="TXT_SUPPLIER_NAME"
+    LOVName="LovtxtSupplierName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="SoSalesOrderLinesView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
@@ -644,6 +742,12 @@
   <ViewLinkAccessor
     Name="SoSalesPersonsView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesPersonsSoSalesOrderSalesPersonIDLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PuSuppliersView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.PuSupplierSoSalesOrderSupplierIdLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

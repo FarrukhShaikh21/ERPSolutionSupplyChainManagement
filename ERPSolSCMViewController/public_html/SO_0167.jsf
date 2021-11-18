@@ -139,14 +139,21 @@
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc15" valign="middle"
                                      halign="stretch">
-                          <af:inputText value="#{bindings.Salespersonid.inputValue}"
-                                        label="#{bindings.Salespersonid.hints.label}"
-                                        required="#{bindings.Salespersonid.hints.mandatory}"
-                                        columns="#{bindings.Salespersonid.hints.displayWidth}"
-                                        maximumLength="#{bindings.Salespersonid.hints.precision}"
-                                        shortDesc="#{bindings.Salespersonid.hints.tooltip}" id="it3" simple="true">
-                            <f:validator binding="#{bindings.Salespersonid.validator}"/>
-                          </af:inputText>
+                          <af:inputComboboxListOfValues id="txtSalesPersonNameId"
+                                                        popupTitle="Search and Select: #{bindings.txtSalesPersonName.hints.label}"
+                                                        value="#{bindings.txtSalesPersonName.inputValue}"
+                                                        label="#{bindings.txtSalesPersonName.hints.label}"
+                                                        model="#{bindings.txtSalesPersonName.listOfValuesModel}"
+                                                        required="#{bindings.txtSalesPersonName.hints.mandatory}"
+                                                        columns="#{bindings.txtSalesPersonName.hints.displayWidth}"
+                                                        shortDesc="#{bindings.txtSalesPersonName.hints.tooltip}"
+                                                        simple="true" autoSubmit="true" contentStyle="width:80%">
+                            <f:validator binding="#{bindings.txtSalesPersonName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedSalesPersonValues}"/>
+                          </af:inputComboboxListOfValues>
+                          <af:spacer width="10" height="10" id="s4"/>
+                          <af:outputText value="#{bindings.Salespersonid.inputValue}" id="ot4"
+                                         partialTriggers="txtSalesPersonNameId" noWrap="true"/>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr7">
@@ -181,18 +188,25 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr8">
-                        <af:gridCell marginStart="5px" width="15%" id="gc20" halign="center">
-                          <af:outputLabel value="#{bindings.Supplierid.hints.label}" id="ol3"/>
+                        <af:gridCell marginStart="5px" width="15%" id="gc20" halign="center" valign="middle">
+                          <af:outputLabel value="#{bindings.txtSupplierName.hints.label}" id="ol3"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" id="gc21">
-                          <af:inputText value="#{bindings.Supplierid.inputValue}"
-                                        label="#{bindings.Supplierid.hints.label}"
-                                        required="#{bindings.Supplierid.hints.mandatory}"
-                                        columns="#{bindings.Supplierid.hints.displayWidth}"
-                                        maximumLength="#{bindings.Supplierid.hints.precision}"
-                                        shortDesc="#{bindings.Supplierid.hints.tooltip}" id="it6" simple="true">
-                            <f:validator binding="#{bindings.Supplierid.validator}"/>
-                          </af:inputText>
+                        <af:gridCell marginStart="5px" width="35%" id="gc21" halign="stretch" valign="middle">
+                          <af:inputComboboxListOfValues id="txtSupplierNameId"
+                                                        popupTitle="Search and Select: #{bindings.txtSupplierName.hints.label}"
+                                                        value="#{bindings.txtSupplierName.inputValue}"
+                                                        label="#{bindings.txtSupplierName.hints.label}"
+                                                        model="#{bindings.txtSupplierName.listOfValuesModel}"
+                                                        required="#{bindings.txtSupplierName.hints.mandatory}"
+                                                        columns="#{bindings.txtSupplierName.hints.displayWidth}"
+                                                        shortDesc="#{bindings.txtSupplierName.hints.tooltip}"
+                                                        simple="true" autoSubmit="true">
+                            <f:validator binding="#{bindings.txtSupplierName.validator}"/>
+                          </af:inputComboboxListOfValues>
+                          <af:spacer width="10" height="10" id="s5"/>
+                          <af:outputText value="#{bindings.Supplierid.inputValue}"
+                                         shortDesc="#{bindings.Supplierid.hints.tooltip}" id="ot5" noWrap="true"
+                                         partialTriggers="txtSupplierNameId"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc22" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.Flexfield1.hints.label}" id="ol9"/>
