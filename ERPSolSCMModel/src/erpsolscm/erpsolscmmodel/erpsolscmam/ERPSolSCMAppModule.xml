@@ -25,6 +25,9 @@
   <ViewUsage
     Name="PuSuppliersAutoSuggestRO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuSuppliersView"/>
+  <ViewUsage
+    Name="InItemsAutoSuggestRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

@@ -9,8 +9,6 @@
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="SoSalesOrderLinesDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="SoSalesOrderLinesDetCRUDIterator"/>
-    <searchRegion Binds="SoSalesOrderLinesDetCRUDIterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SoSalesOrderLinesDetCRUDQuery"/>
   </executables>
   <bindings>
     <listOfValues IterBinding="SoSalesOrderViewCRUDIterator" StaticList="false" Uses="LovtxtCustomerName"
@@ -91,19 +89,22 @@
                       Name="SoSalesOrderLinesDetCRUD0">
         <AttrNames>
           <Item Value="Lineno"/>
-          <Item Value="Productid"/>
           <Item Value="txtModelNo"/>
-          <Item Value="ModelNo"/>
+          <Item Value="Productid"/>
           <Item Value="AvailQty"/>
           <Item Value="CurrQty"/>
           <Item Value="Quantity"/>
           <Item Value="ActUnitPriceOcurr"/>
-          <Item Value="ActLineGrAmtOcurr"/>
+          <Item Value="txtGrossAmount"/>
           <Item Value="DiscountPercent"/>
           <Item Value="DiscountAmountOc"/>
           <Item Value="LineNetAmtOcurr"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="SoSalesOrderLinesDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SoSalesOrderLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>
