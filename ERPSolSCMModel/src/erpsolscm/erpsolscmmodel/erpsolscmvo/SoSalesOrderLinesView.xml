@@ -13,6 +13,36 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccInItemsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovtxtModelNo"
+    ListVOName="AccInItemsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtModelNo"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Productid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="txtLovSearch"/>
+      <Item Value="Productid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Productid"/>
+      <Item Value="Description"/>
+      <Item Value="Itemid"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SoSalesOrderLines"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines"/>
@@ -545,6 +575,22 @@
     EntityAttrName="CostPrice"
     EntityUsage="SoSalesOrderLines"
     AliasName="COST_PRICE"/>
+  <ViewAttribute
+    Name="txtModelNo"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtModelNo"
+    EntityUsage="SoSalesOrderLines"
+    AliasName="TXT_MODEL_NO"
+    LOVName="LovtxtModelNo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="SoSalesOrderView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

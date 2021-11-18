@@ -1303,6 +1303,13 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="IN_ITEMS"/>
+  <AccessorAttribute
+    Name="SoSalesOrderLines"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoSalesOrderLinesProductIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoSalesOrderLinesProductIdAssoc.SoSalesOrderLines"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoSalesOrderLinesProductIdAssoc.InItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="UPkModelNo">
     <DesignTime>

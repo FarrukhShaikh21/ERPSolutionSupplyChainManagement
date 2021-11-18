@@ -15,12 +15,11 @@
             <af:spacer width="10" height="10" id="s1"/>
             <af:panelGridLayout id="pgl3">
               <af:gridRow id="gr3">
-                <af:gridCell id="gc5" inlineStyle="background-color:#84bbe6" halign="stretch" valign="middle">
+                <af:gridCell id="gc5" halign="stretch" valign="middle" styleClass="ERPSolFormEntryAreaHeader">
                   <af:panelGridLayout id="pgl4">
                     <af:gridRow height="30px" id="gr1">
                       <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1" valign="middle">
-                        <af:outputText value="Master Information" id="ot1"
-                                       inlineStyle="font-size:large;color:white;font-family:verdana"/>
+                        <af:outputText value="Master Information" id="ot1" styleClass="ERPSolFormEntryAreaFont"/>
                       </af:gridCell>
                     </af:gridRow>
                   </af:panelGridLayout>
@@ -241,6 +240,195 @@
                       </af:gridRow>
                     </af:panelGridLayout>
                   </af:panelBox>
+                </af:gridCell>
+              </af:gridRow>
+            </af:panelGridLayout>
+            <af:panelGridLayout id="pgl1">
+              <af:gridRow id="gr10">
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc28"
+                             styleClass="ERPSolFormEntryAreaHeader" halign="stretch" valign="stretch">
+                  <af:panelGridLayout id="pgl2">
+                    <af:gridRow marginTop="5px" height="30px" marginBottom="5px" id="gr12">
+                      <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc26" halign="stretch"
+                                   valign="stretch">
+                        <af:outputText value="Detail Information" id="ot6" styleClass="ERPSolFormEntryAreaFont"/>
+                      </af:gridCell>
+                    </af:gridRow>
+                  </af:panelGridLayout>
+                </af:gridCell>
+              </af:gridRow>
+              <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc27">
+                  <af:table value="#{bindings.SoSalesOrderLinesDetCRUD.collectionModel}" var="row"
+                            rows="#{bindings.SoSalesOrderLinesDetCRUD.rangeSize}"
+                            emptyText="#{bindings.SoSalesOrderLinesDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.SoSalesOrderLinesDetCRUD.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.SoSalesOrderLinesDetCRUD.collectionModel.makeCurrent}"
+                            rowSelection="single" fetchSize="#{bindings.SoSalesOrderLinesDetCRUD.rangeSize}"
+                            filterModel="#{bindings.SoSalesOrderLinesDetCRUDQuery.queryDescriptor}"
+                            queryListener="#{bindings.SoSalesOrderLinesDetCRUDQuery.processQuery}" filterVisible="true"
+                            varStatus="vs" id="t2">
+                    <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.label}"
+                               id="c1">
+                      <af:inputText value="#{row.bindings.Lineno.inputValue}"
+                                    label="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.label}"
+                                    required="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.mandatory}"
+                                    columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.displayWidth}"
+                                    maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.precision}"
+                                    shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.tooltip}" id="it2"
+                                    readOnly="true">
+                        <f:validator binding="#{row.bindings.Lineno.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtModelNo.name}" sortable="true"
+                               headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtModelNo.label}"
+                               filterable="true" id="c3">
+                      <af:inputComboboxListOfValues id="txtModelNoId"
+                                                    popupTitle="Search and Select: #{bindings.SoSalesOrderLinesDetCRUD.hints.txtModelNo.label}"
+                                                    value="#{row.bindings.txtModelNo.inputValue}"
+                                                    model="#{row.bindings.txtModelNo.listOfValuesModel}"
+                                                    required="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtModelNo.mandatory}"
+                                                    columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtModelNo.displayWidth}"
+                                                    shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtModelNo.tooltip}">
+                        <f:validator binding="#{row.bindings.txtModelNo.validator}"/>
+                      </af:inputComboboxListOfValues>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.label}" id="c2">
+                      <af:inputText value="#{row.bindings.Productid.inputValue}"
+                                    label="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.label}"
+                                    required="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.mandatory}"
+                                    columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.displayWidth}"
+                                    maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.precision}"
+                                    shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.tooltip}" id="it3">
+                        <f:validator binding="#{row.bindings.Productid.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.label}"
+                               id="c5">
+                      <af:inputText value="#{row.bindings.AvailQty.inputValue}"
+                                    label="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.label}"
+                                    required="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.mandatory}"
+                                    columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.displayWidth}"
+                                    maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.precision}"
+                                    shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.tooltip}" id="it9"
+                                    readOnly="true">
+                        <f:validator binding="#{row.bindings.AvailQty.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.label}"
+                               id="c6">
+                      <af:inputText value="#{row.bindings.CurrQty.inputValue}"
+                                    label="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.label}"
+                                    required="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.mandatory}"
+                                    columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.displayWidth}"
+                                    maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.precision}"
+                                    shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.tooltip}" id="it10"
+                                    readOnly="true">
+                        <f:validator binding="#{row.bindings.CurrQty.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.label}"
+                               id="c7">
+                      <af:inputText value="#{row.bindings.Quantity.inputValue}"
+                                    label="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.label}"
+                                    required="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.mandatory}"
+                                    columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.displayWidth}"
+                                    maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.precision}"
+                                    shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.tooltip}" id="it11">
+                        <f:validator binding="#{row.bindings.Quantity.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.label}" id="c8">
+                      <af:inputText value="#{row.bindings.ActUnitPriceOcurr.inputValue}"
+                                    label="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.label}"
+                                    required="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.mandatory}"
+                                    columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.displayWidth}"
+                                    maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.precision}"
+                                    shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.tooltip}"
+                                    id="it12">
+                        <f:validator binding="#{row.bindings.ActUnitPriceOcurr.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.label}" id="c9">
+                      <af:inputText value="#{row.bindings.ActLineGrAmtOcurr.inputValue}"
+                                    label="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.label}"
+                                    required="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.mandatory}"
+                                    columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.displayWidth}"
+                                    maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.precision}"
+                                    shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.tooltip}"
+                                    id="it13">
+                        <f:validator binding="#{row.bindings.ActLineGrAmtOcurr.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActLineGrAmtOcurr.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.label}" id="c10">
+                      <af:inputText value="#{row.bindings.DiscountPercent.inputValue}"
+                                    label="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.label}"
+                                    required="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.mandatory}"
+                                    columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.displayWidth}"
+                                    maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.precision}"
+                                    shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.tooltip}"
+                                    id="it15">
+                        <f:validator binding="#{row.bindings.DiscountPercent.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.label}" id="c11">
+                      <af:inputText value="#{row.bindings.DiscountAmountOc.inputValue}"
+                                    label="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.label}"
+                                    required="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.mandatory}"
+                                    columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.displayWidth}"
+                                    maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.precision}"
+                                    shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.tooltip}"
+                                    id="it16">
+                        <f:validator binding="#{row.bindings.DiscountAmountOc.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.label}" id="c12">
+                      <af:inputText value="#{row.bindings.LineNetAmtOcurr.inputValue}"
+                                    label="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.label}"
+                                    required="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.mandatory}"
+                                    columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.displayWidth}"
+                                    maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.precision}"
+                                    shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.tooltip}"
+                                    id="it17">
+                        <f:validator binding="#{row.bindings.LineNetAmtOcurr.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.format}"/>
+                      </af:inputText>
+                    </af:column>
+                  </af:table>
                 </af:gridCell>
               </af:gridRow>
             </af:panelGridLayout>

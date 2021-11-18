@@ -52,3 +52,10 @@ af|inputComboboxListOfValues::content{
     height:25px;
     font-weight: bold;
 }
+
+.ERPSolFormEntryAreaHeader{
+    background-color:#84bbe6
+}
+.ERPSolFormEntryAreaFont{
+font-size:large;color:white;font-family:verdana
+}

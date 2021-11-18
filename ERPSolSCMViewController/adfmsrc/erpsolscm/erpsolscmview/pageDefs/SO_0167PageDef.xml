@@ -7,6 +7,10 @@
     <iterator Binds="SoSalesOrderViewCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="SoSalesOrderViewCRUDIterator"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SoSalesOrderLinesDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesOrderLinesDetCRUDIterator"/>
+    <searchRegion Binds="SoSalesOrderLinesDetCRUDIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SoSalesOrderLinesDetCRUDQuery"/>
   </executables>
   <bindings>
     <listOfValues IterBinding="SoSalesOrderViewCRUDIterator" StaticList="false" Uses="LovtxtCustomerName"
@@ -82,5 +86,24 @@
         <Item Value="Supplierid"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="SoSalesOrderLinesDetCRUDIterator" id="SoSalesOrderLinesDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesView"
+                      Name="SoSalesOrderLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="Lineno"/>
+          <Item Value="Productid"/>
+          <Item Value="txtModelNo"/>
+          <Item Value="ModelNo"/>
+          <Item Value="AvailQty"/>
+          <Item Value="CurrQty"/>
+          <Item Value="Quantity"/>
+          <Item Value="ActUnitPriceOcurr"/>
+          <Item Value="ActLineGrAmtOcurr"/>
+          <Item Value="DiscountPercent"/>
+          <Item Value="DiscountAmountOc"/>
+          <Item Value="LineNetAmtOcurr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
