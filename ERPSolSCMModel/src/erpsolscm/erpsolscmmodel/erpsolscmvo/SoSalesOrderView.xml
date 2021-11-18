@@ -58,7 +58,17 @@
   <ViewAccessor
     Name="AccPuSuppliersView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuSuppliersView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="PuSuppliersViewByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuSuppliersView.PuSuppliersViewByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtCustomerName"
     ListVOName="AccAllCustomersView"
@@ -714,7 +724,9 @@
     EntityAttrName="txtSupplierName"
     EntityUsage="SoSalesOrder"
     AliasName="TXT_SUPPLIER_NAME"
-    LOVName="LovtxtSupplierName">
+    LOVName="LovtxtSupplierName"
+    IsQueriable="false"
+    IsPersistent="false">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE

@@ -202,6 +202,7 @@
                                                         shortDesc="#{bindings.txtSupplierName.hints.tooltip}"
                                                         simple="true" autoSubmit="true">
                             <f:validator binding="#{bindings.txtSupplierName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedSupplierValues}"/>
                           </af:inputComboboxListOfValues>
                           <af:spacer width="10" height="10" id="s5"/>
                           <af:outputText value="#{bindings.Supplierid.inputValue}"

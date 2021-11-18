@@ -300,7 +300,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[return SuppName+"("+Supplierid+")"]]></TransientExpression>
     <RecalcCondition

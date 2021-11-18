@@ -1062,7 +1062,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_ORDER">
+    TableName="SO_SALES_ORDER"
+    IsPersistent="false"
+    IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[PuSuppliers?.SuppName]]></TransientExpression>
     <Properties>
@@ -1073,6 +1075,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="Supplierid"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="SoSalesOrderLines"
