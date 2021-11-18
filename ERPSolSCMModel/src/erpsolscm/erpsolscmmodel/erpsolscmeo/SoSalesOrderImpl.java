@@ -107,7 +107,8 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         txtStoreName,
         SoSalesOrderLines,
         AllCustomers,
-        AllStores;
+        AllStores,
+        SoSalesPersons;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -218,6 +219,7 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public static final int SOSALESORDERLINES = AttributesEnum.SoSalesOrderLines.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
+    public static final int SOSALESPERSONS = AttributesEnum.SoSalesPersons.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1595,6 +1597,21 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setAllStores(EntityImpl value) {
         setAttributeInternal(ALLSTORES, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public EntityImpl getSoSalesPersons() {
+        return (EntityImpl) getAttributeInternal(SOSALESPERSONS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public void setSoSalesPersons(EntityImpl value) {
+        setAttributeInternal(SOSALESPERSONS, value);
     }
 
 

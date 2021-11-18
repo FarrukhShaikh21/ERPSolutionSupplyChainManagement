@@ -56,7 +56,7 @@
       <Item Value="Customerid"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="CustomerName"/>
+      <Item Value="txtLovSearch"/>
       <Item Value="Customerid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
@@ -82,7 +82,7 @@
       <Item Value="Storeid"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="StoreName"/>
+      <Item Value="txtLovSearch"/>
       <Item Value="Storeid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
@@ -638,6 +638,12 @@
   <ViewLinkAccessor
     Name="AllStoresView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllStoreSoSalesOrderStoreIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SoSalesPersonsView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesPersonsSoSalesOrderSalesPersonIDLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

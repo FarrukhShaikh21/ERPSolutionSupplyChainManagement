@@ -3,3 +3,52 @@
 @namespace af "http://xmlns.oracle.com/adf/faces/rich";
 @namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
 
+
+af|outputLabel{
+    font-weight: bold;
+    color: Black;
+    /*font-weight: bold;*/
+    /*font-size: medium;*/
+    font-family: Verdana;
+}
+
+
+af|inputText::label{
+    /*font-weight: bold;*/
+    color: Black;
+    /*font-weight: bold;*/
+    /*font-size: medium;*/
+    font-family: Verdana;
+}
+
+af|inputDate::label{
+    font-weight: bold;
+    color: Blue;
+    font-weight: bold;
+}
+
+
+af|inputComboboxListOfValues::label{
+    font-weight: bold;
+    color: Blue;
+    font-weight: bold;
+}
+
+af|inputText::content{
+    height:25px;
+    font-weight: bold;
+    font-family: Verdana;
+}
+
+
+
+af|inputDate::content{
+    height:25px;
+    font-weight: bold;
+}
+
+
+af|inputComboboxListOfValues::content{
+    height:25px;
+    font-weight: bold;
+}

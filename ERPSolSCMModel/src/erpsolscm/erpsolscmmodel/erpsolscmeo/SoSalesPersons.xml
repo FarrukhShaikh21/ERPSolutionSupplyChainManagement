@@ -172,6 +172,13 @@
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </Attribute>
+  <AccessorAttribute
+    Name="SoSalesOrder"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonsSoSalesOrderSalesPersonIDAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonsSoSalesOrderSalesPersonIDAssoc.SoSalesOrder"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonsSoSalesOrderSalesPersonIDAssoc.SoSalesPersons"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpksoSalesPersons"
     PrimaryKey="true">

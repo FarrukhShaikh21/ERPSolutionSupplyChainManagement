@@ -13,6 +13,12 @@
   <ViewUsage
     Name="SoSalesOrderLinesDetCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesView"/>
+  <ViewUsage
+    Name="AllStoresAutoSuggestRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"/>
+  <ViewUsage
+    Name="AllCustomersAutoSuggestRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

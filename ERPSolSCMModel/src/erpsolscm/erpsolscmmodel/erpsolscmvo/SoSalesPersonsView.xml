@@ -103,4 +103,9 @@
     EntityAttrName="EbsSalespersonId"
     EntityUsage="SoSalesPersons"
     AliasName="EBS_SALESPERSON_ID"/>
+  <ViewLinkAccessor
+    Name="SoSalesOrderView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesPersonsSoSalesOrderSalesPersonIDLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

@@ -318,6 +318,23 @@
     EntityAttrName="ShortExcess"
     EntityUsage="AllStores"
     AliasName="SHORT_EXCESS"/>
+  <ViewAttribute
+    Name="txtLovSearch"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[return StoreName+"("+Storeid+")"]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+  </ViewAttribute>
   <ViewCriteria
     Name="AllStoresViewByLocationVC"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
@@ -386,28 +403,24 @@
         ViewAttribute="Storeid"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="StoreName"
         ViewAttribute="StoreName"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="Email"
         ViewAttribute="Email"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="StoreShortName"
         ViewAttribute="StoreShortName"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
