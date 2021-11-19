@@ -840,7 +840,7 @@
     Name="txtGrossAmount"
     ColumnName="TXT_GROSS_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
@@ -873,7 +873,7 @@
     Name="txtNetAmount"
     ColumnName="TXT_NET_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
@@ -906,9 +906,8 @@
     Name="txtDiscountAmount"
     ColumnName="TXT_DISCOUNT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SO_SALES_ORDER_LINES"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression

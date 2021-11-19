@@ -1661,15 +1661,15 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for txtGrossAmount, using the alias name txtGrossAmount.
      * @return the value of txtGrossAmount
      */
-    public BigDecimal gettxtGrossAmount() {
-        return (BigDecimal) getAttributeInternal(TXTGROSSAMOUNT);
+    public Integer gettxtGrossAmount() {
+        return (Integer) getAttributeInternal(TXTGROSSAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for txtGrossAmount.
      * @param value value to set the txtGrossAmount
      */
-    public void settxtGrossAmount(BigDecimal value) {
+    public void settxtGrossAmount(Integer value) {
         setAttributeInternal(TXTGROSSAMOUNT, value);
     }
 
@@ -1677,15 +1677,15 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for txtNetAmount, using the alias name txtNetAmount.
      * @return the value of txtNetAmount
      */
-    public BigDecimal gettxtNetAmount() {
-        return (BigDecimal) getAttributeInternal(TXTNETAMOUNT);
+    public Integer gettxtNetAmount() {
+        return (Integer) getAttributeInternal(TXTNETAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for txtNetAmount.
      * @param value value to set the txtNetAmount
      */
-    public void settxtNetAmount(BigDecimal value) {
+    public void settxtNetAmount(Integer value) {
         setAttributeInternal(TXTNETAMOUNT, value);
     }
 
@@ -1693,15 +1693,15 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for txtDiscountAmount, using the alias name txtDiscountAmount.
      * @return the value of txtDiscountAmount
      */
-    public BigDecimal gettxtDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(TXTDISCOUNTAMOUNT);
+    public Integer gettxtDiscountAmount() {
+        return (Integer) getAttributeInternal(TXTDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for txtDiscountAmount.
      * @param value value to set the txtDiscountAmount
      */
-    public void settxtDiscountAmount(BigDecimal value) {
+    public void settxtDiscountAmount(Integer value) {
         setAttributeInternal(TXTDISCOUNTAMOUNT, value);
     }
 
@@ -1774,11 +1774,11 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     protected void doDML(int operation, TransactionEvent e) {
         if (operation!=DML_DELETE) {
-           populateAttributeAsChanged(ACTLINEGRAMBCURR, gettxtGrossAmount().intValue());
-           populateAttributeAsChanged(ACTLINEGRAMTOCURR, gettxtGrossAmount().intValue());
-           populateAttributeAsChanged(DISCOUNTAMOUNTOC, gettxtDiscountAmount());
-           populateAttributeAsChanged(DISCOUNTAMOUNTBC, gettxtDiscountAmount());
-           populateAttributeAsChanged(LINENETAMTBCURR, gettxtNetAmount());
+            populateAttributeAsChanged(ACTLINEGRAMBCURR, new BigDecimal(gettxtGrossAmount()==null?0:gettxtGrossAmount() ));
+           populateAttributeAsChanged(ACTLINEGRAMTOCURR, new BigDecimal(gettxtGrossAmount()==null?0:gettxtGrossAmount() ));
+           populateAttributeAsChanged(DISCOUNTAMOUNTOC, new BigDecimal(gettxtDiscountAmount()==null?0:gettxtDiscountAmount() ));
+           populateAttributeAsChanged(DISCOUNTAMOUNTBC, new BigDecimal(gettxtDiscountAmount()==null?0:gettxtDiscountAmount() ));
+           populateAttributeAsChanged(LINENETAMTBCURR, new BigDecimal(gettxtNetAmount()==null?0:gettxtNetAmount() ));
            populateAttributeAsChanged(LINENETAMTOCURR, gettxtNetAmount());
 
            populateAttributeAsChanged(SALESORDERID, getSoSalesOrder().getAttribute("Salesorderid").toString());

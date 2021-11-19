@@ -146,7 +146,8 @@
                                                         required="#{bindings.txtSalesPersonName.hints.mandatory}"
                                                         columns="#{bindings.txtSalesPersonName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtSalesPersonName.hints.tooltip}"
-                                                        simple="true" autoSubmit="true" contentStyle="width:80%">
+                                                        simple="true" autoSubmit="true" contentStyle="width:80%"
+                                                        partialTriggers="txtCustomerNameId">
                             <f:validator binding="#{bindings.txtSalesPersonName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedSalesPersonValues}"/>
                           </af:inputComboboxListOfValues>
@@ -292,7 +293,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtModelNo.label}" id="c3"
-                                 width="150">
+                                 width="200">
                         <af:inputComboboxListOfValues id="txtModelNoId"
                                                       popupTitle="Search and Select: #{bindings.SoSalesOrderLinesDetCRUD.hints.txtModelNo.label}"
                                                       value="#{row.bindings.txtModelNo.inputValue}"
@@ -393,7 +394,7 @@
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.tooltip}"
-                                      id="it15">
+                                      id="it15" readOnly="true">
                           <f:validator binding="#{row.bindings.DiscountPercent.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.format}"/>

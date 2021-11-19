@@ -115,11 +115,11 @@ public class ERPSolSCMBean {
         System.out.println("b");
         DCIteratorBinding ERPSolib =(DCIteratorBinding)ERPSolbc.get("SoSalesOrderViewCRUDIterator");
         System.out.println("c");
-        String ERPLocid=ERPSolib.getCurrentRow().getAttribute("Locationid").toString();
+        String ERPCustomerId=ERPSolib.getCurrentRow().getAttribute("Customerid").toString();
         System.out.println("d");
-        System.out.println(ERPLocid);//ERPSolGlobalViewBean.
+        System.out.println(ERPCustomerId);//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "SoSalesPersonsAutoSuggestRO",
-                                                            "LOCATIONID='"+ERPLocid+"' AND UPPER(CONCAT(Salespersonid,name))", "Name", "Salespersonid", 10);
+                                                            "SALESPERSONID IN (SELECT ASP.SALESPERSONID from ALL_CUSTOMER_SALESPERSON ASP WHERE ASP.CUSTOMERID='"+ERPCustomerId+"') AND UPPER(CONCAT(Salespersonid,name))", "Name", "Salespersonid", 10);
         return ResultList;
         
     }   
