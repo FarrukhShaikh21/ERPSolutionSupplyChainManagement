@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="VwFuncGetCustomerCreditLimitQVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetCustomerCreditLimitQVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="Variable"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_CUSTOMERID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_SALESPERSONID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_NEW_AMOUNT"
+    Kind="where"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="P_OLD_AMOUNT"
+    Kind="where"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="P_TRANS_TYPE"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_GET_POST"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_FORM_NAME"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[select 1 AS pk,  
+pkg_deploy_standard.func_get_customer_credit_limit(:P_CUSTOMERID,:P_SALESPERSONID,:P_NEW_AMOUNT,:P_OLD_AMOUNT,:P_TRANS_TYPE,:P_GET_POST,:P_FORM_NAME) AS CreditLimit  
+FROM DUAL]]></SQLQuery>
+  <ViewAttribute
+    Name="Pk"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="TYPE"
+    AliasName="PK"
+    Expression="PK"
+    SQLType="STRUCT"/>
+  <ViewAttribute
+    Name="Creditlimit"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Domain="erpsolscm.erpsolscmmodel.erpsolscmqvo.Type"
+    Type="erpsolscm.erpsolscmmodel.erpsolscmqvo.common.Type"
+    ColumnType="TYPE"
+    AliasName="CREDITLIMIT"
+    Expression="CREDITLIMIT"
+    SQLType="STRUCT"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Pk"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

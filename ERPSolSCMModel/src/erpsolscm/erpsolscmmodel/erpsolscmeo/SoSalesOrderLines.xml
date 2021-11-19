@@ -124,14 +124,14 @@
     Name="ActUnitPriceBcurr"
     ColumnName="ACT_UNIT_PRICE_BCURR"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER_LINES"/>
   <Attribute
     Name="ActUnitPriceOcurr"
     ColumnName="ACT_UNIT_PRICE_OCURR"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER_LINES">
     <Properties>

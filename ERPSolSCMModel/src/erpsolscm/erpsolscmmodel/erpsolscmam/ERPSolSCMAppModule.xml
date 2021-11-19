@@ -31,6 +31,9 @@
   <ViewUsage
     Name="VWItemOpeningQVO1"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VWItemOpeningQVO"/>
+  <ViewUsage
+    Name="VwFuncGetItemRateByLocDateQVO1"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemRateByLocDateQVO"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

@@ -259,7 +259,7 @@
                 </af:gridCell>
               </af:gridRow>
               <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
-                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc27">
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc27" halign="stretch">
                   <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                     <f:facet name="menus"/>
                     <f:facet name="toolbar">
@@ -340,7 +340,7 @@
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.tooltip}" id="it10"
-                                      readOnly="true">
+                                      readOnly="true" partialTriggers="txtModelNoId">
                           <f:validator binding="#{row.bindings.CurrQty.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.format}"/>
@@ -368,7 +368,7 @@
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.tooltip}"
-                                      id="it12" autoSubmit="true">
+                                      id="it12" autoSubmit="true" readOnly="true" partialTriggers="txtModelNoId">
                           <f:validator binding="#{row.bindings.ActUnitPriceOcurr.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.format}"/>
@@ -394,7 +394,7 @@
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.tooltip}"
-                                      id="it15" readOnly="true">
+                                      id="it15" readOnly="true" partialTriggers="txtModelNoId">
                           <f:validator binding="#{row.bindings.DiscountPercent.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.format}"/>
@@ -408,7 +408,7 @@
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtDiscountAmount.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtDiscountAmount.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtDiscountAmount.tooltip}"
-                                      id="it16" readOnly="true">
+                                      id="it16" readOnly="true" partialTriggers="txtModelNoId it11">
                           <f:validator binding="#{row.bindings.txtDiscountAmount.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtDiscountAmount.format}"/>

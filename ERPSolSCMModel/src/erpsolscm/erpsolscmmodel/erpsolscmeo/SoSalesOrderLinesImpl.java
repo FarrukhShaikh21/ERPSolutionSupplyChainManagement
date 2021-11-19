@@ -417,15 +417,15 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for ActUnitPriceBcurr, using the alias name ActUnitPriceBcurr.
      * @return the value of ActUnitPriceBcurr
      */
-    public BigDecimal getActUnitPriceBcurr() {
-        return (BigDecimal) getAttributeInternal(ACTUNITPRICEBCURR);
+    public Integer getActUnitPriceBcurr() {
+        return (Integer) getAttributeInternal(ACTUNITPRICEBCURR);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ActUnitPriceBcurr.
      * @param value value to set the ActUnitPriceBcurr
      */
-    public void setActUnitPriceBcurr(BigDecimal value) {
+    public void setActUnitPriceBcurr(Integer value) {
         setAttributeInternal(ACTUNITPRICEBCURR, value);
     }
 
@@ -433,15 +433,15 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for ActUnitPriceOcurr, using the alias name ActUnitPriceOcurr.
      * @return the value of ActUnitPriceOcurr
      */
-    public BigDecimal getActUnitPriceOcurr() {
-        return (BigDecimal) getAttributeInternal(ACTUNITPRICEOCURR);
+    public Integer getActUnitPriceOcurr() {
+        return (Integer) getAttributeInternal(ACTUNITPRICEOCURR);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ActUnitPriceOcurr.
      * @param value value to set the ActUnitPriceOcurr
      */
-    public void setActUnitPriceOcurr(BigDecimal value) {
+    public void setActUnitPriceOcurr(Integer value) {
         setAttributeInternal(ACTUNITPRICEOCURR, value);
     }
 

@@ -30,6 +30,14 @@
     Name="AccVWItemOpeningQVO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VWItemOpeningQVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwFuncGetItemRateByLocDate"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemRateByLocDateQVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwFuncGetItemDiscountByLocDate"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemDiscountByLocDateQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtModelNo"
     ListVOName="AccInItemsView"

@@ -119,7 +119,9 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
         InItemsView,
         AccInItemsView,
         AccVwFuncCheckQuantityQVO,
-        AccVWItemOpeningQVO;
+        AccVWItemOpeningQVO,
+        AccVwFuncGetItemRateByLocDate,
+        AccVwFuncGetItemDiscountByLocDate;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -242,6 +244,9 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
     public static final int ACCINITEMSVIEW = AttributesEnum.AccInItemsView.index();
     public static final int ACCVWFUNCCHECKQUANTITYQVO = AttributesEnum.AccVwFuncCheckQuantityQVO.index();
     public static final int ACCVWITEMOPENINGQVO = AttributesEnum.AccVWItemOpeningQVO.index();
+    public static final int ACCVWFUNCGETITEMRATEBYLOCDATE = AttributesEnum.AccVwFuncGetItemRateByLocDate.index();
+    public static final int ACCVWFUNCGETITEMDISCOUNTBYLOCDATE =
+        AttributesEnum.AccVwFuncGetItemDiscountByLocDate.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -421,15 +426,15 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for ACT_UNIT_PRICE_BCURR using the alias name ActUnitPriceBcurr.
      * @return the ACT_UNIT_PRICE_BCURR
      */
-    public BigDecimal getActUnitPriceBcurr() {
-        return (BigDecimal) getAttributeInternal(ACTUNITPRICEBCURR);
+    public Integer getActUnitPriceBcurr() {
+        return (Integer) getAttributeInternal(ACTUNITPRICEBCURR);
     }
 
     /**
      * Sets <code>value</code> as attribute value for ACT_UNIT_PRICE_BCURR using the alias name ActUnitPriceBcurr.
      * @param value value to set the ACT_UNIT_PRICE_BCURR
      */
-    public void setActUnitPriceBcurr(BigDecimal value) {
+    public void setActUnitPriceBcurr(Integer value) {
         setAttributeInternal(ACTUNITPRICEBCURR, value);
     }
 
@@ -437,15 +442,15 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for ACT_UNIT_PRICE_OCURR using the alias name ActUnitPriceOcurr.
      * @return the ACT_UNIT_PRICE_OCURR
      */
-    public BigDecimal getActUnitPriceOcurr() {
-        return (BigDecimal) getAttributeInternal(ACTUNITPRICEOCURR);
+    public Integer getActUnitPriceOcurr() {
+        return (Integer) getAttributeInternal(ACTUNITPRICEOCURR);
     }
 
     /**
      * Sets <code>value</code> as attribute value for ACT_UNIT_PRICE_OCURR using the alias name ActUnitPriceOcurr.
      * @param value value to set the ACT_UNIT_PRICE_OCURR
      */
-    public void setActUnitPriceOcurr(BigDecimal value) {
+    public void setActUnitPriceOcurr(Integer value) {
         setAttributeInternal(ACTUNITPRICEOCURR, value);
     }
 
@@ -1758,6 +1763,33 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
             setCurrQty(0);
         }
         
+        
+        try{
+        getAccVwFuncGetItemRateByLocDate().setNamedWhereClauseParam("P_ADF_DATE", getSoSalesOrderView().getAttribute("ConfirmDate"));
+        getAccVwFuncGetItemRateByLocDate().setNamedWhereClauseParam("P_ADF_ITEMID", value);
+        getAccVwFuncGetItemRateByLocDate().setNamedWhereClauseParam("P_ADF_LOCATIONID", getSoSalesOrderView().getAttribute("Locationid"));
+        getAccVwFuncGetItemRateByLocDate().executeQuery();
+        setActUnitPriceBcurr((Integer)getAccVwFuncGetItemRateByLocDate().first().getAttribute("Rate"));
+        setActUnitPriceOcurr((Integer)getAccVwFuncGetItemRateByLocDate().first().getAttribute("Rate"));
+        }
+        catch(Exception exc) {
+        setActUnitPriceBcurr(0);
+        setActUnitPriceOcurr(0);
+        exc.printStackTrace();
+        }
+        
+        try{
+        getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_DATE", getSoSalesOrderView().getAttribute("ConfirmDate"));
+        getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_ITEMID", value);
+        getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_LOCATIONID", getSoSalesOrderView().getAttribute("Locationid"));
+        setDiscountPercent((BigDecimal)getAccVwFuncGetItemDiscountByLocDate().first().getAttribute("Rate"));
+        }
+        catch(Exception exc) {
+            setDiscountPercent(new BigDecimal(0));
+            
+        exc.printStackTrace();
+        }        
+//        pkg_deploy_standard.func_get_item_rate_by_loc_date
     }
 
     /**
@@ -1807,6 +1839,20 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      */
     public RowSet getAccVWItemOpeningQVO() {
         return (RowSet) getAttributeInternal(ACCVWITEMOPENINGQVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncGetItemRateByLocDate.
+     */
+    public RowSet getAccVwFuncGetItemRateByLocDate() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCGETITEMRATEBYLOCDATE);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncGetItemDiscountByLocDate.
+     */
+    public RowSet getAccVwFuncGetItemDiscountByLocDate() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCGETITEMDISCOUNTBYLOCDATE);
     }
 }
 
