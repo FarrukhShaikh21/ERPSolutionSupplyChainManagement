@@ -819,12 +819,8 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression><![CDATA[InItems1?.ModelNo]]></TransientExpression>
+    <TransientExpression><![CDATA[return InItems1?.ModelNo]]></TransientExpression>
     <RecalcCondition><![CDATA[true]]></RecalcCondition>
-    <Dependencies>
-      <Item
-        Value="Productid"/>
-    </Dependencies>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -833,6 +829,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="Itemid"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="txtGrossAmount"

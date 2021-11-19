@@ -1734,8 +1734,9 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
         getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_SALESORDERID", getSoSalesOrderView().getAttribute("Salesorderid"));
         getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_STOREID", getSoSalesOrderView().getAttribute("Storeid"));
         getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_TYPE", "SO");
-            System.out.println(getAccVwFuncCheckQuantityQVO().getViewObject().getQuery());
+//            System.out.println(getAccVwFuncCheckQuantityQVO().getViewObject().getQuery());
         getAccVwFuncCheckQuantityQVO().executeQuery();
+//            setAvailQty(22);
         setAvailQty((Integer)getAccVwFuncCheckQuantityQVO().first().getAttribute("Quantity"));
         }
         catch(Exception exc) {
@@ -1743,22 +1744,6 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
             setAvailQty(0);
         }
         
-        try{
-        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_CONFIRMDATE", getSoSalesOrderView().getAttribute("ConfirmDate"));
-        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_ITEMID", value);
-        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_LOCATIONID", getSoSalesOrderView().getAttribute("Locationid"));
-        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_SALESORDERID", getSoSalesOrderView().getAttribute("Salesorderid"));
-        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_STOREID", getSoSalesOrderView().getAttribute("Storeid"));
-        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_TYPE", "SO");
-            System.out.println(getAccVwFuncCheckQuantityQVO().getViewObject().getQuery());
-        getAccVwFuncCheckQuantityQVO().executeQuery();
-        setAvailQty((Integer)getAccVwFuncCheckQuantityQVO().first().getAttribute("Quantity"));
-        }
-        catch(Exception exc) {
-            exc.printStackTrace();
-            setAvailQty(0);
-        }
-
         try{
         getAccVWItemOpeningQVO().setNamedWhereClauseParam("P_ADF_CONFIRMDATE", getSoSalesOrderView().getAttribute("ConfirmDate"));
         getAccVWItemOpeningQVO().setNamedWhereClauseParam("P_ADF_ITEMID", value);
@@ -1769,7 +1754,7 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
         setCurrQty((Integer)getAccVWItemOpeningQVO().first().getAttribute("Quantity"));
         }
         catch(Exception exc) {
-            exc.printStackTrace();
+//            exc.printStackTrace();
             setCurrQty(0);
         }
         

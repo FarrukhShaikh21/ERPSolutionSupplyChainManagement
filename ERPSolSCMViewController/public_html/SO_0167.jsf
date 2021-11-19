@@ -326,7 +326,7 @@
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.tooltip}" id="it9"
-                                      readOnly="true">
+                                      readOnly="true" partialTriggers="txtModelNoId">
                           <f:validator binding="#{row.bindings.AvailQty.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.format}"/>

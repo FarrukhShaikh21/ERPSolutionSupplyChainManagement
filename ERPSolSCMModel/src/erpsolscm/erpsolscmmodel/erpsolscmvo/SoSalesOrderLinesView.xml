@@ -46,14 +46,14 @@
       <Item Value="Itemid"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="txtLovSearch"/>
+      <Item Value="ModelNo"/>
       <Item Value="Productid"/>
       <Item Value="Itemid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="ModelNo"/>
-      <Item Value="Productid"/>
       <Item Value="Description"/>
+      <Item Value="Productid"/>
+      <Item Value="ModelNo"/>
       <Item Value="Itemid"/>
     </AttrArray>
     <DisplayCriteria

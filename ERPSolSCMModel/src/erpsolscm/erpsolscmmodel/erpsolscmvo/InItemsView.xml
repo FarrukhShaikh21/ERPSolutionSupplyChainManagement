@@ -731,6 +731,12 @@
       trustMode="untrusted"><![CDATA[return ModelNo+"("+Productid+")"]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Dependencies>
+      <Item
+        Value="ModelNo"/>
+      <Item
+        Value="Productid"/>
+    </Dependencies>
   </ViewAttribute>
   <ViewCriteria
     Name="InItemsFindVC"

@@ -107,7 +107,7 @@
       <Item Value="Customerid"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="txtLovSearch"/>
+      <Item Value="CustomerName"/>
       <Item Value="Customerid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
@@ -133,7 +133,7 @@
       <Item Value="Storeid"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="txtLovSearch"/>
+      <Item Value="StoreName"/>
       <Item Value="Storeid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
@@ -160,7 +160,7 @@
       <Item Value="Salespersonid"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="txtLovSearch"/>
+      <Item Value="Name"/>
       <Item Value="Salespersonid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
@@ -185,7 +185,7 @@
       <Item Value="Supplierid"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="txtLovSearch"/>
+      <Item Value="SuppName"/>
       <Item Value="Supplierid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">

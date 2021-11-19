@@ -28,6 +28,9 @@
   <ViewUsage
     Name="InItemsAutoSuggestRO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"/>
+  <ViewUsage
+    Name="VWItemOpeningQVO1"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VWItemOpeningQVO"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
