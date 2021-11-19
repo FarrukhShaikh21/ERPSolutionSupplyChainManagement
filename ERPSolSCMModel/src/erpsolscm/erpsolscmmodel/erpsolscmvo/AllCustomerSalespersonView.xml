@@ -183,4 +183,10 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewLinkAccessor
+    Name="SoSalesPersonsView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesPersonAllCustomerSalesPersonSalespersonIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

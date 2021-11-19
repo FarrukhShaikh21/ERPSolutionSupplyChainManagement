@@ -21,7 +21,7 @@
     IsNotNull="true"
     ColumnName="SALESORDERLINESEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER_LINES"
     PrimaryKey="true"/>
@@ -29,13 +29,12 @@
     Name="Salesorderseq"
     ColumnName="SALESORDERSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER_LINES"/>
   <Attribute
     Name="Salesorderid"
     IsUnique="true"
-    IsNotNull="true"
     Precision="20"
     ColumnName="SALESORDERID"
     SQLType="VARCHAR"
@@ -65,14 +64,14 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_ORDER_LINES">
+    TableName="SO_SALES_ORDER_LINES"
+    DefaultValue="01">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
   </Attribute>
   <Attribute
     Name="Productid"
-    IsNotNull="true"
     Precision="15"
     ColumnName="PRODUCTID"
     SQLType="VARCHAR"
@@ -157,14 +156,18 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_ORDER_LINES"/>
+    TableName="SO_SALES_ORDER_LINES"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="ActLineGrAmtOcurr"
     ColumnName="ACT_LINE_GR_AMT_OCURR"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_ORDER_LINES"/>
+    TableName="SO_SALES_ORDER_LINES"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="LineOthChgBcurr"
     ColumnName="LINE_OTH_CHG_BCURR"
@@ -185,14 +188,18 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_ORDER_LINES"/>
+    TableName="SO_SALES_ORDER_LINES"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="LineNetAmtOcurr"
     ColumnName="LINE_NET_AMT_OCURR"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_ORDER_LINES"/>
+    TableName="SO_SALES_ORDER_LINES"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="Createdby"
     Precision="20"
@@ -324,8 +331,8 @@
     Name="DeliveryDate"
     ColumnName="DELIVERY_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
-    ColumnType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="NUMBER"
     TableName="SO_SALES_ORDER_LINES"/>
   <Attribute
     Name="Deliverytermid"
@@ -361,7 +368,7 @@
     Name="ReceiptDate"
     ColumnName="RECEIPT_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_ORDER_LINES"/>
   <Attribute
@@ -838,7 +845,9 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[(Quantity==null?0:Quantity) * (ActUnitPriceOcurr==null?ActUnitPriceOcurr:ActUnitPriceOcurr)]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[(Quantity==null?0:Quantity) * (ActUnitPriceOcurr==null?0:ActUnitPriceOcurr)]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Dependencies>
       <Item
         Value="ActUnitPriceBcurr"/>
@@ -892,6 +901,40 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtDiscountAmount"
+    ColumnName="TXT_DISCOUNT_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SO_SALES_ORDER_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[txtGrossAmount * (DiscountPercent==null?0:DiscountPercent) /100]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.txtDiscountAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="ActUnitPriceBcurr"/>
+      <Item
+        Value="ActUnitPriceOcurr"/>
+      <Item
+        Value="Productid"/>
+      <Item
+        Value="Quantity"/>
+      <Item
+        Value="SoQuantity"/>
+      <Item
+        Value="txtGrossAmount"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="SoSalesOrder"

@@ -74,7 +74,9 @@
     PrecisionRule="true"
     EntityAttrName="Lineno"
     EntityUsage="SoSalesOrderLines"
-    AliasName="LINENO"/>
+    AliasName="LINENO">
+    <TransientExpression><![CDATA[getRowSet().count("Lineno")+1]]></TransientExpression>
+  </ViewAttribute>
   <ViewAttribute
     Name="Uomsid"
     IsNotNull="true"
@@ -607,6 +609,14 @@
     EntityAttrName="txtNetAmount"
     EntityUsage="SoSalesOrderLines"
     AliasName="TXT_NET_AMOUNT"/>
+  <ViewAttribute
+    Name="txtDiscountAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtDiscountAmount"
+    EntityUsage="SoSalesOrderLines"
+    AliasName="TXT_DISCOUNT_AMOUNT"/>
   <ViewLinkAccessor
     Name="SoSalesOrderView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

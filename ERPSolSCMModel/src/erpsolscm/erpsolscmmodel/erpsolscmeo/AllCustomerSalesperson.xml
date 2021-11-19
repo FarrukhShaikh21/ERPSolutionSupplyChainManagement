@@ -162,6 +162,13 @@
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
   </Attribute>
+  <AccessorAttribute
+    Name="SoSalesPersons"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonAllCustomerSalesPersonSalespersonIdAsso"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonAllCustomerSalesPersonSalespersonIdAsso.SoSalesPersons"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonAllCustomerSalesPersonSalespersonIdAsso.AllCustomerSalesperson"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="SysC0016403"
     PrimaryKey="true">
@@ -170,6 +177,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomerSalesperson.CustLineno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_AllCustomerSalesperson">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKSO_SALES_PERSONS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_ALL_CUSTOMER_SALESPERSON"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomerSalesperson.Salespersonid"/>
     </AttrArray>
   </Key>
 </Entity>

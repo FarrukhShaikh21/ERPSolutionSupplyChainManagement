@@ -284,7 +284,8 @@
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.mandatory}"
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.precision}"
-                                      shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.tooltip}" id="it2">
+                                      shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.tooltip}" id="it2"
+                                      readOnly="true">
                           <f:validator binding="#{row.bindings.Lineno.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.format}"/>
@@ -301,16 +302,18 @@
                                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtModelNo.tooltip}"
                                                       autoSubmit="true">
                           <f:validator binding="#{row.bindings.txtModelNo.validator}"/>
+                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedModelValues}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
-                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.label}" id="c2">
+                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.label}" id="c2"
+                                 width="150">
                         <af:inputText value="#{row.bindings.Productid.inputValue}"
                                       label="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.label}"
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.mandatory}"
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.Productid.tooltip}" id="it3"
-                                      partialTriggers="txtModelNoId">
+                                      partialTriggers="txtModelNoId" readOnly="true">
                           <f:validator binding="#{row.bindings.Productid.validator}"/>
                         </af:inputText>
                       </af:column>
@@ -321,7 +324,8 @@
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.mandatory}"
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.precision}"
-                                      shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.tooltip}" id="it9">
+                                      shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.tooltip}" id="it9"
+                                      readOnly="true">
                           <f:validator binding="#{row.bindings.AvailQty.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.AvailQty.format}"/>
@@ -334,7 +338,8 @@
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.mandatory}"
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.precision}"
-                                      shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.tooltip}" id="it10">
+                                      shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.tooltip}" id="it10"
+                                      readOnly="true">
                           <f:validator binding="#{row.bindings.CurrQty.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.format}"/>
@@ -347,7 +352,8 @@
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.mandatory}"
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.precision}"
-                                      shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.tooltip}" id="it11">
+                                      shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.tooltip}" id="it11"
+                                      autoSubmit="true">
                           <f:validator binding="#{row.bindings.Quantity.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.format}"/>
@@ -361,21 +367,20 @@
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.tooltip}"
-                                      id="it12">
+                                      id="it12" autoSubmit="true">
                           <f:validator binding="#{row.bindings.ActUnitPriceOcurr.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.ActUnitPriceOcurr.format}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtGrossAmount.label}" id="c4"
-                                 rendered="false">
+                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtGrossAmount.label}" id="c4">
                         <af:inputText value="#{row.bindings.txtGrossAmount.inputValue}"
                                       label="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtGrossAmount.label}"
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtGrossAmount.mandatory}"
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtGrossAmount.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtGrossAmount.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtGrossAmount.tooltip}"
-                                      id="it6">
+                                      id="it6" readOnly="true" partialTriggers="it12 it11 txtModelNoId">
                           <f:validator binding="#{row.bindings.txtGrossAmount.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtGrossAmount.format}"/>
@@ -394,31 +399,31 @@
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.format}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.label}"
+                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtDiscountAmount.label}"
                                  id="c11">
-                        <af:inputText value="#{row.bindings.DiscountAmountOc.inputValue}"
-                                      label="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.label}"
-                                      required="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.mandatory}"
-                                      columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.displayWidth}"
-                                      maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.precision}"
-                                      shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.tooltip}"
-                                      id="it16">
-                          <f:validator binding="#{row.bindings.DiscountAmountOc.validator}"/>
+                        <af:inputText value="#{row.bindings.txtDiscountAmount.inputValue}"
+                                      label="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtDiscountAmount.label}"
+                                      required="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtDiscountAmount.mandatory}"
+                                      columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtDiscountAmount.displayWidth}"
+                                      maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtDiscountAmount.precision}"
+                                      shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtDiscountAmount.tooltip}"
+                                      id="it16" readOnly="true">
+                          <f:validator binding="#{row.bindings.txtDiscountAmount.validator}"/>
                           <af:convertNumber groupingUsed="false"
-                                            pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountAmountOc.format}"/>
+                                            pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtDiscountAmount.format}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.label}" id="c12">
-                        <af:inputText value="#{row.bindings.LineNetAmtOcurr.inputValue}"
-                                      label="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.label}"
-                                      required="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.mandatory}"
-                                      columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.displayWidth}"
-                                      maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.precision}"
-                                      shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.tooltip}"
-                                      id="it17">
-                          <f:validator binding="#{row.bindings.LineNetAmtOcurr.validator}"/>
+                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtNetAmount.label}" id="c9">
+                        <af:inputText value="#{row.bindings.txtNetAmount.inputValue}"
+                                      label="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtNetAmount.label}"
+                                      required="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtNetAmount.mandatory}"
+                                      columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtNetAmount.displayWidth}"
+                                      maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtNetAmount.precision}"
+                                      shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtNetAmount.tooltip}"
+                                      id="it13" readOnly="true" partialTriggers="it15 txtModelNoId it10 it11 it12">
+                          <f:validator binding="#{row.bindings.txtNetAmount.validator}"/>
                           <af:convertNumber groupingUsed="false"
-                                            pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.LineNetAmtOcurr.format}"/>
+                                            pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtNetAmount.format}"/>
                         </af:inputText>
                       </af:column>
                     </af:table>

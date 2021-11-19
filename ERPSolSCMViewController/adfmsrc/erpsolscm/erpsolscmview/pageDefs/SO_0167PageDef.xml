@@ -8,7 +8,7 @@
               id="SoSalesOrderViewCRUDIterator"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="SoSalesOrderLinesDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
-              id="SoSalesOrderLinesDetCRUDIterator"/>
+              id="SoSalesOrderLinesDetCRUDIterator" ChangeEventPolicy="none"/>
   </executables>
   <bindings>
     <listOfValues IterBinding="SoSalesOrderViewCRUDIterator" StaticList="false" Uses="LovtxtCustomerName"
@@ -99,6 +99,8 @@
           <Item Value="DiscountPercent"/>
           <Item Value="DiscountAmountOc"/>
           <Item Value="LineNetAmtOcurr"/>
+          <Item Value="txtNetAmount"/>
+          <Item Value="txtDiscountAmount"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -114,6 +114,7 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
         txtModelNo,
         txtGrossAmount,
         txtNetAmount,
+        txtDiscountAmount,
         SoSalesOrder,
         InItems;
         private static AttributesEnum[] vals = null;
@@ -230,6 +231,7 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTMODELNO = AttributesEnum.txtModelNo.index();
     public static final int TXTGROSSAMOUNT = AttributesEnum.txtGrossAmount.index();
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
+    public static final int TXTDISCOUNTAMOUNT = AttributesEnum.txtDiscountAmount.index();
     public static final int SOSALESORDER = AttributesEnum.SoSalesOrder.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
 
@@ -251,15 +253,15 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Salesorderlineseq, using the alias name Salesorderlineseq.
      * @return the value of Salesorderlineseq
      */
-    public BigDecimal getSalesorderlineseq() {
-        return (BigDecimal) getAttributeInternal(SALESORDERLINESEQ);
+    public Integer getSalesorderlineseq() {
+        return (Integer) getAttributeInternal(SALESORDERLINESEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Salesorderlineseq.
      * @param value value to set the Salesorderlineseq
      */
-    public void setSalesorderlineseq(BigDecimal value) {
+    public void setSalesorderlineseq(Integer value) {
         setAttributeInternal(SALESORDERLINESEQ, value);
     }
 
@@ -267,15 +269,15 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Salesorderseq, using the alias name Salesorderseq.
      * @return the value of Salesorderseq
      */
-    public BigDecimal getSalesorderseq() {
-        return (BigDecimal) getAttributeInternal(SALESORDERSEQ);
+    public Integer getSalesorderseq() {
+        return (Integer) getAttributeInternal(SALESORDERSEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Salesorderseq.
      * @param value value to set the Salesorderseq
      */
-    public void setSalesorderseq(BigDecimal value) {
+    public void setSalesorderseq(Integer value) {
         setAttributeInternal(SALESORDERSEQ, value);
     }
 
@@ -795,15 +797,15 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for DeliveryDate, using the alias name DeliveryDate.
      * @return the value of DeliveryDate
      */
-    public Timestamp getDeliveryDate() {
-        return (Timestamp) getAttributeInternal(DELIVERYDATE);
+    public Date getDeliveryDate() {
+        return (Date) getAttributeInternal(DELIVERYDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for DeliveryDate.
      * @param value value to set the DeliveryDate
      */
-    public void setDeliveryDate(Timestamp value) {
+    public void setDeliveryDate(Date value) {
         setAttributeInternal(DELIVERYDATE, value);
     }
 
@@ -859,15 +861,15 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for ReceiptDate, using the alias name ReceiptDate.
      * @return the value of ReceiptDate
      */
-    public Timestamp getReceiptDate() {
-        return (Timestamp) getAttributeInternal(RECEIPTDATE);
+    public Date getReceiptDate() {
+        return (Date) getAttributeInternal(RECEIPTDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ReceiptDate.
      * @param value value to set the ReceiptDate
      */
-    public void setReceiptDate(Timestamp value) {
+    public void setReceiptDate(Date value) {
         setAttributeInternal(RECEIPTDATE, value);
     }
 
@@ -1688,6 +1690,22 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtDiscountAmount, using the alias name txtDiscountAmount.
+     * @return the value of txtDiscountAmount
+     */
+    public BigDecimal gettxtDiscountAmount() {
+        return (BigDecimal) getAttributeInternal(TXTDISCOUNTAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDiscountAmount.
+     * @param value value to set the txtDiscountAmount
+     */
+    public void settxtDiscountAmount(BigDecimal value) {
+        setAttributeInternal(TXTDISCOUNTAMOUNT, value);
+    }
+
+    /**
      * @return the associated entity SoSalesOrderImpl.
      */
     public SoSalesOrderImpl getSoSalesOrder() {
@@ -1721,7 +1739,7 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
 
      * @return a Key object based on given key constituents.
      */
-    public static Key createPrimaryKey(BigDecimal salesorderlineseq) {
+    public static Key createPrimaryKey(Integer salesorderlineseq) {
         return new Key(new Object[] { salesorderlineseq });
     }
 
@@ -1758,6 +1776,12 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
         if (operation!=DML_DELETE) {
            populateAttributeAsChanged(ACTLINEGRAMBCURR, gettxtGrossAmount().intValue());
            populateAttributeAsChanged(ACTLINEGRAMTOCURR, gettxtGrossAmount().intValue());
+           populateAttributeAsChanged(DISCOUNTAMOUNTOC, gettxtDiscountAmount());
+           populateAttributeAsChanged(DISCOUNTAMOUNTBC, gettxtDiscountAmount());
+           populateAttributeAsChanged(LINENETAMTBCURR, gettxtNetAmount());
+           populateAttributeAsChanged(LINENETAMTOCURR, gettxtNetAmount());
+
+           populateAttributeAsChanged(SALESORDERID, getSoSalesOrder().getAttribute("Salesorderid").toString());
            
        }
         super.doDML(operation, e);
