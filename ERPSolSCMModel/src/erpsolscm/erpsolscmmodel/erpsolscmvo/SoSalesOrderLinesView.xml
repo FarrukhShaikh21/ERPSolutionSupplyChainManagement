@@ -12,7 +12,12 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccInItemsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
@@ -30,10 +35,12 @@
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
       <Item Value="Productid"/>
+      <Item Value="Itemid"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="txtLovSearch"/>
       <Item Value="Productid"/>
+      <Item Value="Itemid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ModelNo"/>
@@ -41,7 +48,8 @@
       <Item Value="Description"/>
       <Item Value="Itemid"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Name="InItemsFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="SoSalesOrderLines"
@@ -617,9 +625,21 @@
     EntityAttrName="txtDiscountAmount"
     EntityUsage="SoSalesOrderLines"
     AliasName="TXT_DISCOUNT_AMOUNT"/>
+  <ViewAttribute
+    Name="Itemid"
+    PrecisionRule="true"
+    EntityAttrName="Itemid"
+    EntityUsage="SoSalesOrderLines"
+    AliasName="ITEMID"/>
   <ViewLinkAccessor
     Name="SoSalesOrderView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InItemsView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoSalesOrderLinesItemidLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

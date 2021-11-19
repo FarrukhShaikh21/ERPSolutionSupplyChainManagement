@@ -1310,6 +1310,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoSalesOrderLinesProductIdAssoc.InItems"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SoSalesOrderLines1"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoSalesOrderLinesItemidAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoSalesOrderLinesItemidAssoc.SoSalesOrderLines1"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoSalesOrderLinesItemidAssoc.InItems1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="UPkModelNo">
     <DesignTime>

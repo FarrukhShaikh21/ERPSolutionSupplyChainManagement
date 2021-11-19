@@ -820,9 +820,9 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[InItems?.ModelNo]]></TransientExpression>
+      trustMode="trusted"><![CDATA[InItems1?.ModelNo]]></TransientExpression>
     <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
     <Dependencies>
       <Item
         Value="Productid"/>
@@ -935,6 +935,18 @@
         Value="txtGrossAmount"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="Itemid"
+    Precision="15"
+    ColumnName="ITEMID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SO_SALES_ORDER_LINES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SoSalesOrder"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SalesOrderSaleOrderLinesSalesOrderSeqAssoc"
@@ -947,6 +959,13 @@
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoSalesOrderLinesProductIdAssoc"
     AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoSalesOrderLinesProductIdAssoc.InItems"
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoSalesOrderLinesProductIdAssoc.SoSalesOrderLines"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="InItems1"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoSalesOrderLinesItemidAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoSalesOrderLinesItemidAssoc.InItems1"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoSalesOrderLinesItemidAssoc.SoSalesOrderLines1"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <Key
@@ -979,6 +998,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.Salesorderseq"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SoSalesOrderLines1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKIN_ITEMS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SO_SALES_ORDER_LINES1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.Itemid"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

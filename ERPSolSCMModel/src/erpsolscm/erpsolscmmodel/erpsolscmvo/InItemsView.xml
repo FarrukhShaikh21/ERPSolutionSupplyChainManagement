@@ -763,29 +763,30 @@
         ViewAttribute="Itemid"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="Productid"
         ViewAttribute="Productid"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="Description"
         ViewAttribute="Description"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="ModelNo"
         ViewAttribute="ModelNo"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ViewLinkAccessor
+    Name="SoSalesOrderLinesView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoSalesOrderLinesItemidLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
