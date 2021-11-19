@@ -92,6 +92,10 @@
       Name="SoSalesPersonsDefaultVC"
       FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView.SoSalesPersonsDefaultVC"/>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccVwFuncGetCustomerCreditLimit"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetCustomerCreditLimitQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtCustomerName"
     ListVOName="AccAllCustomersView"

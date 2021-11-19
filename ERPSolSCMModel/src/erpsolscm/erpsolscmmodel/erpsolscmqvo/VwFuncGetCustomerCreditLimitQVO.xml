@@ -19,39 +19,35 @@
     </SchemaBasedProperties>
   </Properties>
   <Variable
-    Name="Variable"
-    Kind="where"
-    Type="java.lang.String"/>
-  <Variable
     Name="P_ADF_CUSTOMERID"
     Kind="where"
     Type="java.lang.String"/>
   <Variable
-    Name="P_SALESPERSONID"
+    Name="P_ADF_SALESPERSONID"
     Kind="where"
     Type="java.lang.String"/>
   <Variable
-    Name="P_NEW_AMOUNT"
+    Name="P_ADF_NEW_AMOUNT"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_OLD_AMOUNT"
     Kind="where"
     Type="java.lang.Integer"/>
   <Variable
-    Name="P_OLD_AMOUNT"
-    Kind="where"
-    Type="java.lang.Integer"/>
-  <Variable
-    Name="P_TRANS_TYPE"
+    Name="P_ADF_TRANS_TYPE"
     Kind="where"
     Type="java.lang.String"/>
   <Variable
-    Name="P_GET_POST"
+    Name="P_ADF_GET_POST"
     Kind="where"
     Type="java.lang.String"/>
   <Variable
-    Name="P_FORM_NAME"
+    Name="P_ADF_FORM_NAME"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[select 1 AS pk,  
-pkg_deploy_standard.func_get_customer_credit_limit(:P_CUSTOMERID,:P_SALESPERSONID,:P_NEW_AMOUNT,:P_OLD_AMOUNT,:P_TRANS_TYPE,:P_GET_POST,:P_FORM_NAME) AS CreditLimit  
+  <SQLQuery><![CDATA[select 1 AS pk,    
+pkg_deploy_standard.func_get_customer_credit_limit(:P_ADF_CUSTOMERID,:P_ADF_SALESPERSONID,:P_ADF_NEW_AMOUNT,:P_ADF_OLD_AMOUNT,:P_ADF_TRANS_TYPE,:P_ADF_GET_POST,:P_ADF_FORM_NAME) AS CreditLimit    
 FROM DUAL]]></SQLQuery>
   <ViewAttribute
     Name="Pk"
@@ -67,8 +63,7 @@ FROM DUAL]]></SQLQuery>
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Domain="erpsolscm.erpsolscmmodel.erpsolscmqvo.Type"
-    Type="erpsolscm.erpsolscmmodel.erpsolscmqvo.common.Type"
+    Type="java.lang.Integer"
     ColumnType="TYPE"
     AliasName="CREDITLIMIT"
     Expression="CREDITLIMIT"

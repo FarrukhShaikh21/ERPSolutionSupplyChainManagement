@@ -167,7 +167,7 @@
                                         columns="#{bindings.RemainingCreditLimit.hints.displayWidth}"
                                         maximumLength="#{bindings.RemainingCreditLimit.hints.precision}"
                                         shortDesc="#{bindings.RemainingCreditLimit.hints.tooltip}" id="it14"
-                                        simple="true" readOnly="true">
+                                        simple="true" readOnly="true" partialTriggers="txtCustomerNameId">
                             <f:validator binding="#{bindings.RemainingCreditLimit.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.RemainingCreditLimit.format}"/>
                           </af:inputText>

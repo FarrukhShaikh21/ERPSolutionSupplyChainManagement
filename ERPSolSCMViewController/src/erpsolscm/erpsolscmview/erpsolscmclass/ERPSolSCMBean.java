@@ -79,7 +79,7 @@ public class ERPSolSCMBean {
         System.out.println("b");
         DCIteratorBinding ERPSolib =(DCIteratorBinding)ERPSolbc.get("SoSalesOrderViewCRUDIterator");
         System.out.println("c");
-        String ERPLocid=ERPSolib.getCurrentRow().getAttribute("Locationid").toString();
+        String ERPLocid=""+ERPSolib.getCurrentRow().getAttribute("Locationid");
         System.out.println("d");
         System.out.println(ERPLocid);//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "AllStoresAutoSuggestRO",
@@ -97,7 +97,7 @@ public class ERPSolSCMBean {
         System.out.println("b");
         DCIteratorBinding ERPSolib =(DCIteratorBinding)ERPSolbc.get("SoSalesOrderViewCRUDIterator");
         System.out.println("c");
-        String ERPLocid=ERPSolib.getCurrentRow().getAttribute("Locationid").toString();
+        String ERPLocid=""+ERPSolib.getCurrentRow().getAttribute("Locationid");
         System.out.println("d");
         System.out.println(ERPLocid);//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "AllCustomersAutoSuggestRO",
@@ -115,7 +115,7 @@ public class ERPSolSCMBean {
         System.out.println("b");
         DCIteratorBinding ERPSolib =(DCIteratorBinding)ERPSolbc.get("SoSalesOrderViewCRUDIterator");
         System.out.println("c");
-        String ERPCustomerId=ERPSolib.getCurrentRow().getAttribute("Customerid").toString();
+        String ERPCustomerId=""+ERPSolib.getCurrentRow().getAttribute("Customerid");
         System.out.println("d");
         System.out.println(ERPCustomerId);//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "SoSalesPersonsAutoSuggestRO",
@@ -133,7 +133,7 @@ public class ERPSolSCMBean {
         System.out.println("b");
         DCIteratorBinding ERPSolib =(DCIteratorBinding)ERPSolbc.get("SoSalesOrderViewCRUDIterator");
         System.out.println("c");
-        String ERPLocid=ERPSolib.getCurrentRow().getAttribute("Locationid").toString();
+        String ERPLocid=""+ERPSolib.getCurrentRow().getAttribute("Locationid");
         System.out.println("d");
         System.out.println(ERPLocid);//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "PuSuppliersAutoSuggestRO",

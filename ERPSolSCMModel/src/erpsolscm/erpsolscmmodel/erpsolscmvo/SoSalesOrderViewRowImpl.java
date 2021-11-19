@@ -15,6 +15,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class SoSalesOrderViewRowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_SOSALESORDER = 0;
 
     /**
@@ -115,7 +116,8 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
         AccAllStoresView,
         AccSoSalesPersonsView,
         AccPuSuppliersView,
-        AccSoSalesPersonsDefaultView;
+        AccSoSalesPersonsDefaultView,
+        AccVwFuncGetCustomerCreditLimit;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -139,6 +141,7 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
 
     public static final int SALESORDERSEQ = AttributesEnum.Salesorderseq.index();
     public static final int SALESORDERID = AttributesEnum.Salesorderid.index();
@@ -235,6 +238,7 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
     public static final int ACCSOSALESPERSONSVIEW = AttributesEnum.AccSoSalesPersonsView.index();
     public static final int ACCPUSUPPLIERSVIEW = AttributesEnum.AccPuSuppliersView.index();
     public static final int ACCSOSALESPERSONSDEFAULTVIEW = AttributesEnum.AccSoSalesPersonsDefaultView.index();
+    public static final int ACCVWFUNCGETCUSTOMERCREDITLIMIT = AttributesEnum.AccVwFuncGetCustomerCreditLimit.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -333,9 +337,27 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
             getAccSoSalesPersonsDefaultView().executeQuery();
             setSalespersonid(getAccSoSalesPersonsDefaultView().first().getAttribute("Salespersonid").toString());
         } catch (Exception e) {
+            setSalespersonid(null);
             // TODO: Add catch code
             e.printStackTrace();
         }
+     
+        try {
+            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_CUSTOMERID", value);
+            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_FORM_NAME", "SO-0167");
+            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_GET_POST", "G");
+            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_NEW_AMOUNT", 0);
+            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_OLD_AMOUNT", 0);
+            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_SALESPERSONID", getSalespersonid());
+            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_TRANS_TYPE", null);
+            getAccVwFuncGetCustomerCreditLimit().executeQuery();
+            setRemainingCreditLimit((Integer)getAccVwFuncGetCustomerCreditLimit().first().getAttribute("Creditlimit"));
+            
+        } catch (Exception e) {
+            setRemainingCreditLimit(0);
+            // TODO: Add catch code
+            e.printStackTrace();
+        }   
     }
 
     /**
@@ -1714,6 +1736,13 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
      */
     public RowSet getAccSoSalesPersonsDefaultView() {
         return (RowSet) getAttributeInternal(ACCSOSALESPERSONSDEFAULTVIEW);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncGetCustomerCreditLimit.
+     */
+    public RowSet getAccVwFuncGetCustomerCreditLimit() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCGETCUSTOMERCREDITLIMIT);
     }
 }
 
