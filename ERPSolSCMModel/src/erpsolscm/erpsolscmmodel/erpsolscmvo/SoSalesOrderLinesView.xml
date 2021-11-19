@@ -22,6 +22,14 @@
     Name="AccInItemsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwFuncCheckQuantityQVO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncCheckQuantityQVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVWItemOpeningQVO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VWItemOpeningQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtModelNo"
     ListVOName="AccInItemsView"

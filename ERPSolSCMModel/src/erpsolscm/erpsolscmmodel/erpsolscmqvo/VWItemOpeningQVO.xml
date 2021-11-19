@@ -3,7 +3,7 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="VwFuncCheckQuantityQVO"
+  Name="VWItemOpeningQVO"
   Version="12.1.3.10.47"
   InheritPersonalization="merge"
   BindingStyle="OracleName"
@@ -15,7 +15,7 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncCheckQuantityQVO_LABEL"/>
+        ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VWItemOpeningQVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <Variable
@@ -27,47 +27,37 @@
     Kind="where"
     Type="java.lang.String"/>
   <Variable
-    Name="P_ADF_CONFIRMDATE"
-    Kind="where"
-    Type="oracle.jbo.domain.Date"/>
-  <Variable
-    Name="P_ADF_SALESORDERID"
-    Kind="where"
-    Type="java.lang.String"/>
-  <Variable
-    Name="P_ADF_LOCATIONID"
-    Kind="where"
-    Type="java.lang.String"/>
-  <Variable
     Name="P_ADF_TYPE"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT 
-1 as pk,CHECKQUANTITY(:P_ADF_ITEMID, 
+  <Variable
+    Name="P_ADF_CONFIRM_DATE"
+    Kind="where"
+    Type="oracle.jbo.domain.Date"/>
+  <SQLQuery><![CDATA[select 1 as pk,  
+Item_Opening(:P_ADF_ITEMID,  
 :P_ADF_STOREID,  
-:P_ADF_CONFIRMDATE,  
-:P_ADF_SALESORDERID, :P_ADF_LOCATIONID, :P_ADF_TYPE) as quantity 
+TO_DATE(:P_ADF_CONFIRM_DATE)+1, 
+:P_ADF_TYPE) AS QUANTITY  
 FROM DUAL]]></SQLQuery>
   <ViewAttribute
     Name="Pk"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.lang.Integer"
-    ColumnType="NUMBER"
+    ColumnType="TYPE"
     AliasName="PK"
     Expression="PK"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="Quantity"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.lang.Integer"
-    ColumnType="NUMBER"
+    ColumnType="TYPE"
     AliasName="QUANTITY"
     Expression="QUANTITY"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="Pk"/>
   </AttrArray>

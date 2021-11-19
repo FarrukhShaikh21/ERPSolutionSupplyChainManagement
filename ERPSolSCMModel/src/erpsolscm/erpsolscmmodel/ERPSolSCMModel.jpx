@@ -12,6 +12,7 @@
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
     <Attr Name="_NamedConnection" Value="ERPSolSCMConn"/>
     <Attr Name="_appModuleNames0" Value="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule"/>
+    <Attr Name="_domainNames0" Value="erpsolscm.erpsolscmmodel.erpsolscmqvo.Type"/>
   </DesignTime>
   <Containee
     Name="erpsolscmam"
@@ -52,6 +53,7 @@
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_VO" Value="true"/>
+      <Attr Name="_DO" Value="true"/>
     </DesignTime>
   </Containee>
   <Containee

@@ -977,15 +977,15 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for AvailQty, using the alias name AvailQty.
      * @return the value of AvailQty
      */
-    public BigDecimal getAvailQty() {
-        return (BigDecimal) getAttributeInternal(AVAILQTY);
+    public Integer getAvailQty() {
+        return (Integer) getAttributeInternal(AVAILQTY);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for AvailQty.
      * @param value value to set the AvailQty
      */
-    public void setAvailQty(BigDecimal value) {
+    public void setAvailQty(Integer value) {
         setAttributeInternal(AVAILQTY, value);
     }
 
@@ -993,15 +993,15 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for CurrQty, using the alias name CurrQty.
      * @return the value of CurrQty
      */
-    public BigDecimal getCurrQty() {
-        return (BigDecimal) getAttributeInternal(CURRQTY);
+    public Integer getCurrQty() {
+        return (Integer) getAttributeInternal(CURRQTY);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for CurrQty.
      * @param value value to set the CurrQty
      */
-    public void setCurrQty(BigDecimal value) {
+    public void setCurrQty(Integer value) {
         setAttributeInternal(CURRQTY, value);
     }
 

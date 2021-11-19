@@ -15,6 +15,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_SOSALESORDERLINES = 0;
 
     /**
@@ -115,8 +117,11 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
         Itemid,
         SoSalesOrderView,
         InItemsView,
-        AccInItemsView;
-        private static AttributesEnum[] vals = null;
+        AccInItemsView,
+        AccVwFuncCheckQuantityQVO,
+        AccVWItemOpeningQVO;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -138,6 +143,8 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int SALESORDERLINESEQ = AttributesEnum.Salesorderlineseq.index();
     public static final int SALESORDERSEQ = AttributesEnum.Salesorderseq.index();
     public static final int SALESORDERID = AttributesEnum.Salesorderid.index();
@@ -233,6 +240,8 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
     public static final int SOSALESORDERVIEW = AttributesEnum.SoSalesOrderView.index();
     public static final int INITEMSVIEW = AttributesEnum.InItemsView.index();
     public static final int ACCINITEMSVIEW = AttributesEnum.AccInItemsView.index();
+    public static final int ACCVWFUNCCHECKQUANTITYQVO = AttributesEnum.AccVwFuncCheckQuantityQVO.index();
+    public static final int ACCVWITEMOPENINGQVO = AttributesEnum.AccVWItemOpeningQVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -972,15 +981,15 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for AVAIL_QTY using the alias name AvailQty.
      * @return the AVAIL_QTY
      */
-    public BigDecimal getAvailQty() {
-        return (BigDecimal) getAttributeInternal(AVAILQTY);
+    public Integer getAvailQty() {
+        return (Integer) getAttributeInternal(AVAILQTY);
     }
 
     /**
      * Sets <code>value</code> as attribute value for AVAIL_QTY using the alias name AvailQty.
      * @param value value to set the AVAIL_QTY
      */
-    public void setAvailQty(BigDecimal value) {
+    public void setAvailQty(Integer value) {
         setAttributeInternal(AVAILQTY, value);
     }
 
@@ -988,15 +997,15 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for CURR_QTY using the alias name CurrQty.
      * @return the CURR_QTY
      */
-    public BigDecimal getCurrQty() {
-        return (BigDecimal) getAttributeInternal(CURRQTY);
+    public Integer getCurrQty() {
+        return (Integer) getAttributeInternal(CURRQTY);
     }
 
     /**
      * Sets <code>value</code> as attribute value for CURR_QTY using the alias name CurrQty.
      * @param value value to set the CURR_QTY
      */
-    public void setCurrQty(BigDecimal value) {
+    public void setCurrQty(Integer value) {
         setAttributeInternal(CURRQTY, value);
     }
 
@@ -1718,6 +1727,52 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      */
     public void setItemid(String value) {
         setAttributeInternal(ITEMID, value);
+        try{
+        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_CONFIRMDATE", getSoSalesOrderView().getAttribute("ConfirmDate"));
+        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_ITEMID", value);
+        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_LOCATIONID", getSoSalesOrderView().getAttribute("Locationid"));
+        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_SALESORDERID", getSoSalesOrderView().getAttribute("Salesorderid"));
+        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_STOREID", getSoSalesOrderView().getAttribute("Storeid"));
+        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_TYPE", "SO");
+            System.out.println(getAccVwFuncCheckQuantityQVO().getViewObject().getQuery());
+        getAccVwFuncCheckQuantityQVO().executeQuery();
+        setAvailQty((Integer)getAccVwFuncCheckQuantityQVO().first().getAttribute("Quantity"));
+        }
+        catch(Exception exc) {
+            exc.printStackTrace();
+            setAvailQty(0);
+        }
+        
+        try{
+        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_CONFIRMDATE", getSoSalesOrderView().getAttribute("ConfirmDate"));
+        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_ITEMID", value);
+        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_LOCATIONID", getSoSalesOrderView().getAttribute("Locationid"));
+        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_SALESORDERID", getSoSalesOrderView().getAttribute("Salesorderid"));
+        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_STOREID", getSoSalesOrderView().getAttribute("Storeid"));
+        getAccVwFuncCheckQuantityQVO().setNamedWhereClauseParam("P_ADF_TYPE", "SO");
+            System.out.println(getAccVwFuncCheckQuantityQVO().getViewObject().getQuery());
+        getAccVwFuncCheckQuantityQVO().executeQuery();
+        setAvailQty((Integer)getAccVwFuncCheckQuantityQVO().first().getAttribute("Quantity"));
+        }
+        catch(Exception exc) {
+            exc.printStackTrace();
+            setAvailQty(0);
+        }
+
+        try{
+        getAccVWItemOpeningQVO().setNamedWhereClauseParam("P_ADF_CONFIRMDATE", getSoSalesOrderView().getAttribute("ConfirmDate"));
+        getAccVWItemOpeningQVO().setNamedWhereClauseParam("P_ADF_ITEMID", value);
+        getAccVWItemOpeningQVO().setNamedWhereClauseParam("P_ADF_STOREID", getSoSalesOrderView().getAttribute("Storeid"));
+        getAccVWItemOpeningQVO().setNamedWhereClauseParam("P_ADF_TYPE", "Q");
+            System.out.println(getAccVWItemOpeningQVO().getViewObject().getQuery());
+        getAccVWItemOpeningQVO().executeQuery();
+        setCurrQty((Integer)getAccVWItemOpeningQVO().first().getAttribute("Quantity"));
+        }
+        catch(Exception exc) {
+            exc.printStackTrace();
+            setCurrQty(0);
+        }
+        
     }
 
     /**
@@ -1753,6 +1808,20 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      */
     public RowSet getAccInItemsView() {
         return (RowSet) getAttributeInternal(ACCINITEMSVIEW);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncCheckQuantityQVO.
+     */
+    public RowSet getAccVwFuncCheckQuantityQVO() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCCHECKQUANTITYQVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVWItemOpeningQVO.
+     */
+    public RowSet getAccVWItemOpeningQVO() {
+        return (RowSet) getAttributeInternal(ACCVWITEMOPENINGQVO);
     }
 }
 

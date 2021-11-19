@@ -436,14 +436,14 @@
     Name="AvailQty"
     ColumnName="AVAIL_QTY"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER_LINES"/>
   <Attribute
     Name="CurrQty"
     ColumnName="CURR_QTY"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_ORDER_LINES"/>
   <Attribute
@@ -819,10 +819,8 @@
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[InItems1?.ModelNo]]></TransientExpression>
-    <RecalcCondition
-      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[InItems1?.ModelNo]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Dependencies>
       <Item
         Value="Productid"/>
