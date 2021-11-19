@@ -31,14 +31,14 @@
     Kind="where"
     Type="java.lang.String"/>
   <Variable
-    Name="P_ADF_CONFIRM_DATE"
+    Name="P_ADF_CONFIRMDATE"
     Kind="where"
     Type="oracle.jbo.domain.Date"/>
-  <SQLQuery><![CDATA[select 1 as pk,  
-Item_Opening(:P_ADF_ITEMID,  
-:P_ADF_STOREID,  
-TO_DATE(:P_ADF_CONFIRM_DATE)+1, 
-:P_ADF_TYPE) AS QUANTITY  
+  <SQLQuery><![CDATA[select 1 as pk,   
+Item_Opening(:P_ADF_ITEMID,   
+:P_ADF_STOREID,   
+TO_DATE(:P_ADF_CONFIRMDATE)+1,  
+:P_ADF_TYPE) AS QUANTITY   
 FROM DUAL]]></SQLQuery>
   <ViewAttribute
     Name="Pk"
