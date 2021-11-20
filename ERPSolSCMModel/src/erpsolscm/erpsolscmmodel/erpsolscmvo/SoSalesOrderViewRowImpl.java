@@ -333,7 +333,7 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
     public void setCustomerid(String value) {
         setAttributeInternal(CUSTOMERID, value);
         try {
-            getAccSoSalesPersonsDefaultView().setNamedWhereClauseParam("P_ADF_CUSTOMERID", value);
+            getAccSoSalesPersonsDefaultView().setNamedWhereClauseParam("P_ADF_CUSTOMERID", (value==null?"-":value));
             getAccSoSalesPersonsDefaultView().executeQuery();
             setSalespersonid(getAccSoSalesPersonsDefaultView().first().getAttribute("Salespersonid").toString());
         } catch (Exception e) {
@@ -343,7 +343,7 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
         }
      
         try {
-            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_CUSTOMERID", value);
+            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_CUSTOMERID", (value==null?"-":value));
             getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_FORM_NAME", "SO-0167");
             getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_GET_POST", "G");
             getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_NEW_AMOUNT", 0);
@@ -354,6 +354,7 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
             setRemainingCreditLimit((Integer)getAccVwFuncGetCustomerCreditLimit().first().getAttribute("Creditlimit"));
             
         } catch (Exception e) {
+            setSalespersonid(null);
             setRemainingCreditLimit(0);
             // TODO: Add catch code
             e.printStackTrace();

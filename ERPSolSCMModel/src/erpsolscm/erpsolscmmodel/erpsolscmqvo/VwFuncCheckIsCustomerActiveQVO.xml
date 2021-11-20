@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="VwFuncCheckIsCustomerActiveQVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncCheckIsCustomerActiveQVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="P_ADF_CUSTOMERID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_CONFIRM_DATE"
+    Kind="where"
+    Type="oracle.jbo.domain.Date"/>
+  <Variable
+    Name="P_ADF_MODULE_ID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[select 1 as pk, PKG_SALE_ORDER_VALIDATION.func_is_active_customer(:P_ADF_CUSTOMERID,:P_ADF_CONFIRM_DATE,:P_ADF_MODULE_ID) status 
+from dual]]></SQLQuery>
+  <ViewAttribute
+    Name="Pk"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="PK"
+    Expression="PK"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="Status"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STATUS"
+    Expression="STATUS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Pk"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

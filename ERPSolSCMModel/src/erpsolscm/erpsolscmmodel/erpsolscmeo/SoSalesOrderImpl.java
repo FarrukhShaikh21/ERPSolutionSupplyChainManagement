@@ -6,6 +6,7 @@ import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
+import oracle.jbo.RowSet;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
@@ -18,6 +19,13 @@ import oracle.jbo.server.TransactionEvent;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
+    /**
+     * Validation method for Customerid.
+     */
+    public boolean validateCustomerid(String customerid) {
+        return true;
+    }
+
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
@@ -107,11 +115,13 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         txtStoreName,
         txtSalesPersonName,
         txtSupplierName,
+        txtErrorMessage,
         SoSalesOrderLines,
         AllCustomers,
         AllStores,
         SoSalesPersons,
-        PuSuppliers;
+        PuSuppliers,
+        AccVwFuncCheckIsCustomerActive;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -221,11 +231,13 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
     public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int TXTERRORMESSAGE = AttributesEnum.txtErrorMessage.index();
     public static final int SOSALESORDERLINES = AttributesEnum.SoSalesOrderLines.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
     public static final int SOSALESPERSONS = AttributesEnum.SoSalesPersons.index();
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
+    public static final int ACCVWFUNCCHECKISCUSTOMERACTIVE = AttributesEnum.AccVwFuncCheckIsCustomerActive.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1602,6 +1614,23 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtErrorMessage, using the alias name txtErrorMessage.
+     * @return the value of txtErrorMessage
+     */
+    public String gettxtErrorMessage() {
+        return (String) getAttributeInternal(TXTERRORMESSAGE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtErrorMessage.
+     * @param value value to set the txtErrorMessage
+     */
+    public void settxtErrorMessage(String value) {
+        setAttributeInternal(TXTERRORMESSAGE, value);
+        
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSoSalesOrderLines() {
@@ -1667,6 +1696,13 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(PUSUPPLIERS, value);
     }
 
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncCheckIsCustomerActive.
+     */
+    public RowSet getAccVwFuncCheckIsCustomerActive() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCCHECKISCUSTOMERACTIVE);
+    }
 
     /**
      * @param salesorderseq key constituent

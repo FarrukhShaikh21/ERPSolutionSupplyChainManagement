@@ -153,7 +153,7 @@
                           </af:inputComboboxListOfValues>
                           <af:spacer width="10" height="10" id="s4"/>
                           <af:outputText value="#{bindings.Salespersonid.inputValue}" id="ot4"
-                                         partialTriggers="txtSalesPersonNameId" noWrap="true"/>
+                                         partialTriggers="txtSalesPersonNameId txtCustomerNameId" noWrap="true"/>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr7">

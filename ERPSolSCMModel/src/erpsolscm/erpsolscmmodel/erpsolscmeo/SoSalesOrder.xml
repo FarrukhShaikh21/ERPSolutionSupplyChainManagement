@@ -10,12 +10,17 @@
   DBObjectName="SO_SALES_ORDER"
   AliasName="SoSalesOrder"
   BindingStyle="OracleName"
-  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderImpl">
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|DML"/>
     <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <ViewAccessor
+    Name="AccVwFuncCheckIsCustomerActive"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncCheckIsCustomerActiveQVO"
+    RowLevelBinds="true"/>
   <Attribute
     Name="Salesorderseq"
     IsNotNull="true"
@@ -88,6 +93,40 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
+    <validation:ExpressionValidationBean
+      Name="CustomeridActiveBR"
+      OperandType="EXPR"
+      Inverse="false">
+      <validation:MsgIds>
+        <validation:Item
+          Value="ERP_SOL_ERR_ACTIVE_CUSTOMER"/>
+        <validation:Item
+          Value="errorId"/>
+      </validation:MsgIds>
+      <validation:ResExpressions
+        Name="CustomeridActiveBR_ResExprList">
+        <validation:Expression
+          trustMode="trusted"
+          Name="0"><![CDATA[txtErrorMessage]]></validation:Expression>
+      </validation:ResExpressions>
+      <validation:TransientExpression
+        trustMode="trusted"><![CDATA[AccVwFuncCheckIsCustomerActive.setNamedWhereClauseParam("P_ADF_CUSTOMERID", newValue==null?"-":newValue);
+AccVwFuncCheckIsCustomerActive.setNamedWhereClauseParam("P_ADF_MODULE_ID", "SO-0167");
+AccVwFuncCheckIsCustomerActive.setNamedWhereClauseParam("P_ADF_CONFIRM_DATE", ConfirmDate);
+println("0")
+AccVwFuncCheckIsCustomerActive.executeQuery();
+println("a")
+println(AccVwFuncCheckIsCustomerActive.first().getAttribute("Status"));
+if(!AccVwFuncCheckIsCustomerActive.first().getAttribute("Status").toString().equals("ERPSOLSUCCESS"))
+{
+settxtErrorMessage(AccVwFuncCheckIsCustomerActive.first().getAttribute("Status").toString());
+setCustomerid(null);
+adf.error.raise("ERP_SOL_ERR_ACTIVE_CUSTOMER");
+return false;
+}
+
+return true;]]></validation:TransientExpression>
+    </validation:ExpressionValidationBean>
   </Attribute>
   <Attribute
     Name="Statusid"
@@ -412,7 +451,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_ORDER">
+    TableName="SO_SALES_ORDER"
+    DefaultValue="2">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -1087,6 +1127,24 @@
       <Item
         Value="Supplierid"/>
     </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtErrorMessage"
+    Precision="80"
+    ColumnName="TXT_ERROR_MESSAGE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.txtErrorMessage_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <AccessorAttribute
     Name="SoSalesOrderLines"
