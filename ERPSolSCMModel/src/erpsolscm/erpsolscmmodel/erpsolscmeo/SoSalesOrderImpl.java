@@ -122,7 +122,9 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         SoSalesPersons,
         PuSuppliers,
         AccVwFuncCheckIsCustomerActive,
-        AccVwFuncCheckSecurityCheque;
+        AccVwFuncCheckSecurityCheque,
+        AccVwFuncCheckCustomerCancelCheque,
+        AccVwFuncCheckCustomerDBCQVO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -240,6 +242,9 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
     public static final int ACCVWFUNCCHECKISCUSTOMERACTIVE = AttributesEnum.AccVwFuncCheckIsCustomerActive.index();
     public static final int ACCVWFUNCCHECKSECURITYCHEQUE = AttributesEnum.AccVwFuncCheckSecurityCheque.index();
+    public static final int ACCVWFUNCCHECKCUSTOMERCANCELCHEQUE =
+        AttributesEnum.AccVwFuncCheckCustomerCancelCheque.index();
+    public static final int ACCVWFUNCCHECKCUSTOMERDBCQVO = AttributesEnum.AccVwFuncCheckCustomerDBCQVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1711,6 +1716,20 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
      */
     public RowSet getAccVwFuncCheckSecurityCheque() {
         return (RowSet) getAttributeInternal(ACCVWFUNCCHECKSECURITYCHEQUE);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncCheckCustomerCancelCheque.
+     */
+    public RowSet getAccVwFuncCheckCustomerCancelCheque() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCCHECKCUSTOMERCANCELCHEQUE);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncCheckCustomerDBCQVO.
+     */
+    public RowSet getAccVwFuncCheckCustomerDBCQVO() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCCHECKCUSTOMERDBCQVO);
     }
 
     /**
