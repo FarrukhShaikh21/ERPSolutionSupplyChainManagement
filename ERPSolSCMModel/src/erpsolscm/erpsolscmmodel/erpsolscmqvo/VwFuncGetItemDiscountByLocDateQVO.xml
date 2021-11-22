@@ -19,19 +19,51 @@
     </SchemaBasedProperties>
   </Properties>
   <Variable
-    Name="P_ADF_ITEMID"
+    Name="P_ADF_USERID"
     Kind="where"
     Type="java.lang.String"/>
   <Variable
-    Name="P_ADF_DATE"
+    Name="P_ADF_SALESORDERID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_CONFIRM_DATE"
     Kind="where"
     Type="oracle.jbo.domain.Date"/>
   <Variable
-    Name="P_ADF_LOCATIONID"
+    Name="P_ADF_TYPE"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[select 1 AS pk,  
-pkg_deploy_standard.func_get_item_discount_by_loc(:P_ADF_ITEMID,:P_ADF_DATE,:P_ADF_LOCATIONID) AS RATE  
+  <Variable
+    Name="P_ADF_CUSTOMERID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_PRODUCTID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_QUANTITY"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_RATE"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_EXCHANGE_RATE"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_GIFT"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_LINENO"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[select 1 AS pk,       
+PKG_SALE_ORDER.FUNC_INSERT_DISCOUNT(:P_ADF_USERID ,:P_ADF_SALESORDERID ,:P_ADF_CONFIRM_DATE ,:P_ADF_TYPE,:P_ADF_CUSTOMERID ,:P_ADF_PRODUCTID ,:P_ADF_QUANTITY ,:P_ADF_RATE ,:P_ADF_EXCHANGE_RATE ,:P_ADF_GIFT ,:P_ADF_LINENO )  Discount_Amount   
 FROM DUAL]]></SQLQuery>
   <ViewAttribute
     Name="Pk"
@@ -42,16 +74,16 @@ FROM DUAL]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="PK"
     Expression="PK"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
-    Name="Rate"
+    Name="DiscountAmount"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    AliasName="RATE"
-    Expression="RATE"
+    AliasName="DISCOUNT_AMOUNT"
+    Expression="DISCOUNT_AMOUNT"
     SQLType="NUMERIC"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="Pk"/>

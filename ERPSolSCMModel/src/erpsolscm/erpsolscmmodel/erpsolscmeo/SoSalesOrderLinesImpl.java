@@ -1,13 +1,18 @@
 package erpsolscm.erpsolscmmodel.erpsolscmeo;
 
+import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
 import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
 
 import java.math.BigDecimal;
 
+import java.sql.CallableStatement;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
+import oracle.jbo.RowSet;
 import oracle.jbo.domain.DBSequence;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
@@ -118,7 +123,10 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
         Itemid,
         SoSalesOrder,
         InItems,
-        InItems1;
+        InItems1,
+        SoDiscount,
+        AccVwFuncGetItemDiscountByLocDateInsert,
+        FuncVwFuncGetCustomerCreditLimitStop;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -238,6 +246,11 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int SOSALESORDER = AttributesEnum.SoSalesOrder.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
     public static final int INITEMS1 = AttributesEnum.InItems1.index();
+    public static final int SODISCOUNT = AttributesEnum.SoDiscount.index();
+    public static final int ACCVWFUNCGETITEMDISCOUNTBYLOCDATEINSERT =
+        AttributesEnum.AccVwFuncGetItemDiscountByLocDateInsert.index();
+    public static final int FUNCVWFUNCGETCUSTOMERCREDITLIMITSTOP =
+        AttributesEnum.FuncVwFuncGetCustomerCreditLimitStop.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1770,6 +1783,28 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
 
 
     /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getSoDiscount() {
+        return (RowIterator) getAttributeInternal(SODISCOUNT);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncGetItemDiscountByLocDateInsert.
+     */
+    public RowSet getAccVwFuncGetItemDiscountByLocDateInsert() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCGETITEMDISCOUNTBYLOCDATEINSERT);
+    }
+
+
+    /**
+     * Gets the view accessor <code>RowSet</code> FuncVwFuncGetCustomerCreditLimitStop.
+     */
+    public RowSet getFuncVwFuncGetCustomerCreditLimitStop() {
+        return (RowSet) getAttributeInternal(FUNCVWFUNCGETCUSTOMERCREDITLIMITSTOP);
+    }
+
+    /**
      * @param salesorderlineseq key constituent
 
      * @return a Key object based on given key constituents.
@@ -1811,8 +1846,8 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
         if (operation!=DML_DELETE) {
             populateAttributeAsChanged(ACTLINEGRAMBCURR, new BigDecimal(gettxtGrossAmount()==null?0:gettxtGrossAmount() ));
            populateAttributeAsChanged(ACTLINEGRAMTOCURR, new BigDecimal(gettxtGrossAmount()==null?0:gettxtGrossAmount() ));
-           populateAttributeAsChanged(DISCOUNTAMOUNTOC, new BigDecimal(gettxtDiscountAmount()==null?0:gettxtDiscountAmount() ));
-           populateAttributeAsChanged(DISCOUNTAMOUNTBC, new BigDecimal(gettxtDiscountAmount()==null?0:gettxtDiscountAmount() ));
+//           populateAttributeAsChanged(DISCOUNTAMOUNTOC, new BigDecimal(gettxtDiscountAmount()==null?0:gettxtDiscountAmount() ));
+           populateAttributeAsChanged(DISCOUNTAMOUNTBC, getDiscountAmountOc());
            populateAttributeAsChanged(LINENETAMTBCURR, new BigDecimal(gettxtNetAmount()==null?0:gettxtNetAmount() ));
            populateAttributeAsChanged(LINENETAMTOCURR, gettxtNetAmount());
 
@@ -1820,6 +1855,49 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
            
        }
         super.doDML(operation, e);
+        if (operation==DML_INSERT) {
+//FUNC_INSERT_DISCOUNT(P_USERID VARCHAR2,P_SALESORDERID VARCHAR2,P_CONFIRM_DATE DATE,P_TYPE VARCHAR2,P_CUSTOMERID VARCHAR2,P_PRODUCTID VARCHAR2,P_QUANTITY NUMBER,P_RATE NUMBER,P_EXCHANGE_RATE NUMBER,P_GIFT VARCHAR2,P_LINENO NUMBER) RETURN NUMBER IS
+            String ERPPlsql="DECLARE L_RESULT NUMBER; begin L_RESULT:=PKG_SALE_ORDER.FUNC_INSERT_DISCOUNT(?,?,to_Date(?,'yyyy-mm-dd'),?,?,?,?,?,?,?,?); END;";
+            CallableStatement cs = getDBTransaction().createCallableStatement(ERPPlsql, getDBTransaction().DEFAULT);
+            try {
+                cs.setString(1, ERPSolGlobClassModel.doGetUserCode());
+                System.out.println("a");
+                cs.setString(2,getSalesorderid());
+                System.out.println("2");
+                cs.setString(3, getSoSalesOrder().getAttribute("ConfirmDate").toString());
+                System.out.println("3");
+                cs.setString(4,"I");
+                System.out.println("4");
+                cs.setString(5,getSoSalesOrder().getAttribute("Customerid").toString());
+                System.out.println("5");
+                cs.setString(6,getProductid());
+                System.out.println("6");
+                cs.setString(7,getQuantity().toString());
+                System.out.println("7");
+                cs.setString(8,getActUnitPriceOcurr().toString());
+                System.out.println("8");
+                cs.setString(9,getSoSalesOrder().getAttribute("ExchangeRate").toString());
+                System.out.println("9");
+                cs.setString(10,getSoSalesOrder().getAttribute("Gift").toString());
+                System.out.println("10");
+                cs.setString(11,getLineno().toString());
+                System.out.println("11");
+                cs.executeUpdate();
+                System.out.println(ERPPlsql);
+            } catch (SQLException f) {
+                f.printStackTrace();
+            }
+            finally{
+                try {
+                    cs.close();
+                } catch (SQLException f) {
+                }
+            }
+
+           
+            
+           
+       }
     }
     
 }

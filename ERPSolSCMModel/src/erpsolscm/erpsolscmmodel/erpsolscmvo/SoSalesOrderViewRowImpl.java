@@ -344,12 +344,12 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
      
         try {
             getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_CUSTOMERID", (value==null?"-":value));
-            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_FORM_NAME", "SO-0167");
-            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_GET_POST", "G");
-            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_NEW_AMOUNT", 0);
-            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_OLD_AMOUNT", 0);
+//            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_FORM_NAME", "SO-0167");
+//            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_GET_POST", "G");
+//            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_NEW_AMOUNT", 0);
+//            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_OLD_AMOUNT", 0);
             getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_SALESPERSONID", getSalespersonid());
-            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_TRANS_TYPE", null);
+//            getAccVwFuncGetCustomerCreditLimit().setNamedWhereClauseParam("P_ADF_TRANS_TYPE", null);
             getAccVwFuncGetCustomerCreditLimit().executeQuery();
             setRemainingCreditLimit((Integer)getAccVwFuncGetCustomerCreditLimit().first().getAttribute("Creditlimit"));
             

@@ -1,5 +1,9 @@
 package erpsolscm.erpsolscmmodel.erpsolscmvo;
 
+import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
+
+import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
+
 import erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLinesImpl;
 
 import java.math.BigDecimal;
@@ -404,6 +408,26 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      */
     public void setQuantity(BigDecimal value) {
         setAttributeInternal(QUANTITY, value);
+        try{
+            getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_USERID",ERPSolGlobClassModel.doGetUserCode());
+            getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_SALESORDERID","");
+            getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_CONFIRM_DATE", getSoSalesOrderView().getAttribute("ConfirmDate"));
+            getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_TYPE", "D");
+            getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_CUSTOMERID", getSoSalesOrderView().getAttribute("Customerid"));
+            getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_PRODUCTID", getProductid());
+            getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_QUANTITY", value);
+            getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_RATE", getActUnitPriceOcurr());
+            getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_EXCHANGE_RATE", getSoSalesOrderView().getAttribute("ExchangeRate"));
+            getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_GIFT", getSoSalesOrderView().getAttribute("Gift"));
+            getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_LINENO", "");
+            getAccVwFuncGetItemDiscountByLocDate().executeQuery();
+            setDiscountAmountOc((BigDecimal)getAccVwFuncGetItemDiscountByLocDate().first().getAttribute("DiscountAmount"));
+        }
+        catch(Exception exc) {
+            setDiscountPercent(new BigDecimal(0));
+            
+        exc.printStackTrace();
+        }                
     }
 
     /**
@@ -1763,32 +1787,21 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
             setCurrQty(0);
         }
         
-        
         try{
-        getAccVwFuncGetItemRateByLocDate().setNamedWhereClauseParam("P_ADF_DATE", getSoSalesOrderView().getAttribute("ConfirmDate"));
-        getAccVwFuncGetItemRateByLocDate().setNamedWhereClauseParam("P_ADF_ITEMID", value);
-        getAccVwFuncGetItemRateByLocDate().setNamedWhereClauseParam("P_ADF_LOCATIONID", getSoSalesOrderView().getAttribute("Locationid"));
-        getAccVwFuncGetItemRateByLocDate().executeQuery();
-        setActUnitPriceBcurr((Integer)getAccVwFuncGetItemRateByLocDate().first().getAttribute("Rate"));
-        setActUnitPriceOcurr((Integer)getAccVwFuncGetItemRateByLocDate().first().getAttribute("Rate"));
-        }
-        catch(Exception exc) {
-        setActUnitPriceBcurr(0);
-        setActUnitPriceOcurr(0);
-        exc.printStackTrace();
-        }
+            getAccVwFuncGetItemRateByLocDate().setNamedWhereClauseParam("P_ADF_DATE", getSoSalesOrderView().getAttribute("ConfirmDate"));
+            getAccVwFuncGetItemRateByLocDate().setNamedWhereClauseParam("P_ADF_ITEMID", value);
+            getAccVwFuncGetItemRateByLocDate().setNamedWhereClauseParam("P_ADF_LOCATIONID", getSoSalesOrderView().getAttribute("Locationid"));
+            getAccVwFuncGetItemRateByLocDate().executeQuery();
+            setActUnitPriceBcurr((Integer)getAccVwFuncGetItemRateByLocDate().first().getAttribute("Rate"));
+            setActUnitPriceOcurr((Integer)getAccVwFuncGetItemRateByLocDate().first().getAttribute("Rate"));
+            }
+            catch(Exception exc) {
+            setActUnitPriceBcurr(0);
+            setActUnitPriceOcurr(0);
+            exc.printStackTrace();
+            }
         
-        try{
-        getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_DATE", getSoSalesOrderView().getAttribute("ConfirmDate"));
-        getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_ITEMID", value);
-        getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_LOCATIONID", getSoSalesOrderView().getAttribute("Locationid"));
-        setDiscountPercent((BigDecimal)getAccVwFuncGetItemDiscountByLocDate().first().getAttribute("Rate"));
-        }
-        catch(Exception exc) {
-            setDiscountPercent(new BigDecimal(0));
-            
-        exc.printStackTrace();
-        }        
+       
 //        pkg_deploy_standard.func_get_item_rate_by_loc_date
     }
 

@@ -37,6 +37,9 @@
   <ViewUsage
     Name="VwFuncGetCustomerCreditLimitQVO1"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetCustomerCreditLimitQVO"/>
+  <ViewUsage
+    Name="VwFuncGetItemDiscountByLocDateQVO1"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemDiscountByLocDateQVO"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

@@ -387,7 +387,8 @@
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtGrossAmount.format}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.label}" id="c10">
+                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.label}" id="c10"
+                                 rendered="false">
                         <af:inputText value="#{row.bindings.DiscountPercent.inputValue}"
                                       label="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.label}"
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.mandatory}"

@@ -26,28 +26,8 @@
     Name="P_ADF_SALESPERSONID"
     Kind="where"
     Type="java.lang.String"/>
-  <Variable
-    Name="P_ADF_NEW_AMOUNT"
-    Kind="where"
-    Type="java.lang.String"/>
-  <Variable
-    Name="P_ADF_OLD_AMOUNT"
-    Kind="where"
-    Type="java.lang.Integer"/>
-  <Variable
-    Name="P_ADF_TRANS_TYPE"
-    Kind="where"
-    Type="java.lang.String"/>
-  <Variable
-    Name="P_ADF_GET_POST"
-    Kind="where"
-    Type="java.lang.String"/>
-  <Variable
-    Name="P_ADF_FORM_NAME"
-    Kind="where"
-    Type="java.lang.String"/>
-  <SQLQuery><![CDATA[select 1 AS pk,    
-pkg_deploy_standard.func_get_customer_credit_limit(:P_ADF_CUSTOMERID,:P_ADF_SALESPERSONID,:P_ADF_NEW_AMOUNT,:P_ADF_OLD_AMOUNT,:P_ADF_TRANS_TYPE,:P_ADF_GET_POST,:P_ADF_FORM_NAME) AS CreditLimit    
+  <SQLQuery><![CDATA[select 1 AS pk,      
+PKG_SALE_ORDER.FUNC_GET_CUSTOMER_CREDIT_LIMIT(:P_ADF_CUSTOMERID,:P_ADF_SALESPERSONID) AS CreditLimit  
 FROM DUAL]]></SQLQuery>
   <ViewAttribute
     Name="Pk"
@@ -57,7 +37,7 @@ FROM DUAL]]></SQLQuery>
     ColumnType="TYPE"
     AliasName="PK"
     Expression="PK"
-    SQLType="STRUCT"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="Creditlimit"
     IsUpdateable="false"
@@ -67,7 +47,7 @@ FROM DUAL]]></SQLQuery>
     ColumnType="TYPE"
     AliasName="CREDITLIMIT"
     Expression="CREDITLIMIT"
-    SQLType="STRUCT"/>
+    SQLType="INTEGER"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="Pk"/>
   </AttrArray>

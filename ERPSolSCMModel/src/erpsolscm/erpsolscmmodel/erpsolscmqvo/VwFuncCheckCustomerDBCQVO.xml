@@ -31,7 +31,7 @@
     Kind="where"
     Type="oracle.jbo.domain.Date"/>
   <SQLQuery><![CDATA[select 1 as pk, 
-PKG_SALE_ORDER_VALIDATION.func_CHECK_CUST_DEALER_CONF(:P_ADF_CUSTOMERID,:P_ADF_CONFIRM_DATE,:P_ADF_MODULEID) as status 
+PKG_SALE_ORDER.func_CHECK_CUST_DEALER_CONF(:P_ADF_CUSTOMERID,:P_ADF_CONFIRM_DATE,:P_ADF_MODULEID) as status 
 from dual]]></SQLQuery>
   <ViewAttribute
     Name="Pk"

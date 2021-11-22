@@ -31,7 +31,7 @@
     Kind="where"
     Type="java.lang.String"/>
   <SQLQuery><![CDATA[select 1 as pk, 
-PKG_SALE_ORDER_VALIDATION.func_check_security_cheque(:P_ADF_CUSTOMERID,:P_ADF_CONFIRM_DATE,:P_ADF_MODULEID) STATUS 
+PKG_SALE_ORDER.func_check_security_cheque(:P_ADF_CUSTOMERID,:P_ADF_CONFIRM_DATE,:P_ADF_MODULEID) STATUS 
 FROM DUAL]]></SQLQuery>
   <ViewAttribute
     Name="Pk"

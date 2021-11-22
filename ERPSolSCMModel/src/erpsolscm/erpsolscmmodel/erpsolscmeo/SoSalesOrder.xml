@@ -235,7 +235,7 @@ return false;
 }
 
 
-if(AccVwFuncCheckCustomerDBCQVO.first().getAttribute("Status").toString().contains("WARNING"))
+if(!AccVwFuncCheckCustomerDBCQVO.first().getAttribute("Status").toString().contains("ERPSOLSUCCESS"))
 {
 settxtErrorMessage(AccVwFuncCheckCustomerDBCQVO.first().getAttribute("Status").toString());
 adf.error.warn("ERP_SOL_ERR_DBC_WARN");
@@ -251,8 +251,8 @@ return true;]]></validation:TransientExpression>
       Inverse="false"
       Severity="Warning">
       <validation:OnCondition
-        trustMode="trusted"
-        Name="OnConditionExpr"><![CDATA[newValue!=null]]></validation:OnCondition>
+        Name="OnConditionExpr"
+        trustMode="trusted"><![CDATA[newValue!=null]]></validation:OnCondition>
       <validation:MsgIds>
         <validation:Item
           Value="ERP_SOL_ERR_AGING"/>
@@ -260,18 +260,18 @@ return true;]]></validation:TransientExpression>
       <validation:ResExpressions
         Name="CustomeridAgingAlertBR_ResExprList">
         <validation:Expression
-          trustMode="trusted"
-          Name="0"><![CDATA[settxtErrorMessage]]></validation:Expression>
+          Name="0"
+          trustMode="trusted"><![CDATA[txtErrorMessage]]></validation:Expression>
       </validation:ResExpressions>
       <validation:TransientExpression
         trustMode="trusted"><![CDATA[AccVwFuncShowAgingAlert.setNamedWhereClauseParam("P_ADF_CUSTOMERID", newValue==null?"-":newValue);
 AccVwFuncShowAgingAlert.setNamedWhereClauseParam("P_ADF_MODULEID", "SO-0167");
 AccVwFuncShowAgingAlert.setNamedWhereClauseParam("P_ADF_CONFIRM_DATE", ConfirmDate);
 AccVwFuncShowAgingAlert.executeQuery();
-if(AccVwFuncShowAgingAlert.first().getAttribute("Status").toString().equals("ERPSOLSUCCESS"))
+if(!AccVwFuncShowAgingAlert.first().getAttribute("Status").toString().equals("ERPSOLSUCCESS"))
 {
-settxtErrorMessage(AccVwFuncCheckCustomerCancelCheque.first().getAttribute("Status").toString());
-adf.error.raise("ERP_SOL_ERR_AGING");
+settxtErrorMessage(AccVwFuncShowAgingAlert.first().getAttribute("Status").toString());
+adf.error.warn("ERP_SOL_ERR_AGING");
 return true;
 }
 
@@ -368,7 +368,8 @@ return true;]]></validation:TransientExpression>
     SQLType="NUMERIC"
     Type="java.lang.Double"
     ColumnType="NUMBER"
-    TableName="SO_SALES_ORDER"/>
+    TableName="SO_SALES_ORDER"
+    DefaultValue="1"/>
   <Attribute
     Name="CustomerDocRef"
     Precision="100"
@@ -903,7 +904,8 @@ return true;]]></validation:TransientExpression>
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_ORDER">
+    TableName="SO_SALES_ORDER"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>

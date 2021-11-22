@@ -10,12 +10,30 @@
   DBObjectName="SO_SALES_ORDER_LINES"
   AliasName="SoSalesOrderLines"
   BindingStyle="OracleName"
-  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLinesImpl">
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLinesImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
     <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <ViewAccessor
+    Name="AccVwFuncGetItemDiscountByLocDateInsert"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemDiscountByLocDateQVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FuncVwFuncGetCustomerCreditLimitStop"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetCustomerCreditLimitQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_CUSTOMERID">
+        <TransientExpression><![CDATA[SoSalesOrder?.Customerid]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_SALESPERSONID">
+        <TransientExpression><![CDATA[SoSalesOrder?.Salespersonid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <Attribute
     Name="Salesorderlineseq"
     IsNotNull="true"
@@ -842,10 +860,9 @@
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[(Quantity==null?0:Quantity) * (ActUnitPriceOcurr==null?0:ActUnitPriceOcurr)]]></TransientExpression>
+    <TransientExpression><![CDATA[(Quantity==null?0:Quantity) * (ActUnitPriceOcurr==null?0:ActUnitPriceOcurr)]]></TransientExpression>
     <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
     <Dependencies>
       <Item
         Value="ActUnitPriceBcurr"/>
@@ -875,8 +892,7 @@
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[(txtGrossAmount==null?0:txtGrossAmount) - (DiscountAmountOc==null?0:DiscountAmountOc)]]></TransientExpression>
+    <TransientExpression><![CDATA[(txtGrossAmount==null?0:txtGrossAmount) - (DiscountAmountOc==null?0:DiscountAmountOc)]]></TransientExpression>
     <Dependencies>
       <Item
         Value="ActUnitPriceBcurr"/>
@@ -908,8 +924,9 @@
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[txtGrossAmount * (DiscountPercent==null?0:DiscountPercent) /100]]></TransientExpression>
+    <TransientExpression><![CDATA[return DiscountAmountOc==null?0:DiscountAmountOc;]]></TransientExpression>
+    <RecalcCondition
+      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -966,6 +983,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoSalesOrderLinesItemidAssoc.SoSalesOrderLines1"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SoDiscount"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesOrderLinesSoDiscountSalesorderLineSeqAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesOrderLinesSoDiscountSalesorderLineSeqAssoc.SoDiscount"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesOrderLinesSoDiscountSalesorderLineSeqAssoc.SoSalesOrderLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkSoSalesOrderLines"
     PrimaryKey="true">
@@ -1009,6 +1033,31 @@
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.Itemid"/>
     </AttrArray>
   </Key>
+  <validation:CompareValidationBean
+    Name="SoSalesOrderLinesCreditLimitBR"
+    ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines_Rule_0"
+    OnAttribute="txtNetAmount"
+    OperandType="VO_USAGE"
+    Inverse="false"
+    CompareType="LESSTHANEQUALTO"
+    ViewAccAttrName="Creditlimit"
+    ViewAccName="FuncVwFuncGetCustomerCreditLimitStop">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="txtNetAmount"/>
+      <validation:Item
+        Value="Quantity"/>
+    </validation:OnAttributes>
+    <validation:OnCondition
+      trustMode="trusted"
+      Name="OnConditionExpr"><![CDATA[Productid!=null]]></validation:OnCondition>
+    <validation:ResExpressions
+      Name="SoSalesOrderLinesCreditLimitBR_ResExprList">
+      <validation:Expression
+        trustMode="trusted"
+        Name="0"><![CDATA[FuncVwFuncGetCustomerCreditLimitStop?.first()?.getAttribute("Creditlimit")]]></validation:Expression>
+    </validation:ResExpressions>
+  </validation:CompareValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
