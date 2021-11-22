@@ -13,9 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  RowClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderViewRowImpl">
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderViewRowImpl"
+  ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderViewImpl">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewAccessor
