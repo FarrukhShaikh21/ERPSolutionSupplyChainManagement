@@ -33,6 +33,10 @@
     Name="AccVwFuncCheckCustomerDBCQVO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncCheckCustomerDBCQVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwFuncShowAgingAlert"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncShowAgingAlertQVO"
+    RowLevelBinds="true"/>
   <Attribute
     Name="Salesorderseq"
     IsNotNull="true"
@@ -109,6 +113,8 @@
       Name="CustomeridActiveBR"
       OperandType="EXPR"
       Inverse="false">
+      <validation:OnCondition
+        Name="OnConditionExpr"><![CDATA[newValue!=null]]></validation:OnCondition>
       <validation:MsgIds>
         <validation:Item
           Value="ERP_SOL_ERR_ACTIVE_CUSTOMER"/>
@@ -141,6 +147,8 @@ return true;]]></validation:TransientExpression>
       OperandType="EXPR"
       Inverse="false"
       Severity="Warning">
+      <validation:OnCondition
+        Name="OnConditionExpr"><![CDATA[newValue!=null]]></validation:OnCondition>
       <validation:MsgIds>
         <validation:Item
           Value="ERP_SOL_ERR_SEC_CHEQUE"/>
@@ -170,6 +178,8 @@ return true;]]></validation:TransientExpression>
       Name="CustomeridCancelChequeBR"
       OperandType="EXPR"
       Inverse="false">
+      <validation:OnCondition
+        Name="OnConditionExpr"><![CDATA[newValue!=null]]></validation:OnCondition>
       <validation:MsgIds>
         <validation:Item
           Value="ERP_SOL_ERR_CANCEL_CHEQUE"/>
@@ -198,22 +208,19 @@ return true;]]></validation:TransientExpression>
       OperandType="EXPR"
       Inverse="false">
       <validation:OnCondition
-        trustMode="trusted"
         Name="OnConditionExpr"><![CDATA[newValue!=null]]></validation:OnCondition>
       <validation:MsgIds>
         <validation:Item
-          Value="ERP_SOL_ERR_DBC_WARN"/>
-        <validation:Item
           Value="ERP_SOL_ERR_DBC"/>
+        <validation:Item
+          Value="ERP_SOL_ERR_DBC_WARN"/>
       </validation:MsgIds>
       <validation:ResExpressions
         Name="CustomeridDBCBR_ResExprList">
         <validation:Expression
-          trustMode="trusted"
           Name="0"><![CDATA[txtErrorMessage]]></validation:Expression>
       </validation:ResExpressions>
-      <validation:TransientExpression
-        trustMode="trusted"><![CDATA[AccVwFuncCheckCustomerDBCQVO.setNamedWhereClauseParam("P_ADF_CUSTOMERID", newValue==null?"-":newValue);
+      <validation:TransientExpression><![CDATA[AccVwFuncCheckCustomerDBCQVO.setNamedWhereClauseParam("P_ADF_CUSTOMERID", newValue==null?"-":newValue);
 AccVwFuncCheckCustomerDBCQVO.setNamedWhereClauseParam("P_ADF_MODULEID", "SO-0167");
 AccVwFuncCheckCustomerDBCQVO.setNamedWhereClauseParam("P_ADF_CONFIRM_DATE", ConfirmDate);
 println("0")
@@ -235,6 +242,38 @@ adf.error.warn("ERP_SOL_ERR_DBC_WARN");
 return true;
 }
 
+
+return true;]]></validation:TransientExpression>
+    </validation:ExpressionValidationBean>
+    <validation:ExpressionValidationBean
+      Name="CustomeridAgingAlertBR"
+      OperandType="EXPR"
+      Inverse="false"
+      Severity="Warning">
+      <validation:OnCondition
+        trustMode="trusted"
+        Name="OnConditionExpr"><![CDATA[newValue!=null]]></validation:OnCondition>
+      <validation:MsgIds>
+        <validation:Item
+          Value="ERP_SOL_ERR_AGING"/>
+      </validation:MsgIds>
+      <validation:ResExpressions
+        Name="CustomeridAgingAlertBR_ResExprList">
+        <validation:Expression
+          trustMode="trusted"
+          Name="0"><![CDATA[settxtErrorMessage]]></validation:Expression>
+      </validation:ResExpressions>
+      <validation:TransientExpression
+        trustMode="trusted"><![CDATA[AccVwFuncShowAgingAlert.setNamedWhereClauseParam("P_ADF_CUSTOMERID", newValue==null?"-":newValue);
+AccVwFuncShowAgingAlert.setNamedWhereClauseParam("P_ADF_MODULEID", "SO-0167");
+AccVwFuncShowAgingAlert.setNamedWhereClauseParam("P_ADF_CONFIRM_DATE", ConfirmDate);
+AccVwFuncShowAgingAlert.executeQuery();
+if(AccVwFuncShowAgingAlert.first().getAttribute("Status").toString().equals("ERPSOLSUCCESS"))
+{
+settxtErrorMessage(AccVwFuncCheckCustomerCancelCheque.first().getAttribute("Status").toString());
+adf.error.raise("ERP_SOL_ERR_AGING");
+return true;
+}
 
 return true;]]></validation:TransientExpression>
     </validation:ExpressionValidationBean>
@@ -1237,7 +1276,7 @@ return true;]]></validation:TransientExpression>
   </Attribute>
   <Attribute
     Name="txtErrorMessage"
-    Precision="80"
+    Precision="500"
     ColumnName="TXT_ERROR_MESSAGE"
     SQLType="VARCHAR"
     Type="java.lang.String"

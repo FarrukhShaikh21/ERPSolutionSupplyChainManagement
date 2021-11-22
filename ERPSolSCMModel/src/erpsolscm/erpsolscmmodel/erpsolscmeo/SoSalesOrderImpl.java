@@ -124,7 +124,8 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         AccVwFuncCheckIsCustomerActive,
         AccVwFuncCheckSecurityCheque,
         AccVwFuncCheckCustomerCancelCheque,
-        AccVwFuncCheckCustomerDBCQVO;
+        AccVwFuncCheckCustomerDBCQVO,
+        AccVwFuncShowAgingAlert;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -245,6 +246,7 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public static final int ACCVWFUNCCHECKCUSTOMERCANCELCHEQUE =
         AttributesEnum.AccVwFuncCheckCustomerCancelCheque.index();
     public static final int ACCVWFUNCCHECKCUSTOMERDBCQVO = AttributesEnum.AccVwFuncCheckCustomerDBCQVO.index();
+    public static final int ACCVWFUNCSHOWAGINGALERT = AttributesEnum.AccVwFuncShowAgingAlert.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1730,6 +1732,13 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
      */
     public RowSet getAccVwFuncCheckCustomerDBCQVO() {
         return (RowSet) getAttributeInternal(ACCVWFUNCCHECKCUSTOMERDBCQVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncShowAgingAlert.
+     */
+    public RowSet getAccVwFuncShowAgingAlert() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCSHOWAGINGALERT);
     }
 
     /**
