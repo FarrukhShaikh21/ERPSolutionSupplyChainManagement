@@ -1,5 +1,7 @@
 package erpsolscm.erpsolscmmodel.erpsolscmvo;
 
+import erpsolscm.erpsolscmmodel.erpsolscmvo.common.SoSalesOrderView;
+
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Types;
@@ -12,14 +14,14 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class SoSalesOrderViewImpl extends ViewObjectImpl {
+public class SoSalesOrderViewImpl extends ViewObjectImpl implements SoSalesOrderView {
     /**
      * This is the default constructor (do not remove).
      */
     public SoSalesOrderViewImpl() {
     }
  
-    public void doSubmitSaleOrder() {
+    public void doSuperviseSaleOrder() {
         
         CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=PKG_SALE_ORDER.FUNC_SUBMIT_SALES_ORDER('"+this.getCurrentRow().getAttribute("Salesorderid")+"'); END;", 1);
         System.out.println("begin ?:=PKG_SALE_ORDER.FUNC_SUBMIT_SALES_ORDER('"+this.getCurrentRow().getAttribute("Salesorderid")+"'); END;");

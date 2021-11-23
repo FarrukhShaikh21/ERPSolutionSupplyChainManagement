@@ -40,10 +40,19 @@
   <ViewUsage
     Name="VwFuncGetItemDiscountByLocDateQVO1"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemDiscountByLocDateQVO"/>
+  <ViewUsage
+    Name="SoSalesOrderImeiDetCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderImeiView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
     SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderViewCRUD"
     DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderLinesDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="SoSalesOrderLineSaleOrderImeiSalesorderlineseqLink1"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesOrderLineSaleOrderImeiSalesorderlineseqLink"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderLinesDetCRUD"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderImeiDetCRUD"
     Reversed="false"/>
 </AppModule>

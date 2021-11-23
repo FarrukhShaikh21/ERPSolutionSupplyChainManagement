@@ -87,4 +87,10 @@
     EntityAttrName="LpAmount"
     EntityUsage="SoSalesOrderImei"
     AliasName="LP_AMOUNT"/>
+  <ViewLinkAccessor
+    Name="SoSalesOrderLinesView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesOrderLineSaleOrderImeiSalesorderlineseqLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

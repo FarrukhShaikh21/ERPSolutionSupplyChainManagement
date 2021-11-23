@@ -9,6 +9,7 @@ import erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLinesImpl;
 import java.math.BigDecimal;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.ViewRowImpl;
@@ -121,6 +122,7 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
         Itemid,
         SoSalesOrderView,
         InItemsView,
+        SoSalesOrderImeiView,
         AccInItemsView,
         AccVwFuncCheckQuantityQVO,
         AccVWItemOpeningQVO,
@@ -245,6 +247,7 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
     public static final int ITEMID = AttributesEnum.Itemid.index();
     public static final int SOSALESORDERVIEW = AttributesEnum.SoSalesOrderView.index();
     public static final int INITEMSVIEW = AttributesEnum.InItemsView.index();
+    public static final int SOSALESORDERIMEIVIEW = AttributesEnum.SoSalesOrderImeiView.index();
     public static final int ACCINITEMSVIEW = AttributesEnum.AccInItemsView.index();
     public static final int ACCVWFUNCCHECKQUANTITYQVO = AttributesEnum.AccVwFuncCheckQuantityQVO.index();
     public static final int ACCVWITEMOPENINGQVO = AttributesEnum.AccVWItemOpeningQVO.index();
@@ -1831,6 +1834,13 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      */
     public void setInItemsView(Row value) {
         setAttributeInternal(INITEMSVIEW, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link SoSalesOrderImeiView.
+     */
+    public RowIterator getSoSalesOrderImeiView() {
+        return (RowIterator) getAttributeInternal(SOSALESORDERIMEIVIEW);
     }
 
     /**

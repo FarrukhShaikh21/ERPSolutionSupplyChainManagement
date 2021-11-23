@@ -251,8 +251,7 @@ return true;]]></validation:TransientExpression>
       Inverse="false"
       Severity="Warning">
       <validation:OnCondition
-        Name="OnConditionExpr"
-        trustMode="trusted"><![CDATA[newValue!=null]]></validation:OnCondition>
+        Name="OnConditionExpr"><![CDATA[newValue!=null]]></validation:OnCondition>
       <validation:MsgIds>
         <validation:Item
           Value="ERP_SOL_ERR_AGING"/>
@@ -260,11 +259,9 @@ return true;]]></validation:TransientExpression>
       <validation:ResExpressions
         Name="CustomeridAgingAlertBR_ResExprList">
         <validation:Expression
-          Name="0"
-          trustMode="trusted"><![CDATA[txtErrorMessage]]></validation:Expression>
+          Name="0"><![CDATA[txtErrorMessage]]></validation:Expression>
       </validation:ResExpressions>
-      <validation:TransientExpression
-        trustMode="trusted"><![CDATA[AccVwFuncShowAgingAlert.setNamedWhereClauseParam("P_ADF_CUSTOMERID", newValue==null?"-":newValue);
+      <validation:TransientExpression><![CDATA[AccVwFuncShowAgingAlert.setNamedWhereClauseParam("P_ADF_CUSTOMERID", newValue==null?"-":newValue);
 AccVwFuncShowAgingAlert.setNamedWhereClauseParam("P_ADF_MODULEID", "SO-0167");
 AccVwFuncShowAgingAlert.setNamedWhereClauseParam("P_ADF_CONFIRM_DATE", ConfirmDate);
 AccVwFuncShowAgingAlert.executeQuery();
@@ -1289,6 +1286,26 @@ return true;]]></validation:TransientExpression>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.txtErrorMessage_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtCurrentDate"
+    ColumnName="TXT_CURRENT_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SO_SALES_ORDER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.txtCurrentDate_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>

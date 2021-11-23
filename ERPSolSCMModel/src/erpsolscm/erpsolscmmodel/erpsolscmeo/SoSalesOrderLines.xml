@@ -861,8 +861,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression><![CDATA[(Quantity==null?0:Quantity) * (ActUnitPriceOcurr==null?0:ActUnitPriceOcurr)]]></TransientExpression>
-    <RecalcCondition
-      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Dependencies>
       <Item
         Value="ActUnitPriceBcurr"/>
@@ -925,8 +924,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression><![CDATA[return DiscountAmountOc==null?0:DiscountAmountOc;]]></TransientExpression>
-    <RecalcCondition
-      trustMode="trusted"><![CDATA[true]]></RecalcCondition>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -990,6 +988,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesOrderLinesSoDiscountSalesorderLineSeqAssoc.SoSalesOrderLines"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SoSalesOrderImei"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesOrderLineSaleOrderImeiSalesorderlineseqAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesOrderLineSaleOrderImeiSalesorderlineseqAssoc.SoSalesOrderImei"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesOrderLineSaleOrderImeiSalesorderlineseqAssoc.SoSalesOrderLines"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkSoSalesOrderLines"
     PrimaryKey="true">
@@ -1049,12 +1054,10 @@
         Value="Quantity"/>
     </validation:OnAttributes>
     <validation:OnCondition
-      trustMode="trusted"
       Name="OnConditionExpr"><![CDATA[Productid!=null]]></validation:OnCondition>
     <validation:ResExpressions
       Name="SoSalesOrderLinesCreditLimitBR_ResExprList">
       <validation:Expression
-        trustMode="trusted"
         Name="0"><![CDATA[FuncVwFuncGetCustomerCreditLimitStop?.first()?.getAttribute("Creditlimit")]]></validation:Expression>
     </validation:ResExpressions>
   </validation:CompareValidationBean>

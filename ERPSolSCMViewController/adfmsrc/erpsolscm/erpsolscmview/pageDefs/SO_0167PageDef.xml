@@ -9,6 +9,10 @@
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="SoSalesOrderLinesDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="SoSalesOrderLinesDetCRUDIterator" ChangeEventPolicy="none"/>
+    <iterator Binds="SoSalesOrderImeiDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesOrderImeiDetCRUDIterator"/>
+    <searchRegion Binds="SoSalesOrderImeiDetCRUDIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SoSalesOrderImeiDetCRUDQuery"/>
   </executables>
   <bindings>
     <listOfValues IterBinding="SoSalesOrderViewCRUDIterator" StaticList="false" Uses="LovtxtCustomerName"
@@ -108,5 +112,20 @@
             Action="createInsertRow"/>
     <action IterBinding="SoSalesOrderLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <methodAction id="doSuperviseSaleOrder" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSaleOrder" IsViewObjectMethod="true"
+                  DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesOrderViewCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSuperviseSaleOrder_ERPSolSCMAppModuleDataControl_SoSalesOrderViewCRUD_doSuperviseSaleOrder_result"/>
+    <tree IterBinding="SoSalesOrderImeiDetCRUDIterator" id="SoSalesOrderImeiDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderImeiView"
+                      Name="SoSalesOrderImeiDetCRUD0">
+        <AttrNames>
+          <Item Value="ItemRefId"/>
+          <Item Value="ImeiNo"/>
+          <Item Value="TempBoxNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

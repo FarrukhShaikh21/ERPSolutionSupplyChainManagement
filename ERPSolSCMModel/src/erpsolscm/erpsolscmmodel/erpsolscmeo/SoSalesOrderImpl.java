@@ -116,6 +116,7 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         txtSalesPersonName,
         txtSupplierName,
         txtErrorMessage,
+        txtCurrentDate,
         SoSalesOrderLines,
         AllCustomers,
         AllStores,
@@ -236,6 +237,7 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int TXTERRORMESSAGE = AttributesEnum.txtErrorMessage.index();
+    public static final int TXTCURRENTDATE = AttributesEnum.txtCurrentDate.index();
     public static final int SOSALESORDERLINES = AttributesEnum.SoSalesOrderLines.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
@@ -1640,6 +1642,22 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtCurrentDate, using the alias name txtCurrentDate.
+     * @return the value of txtCurrentDate
+     */
+    public Date gettxtCurrentDate() {
+        return (Date) getAttributeInternal(TXTCURRENTDATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCurrentDate.
+     * @param value value to set the txtCurrentDate
+     */
+    public void settxtCurrentDate(Date value) {
+        setAttributeInternal(TXTCURRENTDATE, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSoSalesOrderLines() {
@@ -1741,6 +1759,7 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         return (RowSet) getAttributeInternal(ACCVWFUNCSHOWAGINGALERT);
     }
 
+
     /**
      * @param salesorderseq key constituent
 
@@ -1770,6 +1789,11 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
             String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
             populateAttributeAsChanged(SALESORDERID, result);
         }
+        else if (operation==DML_UPDATE) {
+            if (getPosted().equals("Y")) {
+                populateAttributeAsChanged(POSTEDBY, ERPSolGlobClassModel.doGetUserCode());
+           }
+       }
         super.doDML(operation, e);
     }
     @Override

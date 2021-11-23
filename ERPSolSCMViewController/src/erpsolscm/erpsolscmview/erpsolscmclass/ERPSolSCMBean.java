@@ -9,10 +9,13 @@ import javax.faces.model.SelectItem;
 
 import oracle.binding.BindingContainer;
 import oracle.adf.model.BindingContext;
+import oracle.adf.model.OperationBinding;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCDataControl;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.ADFContext;
+
+import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.jbo.ApplicationModule;
 import oracle.jbo.Row;
@@ -151,4 +154,10 @@ public class ERPSolSCMBean {
         return ResultList;
         
     }   
+    public void doERPSolDialogConfirm(DialogEvent erpsolde) {
+        if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
+            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseSaleOrder");
+            binding.execute();
+        }
+    }
 }

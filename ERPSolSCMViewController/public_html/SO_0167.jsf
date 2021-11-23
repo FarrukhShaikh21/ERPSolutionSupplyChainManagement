@@ -4,6 +4,81 @@
   <af:document title="SO_0167.jsf" id="d1">
     <af:messages id="m1"/>
     <af:form id="f1">
+      <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
+        <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.Salesorderid.inputValue})"
+                   dialogListener="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolDialogConfirm}" type="yesNo">
+          <f:facet name="buttonBar"/>
+        </af:dialog>
+      </af:popup>
+      <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
+        <af:dialog id="d3" type="ok">
+          <f:facet name="buttonBar"/>
+          <af:panelGridLayout id="pgl6">
+            <af:gridRow marginTop="5px" height="auto" id="gr13">
+              <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc29"/>
+            </af:gridRow>
+            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
+              <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc30" halign="stretch" valign="stretch">
+                <af:panelCollection id="pc2">
+                  <f:facet name="menus"/>
+                  <f:facet name="toolbar"/>
+                  <f:facet name="statusbar"/>
+                  <af:table value="#{bindings.SoSalesOrderImeiDetCRUD.collectionModel}" var="row"
+                            rows="#{bindings.SoSalesOrderImeiDetCRUD.rangeSize}"
+                            emptyText="#{bindings.SoSalesOrderImeiDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.SoSalesOrderImeiDetCRUD.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.SoSalesOrderImeiDetCRUD.collectionModel.makeCurrent}"
+                            rowSelection="single" fetchSize="#{bindings.SoSalesOrderImeiDetCRUD.rangeSize}"
+                            filterModel="#{bindings.SoSalesOrderImeiDetCRUDQuery.queryDescriptor}"
+                            queryListener="#{bindings.SoSalesOrderImeiDetCRUDQuery.processQuery}" filterVisible="true"
+                            varStatus="vs" id="t4" autoHeightRows="15" scrollPolicy="page">
+                    <af:column sortProperty="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.name}" filterable="true"
+                               headerText="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.label}" id="c13"
+                               width="200" displayIndex="-1">
+                      <af:inputText value="#{row.bindings.ItemRefId.inputValue}"
+                                    label="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.label}"
+                                    required="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.mandatory}"
+                                    columns="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.displayWidth}"
+                                    maximumLength="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.precision}"
+                                    shortDesc="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.tooltip}" id="it17"
+                                    readOnly="true">
+                        <f:validator binding="#{row.bindings.ItemRefId.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SoSalesOrderImeiDetCRUD.hints.ImeiNo.name}" filterable="true"
+                               headerText="#{bindings.SoSalesOrderImeiDetCRUD.hints.ImeiNo.label}" id="c14" width="200"
+                               displayIndex="-1">
+                      <af:inputText value="#{row.bindings.ImeiNo.inputValue}"
+                                    label="#{bindings.SoSalesOrderImeiDetCRUD.hints.ImeiNo.label}"
+                                    required="#{bindings.SoSalesOrderImeiDetCRUD.hints.ImeiNo.mandatory}"
+                                    columns="#{bindings.SoSalesOrderImeiDetCRUD.hints.ImeiNo.displayWidth}"
+                                    maximumLength="#{bindings.SoSalesOrderImeiDetCRUD.hints.ImeiNo.precision}"
+                                    shortDesc="#{bindings.SoSalesOrderImeiDetCRUD.hints.ImeiNo.tooltip}" id="it18"
+                                    readOnly="true">
+                        <f:validator binding="#{row.bindings.ImeiNo.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.name}" filterable="true"
+                               headerText="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.label}" id="c15"
+                               width="200" displayIndex="-1">
+                      <af:inputText value="#{row.bindings.TempBoxNo.inputValue}"
+                                    label="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.label}"
+                                    required="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.mandatory}"
+                                    columns="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.displayWidth}"
+                                    maximumLength="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.precision}"
+                                    shortDesc="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.tooltip}" id="it19"
+                                    readOnly="true">
+                        <f:validator binding="#{row.bindings.TempBoxNo.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                  </af:table>
+                </af:panelCollection>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+        </af:dialog>
+      </af:popup>
       <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
         <f:facet name="erptempmain">
           <af:panelHeader text="Sale Order" id="ph1" partialTriggers="b5 b4 b3 b2 b1 b6">
@@ -31,6 +106,11 @@
                                inlineStyle="border-color:#b8d6f3; outline-width:thin; border-width:thin thin thin thin;">
                     <f:facet name="toolbar">
                       <af:toolbar id="t1">
+                        <af:button actionListener="#{bindings.doSuperviseSaleOrder.execute}" text="doSuperviseSaleOrder"
+                                   disabled="#{!bindings.doSuperviseSaleOrder.enabled}" id="b10" rendered="false"/>
+                        <af:button text="Supervise Transaction" id="b9">
+                          <af:showPopupBehavior popupId="::p1" triggerType="action"/>
+                        </af:button>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
@@ -278,6 +358,9 @@
                               selectedRowKeys="#{bindings.SoSalesOrderLinesDetCRUD.collectionModel.selectedRow}"
                               selectionListener="#{bindings.SoSalesOrderLinesDetCRUD.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.SoSalesOrderLinesDetCRUD.rangeSize}" id="t2" partialTriggers="::b7 ::b8">
+                      <af:column id="c12" width="80" displayIndex="-1">
+                        <af:button text="IMEI" id="b11"/>
+                      </af:column>
                       <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.label}" id="c1"
                                  width="50">
                         <af:inputText value="#{row.bindings.Lineno.inputValue}"

@@ -1745,5 +1745,13 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
     public RowSet getAccVwFuncGetCustomerCreditLimit() {
         return (RowSet) getAttributeInternal(ACCVWFUNCGETCUSTOMERCREDITLIMIT);
     }
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        // TODO Implement this method
+        if (getPosted().equals("Y")) {
+            return false;
+       }
+        return super.isAttributeUpdateable(i);
+    }
 }
 

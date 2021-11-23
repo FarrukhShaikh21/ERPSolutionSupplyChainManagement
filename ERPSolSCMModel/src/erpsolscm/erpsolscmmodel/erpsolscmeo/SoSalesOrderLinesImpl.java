@@ -125,6 +125,7 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
         InItems,
         InItems1,
         SoDiscount,
+        SoSalesOrderImei,
         AccVwFuncGetItemDiscountByLocDateInsert,
         FuncVwFuncGetCustomerCreditLimitStop;
         private static AttributesEnum[] vals = null;
@@ -247,6 +248,7 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int INITEMS = AttributesEnum.InItems.index();
     public static final int INITEMS1 = AttributesEnum.InItems1.index();
     public static final int SODISCOUNT = AttributesEnum.SoDiscount.index();
+    public static final int SOSALESORDERIMEI = AttributesEnum.SoSalesOrderImei.index();
     public static final int ACCVWFUNCGETITEMDISCOUNTBYLOCDATEINSERT =
         AttributesEnum.AccVwFuncGetItemDiscountByLocDateInsert.index();
     public static final int FUNCVWFUNCGETCUSTOMERCREDITLIMITSTOP =
@@ -1790,6 +1792,13 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getSoSalesOrderImei() {
+        return (RowIterator) getAttributeInternal(SOSALESORDERIMEI);
+    }
+
+    /**
      * Gets the view accessor <code>RowSet</code> AccVwFuncGetItemDiscountByLocDateInsert.
      */
     public RowSet getAccVwFuncGetItemDiscountByLocDateInsert() {
@@ -1803,6 +1812,7 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
     public RowSet getFuncVwFuncGetCustomerCreditLimitStop() {
         return (RowSet) getAttributeInternal(FUNCVWFUNCGETCUSTOMERCREDITLIMITSTOP);
     }
+
 
     /**
      * @param salesorderlineseq key constituent
