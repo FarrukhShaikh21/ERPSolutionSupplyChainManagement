@@ -10,16 +10,35 @@
           <f:facet name="buttonBar"/>
         </af:dialog>
       </af:popup>
-      <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
-        <af:dialog id="d3" type="ok">
+      <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached">
+        <af:dialog id="d3" type="ok" contentWidth="800">
           <f:facet name="buttonBar"/>
           <af:panelGridLayout id="pgl6">
             <af:gridRow marginTop="5px" height="auto" id="gr13">
-              <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc29"/>
+              <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc29" valign="stretch" halign="stretch">
+                <af:inputText value="#{bindings.txtScanType.inputValue}" label="#{bindings.txtScanType.hints.label}"
+                              required="#{bindings.txtScanType.hints.mandatory}"
+                              columns="#{bindings.txtScanType.hints.displayWidth}"
+                              maximumLength="#{bindings.txtScanType.hints.precision}"
+                              shortDesc="#{bindings.txtScanType.hints.tooltip}" id="it20">
+                  <f:validator binding="#{bindings.txtScanType.validator}"/>
+                </af:inputText>
+              </af:gridCell>
+            </af:gridRow>
+            <af:gridRow id="gr15">
+              <af:gridCell id="gc31" width="100%" halign="stretch">
+                <af:inputText value="#{bindings.txtIMEIBox.inputValue}" label="#{bindings.txtIMEIBox.hints.label}"
+                              required="#{bindings.txtIMEIBox.hints.mandatory}"
+                              columns="#{bindings.txtIMEIBox.hints.displayWidth}"
+                              maximumLength="#{bindings.txtIMEIBox.hints.precision}"
+                              shortDesc="#{bindings.txtIMEIBox.hints.tooltip}" id="it21">
+                  <f:validator binding="#{bindings.txtIMEIBox.validator}"/>
+                </af:inputText>
+              </af:gridCell>
             </af:gridRow>
             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
-              <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc30" halign="stretch" valign="stretch">
-                <af:panelCollection id="pc2">
+              <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc30" halign="stretch">
+                <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                   <f:facet name="menus"/>
                   <f:facet name="toolbar"/>
                   <f:facet name="statusbar"/>
@@ -32,7 +51,7 @@
                             rowSelection="single" fetchSize="#{bindings.SoSalesOrderImeiDetCRUD.rangeSize}"
                             filterModel="#{bindings.SoSalesOrderImeiDetCRUDQuery.queryDescriptor}"
                             queryListener="#{bindings.SoSalesOrderImeiDetCRUDQuery.processQuery}" filterVisible="true"
-                            varStatus="vs" id="t4" autoHeightRows="15" scrollPolicy="page">
+                            varStatus="vs" id="t4" autoHeightRows="15" scrollPolicy="page" styleClass="AFStretchWidth">
                     <af:column sortProperty="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.name}" filterable="true"
                                headerText="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.label}" id="c13"
                                width="200" displayIndex="-1">
@@ -359,7 +378,9 @@
                               selectionListener="#{bindings.SoSalesOrderLinesDetCRUD.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.SoSalesOrderLinesDetCRUD.rangeSize}" id="t2" partialTriggers="::b7 ::b8">
                       <af:column id="c12" width="80" displayIndex="-1">
-                        <af:button text="IMEI" id="b11"/>
+                        <af:button text="IMEI" id="b11">
+                          <af:showPopupBehavior popupId="::::p2"/>
+                        </af:button>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.label}" id="c1"
                                  width="50">

@@ -127,5 +127,15 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="txtScanType">
+      <AttrNames>
+        <Item Value="txtScanType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="txtIMEIBox">
+      <AttrNames>
+        <Item Value="txtIMEIBox"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

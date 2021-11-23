@@ -1297,7 +1297,6 @@ return true;]]></validation:TransientExpression>
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SO_SALES_ORDER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -1306,6 +1305,42 @@ return true;]]></validation:TransientExpression>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.txtCurrentDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtIMEIBox"
+    Precision="80"
+    ColumnName="TXT_IMEIBOX"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.txtIMEIBox_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtScanType"
+    Precision="80"
+    ColumnName="TXT_SCAN_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.txtScanType_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>

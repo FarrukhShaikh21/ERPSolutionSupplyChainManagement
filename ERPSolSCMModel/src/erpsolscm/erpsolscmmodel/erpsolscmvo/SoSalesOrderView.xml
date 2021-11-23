@@ -764,6 +764,22 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtScanType"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtScanType"
+    EntityUsage="SoSalesOrder"
+    AliasName="TXT_SCAN_TYPE"/>
+  <ViewAttribute
+    Name="txtIMEIBox"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtIMEIBox"
+    EntityUsage="SoSalesOrder"
+    AliasName="TXT_IMEIBOX"/>
   <ViewLinkAccessor
     Name="SoSalesOrderLinesView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

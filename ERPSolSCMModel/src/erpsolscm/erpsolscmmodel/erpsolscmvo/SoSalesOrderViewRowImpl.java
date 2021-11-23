@@ -107,6 +107,8 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
         txtStoreName,
         txtSalesPersonName,
         txtSupplierName,
+        txtScanType,
+        txtIMEIBox,
         SoSalesOrderLinesView,
         AllCustomersView,
         AllStoresView,
@@ -228,6 +230,8 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
     public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
     public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int TXTSCANTYPE = AttributesEnum.txtScanType.index();
+    public static final int TXTIMEIBOX = AttributesEnum.txtIMEIBox.index();
     public static final int SOSALESORDERLINESVIEW = AttributesEnum.SoSalesOrderLinesView.index();
     public static final int ALLCUSTOMERSVIEW = AttributesEnum.AllCustomersView.index();
     public static final int ALLSTORESVIEW = AttributesEnum.AllStoresView.index();
@@ -1639,6 +1643,39 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
      */
     public void settxtSupplierName(String value) {
         setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+
+    /**
+     * Gets the attribute value for TXT_SCAN_TYPE using the alias name txtScanType.
+     * @return the TXT_SCAN_TYPE
+     */
+    public String gettxtScanType() {
+        return (String) getAttributeInternal(TXTSCANTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_SCAN_TYPE using the alias name txtScanType.
+     * @param value value to set the TXT_SCAN_TYPE
+     */
+    public void settxtScanType(String value) {
+        setAttributeInternal(TXTSCANTYPE, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_IMEIBOX using the alias name txtIMEIBox.
+     * @return the TXT_IMEIBOX
+     */
+    public String gettxtIMEIBox() {
+        return (String) getAttributeInternal(TXTIMEIBOX);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_IMEIBOX using the alias name txtIMEIBox.
+     * @param value value to set the TXT_IMEIBOX
+     */
+    public void settxtIMEIBox(String value) {
+        setAttributeInternal(TXTIMEIBOX, value);
     }
 
     /**
