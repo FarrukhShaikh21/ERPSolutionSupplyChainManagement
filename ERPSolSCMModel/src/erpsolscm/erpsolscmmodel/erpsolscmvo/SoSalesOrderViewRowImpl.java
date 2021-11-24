@@ -116,9 +116,9 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
         txtSalesPersonName,
         txtSupplierName,
         txtScanType,
-        txtIMEIBox,
         txtProductId,
         txtErrorMessage,
+        txtIMEIAndBox,
         SoSalesOrderLinesView,
         AllCustomersView,
         AllStoresView,
@@ -241,9 +241,9 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
     public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int TXTSCANTYPE = AttributesEnum.txtScanType.index();
-    public static final int TXTIMEIBOX = AttributesEnum.txtIMEIBox.index();
     public static final int TXTPRODUCTID = AttributesEnum.txtProductId.index();
     public static final int TXTERRORMESSAGE = AttributesEnum.txtErrorMessage.index();
+    public static final int TXTIMEIANDBOX = AttributesEnum.txtIMEIAndBox.index();
     public static final int SOSALESORDERLINESVIEW = AttributesEnum.SoSalesOrderLinesView.index();
     public static final int ALLCUSTOMERSVIEW = AttributesEnum.AllCustomersView.index();
     public static final int ALLSTORESVIEW = AttributesEnum.AllStoresView.index();
@@ -1674,40 +1674,6 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
         setAttributeInternal(TXTSCANTYPE, value);
     }
 
-    /**
-     * Gets the attribute value for TXT_IMEIBOX using the alias name txtIMEIBox.
-     * @return the TXT_IMEIBOX
-     */
-    public String gettxtIMEIBox() {
-        return (String) getAttributeInternal(TXTIMEIBOX);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for TXT_IMEIBOX using the alias name txtIMEIBox.
-     * @param value value to set the TXT_IMEIBOX
-     */
-    public void settxtIMEIBox(String value) {
-//        setAttributeInternal(TXTIMEIBOX, value);
-       String ERPSolPlsql="begin ?:=PKG_SALE_ORDER.FUNC_IMEI_BOX_VALIDATION('"+getSalesorderid()+"','"+value+"','"+gettxtScanType()+"','"+gettxtProductId()+"'); end;";
-           System.out.println(ERPSolPlsql);
-        CallableStatement cs = getDBTransaction().createCallableStatement(ERPSolPlsql, DBTransaction.DEFAULT);
-        try {
-            cs.registerOutParameter(1, Types.VARCHAR);
-            cs.executeUpdate();
-            ERPSolPlsql=cs.getString(1);
-            if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
-            {  
-                getDBTransaction().commit();
-            getApplicationModule().findViewObject("SoSalesOrderImeiDetCRUD").executeQuery();
-            }
-            else {
-                settxtErrorMessage(ERPSolPlsql);
-//                throw new JboException(ERPSolPlsql);
-            }
-        } catch (SQLException e) {
-            
-        }
-    }
 
     /**
      * Gets the attribute value for TXT_PRODUCT_ID using the alias name txtProductId.
@@ -1739,6 +1705,49 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
      */
     public void settxtErrorMessage(String value) {
         setAttributeInternal(TXTERRORMESSAGE, value);
+    }
+
+
+    /**
+     * Gets the attribute value for the calculated attribute txtIMEIAndBox.
+     * @return the txtIMEIAndBox
+     */
+    public String gettxtIMEIAndBox() {
+        return (String) getAttributeInternal(TXTIMEIANDBOX);
+        
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute txtIMEIAndBox.
+     * @param value value to set the  txtIMEIAndBox
+     */
+    public void settxtIMEIAndBox(String value) {
+        setAttributeInternal(TXTIMEIANDBOX, value);
+//        String ERPSolPlsql="begin ?:=PKG_SALE_ORDER.FUNC_IMEI_BOX_VALIDATION('"+getSalesorderid()+"','"+value+"','"+gettxtScanType()+"','"+gettxtProductId()+"'); end;";
+//            System.out.println(ERPSolPlsql);
+//         CallableStatement cs = getDBTransaction().createCallableStatement(ERPSolPlsql, DBTransaction.DEFAULT);
+//         try {
+//             cs.registerOutParameter(1, Types.VARCHAR);
+//             cs.executeUpdate();
+//             ERPSolPlsql=cs.getString(1);
+//             if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
+//             {  
+//                 getDBTransaction().commit();
+//             getApplicationModule().findViewObject("SoSalesOrderImeiDetCRUD").executeQuery();
+//             }
+//             else {
+//                 settxtErrorMessage(ERPSolPlsql);
+//        //                throw new JboException(ERPSolPlsql);
+//             }
+//         } catch (SQLException e) {
+//             
+//         }
+//         finally{
+//            try {
+//                cs.close();
+//            } catch (SQLException e) {
+//            }
+//        }
     }
 
     /**

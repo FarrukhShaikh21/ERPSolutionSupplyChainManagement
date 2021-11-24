@@ -2,9 +2,17 @@ package erpsolscm.erpsolscmview.erpsolscmclass;
 
 import erpsolglob.erpsolglobview.erpclass.ERPSolGlobalViewBean;
 
+import java.sql.CallableStatement;
+
+import java.sql.SQLException;
+import java.sql.Types;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
 
 import oracle.binding.BindingContainer;
@@ -13,6 +21,7 @@ import oracle.adf.model.OperationBinding;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCDataControl;
 import oracle.adf.model.binding.DCIteratorBinding;
+import oracle.adf.model.binding.DCIteratorBindingDef;
 import oracle.adf.share.ADFContext;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
@@ -21,6 +30,7 @@ import oracle.adf.view.rich.event.DialogEvent;
 import oracle.jbo.ApplicationModule;
 import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
+import oracle.jbo.server.DBTransaction;
 
 public class ERPSolSCMBean {
     public ERPSolSCMBean() {
@@ -31,7 +41,11 @@ public class ERPSolSCMBean {
     String ERPSolStrUserLocationCode;
     String ERPSolStrUserRegionCode;
     String ERPSolStrUserStoreCode;
+    String ERPSolScanType="B";
+    String ERPSolProductId;
+    String ERPSolSalesOrderId;
     RichPopup ERPSolImeiPopup;
+    
     
     public void doSetERPSolSCMSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
@@ -176,5 +190,70 @@ public class ERPSolSCMBean {
         RichPopup.PopupHints ERPSolHints=new RichPopup.PopupHints();
         getERPSolImeiPopup().show(ERPSolHints);
         return null;
+    }
+    public void erpSolSoImeiBox(ValueChangeEvent erpvce) {
+        System.out.println("1");
+        DCBindingContainer bc = (DCBindingContainer) ERPSolGlobalViewBean.doGetERPBindings();
+        System.out.println("2");
+        DCDataControl dc = bc.getDataControl();
+        System.out.println("3");
+        String ERPSolPlsql="begin ?:=PKG_SALE_ORDER.FUNC_IMEI_BOX_VALIDATION('"+getERPSolSalesOrderId()+"','"+erpvce.getNewValue()+"','"+getERPSolScanType()+"','"+getERPSolProductId()+"'); end;";
+        System.out.println("4");
+        DBTransaction erpsoldbt=(DBTransaction)dc.getApplicationModule().getTransaction();
+        System.out.println("5");
+        CallableStatement cs = erpsoldbt.createCallableStatement(ERPSolPlsql, DBTransaction.DEFAULT);
+        try {
+                     System.out.println("6");
+                     cs.registerOutParameter(1, Types.VARCHAR);
+                     System.out.println("7");
+                     cs.executeUpdate();
+                     System.out.println("8");
+                     ERPSolPlsql=cs.getString(1);
+                     System.out.println("9");
+                     if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
+                     {  
+                         
+                         erpsoldbt.commit();
+                     dc.getApplicationModule().findViewObject("SoSalesOrderImeiDetCRUD").executeQuery();
+                     }
+                     else {
+                         FacesContext.getCurrentInstance().addMessage(null , new FacesMessage(ERPSolPlsql));
+                //                throw new JboException(ERPSolPlsql);
+                     }
+                 } catch (SQLException e) {
+                     
+                 }
+                 finally{
+                    try {
+                        cs.close();
+                    } catch (SQLException e) {
+                    }
+                }
+        
+        
+    }
+
+    public void setERPSolScanType(String ERPSolScanType) {
+        this.ERPSolScanType = ERPSolScanType;
+    }
+
+    public String getERPSolScanType() {
+        return ERPSolScanType;
+    }
+
+    public void setERPSolProductId(String ERPSolProductId) {
+        this.ERPSolProductId = ERPSolProductId;
+    }
+
+    public String getERPSolProductId() {
+        return ERPSolProductId;
+    }
+
+    public void setERPSolSalesOrderId(String ERPSolSalesOrderId) {
+        this.ERPSolSalesOrderId = ERPSolSalesOrderId;
+    }
+
+    public String getERPSolSalesOrderId() {
+        return ERPSolSalesOrderId;
     }
 }

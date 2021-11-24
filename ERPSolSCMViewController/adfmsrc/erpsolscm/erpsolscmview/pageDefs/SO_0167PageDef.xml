@@ -132,11 +132,6 @@
         <Item Value="txtScanType"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="txtIMEIBox">
-      <AttrNames>
-        <Item Value="txtIMEIBox"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="txtProductId">
       <AttrNames>
         <Item Value="txtProductId"/>
@@ -145,6 +140,11 @@
     <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="txtErrorMessage">
       <AttrNames>
         <Item Value="txtErrorMessage"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="txtIMEIAndBox">
+      <AttrNames>
+        <Item Value="txtIMEIAndBox"/>
       </AttrNames>
     </attributeValues>
   </bindings>

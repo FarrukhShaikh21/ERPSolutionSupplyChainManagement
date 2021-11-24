@@ -117,7 +117,6 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         txtSupplierName,
         txtErrorMessage,
         txtCurrentDate,
-        txtIMEIBox,
         txtScanType,
         txtProductId,
         SoSalesOrderLines,
@@ -130,7 +129,8 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         AccVwFuncCheckCustomerCancelCheque,
         AccVwFuncCheckCustomerDBCQVO,
         AccVwFuncShowAgingAlert;
-        private static AttributesEnum[] vals = null;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -241,7 +241,6 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int TXTERRORMESSAGE = AttributesEnum.txtErrorMessage.index();
     public static final int TXTCURRENTDATE = AttributesEnum.txtCurrentDate.index();
-    public static final int TXTIMEIBOX = AttributesEnum.txtIMEIBox.index();
     public static final int TXTSCANTYPE = AttributesEnum.txtScanType.index();
     public static final int TXTPRODUCTID = AttributesEnum.txtProductId.index();
     public static final int SOSALESORDERLINES = AttributesEnum.SoSalesOrderLines.index();
@@ -1663,22 +1662,6 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(TXTCURRENTDATE, value);
     }
 
-
-    /**
-     * Gets the attribute value for txtIMEIBox, using the alias name txtIMEIBox.
-     * @return the value of txtIMEIBox
-     */
-    public String gettxtIMEIBox() {
-        return (String) getAttributeInternal(TXTIMEIBOX);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for txtIMEIBox.
-     * @param value value to set the txtIMEIBox
-     */
-    public void settxtIMEIBox(String value) {
-        setAttributeInternal(TXTIMEIBOX, value);
-    }
 
     /**
      * Gets the attribute value for txtScanType, using the alias name txtScanType.

@@ -1311,24 +1311,6 @@ return true;]]></validation:TransientExpression>
     </Properties>
   </Attribute>
   <Attribute
-    Name="txtIMEIBox"
-    Precision="80"
-    ColumnName="TXT_IMEIBOX"
-    SQLType="VARCHAR"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    IsPersistent="false"
-    IsQueriable="false">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.txtIMEIBox_LABEL"/>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
-  <Attribute
     Name="txtScanType"
     Precision="80"
     ColumnName="TXT_SCAN_TYPE"
