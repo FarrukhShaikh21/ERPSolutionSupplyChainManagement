@@ -1877,5 +1877,13 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
     public RowSet getAccVwFuncGetItemDiscountByLocDate() {
         return (RowSet) getAttributeInternal(ACCVWFUNCGETITEMDISCOUNTBYLOCDATE);
     }
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        // TODO Implement this method
+        if (getSoSalesOrderView().getAttribute("Posted").equals("Y")) {
+            return false;
+       }
+        return super.isAttributeUpdateable(i);
+    }
 }
 

@@ -25,6 +25,8 @@ import oracle.adf.model.binding.DCIteratorBindingDef;
 import oracle.adf.share.ADFContext;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.input.RichInputText;
+import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.jbo.ApplicationModule;
@@ -45,6 +47,8 @@ public class ERPSolSCMBean {
     String ERPSolProductId;
     String ERPSolSalesOrderId;
     RichPopup ERPSolImeiPopup;
+    String ERPSolImeiBox;
+    RichInputText ERPSolImeiBoxText;
     
     
     public void doSetERPSolSCMSessionGlobals() {
@@ -215,6 +219,7 @@ public class ERPSolSCMBean {
                          
                          erpsoldbt.commit();
                      dc.getApplicationModule().findViewObject("SoSalesOrderImeiDetCRUD").executeQuery();
+                         dc.getApplicationModule().findViewObject("SoSalesOrderViewCRUD").getCurrentRow().setAttribute("txtIMEIAndBox", null);
                      }
                      else {
                          FacesContext.getCurrentInstance().addMessage(null , new FacesMessage(ERPSolPlsql));
@@ -229,7 +234,11 @@ public class ERPSolSCMBean {
                     } catch (SQLException e) {
                     }
                 }
-        
+    System.out.println("hello");
+        setERPSolImeiBox(null);
+        getERPSolImeiBoxText().setValue(null);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(getERPSolImeiBoxText());
+        System.out.println("5435");    
         
     }
 
@@ -255,5 +264,21 @@ public class ERPSolSCMBean {
 
     public String getERPSolSalesOrderId() {
         return ERPSolSalesOrderId;
+    }
+
+    public void setERPSolImeiBox(String ERPSolImeiBox) {
+        this.ERPSolImeiBox = ERPSolImeiBox;
+    }
+
+    public String getERPSolImeiBox() {
+        return ERPSolImeiBox;
+    }
+
+    public void setERPSolImeiBoxText(RichInputText ERPSolImeiBoxText) {
+        this.ERPSolImeiBoxText = ERPSolImeiBoxText;
+    }
+
+    public RichInputText getERPSolImeiBoxText() {
+        return ERPSolImeiBoxText;
     }
 }

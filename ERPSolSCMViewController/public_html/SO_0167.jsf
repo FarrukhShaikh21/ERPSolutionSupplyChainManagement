@@ -11,8 +11,8 @@
         </af:dialog>
       </af:popup>
       <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached"
-                binding="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolImeiPopup}">
-        <af:dialog id="d3" type="ok" contentWidth="800">
+                binding="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolImeiPopup}" eventContext="launcher">
+        <af:dialog id="d3" type="none" contentWidth="800" closeIconVisible="false" modal="false">
           <f:facet name="buttonBar"/>
           <af:panelGridLayout id="pgl6">
             <af:gridRow marginTop="5px" id="gr13">
@@ -28,13 +28,17 @@
             <af:gridRow id="gr15">
               <af:gridCell id="gc31" width="100%" halign="stretch" valign="stretch">
                 <af:panelGroupLayout id="pgl7" layout="horizontal">
-                  <af:inputText value="#{bindings.txtIMEIAndBox.inputValue}"
+                  <af:inputText
                                 label="#{bindings.txtIMEIAndBox.hints.label}"
                                 required="#{bindings.txtIMEIAndBox.hints.mandatory}"
                                 columns="#{bindings.txtIMEIAndBox.hints.displayWidth}"
                                 maximumLength="#{bindings.txtIMEIAndBox.hints.precision}"
                                 shortDesc="#{bindings.txtIMEIAndBox.hints.tooltip}" id="it20" autoSubmit="true"
-                                valueChangeListener="#{pageFlowScope.ERPSolSCMPageFlowBean.erpSolSoImeiBox}"/>
+                                valueChangeListener="#{pageFlowScope.ERPSolSCMPageFlowBean.erpSolSoImeiBox}"
+                                partialTriggers="it20"
+                                binding="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolImeiBoxText}">
+                    <af:clientListener method="jserpcontrolEnterKey" type="keyPress"/>
+                  </af:inputText>
                   <af:activeOutputText value="#{bindings.txtErrorMessage.inputValue}" id="aot1" inlineStyle="color:red"
                                        partialTriggers="it20"/>
                 </af:panelGroupLayout>
@@ -104,7 +108,7 @@
       </af:popup>
       <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
         <f:facet name="erptempmain">
-          <af:panelHeader text="Sale Order" id="ph1" partialTriggers="b5 b4 b3 b2 b1 b6">
+          <af:panelHeader text="Sale Order" id="ph1" partialTriggers="b4 b3 b2 b1 b6 b5 ::d2">
             <f:facet name="context"/>
             <f:facet name="menuBar"/>
             <f:facet name="toolbar"/>
@@ -131,22 +135,26 @@
                       <af:toolbar id="t1">
                         <af:button actionListener="#{bindings.doSuperviseSaleOrder.execute}" text="doSuperviseSaleOrder"
                                    disabled="#{!bindings.doSuperviseSaleOrder.enabled}" id="b10" rendered="false"/>
-                        <af:button text="Supervise Transaction" id="b9">
-                          <af:showPopupBehavior popupId="::p1" triggerType="action"/>
-                        </af:button>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
                                    disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Order"
-                                   disabled="#{!bindings.Delete.enabled}" id="b2"/>
+                                   disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"/>
                         <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Order"
                                    disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
-                                   id="b6">
+                                   id="b6" disabled="#{bindings.Posted.inputValue=='Y'}">
                           <af:resetActionListener/>
                         </af:button>
-                        <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b5"/>
+                        <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b5"
+                                   disabled="#{bindings.Posted.inputValue=='Y'}"/>
+                        <af:spacer width="50" height="10" id="s6"/>
+                        <af:button text="Supervise Transaction" id="b9"
+                                   visible="#{pageFlowScope.ERPSolTempBean.LERPSolAllowSubmit=='Y'}"
+                                   disabled="#{bindings.Posted.inputValue=='Y'}">
+                          <af:showPopupBehavior popupId="::p1" triggerType="action"/>
+                        </af:button>
                       </af:toolbar>
                     </f:facet>
                     <af:panelGridLayout id="pgl5">
@@ -155,14 +163,6 @@
                           <af:outputLabel value="#{bindings.Salesorderid.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
-                          <af:inputText value="#{bindings.txtProductId.inputValue}"
-                                        label="#{bindings.txtProductId.hints.label}"
-                                        required="#{bindings.txtProductId.hints.mandatory}"
-                                        columns="#{bindings.txtProductId.hints.displayWidth}"
-                                        maximumLength="#{bindings.txtProductId.hints.precision}"
-                                        shortDesc="#{bindings.txtProductId.hints.tooltip}" id="it22">
-                            <f:validator binding="#{bindings.txtProductId.validator}"/>
-                          </af:inputText>
                           <af:inputText value="#{bindings.Salesorderid.inputValue}"
                                         label="#{bindings.Salesorderid.hints.label}"
                                         required="#{bindings.Salesorderid.hints.mandatory}"
@@ -171,6 +171,13 @@
                                         shortDesc="#{bindings.Salesorderid.hints.tooltip}" id="it1" readOnly="true"
                                         simple="true">
                             <f:validator binding="#{bindings.Salesorderid.validator}"/>
+                          </af:inputText>
+                          <af:inputText value="#{bindings.Posted.inputValue}" label="#{bindings.Posted.hints.label}"
+                                        required="#{bindings.Posted.hints.mandatory}"
+                                        columns="#{bindings.Posted.hints.displayWidth}"
+                                        maximumLength="#{bindings.Posted.hints.precision}"
+                                        shortDesc="#{bindings.Posted.hints.tooltip}" id="it21" rendered="false">
+                            <f:validator binding="#{bindings.Posted.validator}"/>
                           </af:inputText>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc6" halign="center" valign="middle">
@@ -376,9 +383,9 @@
                     <f:facet name="toolbar">
                       <af:toolbar id="t3">
                         <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Product Line"
-                                   disabled="#{!bindings.Delete1.enabled}" id="b8"/>
+                                   disabled="#{bindings.Posted.inputValue=='Y'}" id="b8"/>
                         <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add Product Line"
-                                   disabled="#{!bindings.CreateInsert1.enabled}" id="b7"/>
+                                   disabled="#{bindings.Posted.inputValue=='Y'}" id="b7"/>
                       </af:toolbar>
                     </f:facet>
                     <f:facet name="statusbar"/>
@@ -558,5 +565,17 @@
         <f:facet name="erptempleft"/>
       </af:pageTemplate>
     </af:form>
+    <f:facet name="metaContainer">
+      <af:resource type="javascript">function jserpcontrolEnterKey(erpevt) {
+
+      var _keyCode = erpevt.getKeyCode();
+      //check for Enter Key
+      if (_keyCode == AdfKeyStroke.ENTER_KEY ){    
+          var comp = erpevt.getSource();
+          AdfCustomEvent.queue(comp, "ERPEnterEvent", {erpvalue:comp.getSubmittedValue()}, true);
+          erpevt.cancel();
+      }
+   }</af:resource>
+    </f:facet>
   </af:document>
 </f:view>

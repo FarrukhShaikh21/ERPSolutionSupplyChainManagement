@@ -773,14 +773,6 @@
     EntityUsage="SoSalesOrder"
     AliasName="TXT_SCAN_TYPE"/>
   <ViewAttribute
-    Name="txtProductId"
-    IsQueriable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    EntityAttrName="txtProductId"
-    EntityUsage="SoSalesOrder"
-    AliasName="TXT_PRODUCT_ID"/>
-  <ViewAttribute
     Name="txtErrorMessage"
     IsQueriable="false"
     IsPersistent="false"

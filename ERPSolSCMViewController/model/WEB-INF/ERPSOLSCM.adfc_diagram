@@ -169,4 +169,39 @@
       <property
          name="sdm:polyPoints">B50,2.0,102.82178,45.34668,102.82178,T50</property>
    </ControlFlowCase>
+   <View
+      id="View15">
+      <property
+         name="activityId">SCAN_IMEI</property>
+      <property
+         name="page">/SCAN_IMEI.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SCAN_IMEI&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">503.79883</property>
+      <property
+         name="x">-211.65918</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase16"
+      from="View2"
+      to="View15">
+      <property
+         name="fromOutcome">ERPSOLACT-IMEI-SCAN</property>
+      <property
+         name="sdm:polyPoints">L50,-27.062012,433.8506,-27.062012,503.44824,R50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase17"
+      from="View15"
+      to="View2">
+      <property
+         name="fromOutcome">ERPSOLBACK-TO-SO</property>
+      <property
+         name="sdm:polyPoints">R45,L48</property>
+   </ControlFlowCase>
 </SDM>

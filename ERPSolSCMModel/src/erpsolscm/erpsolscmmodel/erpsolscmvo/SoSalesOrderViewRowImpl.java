@@ -116,7 +116,6 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
         txtSalesPersonName,
         txtSupplierName,
         txtScanType,
-        txtProductId,
         txtErrorMessage,
         txtIMEIAndBox,
         SoSalesOrderLinesView,
@@ -241,7 +240,6 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
     public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int TXTSCANTYPE = AttributesEnum.txtScanType.index();
-    public static final int TXTPRODUCTID = AttributesEnum.txtProductId.index();
     public static final int TXTERRORMESSAGE = AttributesEnum.txtErrorMessage.index();
     public static final int TXTIMEIANDBOX = AttributesEnum.txtIMEIAndBox.index();
     public static final int SOSALESORDERLINESVIEW = AttributesEnum.SoSalesOrderLinesView.index();
@@ -1676,22 +1674,6 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
 
 
     /**
-     * Gets the attribute value for TXT_PRODUCT_ID using the alias name txtProductId.
-     * @return the TXT_PRODUCT_ID
-     */
-    public String gettxtProductId() {
-        return (String) getAttributeInternal(TXTPRODUCTID);
-    }
-
-    /**
-     * Sets <code>value</code> as attribute value for TXT_PRODUCT_ID using the alias name txtProductId.
-     * @param value value to set the TXT_PRODUCT_ID
-     */
-    public void settxtProductId(String value) {
-        setAttributeInternal(TXTPRODUCTID, value);
-    }
-
-    /**
      * Gets the attribute value for TXT_ERROR_MESSAGE using the alias name txtErrorMessage.
      * @return the TXT_ERROR_MESSAGE
      */
@@ -1722,7 +1704,7 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
      * @param value value to set the  txtIMEIAndBox
      */
     public void settxtIMEIAndBox(String value) {
-        setAttributeInternal(TXTIMEIANDBOX, value);
+//        setAttributeInternal(TXTIMEIANDBOX, value);
 //        String ERPSolPlsql="begin ?:=PKG_SALE_ORDER.FUNC_IMEI_BOX_VALIDATION('"+getSalesorderid()+"','"+value+"','"+gettxtScanType()+"','"+gettxtProductId()+"'); end;";
 //            System.out.println(ERPSolPlsql);
 //         CallableStatement cs = getDBTransaction().createCallableStatement(ERPSolPlsql, DBTransaction.DEFAULT);

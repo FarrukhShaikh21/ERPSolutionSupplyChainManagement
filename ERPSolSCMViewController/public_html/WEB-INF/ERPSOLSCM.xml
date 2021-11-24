@@ -61,6 +61,9 @@
         <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SCAN_IMEI">
+      <page>/SCAN_IMEI.jsf</page>
+    </view>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -91,6 +94,20 @@
       <control-flow-case id="__15">
         <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
         <to-activity-id>ERPSolSCMMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__16">
+      <from-activity-id>SO_0167</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome>ERPSOLACT-IMEI-SCAN</from-outcome>
+        <to-activity-id>SCAN_IMEI</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__18">
+      <from-activity-id>SCAN_IMEI</from-activity-id>
+      <control-flow-case id="__19">
+        <from-outcome>ERPSOLBACK-TO-SO</from-outcome>
+        <to-activity-id>SO_0167</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

@@ -118,7 +118,6 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         txtErrorMessage,
         txtCurrentDate,
         txtScanType,
-        txtProductId,
         SoSalesOrderLines,
         AllCustomers,
         AllStores,
@@ -242,7 +241,6 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTERRORMESSAGE = AttributesEnum.txtErrorMessage.index();
     public static final int TXTCURRENTDATE = AttributesEnum.txtCurrentDate.index();
     public static final int TXTSCANTYPE = AttributesEnum.txtScanType.index();
-    public static final int TXTPRODUCTID = AttributesEnum.txtProductId.index();
     public static final int SOSALESORDERLINES = AttributesEnum.SoSalesOrderLines.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
@@ -1679,21 +1677,6 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(TXTSCANTYPE, value);
     }
 
-    /**
-     * Gets the attribute value for txtProductId, using the alias name txtProductId.
-     * @return the value of txtProductId
-     */
-    public String gettxtProductId() {
-        return (String) getAttributeInternal(TXTPRODUCTID);
-    }
-
-    /**
-     * Sets <code>value</code> as the attribute value for txtProductId.
-     * @param value value to set the txtProductId
-     */
-    public void settxtProductId(String value) {
-        setAttributeInternal(TXTPRODUCTID, value);
-    }
 
     /**
      * @return the associated entity oracle.jbo.RowIterator.
