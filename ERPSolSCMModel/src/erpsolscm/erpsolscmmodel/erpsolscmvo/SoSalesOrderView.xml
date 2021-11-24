@@ -780,6 +780,22 @@
     EntityAttrName="txtIMEIBox"
     EntityUsage="SoSalesOrder"
     AliasName="TXT_IMEIBOX"/>
+  <ViewAttribute
+    Name="txtProductId"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtProductId"
+    EntityUsage="SoSalesOrder"
+    AliasName="TXT_PRODUCT_ID"/>
+  <ViewAttribute
+    Name="txtErrorMessage"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtErrorMessage"
+    EntityUsage="SoSalesOrder"
+    AliasName="TXT_ERROR_MESSAGE"/>
   <ViewLinkAccessor
     Name="SoSalesOrderLinesView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

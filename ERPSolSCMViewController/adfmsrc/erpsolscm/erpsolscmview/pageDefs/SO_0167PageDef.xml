@@ -137,5 +137,15 @@
         <Item Value="txtIMEIBox"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="txtProductId">
+      <AttrNames>
+        <Item Value="txtProductId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="txtErrorMessage">
+      <AttrNames>
+        <Item Value="txtErrorMessage"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

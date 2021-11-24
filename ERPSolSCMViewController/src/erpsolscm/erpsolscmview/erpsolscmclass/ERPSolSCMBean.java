@@ -15,6 +15,7 @@ import oracle.adf.model.binding.DCDataControl;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.ADFContext;
 
+import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.jbo.ApplicationModule;
@@ -30,6 +31,7 @@ public class ERPSolSCMBean {
     String ERPSolStrUserLocationCode;
     String ERPSolStrUserRegionCode;
     String ERPSolStrUserStoreCode;
+    RichPopup ERPSolImeiPopup;
     
     public void doSetERPSolSCMSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
@@ -159,5 +161,20 @@ public class ERPSolSCMBean {
             OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseSaleOrder");
             binding.execute();
         }
+    }
+
+
+    public void setERPSolImeiPopup(RichPopup ERPSolImeiPopup) {
+        this.ERPSolImeiPopup = ERPSolImeiPopup;
+    }
+
+    public RichPopup getERPSolImeiPopup() {
+        return ERPSolImeiPopup;
+    }
+
+    public String DoShowERPSolImeiPopup() {
+        RichPopup.PopupHints ERPSolHints=new RichPopup.PopupHints();
+        getERPSolImeiPopup().show(ERPSolHints);
+        return null;
     }
 }

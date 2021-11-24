@@ -10,35 +10,38 @@
           <f:facet name="buttonBar"/>
         </af:dialog>
       </af:popup>
-      <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached">
+      <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached"
+                binding="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolImeiPopup}">
         <af:dialog id="d3" type="ok" contentWidth="800">
           <f:facet name="buttonBar"/>
           <af:panelGridLayout id="pgl6">
-            <af:gridRow marginTop="5px" height="auto" id="gr13">
+            <af:gridRow marginTop="5px" height="100px" id="gr13">
               <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc29" valign="stretch" halign="stretch">
-                <af:inputText value="#{bindings.txtScanType.inputValue}" label="#{bindings.txtScanType.hints.label}"
-                              required="#{bindings.txtScanType.hints.mandatory}"
-                              columns="#{bindings.txtScanType.hints.displayWidth}"
-                              maximumLength="#{bindings.txtScanType.hints.precision}"
-                              shortDesc="#{bindings.txtScanType.hints.tooltip}" id="it20">
-                  <f:validator binding="#{bindings.txtScanType.validator}"/>
-                </af:inputText>
+                <af:selectOneChoice label="#{bindings.txtScanType.hints.label}" value="#{bindings.txtScanType.inputValue}" id="soc1"
+                                    autoSubmit="true">
+                  <af:selectItem label="Box" value="B" id="si1"/>
+                  <af:selectItem label="IMEI" value="I" id="si2"/>
+                </af:selectOneChoice>
               </af:gridCell>
             </af:gridRow>
             <af:gridRow id="gr15">
-              <af:gridCell id="gc31" width="100%" halign="stretch">
-                <af:inputText value="#{bindings.txtIMEIBox.inputValue}" label="#{bindings.txtIMEIBox.hints.label}"
-                              required="#{bindings.txtIMEIBox.hints.mandatory}"
-                              columns="#{bindings.txtIMEIBox.hints.displayWidth}"
-                              maximumLength="#{bindings.txtIMEIBox.hints.precision}"
-                              shortDesc="#{bindings.txtIMEIBox.hints.tooltip}" id="it21">
-                  <f:validator binding="#{bindings.txtIMEIBox.validator}"/>
-                </af:inputText>
+              <af:gridCell id="gc31" width="100%" halign="stretch" valign="stretch">
+                <af:panelGroupLayout id="pgl7" layout="horizontal">
+                  <af:inputText value="#{bindings.txtIMEIBox.inputValue}" label="#{bindings.txtIMEIBox.hints.label}"
+                                required="#{bindings.txtIMEIBox.hints.mandatory}"
+                                columns="#{bindings.txtIMEIBox.hints.displayWidth}"
+                                maximumLength="#{bindings.txtIMEIBox.hints.precision}"
+                                shortDesc="#{bindings.txtIMEIBox.hints.tooltip}" id="it21" autoSubmit="true">
+                    <f:validator binding="#{bindings.txtIMEIBox.validator}"/>
+                  </af:inputText>
+                  <af:activeOutputText value="#{bindings.txtErrorMessage.inputValue}" id="aot1" inlineStyle="color:red"
+                                       partialTriggers="it21"/>
+                </af:panelGroupLayout>
               </af:gridCell>
             </af:gridRow>
             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
               <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc30" halign="stretch">
-                <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+                <af:panelCollection id="pc2" styleClass="AFStretchWidth" partialTriggers="::it21">
                   <f:facet name="menus"/>
                   <f:facet name="toolbar"/>
                   <f:facet name="statusbar"/>
@@ -151,6 +154,14 @@
                           <af:outputLabel value="#{bindings.Salesorderid.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
+                          <af:inputText value="#{bindings.txtProductId.inputValue}"
+                                        label="#{bindings.txtProductId.hints.label}"
+                                        required="#{bindings.txtProductId.hints.mandatory}"
+                                        columns="#{bindings.txtProductId.hints.displayWidth}"
+                                        maximumLength="#{bindings.txtProductId.hints.precision}"
+                                        shortDesc="#{bindings.txtProductId.hints.tooltip}" id="it22">
+                            <f:validator binding="#{bindings.txtProductId.validator}"/>
+                          </af:inputText>
                           <af:inputText value="#{bindings.Salesorderid.inputValue}"
                                         label="#{bindings.Salesorderid.hints.label}"
                                         required="#{bindings.Salesorderid.hints.mandatory}"
@@ -378,8 +389,9 @@
                               selectionListener="#{bindings.SoSalesOrderLinesDetCRUD.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.SoSalesOrderLinesDetCRUD.rangeSize}" id="t2" partialTriggers="::b7 ::b8">
                       <af:column id="c12" width="80" displayIndex="-1">
-                        <af:button text="IMEI" id="b11">
-                          <af:showPopupBehavior popupId="::::p2"/>
+                        <af:button text="IMEI" id="b11"
+                                   action="#{pageFlowScope.ERPSolSCMPageFlowBean.DoShowERPSolImeiPopup}">
+                          <af:setActionListener from="#{row.bindings.Productid.inputValue}" to="#{bindings.txtProductId.inputValue}"/>
                         </af:button>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.Lineno.label}" id="c1"

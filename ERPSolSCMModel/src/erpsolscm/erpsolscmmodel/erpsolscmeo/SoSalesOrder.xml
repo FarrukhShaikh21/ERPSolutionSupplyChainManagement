@@ -1336,11 +1336,30 @@ return true;]]></validation:TransientExpression>
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     IsPersistent="false"
-    IsQueriable="false">
+    IsQueriable="false"
+    DefaultValue="B">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.txtScanType_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtProductId"
+    Precision="80"
+    ColumnName="TXT_PRODUCT_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.txtProductId_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
