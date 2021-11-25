@@ -163,11 +163,11 @@
       islink="true"
       id="ControlFlowCase14"
       from="MethodCall13"
-      to="View9">
+      to="MethodCall18">
       <property
          name="fromOutcome">ACT-ERP-SOL-GOTO-SCM-MAIN</property>
       <property
-         name="sdm:polyPoints">B50,2.0,102.82178,45.34668,102.82178,T50</property>
+         name="sdm:polyPoints">L50,-105.64844,32.195312,T50</property>
    </ControlFlowCase>
    <View
       id="View15">
@@ -192,7 +192,7 @@
       <property
          name="fromOutcome">ERPSOLACT-IMEI-SCAN</property>
       <property
-         name="sdm:polyPoints">L50,-27.062012,433.8506,-27.062012,503.44824,R50</property>
+         name="sdm:polyPoints">L46,-34.06201,430.3506,-34.06201,499.94824,R46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -202,6 +202,29 @@
       <property
          name="fromOutcome">ERPSOLBACK-TO-SO</property>
       <property
-         name="sdm:polyPoints">R45,L48</property>
+         name="sdm:polyPoints">R54,-27.062012,506.94824,-27.062012,437.3506,L54</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall18">
+      <property
+         name="activityId">ExeSysModuleSoTransaction</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeSysModuleSoTransaction&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">182.44824</property>
+      <property
+         name="x">-105.64844</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase19"
+      from="MethodCall18"
+      to="View9">
+      <property
+         name="fromOutcome">ACT-ERP-SOL-GOTO-SCM-MAIN</property>
+      <property
+         name="sdm:polyPoints">R50,-30.150879,182.09766,-30.150879,173.44824,L50</property>
    </ControlFlowCase>
 </SDM>

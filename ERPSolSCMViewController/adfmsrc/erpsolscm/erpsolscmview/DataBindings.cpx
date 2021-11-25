@@ -5,18 +5,27 @@
     <page path="/SO_0167.jsf" usageId="erpsolscm_erpsolscmview_SO_0167PageDef"/>
     <page path="/ERPSolSCMMain.jsf" usageId="erpsolscm_erpsolscmview_ERPSolSCMMainPageDef"/>
     <page path="/SO_0161.jsf" usageId="erpsolscm_erpsolscmview_SO_0161PageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExeSysModuleSoTransaction"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolscm_erpsolscmview_SO_0167PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0167PageDef"/>
     <page id="erpsolscm_erpsolscmview_ERPSolSCMMainPageDef"
           path="erpsolscm.erpsolscmview.pageDefs.ERPSolSCMMainPageDef"/>
     <page id="erpsolscm_erpsolscmview_SO_0161PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0161PageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolSCMAppModuleDataControl" Package="erpsolscm.erpsolscmmodel.erpsolscmam"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
                      SupportsSortCollection="true" Configuration="ERPSolSCMAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="ERPSolTempAppModuleDataControl" Package="erpsoltemp.erpsoltempmodel.erpsoltempam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolTempAppModuleLocal" syncMode="Immediate"
                      xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
   </dataControlUsages>
 </Application>
