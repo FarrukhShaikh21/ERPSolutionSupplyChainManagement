@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Srimei"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SRIMEI"
+  AliasName="Srimei"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="Srdetlid"
+    Precision="25"
+    ColumnName="SRDETLID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Boxno"
+    Precision="35"
+    ColumnName="BOXNO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="35"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ImeiNo"
+    Precision="20"
+    ColumnName="IMEI_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Createdby"
+    Precision="20"
+    ColumnName="CREATEDBY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SRIMEI"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Modifiedby"
+    Precision="20"
+    ColumnName="MODIFIEDBY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedDate"
+    ColumnName="MODIFIED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SRIMEI"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="IsCopy"
+    Precision="1"
+    ColumnName="IS_COPY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SymptomId"
+    Precision="15"
+    ColumnName="SYMPTOM_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Box"
+    Precision="1"
+    ColumnName="BOX"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Handfree"
+    Precision="1"
+    ColumnName="HANDFREE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Battery"
+    Precision="1"
+    ColumnName="BATTERY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BackCover"
+    Precision="1"
+    ColumnName="BACK_COVER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WarrantyCard"
+    Precision="1"
+    ColumnName="WARRANTY_CARD"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Pop"
+    Precision="1"
+    ColumnName="POP"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Charger"
+    Precision="1"
+    ColumnName="CHARGER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DataCable"
+    Precision="1"
+    ColumnName="DATA_CABLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Salesretid"
+    Precision="20"
+    ColumnName="SALESRETID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Remarks"
+    Precision="100"
+    ColumnName="REMARKS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Reject"
+    Precision="1"
+    ColumnName="REJECT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Lp"
+    Precision="1"
+    ColumnName="LP"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Sc"
+    Precision="1"
+    ColumnName="SC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Productid"
+    Precision="15"
+    ColumnName="PRODUCTID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Ug"
+    Precision="1"
+    ColumnName="UG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CompanyCode"
+    Precision="3"
+    ColumnName="COMPANY_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LpAmount"
+    Precision="16"
+    Scale="6"
+    ColumnName="LP_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SRIMEI"
+    PrimaryKey="true"/>
+  <AccessorAttribute
+    Name="SoSalesReturn"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmeo.SysC0017020Assoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmeo.SysC0017020Assoc.SoSalesReturn"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmeo.SysC0017020Assoc.Srimei"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SoSalesReturnLines"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmeo.SysC0017022Assoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmeo.SysC0017022Assoc.SoSalesReturnLines"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmeo.SysC0017022Assoc.Srimei"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SrimeiPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SRIMEI_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Srdetlid"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Boxno"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.ImeiNo"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Createdby"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.CreatedDate"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Modifiedby"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.ModifiedDate"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.IsCopy"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.SymptomId"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Box"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Handfree"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Battery"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.BackCover"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.WarrantyCard"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Pop"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Charger"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.DataCable"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Salesretid"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Remarks"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Reject"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Lp"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Sc"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Productid"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Ug"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.CompanyCode"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.LpAmount"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0017020">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKSO_SALES_RETURN"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SYS_C0017020"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Salesretid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0017021">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C0016270"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SYS_C0017021"/>
+      <Attr Name="_isDisabledConstraint" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.SymptomId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0017022">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C0015778"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SYS_C0017022"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Srdetlid"/>
+    </AttrArray>
+  </Key>
+</Entity>

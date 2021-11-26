@@ -84,7 +84,7 @@
         <to-activity-id>SO_0167</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__10">
-        <from-outcome>ACT-SO-0161</from-outcome>
+        <from-outcome>ERP-ACT-SO-0161</from-outcome>
         <to-activity-id>SO_0161</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
