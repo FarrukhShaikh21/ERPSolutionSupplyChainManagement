@@ -128,7 +128,8 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
         AccSoSalesPersonsView,
         AccPuSuppliersView,
         AccSoSalesPersonsDefaultView,
-        AccVwFuncGetCustomerCreditLimit;
+        AccVwFuncGetCustomerCreditLimit,
+        AccAllCustomerSalespersonPID;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -253,6 +254,7 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
     public static final int ACCPUSUPPLIERSVIEW = AttributesEnum.AccPuSuppliersView.index();
     public static final int ACCSOSALESPERSONSDEFAULTVIEW = AttributesEnum.AccSoSalesPersonsDefaultView.index();
     public static final int ACCVWFUNCGETCUSTOMERCREDITLIMIT = AttributesEnum.AccVwFuncGetCustomerCreditLimit.index();
+    public static final int ACCALLCUSTOMERSALESPERSONPID = AttributesEnum.AccAllCustomerSalespersonPID.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -298,6 +300,7 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
      */
     public void setSalesorderid(String value) {
         setAttributeInternal(SALESORDERID, value);
+//        AllCustomerSalespersonPIDVC        
     }
 
     /**
@@ -405,6 +408,10 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
      */
     public void setSalespersonid(String value) {
         setAttributeInternal(SALESPERSONID, value);
+        getAccAllCustomerSalespersonPID().setNamedWhereClauseParam("P_ADF_CUSTOMERID", getCustomerid());
+        getAccAllCustomerSalespersonPID().setNamedWhereClauseParam("P_ADF_SALESPERSONID", value);
+        getAccAllCustomerSalespersonPID().executeQuery();
+        setPid((Integer)getAccAllCustomerSalespersonPID().first().getAttribute("Id"));
     }
 
     /**
@@ -1836,6 +1843,14 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
     public RowSet getAccVwFuncGetCustomerCreditLimit() {
         return (RowSet) getAttributeInternal(ACCVWFUNCGETCUSTOMERCREDITLIMIT);
     }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccAllCustomerSalespersonPID.
+     */
+    public RowSet getAccAllCustomerSalespersonPID() {
+        return (RowSet) getAttributeInternal(ACCALLCUSTOMERSALESPERSONPID);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method

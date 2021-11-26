@@ -1061,6 +1061,24 @@
         Name="0"><![CDATA[FuncVwFuncGetCustomerCreditLimitStop?.first()?.getAttribute("Creditlimit")]]></validation:Expression>
     </validation:ResExpressions>
   </validation:CompareValidationBean>
+  <validation:CompareValidationBean
+    Name="SoSalesOrderLinesQuantityBR"
+    ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines_Rule_1"
+    OnAttribute="Quantity"
+    OperandType="ATTR"
+    Inverse="false"
+    CompareType="LESSTHANEQUALTO"
+    CompareValue="AvailQty">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="Quantity"/>
+      <validation:Item
+        Value="AvailQty"/>
+    </validation:OnAttributes>
+    <validation:OnCondition
+      trustMode="trusted"
+      Name="OnConditionExpr"><![CDATA[Quantity!=null && Productid !=null]]></validation:OnCondition>
+  </validation:CompareValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>

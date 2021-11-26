@@ -59,7 +59,7 @@
     Name="Id"
     ColumnName="ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="ALL_CUSTOMER_SALESPERSON"/>
   <Attribute

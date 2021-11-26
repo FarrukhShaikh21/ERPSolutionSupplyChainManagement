@@ -56,7 +56,7 @@
       <property
          name="fromOutcome">ACTStartERPSolutionTaskFlow</property>
       <property
-         name="sdm:polyPoints">B50,241.03516,161.75,241.03516,161.75,T50</property>
+         name="sdm:polyPoints">B50,241.03522,161.75,241.03513,161.75,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -66,7 +66,7 @@
       <property
          name="fromOutcome">ERP-ACT-SO-0167</property>
       <property
-         name="sdm:polyPoints">L50,157.53516,250.85059,T50</property>
+         name="sdm:polyPoints">L50,157.53513,250.85059,T50</property>
    </ControlFlowCase>
    <View
       id="View7">
@@ -91,7 +91,7 @@
       <property
          name="fromOutcome">ACT-SO-0161</property>
       <property
-         name="sdm:polyPoints">B50,241.03516,426.20117,L50</property>
+         name="sdm:polyPoints">B50,241.03513,426.20117,L50</property>
    </ControlFlowCase>
    <View
       id="View9">
@@ -142,7 +142,7 @@
       <property
          name="fromOutcome">ACT-ERPSOL-RETURN-FROM-SCM</property>
       <property
-         name="sdm:polyPoints">B50,483.0,16.169434,483.0,16.169434,T50</property>
+         name="sdm:polyPoints">B50,482.99997,16.169432,483.0,16.169432,T50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall13">
@@ -167,7 +167,7 @@
       <property
          name="fromOutcome">ACT-ERP-SOL-GOTO-SCM-MAIN</property>
       <property
-         name="sdm:polyPoints">L50,-105.64844,32.195312,T50</property>
+         name="sdm:polyPoints">L50,-105.64847,32.195312,T50</property>
    </ControlFlowCase>
    <View
       id="View15">
@@ -192,7 +192,7 @@
       <property
          name="fromOutcome">ERPSOLACT-IMEI-SCAN</property>
       <property
-         name="sdm:polyPoints">L46,-34.06201,430.3506,-34.06201,499.94824,R46</property>
+         name="sdm:polyPoints">L44,-38.203865,428.27963,-38.203865,497.87732,R44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -202,7 +202,7 @@
       <property
          name="fromOutcome">ERPSOLBACK-TO-SO</property>
       <property
-         name="sdm:polyPoints">R54,-27.062012,506.94824,-27.062012,437.3506,L54</property>
+         name="sdm:polyPoints">R56,-27.062023,509.01917,-27.062023,439.42148,L56</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall18">
@@ -225,6 +225,6 @@
       <property
          name="fromOutcome">ACT-ERP-SOL-GOTO-SCM-MAIN</property>
       <property
-         name="sdm:polyPoints">R50,-30.150879,182.09766,-30.150879,173.44824,L50</property>
+         name="sdm:polyPoints">R50,-30.15089,182.09766,-30.15089,173.44823,L50</property>
    </ControlFlowCase>
 </SDM>

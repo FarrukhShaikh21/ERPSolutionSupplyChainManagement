@@ -135,14 +135,14 @@
                       <af:toolbar id="t1">
                         <af:button actionListener="#{bindings.doSuperviseSaleOrder.execute}" text="doSuperviseSaleOrder"
                                    disabled="#{!bindings.doSuperviseSaleOrder.enabled}" id="b10" rendered="false"/>
-                        <af:button actionListener="#{bindings.Previous.execute}" text="#{pageFlowScope.P_ADF_USERCODE}"
+                        <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
                                    disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Order"
                                    disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"/>
                         <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Order"
-                                   disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
+                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='Y'}" id="b1"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
                                    id="b6" disabled="#{bindings.Posted.inputValue=='Y'}">
                           <af:resetActionListener/>
@@ -395,7 +395,8 @@
                               rowBandingInterval="0"
                               selectedRowKeys="#{bindings.SoSalesOrderLinesDetCRUD.collectionModel.selectedRow}"
                               selectionListener="#{bindings.SoSalesOrderLinesDetCRUD.collectionModel.makeCurrent}"
-                              rowSelection="single" fetchSize="#{bindings.SoSalesOrderLinesDetCRUD.rangeSize}" id="t2" partialTriggers="::b7 ::b8">
+                              rowSelection="single" fetchSize="#{bindings.SoSalesOrderLinesDetCRUD.rangeSize}" id="t2" partialTriggers="::b7 ::b8"
+                              autoHeightRows="10" scrollPolicy="page">
                       <af:column id="c12" width="80" displayIndex="-1">
                         <af:button text="IMEI" id="b11"
                                    action="#{pageFlowScope.ERPSolSCMPageFlowBean.DoShowERPSolImeiPopup}">

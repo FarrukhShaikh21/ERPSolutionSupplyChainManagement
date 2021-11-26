@@ -99,6 +99,14 @@
     Name="AccVwFuncGetCustomerCreditLimit"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetCustomerCreditLimitQVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllCustomerSalespersonPID"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomerSalespersonView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AllCustomerSalespersonPIDVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomerSalespersonView.AllCustomerSalespersonPIDVC"/>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtCustomerName"
     ListVOName="AccAllCustomersView"

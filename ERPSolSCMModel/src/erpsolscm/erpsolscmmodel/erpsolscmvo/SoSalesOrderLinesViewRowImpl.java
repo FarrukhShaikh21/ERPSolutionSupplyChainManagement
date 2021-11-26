@@ -1879,11 +1879,13 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
     }
     @Override
     public boolean isAttributeUpdateable(int i) {
+        
         // TODO Implement this method
         if (getSoSalesOrderView().getAttribute("Posted").equals("Y")) {
             return false;
        }
         return super.isAttributeUpdateable(i);
     }
+    
 }
 
