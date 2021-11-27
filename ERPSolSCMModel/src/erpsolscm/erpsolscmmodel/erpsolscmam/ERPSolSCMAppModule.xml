@@ -29,9 +29,6 @@
     Name="InItemsAutoSuggestRO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"/>
   <ViewUsage
-    Name="VWItemOpeningQVO1"
-    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VWItemOpeningQVO"/>
-  <ViewUsage
     Name="VwFuncGetItemRateByLocDateQVO1"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemRateByLocDateQVO"/>
   <ViewUsage
@@ -43,6 +40,15 @@
   <ViewUsage
     Name="SoSalesOrderImeiDetCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderImeiView"/>
+  <ViewUsage
+    Name="SoSalesReturnCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnView"/>
+  <ViewUsage
+    Name="SoSalesReturnLinesDetCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnLinesView"/>
+  <ViewUsage
+    Name="SrimeiView1"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
@@ -54,5 +60,17 @@
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesOrderLineSaleOrderImeiSalesorderlineseqLink"
     SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderLinesDetCRUD"
     DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderImeiDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="RSrl328Link1"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.RSrl328Link"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesReturnCRUD"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesReturnLinesDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="SysC0017022Link1"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SysC0017022Link"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesReturnLinesDetCRUD"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SrimeiView1"
     Reversed="false"/>
 </AppModule>

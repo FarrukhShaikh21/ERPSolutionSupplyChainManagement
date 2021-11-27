@@ -17,8 +17,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="25"/>
     </DesignTime>
@@ -324,6 +323,14 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="SRIMEI"/>
+  <Attribute
+    Name="Srimeiseq"
+    ColumnName="SRIMEISEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="SRIMEI"
+    PrimaryKey="true"/>
   <AccessorAttribute
     Name="SoSalesReturn"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.SysC0017020Assoc"
@@ -345,7 +352,7 @@
       <Attr Name="_DBObjectName" Value="SRIMEI_PRIMARY_KEY"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Srdetlid"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Srimeiseq"/>
     </AttrArray>
   </Key>
   <Key

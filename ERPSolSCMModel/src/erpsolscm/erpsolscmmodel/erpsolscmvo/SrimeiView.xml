@@ -184,4 +184,10 @@
     EntityAttrName="Salesreturnlinseq"
     EntityUsage="Srimei"
     AliasName="SALESRETURNLINSEQ"/>
+  <ViewAttribute
+    Name="Srimeiseq"
+    PrecisionRule="true"
+    EntityAttrName="Srimeiseq"
+    EntityUsage="Srimei"
+    AliasName="SRIMEISEQ"/>
 </ViewObject>

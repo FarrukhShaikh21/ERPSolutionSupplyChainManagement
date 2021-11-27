@@ -79,6 +79,10 @@
     Name="AccPuSuppliersView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuSuppliersView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllStoresView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovCatid"
     ListVOName="AccSretCategoryView"
@@ -172,6 +176,31 @@
     </AttrArray>
     <DisplayCriteria
       Name="PuSuppliersViewFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtStoreName"
+    ListVOName="AccAllStoresView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtStoreName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Storeid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StoreName"/>
+      <Item Value="Storeid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StoreName"/>
+      <Item Value="Storeid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AllStoresViewFindVC"/>
   </ListBinding>
   <EntityUsage
     Name="SoSalesReturn"
@@ -529,7 +558,15 @@
     PrecisionRule="true"
     EntityAttrName="txtStoreName"
     EntityUsage="SoSalesReturn"
-    AliasName="TXT_STORE_NAME"/>
+    AliasName="TXT_STORE_NAME"
+    LOVName="LovtxtStoreName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="SoSalesReturnLinesView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.RSrl328Link"
