@@ -324,6 +324,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonSoRebateSalesPersonIdAssoc.SoRebate"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AllStores"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStoresSoRebateStoreIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStoresSoRebateStoreIdAssoc.AllStores"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStoresSoRebateStoreIdAssoc.SoRebate"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkSoRebate"
     PrimaryKey="true">
@@ -386,6 +393,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.Salespersonid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SoRebate3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKALL_STORES"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SO_REBATE3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.Storeid"/>
     </AttrArray>
   </Key>
 </Entity>

@@ -439,4 +439,9 @@
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllStoresSoSalesReturnStoreIdLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SoRebateView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllStoresSoRebateStoreIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
