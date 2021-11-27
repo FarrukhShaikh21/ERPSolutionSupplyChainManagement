@@ -201,6 +201,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonsSoSalesReturnSalesPersonIdAssoc.SoSalesPersons"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SoRebate"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonSoRebateRebateIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonSoRebateRebateIdAssoc.SoRebate"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonSoRebateRebateIdAssoc.SoSalesPersons"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpksoSalesPersons"
     PrimaryKey="true">

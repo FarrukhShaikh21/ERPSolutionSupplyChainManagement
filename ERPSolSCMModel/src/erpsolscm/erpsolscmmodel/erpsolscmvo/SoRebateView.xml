@@ -183,4 +183,10 @@
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.FkRebatImeiRebateseqLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllCustomersView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCustomersSoRebateCustomerIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>
