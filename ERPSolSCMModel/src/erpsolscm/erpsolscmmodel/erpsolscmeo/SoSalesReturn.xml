@@ -18,8 +18,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_RETURN"
-    PrimaryKey="true">
+    TableName="SO_SALES_RETURN">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -534,6 +533,14 @@
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="Salesretseq"
+    ColumnName="SALESRETSEQ"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SO_SALES_RETURN"
+    PrimaryKey="true"/>
   <AccessorAttribute
     Name="SoSalesReturnLines"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.RSrl328Assoc"
@@ -555,7 +562,7 @@
       <Attr Name="_DBObjectName" Value="XPKSO_SALES_RETURN"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturn.Salesretid"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturn.Salesretseq"/>
     </AttrArray>
   </Key>
   <Key
