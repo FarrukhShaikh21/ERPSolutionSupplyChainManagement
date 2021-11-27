@@ -522,6 +522,14 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtStoreName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtStoreName"
+    EntityUsage="SoSalesReturn"
+    AliasName="TXT_STORE_NAME"/>
   <ViewLinkAccessor
     Name="SoSalesReturnLinesView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.RSrl328Link"
@@ -547,6 +555,12 @@
   <ViewLinkAccessor
     Name="PuSuppliersView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.PuSupplierSoSalesReturnSupplierIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllStoresView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllStoresSoSalesReturnStoreIdLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

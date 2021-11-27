@@ -76,11 +76,13 @@ public class SoSalesReturnImpl extends ERPSolGlobalsEntityImpl {
         txtCustomerName,
         txtSalesPersonName,
         txtSupplierName,
+        txtStoreName,
         SoSalesReturnLines,
         Srimei,
         AllCustomers,
         SoSalesPersons,
-        PuSuppliers;
+        PuSuppliers,
+        AllStores;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -156,11 +158,13 @@ public class SoSalesReturnImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTCUSTOMERNAME = AttributesEnum.txtCustomerName.index();
     public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
     public static final int SOSALESRETURNLINES = AttributesEnum.SoSalesReturnLines.index();
     public static final int SRIMEI = AttributesEnum.Srimei.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
     public static final int SOSALESPERSONS = AttributesEnum.SoSalesPersons.index();
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
+    public static final int ALLSTORES = AttributesEnum.AllStores.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -993,6 +997,22 @@ public class SoSalesReturnImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtStoreName, using the alias name txtStoreName.
+     * @return the value of txtStoreName
+     */
+    public String gettxtStoreName() {
+        return (String) getAttributeInternal(TXTSTORENAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtStoreName.
+     * @param value value to set the txtStoreName
+     */
+    public void settxtStoreName(String value) {
+        setAttributeInternal(TXTSTORENAME, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSoSalesReturnLines() {
@@ -1049,6 +1069,21 @@ public class SoSalesReturnImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setPuSuppliers(EntityImpl value) {
         setAttributeInternal(PUSUPPLIERS, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public EntityImpl getAllStores() {
+        return (EntityImpl) getAttributeInternal(ALLSTORES);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public void setAllStores(EntityImpl value) {
+        setAttributeInternal(ALLSTORES, value);
     }
 
 

@@ -77,11 +77,13 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
         txtCustomerName,
         txtSalesPersonName,
         txtSupplierName,
+        txtStoreName,
         SoSalesReturnLinesView,
         SrimeiView,
         AllCustomersView,
         SoSalesPersonsView,
         PuSuppliersView,
+        AllStoresView,
         AccSretCategoryView,
         AccAllCustomersView,
         AccSoSalesPersonsView,
@@ -164,11 +166,13 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
     public static final int TXTCUSTOMERNAME = AttributesEnum.txtCustomerName.index();
     public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
     public static final int SOSALESRETURNLINESVIEW = AttributesEnum.SoSalesReturnLinesView.index();
     public static final int SRIMEIVIEW = AttributesEnum.SrimeiView.index();
     public static final int ALLCUSTOMERSVIEW = AttributesEnum.AllCustomersView.index();
     public static final int SOSALESPERSONSVIEW = AttributesEnum.SoSalesPersonsView.index();
     public static final int PUSUPPLIERSVIEW = AttributesEnum.PuSuppliersView.index();
+    public static final int ALLSTORESVIEW = AttributesEnum.AllStoresView.index();
     public static final int ACCSRETCATEGORYVIEW = AttributesEnum.AccSretCategoryView.index();
     public static final int ACCALLCUSTOMERSVIEW = AttributesEnum.AccAllCustomersView.index();
     public static final int ACCSOSALESPERSONSVIEW = AttributesEnum.AccSoSalesPersonsView.index();
@@ -1020,6 +1024,22 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for TXT_STORE_NAME using the alias name txtStoreName.
+     * @return the TXT_STORE_NAME
+     */
+    public String gettxtStoreName() {
+        return (String) getAttributeInternal(TXTSTORENAME);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_STORE_NAME using the alias name txtStoreName.
+     * @param value value to set the TXT_STORE_NAME
+     */
+    public void settxtStoreName(String value) {
+        setAttributeInternal(TXTSTORENAME, value);
+    }
+
+    /**
      * Gets the associated <code>RowIterator</code> using master-detail link SoSalesReturnLinesView.
      */
     public RowIterator getSoSalesReturnLinesView() {
@@ -1073,6 +1093,20 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
      */
     public void setPuSuppliersView(Row value) {
         setAttributeInternal(PUSUPPLIERSVIEW, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link AllStoresView.
+     */
+    public Row getAllStoresView() {
+        return (Row) getAttributeInternal(ALLSTORESVIEW);
+    }
+
+    /**
+     * Sets the master-detail link AllStoresView between this object and <code>value</code>.
+     */
+    public void setAllStoresView(Row value) {
+        setAttributeInternal(ALLSTORESVIEW, value);
     }
 
     /**
