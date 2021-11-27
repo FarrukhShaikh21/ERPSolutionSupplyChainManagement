@@ -5,6 +5,51 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SoSalesReturnCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesReturnCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Salesretid">
+      <AttrNames>
+        <Item Value="Salesretid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SoSalesReturnCRUDIterator" StaticList="false" Uses="LovtxtCustomerName"
+                  id="txtCustomerName"/>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Customerid">
+      <AttrNames>
+        <Item Value="Customerid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="ManualRefNo">
+      <AttrNames>
+        <Item Value="ManualRefNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SoSalesReturnCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <listOfValues IterBinding="SoSalesReturnCRUDIterator" StaticList="false" Uses="LovtxtStoreName" id="txtStoreName"/>
+    <list IterBinding="SoSalesReturnCRUDIterator" StaticList="false" Uses="LovCatid" id="Catid" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="ConsignmentNo">
+      <AttrNames>
+        <Item Value="ConsignmentNo"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>

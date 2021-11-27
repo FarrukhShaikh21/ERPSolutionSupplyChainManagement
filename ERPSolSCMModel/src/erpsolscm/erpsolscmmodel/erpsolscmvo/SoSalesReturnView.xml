@@ -567,6 +567,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ManualRefNo"
+    PrecisionRule="true"
+    EntityAttrName="ManualRefNo"
+    EntityUsage="SoSalesReturn"
+    AliasName="MANUAL_REF_NO"/>
   <ViewLinkAccessor
     Name="SoSalesReturnLinesView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.RSrl328Link"

@@ -654,6 +654,26 @@
         Value="Storeid"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="ManualRefNo"
+    Precision="30"
+    ColumnName="MANUAL_REF_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SO_SALES_RETURN">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturn.ManualRefNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SoSalesReturnLines"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.RSrl328Assoc"

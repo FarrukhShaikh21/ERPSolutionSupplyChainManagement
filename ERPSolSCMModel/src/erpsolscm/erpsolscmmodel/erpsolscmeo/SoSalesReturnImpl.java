@@ -77,6 +77,7 @@ public class SoSalesReturnImpl extends ERPSolGlobalsEntityImpl {
         txtSalesPersonName,
         txtSupplierName,
         txtStoreName,
+        ManualRefNo,
         SoSalesReturnLines,
         Srimei,
         AllCustomers,
@@ -159,6 +160,7 @@ public class SoSalesReturnImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
+    public static final int MANUALREFNO = AttributesEnum.ManualRefNo.index();
     public static final int SOSALESRETURNLINES = AttributesEnum.SoSalesReturnLines.index();
     public static final int SRIMEI = AttributesEnum.Srimei.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
@@ -1010,6 +1012,22 @@ public class SoSalesReturnImpl extends ERPSolGlobalsEntityImpl {
      */
     public void settxtStoreName(String value) {
         setAttributeInternal(TXTSTORENAME, value);
+    }
+
+    /**
+     * Gets the attribute value for ManualRefNo, using the alias name ManualRefNo.
+     * @return the value of ManualRefNo
+     */
+    public String getManualRefNo() {
+        return (String) getAttributeInternal(MANUALREFNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ManualRefNo.
+     * @param value value to set the ManualRefNo
+     */
+    public void setManualRefNo(String value) {
+        setAttributeInternal(MANUALREFNO, value);
     }
 
     /**

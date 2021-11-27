@@ -78,6 +78,7 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
         txtSalesPersonName,
         txtSupplierName,
         txtStoreName,
+        ManualRefNo,
         SoSalesReturnLinesView,
         SrimeiView,
         AllCustomersView,
@@ -168,6 +169,7 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
     public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
+    public static final int MANUALREFNO = AttributesEnum.ManualRefNo.index();
     public static final int SOSALESRETURNLINESVIEW = AttributesEnum.SoSalesReturnLinesView.index();
     public static final int SRIMEIVIEW = AttributesEnum.SrimeiView.index();
     public static final int ALLCUSTOMERSVIEW = AttributesEnum.AllCustomersView.index();
@@ -1039,6 +1041,22 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
      */
     public void settxtStoreName(String value) {
         setAttributeInternal(TXTSTORENAME, value);
+    }
+
+    /**
+     * Gets the attribute value for MANUAL_REF_NO using the alias name ManualRefNo.
+     * @return the MANUAL_REF_NO
+     */
+    public String getManualRefNo() {
+        return (String) getAttributeInternal(MANUALREFNO);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for MANUAL_REF_NO using the alias name ManualRefNo.
+     * @param value value to set the MANUAL_REF_NO
+     */
+    public void setManualRefNo(String value) {
+        setAttributeInternal(MANUALREFNO, value);
     }
 
     /**
