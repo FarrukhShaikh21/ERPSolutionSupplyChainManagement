@@ -273,7 +273,7 @@
     Name="Pid"
     ColumnName="PID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN"/>
   <Attribute
@@ -396,7 +396,7 @@
     Name="MigratedDate"
     ColumnName="MIGRATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_RETURN"/>
   <Attribute
@@ -554,7 +554,7 @@
     Name="Salesretseq"
     ColumnName="SALESRETSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN"
     PrimaryKey="true"/>
@@ -589,7 +589,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_RETURN"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression

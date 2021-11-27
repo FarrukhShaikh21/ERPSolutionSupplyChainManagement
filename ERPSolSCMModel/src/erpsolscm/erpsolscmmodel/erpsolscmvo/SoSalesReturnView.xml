@@ -12,7 +12,12 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccSretCategoryView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SretCategoryView"
@@ -30,6 +35,45 @@
           trustMode="untrusted"><![CDATA[Locationid==null?"0":Locationid]]></TransientExpression>
       </PIMap>
     </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSoSalesPersonsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SoSalesPersonsByCustomerVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView.SoSalesPersonsByCustomerVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_CUSTOMERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Customerid==null?"0":Customerid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSoSalesPersonsDefView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SoSalesPersonsByCustomerVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView.SoSalesPersonsByCustomerVC"/>
+    <ViewCriteriaUsage
+      Name="SoSalesPersonsDefaultVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView.SoSalesPersonsDefaultVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_CUSTOMERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Customerid==null?"0":Customerid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccAllCustomerSalespersonPid"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomerSalespersonView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AllCustomerSalespersonPIDVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomerSalespersonView.AllCustomerSalespersonPIDVC"/>
   </ViewAccessor>
   <ListBinding
     Name="LovCatid"
@@ -74,6 +118,31 @@
     </AttrArray>
     <DisplayCriteria
       Name="AllCustomersViewFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSalesPersonName"
+    ListVOName="AccSoSalesPersonsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSalesPersonName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Salespersonid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Name"/>
+      <Item Value="Salespersonid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+      <Item Value="Salespersonid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="SoSalesPersonsFindVc"/>
   </ListBinding>
   <EntityUsage
     Name="SoSalesReturn"
@@ -385,6 +454,22 @@
     EntityUsage="SoSalesReturn"
     AliasName="TXT_CUSTOMER_NAME"
     LOVName="LovtxtCustomerName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtSalesPersonName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSalesPersonName"
+    EntityUsage="SoSalesReturn"
+    AliasName="TXT_SALES_PERSON_NAME"
+    LOVName="LovtxtSalesPersonName">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
