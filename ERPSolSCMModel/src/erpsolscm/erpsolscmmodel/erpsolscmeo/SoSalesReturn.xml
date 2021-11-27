@@ -33,7 +33,7 @@
     Name="ReturnDate"
     ColumnName="RETURN_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_RETURN"/>
   <Attribute
@@ -203,7 +203,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_RETURN">
+    TableName="SO_SALES_RETURN"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -557,6 +558,47 @@
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN"
     PrimaryKey="true"/>
+  <Attribute
+    Name="txtCustomerName"
+    Precision="80"
+    ColumnName="TXT_CUSTOMER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[AllCustomers?.CustomerName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturn.txtCustomerName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="Customerid"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtSalesPersonName"
+    Precision="80"
+    ColumnName="TXT_SALES_PERSON_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SO_SALES_RETURN"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SoSalesPersons?.Name]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Salespersonid"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="SoSalesReturnLines"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.RSrl328Assoc"
@@ -571,6 +613,20 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmeo.SysC0017020Assoc.SoSalesReturn"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="AllCustomers"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoSalesReturnCustomerIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoSalesReturnCustomerIdAssoc.AllCustomers"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoSalesReturnCustomerIdAssoc.SoSalesReturn"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SoSalesPersons"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonsSoSalesReturnSalesPersonIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonsSoSalesReturnSalesPersonIdAssoc.SoSalesPersons"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonsSoSalesReturnSalesPersonIdAssoc.SoSalesReturn"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="XpksoSalesReturn"
     PrimaryKey="true">
@@ -617,4 +673,30 @@
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturn.Invoiceid"/>
     </AttrArray>
   </Key>
+  <Key
+    Name="fk_SoSalesReturn">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="UNQ_ALL_CUSTOMERS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SO_SALES_RETURN"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturn.Customerid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SoSalesReturn1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKSO_SALES_PERSONS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SO_SALES_RETURN1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturn.Salespersonid"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
 </Entity>
