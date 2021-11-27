@@ -18,6 +18,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class SoSalesReturnViewRowImpl extends ViewRowImpl {
+
+
     public static final int ENTITY_SOSALESRETURN = 0;
 
     /**
@@ -74,16 +76,20 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
         Salesretseq,
         txtCustomerName,
         txtSalesPersonName,
+        txtSupplierName,
         SoSalesReturnLinesView,
         SrimeiView,
         AllCustomersView,
         SoSalesPersonsView,
+        PuSuppliersView,
         AccSretCategoryView,
         AccAllCustomersView,
         AccSoSalesPersonsView,
         AccSoSalesPersonsDefView,
-        AccAllCustomerSalespersonPid;
-        private static AttributesEnum[] vals = null;
+        AccAllCustomerSalespersonPid,
+        AccPuSuppliersView;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -105,6 +111,8 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int SALESRETID = AttributesEnum.Salesretid.index();
     public static final int RETURNDATE = AttributesEnum.ReturnDate.index();
     public static final int CUSTOMERID = AttributesEnum.Customerid.index();
@@ -155,15 +163,18 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
     public static final int SALESRETSEQ = AttributesEnum.Salesretseq.index();
     public static final int TXTCUSTOMERNAME = AttributesEnum.txtCustomerName.index();
     public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
+    public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int SOSALESRETURNLINESVIEW = AttributesEnum.SoSalesReturnLinesView.index();
     public static final int SRIMEIVIEW = AttributesEnum.SrimeiView.index();
     public static final int ALLCUSTOMERSVIEW = AttributesEnum.AllCustomersView.index();
     public static final int SOSALESPERSONSVIEW = AttributesEnum.SoSalesPersonsView.index();
+    public static final int PUSUPPLIERSVIEW = AttributesEnum.PuSuppliersView.index();
     public static final int ACCSRETCATEGORYVIEW = AttributesEnum.AccSretCategoryView.index();
     public static final int ACCALLCUSTOMERSVIEW = AttributesEnum.AccAllCustomersView.index();
     public static final int ACCSOSALESPERSONSVIEW = AttributesEnum.AccSoSalesPersonsView.index();
     public static final int ACCSOSALESPERSONSDEFVIEW = AttributesEnum.AccSoSalesPersonsDefView.index();
     public static final int ACCALLCUSTOMERSALESPERSONPID = AttributesEnum.AccAllCustomerSalespersonPid.index();
+    public static final int ACCPUSUPPLIERSVIEW = AttributesEnum.AccPuSuppliersView.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -993,6 +1004,22 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for TXT_SUPPLIER_NAME using the alias name txtSupplierName.
+     * @return the TXT_SUPPLIER_NAME
+     */
+    public String gettxtSupplierName() {
+        return (String) getAttributeInternal(TXTSUPPLIERNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_SUPPLIER_NAME using the alias name txtSupplierName.
+     * @param value value to set the TXT_SUPPLIER_NAME
+     */
+    public void settxtSupplierName(String value) {
+        setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+    /**
      * Gets the associated <code>RowIterator</code> using master-detail link SoSalesReturnLinesView.
      */
     public RowIterator getSoSalesReturnLinesView() {
@@ -1035,6 +1062,20 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the associated <code>Row</code> using master-detail link PuSuppliersView.
+     */
+    public Row getPuSuppliersView() {
+        return (Row) getAttributeInternal(PUSUPPLIERSVIEW);
+    }
+
+    /**
+     * Sets the master-detail link PuSuppliersView between this object and <code>value</code>.
+     */
+    public void setPuSuppliersView(Row value) {
+        setAttributeInternal(PUSUPPLIERSVIEW, value);
+    }
+
+    /**
      * Gets the view accessor <code>RowSet</code> AccSretCategoryView.
      */
     public RowSet getAccSretCategoryView() {
@@ -1067,6 +1108,13 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
      */
     public RowSet getAccAllCustomerSalespersonPid() {
         return (RowSet) getAttributeInternal(ACCALLCUSTOMERSALESPERSONPID);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccPuSuppliersView.
+     */
+    public RowSet getAccPuSuppliersView() {
+        return (RowSet) getAttributeInternal(ACCPUSUPPLIERSVIEW);
     }
 }
 
