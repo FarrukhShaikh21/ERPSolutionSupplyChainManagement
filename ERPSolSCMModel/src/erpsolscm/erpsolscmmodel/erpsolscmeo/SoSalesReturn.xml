@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="SO_SALES_RETURN"
   AliasName="SoSalesReturn"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+  </DesignTime>
   <Attribute
     Name="Salesretid"
     IsNotNull="true"
@@ -97,7 +103,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_RETURN">
+    TableName="SO_SALES_RETURN"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -106,7 +113,7 @@
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_RETURN"/>
   <Attribute
@@ -137,7 +144,7 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_RETURN"/>
   <Attribute
@@ -159,7 +166,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_RETURN">
+    TableName="SO_SALES_RETURN"
+    DefaultValue="B">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -207,7 +215,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_RETURN">
+    TableName="SO_SALES_RETURN"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -219,7 +228,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_RETURN">
+    TableName="SO_SALES_RETURN"
+    DefaultValue="SRTN">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
@@ -252,7 +262,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_RETURN">
+    TableName="SO_SALES_RETURN"
+    DefaultValue="O">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -361,7 +372,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_RETURN">
+    TableName="SO_SALES_RETURN"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -373,7 +385,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_RETURN">
+    TableName="SO_SALES_RETURN"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -404,7 +417,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_RETURN">
+    TableName="SO_SALES_RETURN"
+    DefaultValue="PKR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
@@ -417,7 +431,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_RETURN"/>
+    TableName="SO_SALES_RETURN"
+    DefaultValue="1"/>
   <Attribute
     Name="ReferenceTransId"
     Precision="15"
@@ -449,7 +464,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_RETURN">
+    TableName="SO_SALES_RETURN"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -458,7 +474,7 @@
     Name="SymptomDate"
     ColumnName="SYMPTOM_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_RETURN"/>
   <Attribute

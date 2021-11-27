@@ -13,6 +13,29 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccSretCategoryView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SretCategoryView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovCatid"
+    ListVOName="AccSretCategoryView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Catid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Catid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CatDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SoSalesReturn"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturn"/>
@@ -202,7 +225,15 @@
     PrecisionRule="true"
     EntityAttrName="Catid"
     EntityUsage="SoSalesReturn"
-    AliasName="CATID"/>
+    AliasName="CATID"
+    LOVName="LovCatid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IsAuto"
     PrecisionRule="true"

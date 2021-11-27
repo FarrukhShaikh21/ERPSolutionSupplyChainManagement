@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SretCategory"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SRET_CATEGORY"
+  AliasName="SretCategory"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="Catid"
+    Precision="15"
+    ColumnName="CATID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRET_CATEGORY"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CatDesc"
+    Precision="100"
+    ColumnName="CAT_DESC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRET_CATEGORY"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CatType"
+    Precision="5"
+    ColumnName="CAT_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRET_CATEGORY"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Days"
+    Precision="10"
+    Scale="0"
+    ColumnName="DAYS"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="SRET_CATEGORY"
+    PrimaryKey="true"/>
+  <Key
+    Name="SretcategoryPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SRETCATEGORY_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SretCategory.Catid"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SretCategory.CatDesc"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SretCategory.CatType"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SretCategory.Days"/>
+    </AttrArray>
+  </Key>
+</Entity>
