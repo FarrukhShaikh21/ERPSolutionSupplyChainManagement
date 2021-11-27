@@ -1824,6 +1824,7 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         setERPSolPKSeqName("SO_SALES_ORDER_SEQ");
         setLocationid(ERPSolGlobClassModel.doGetUserLocationCode());
         setStoreid(ERPSolGlobClassModel.doGetUserStoreCode());
+        setCompanyid(ERPSolGlobClassModel.doGetUserCompanyCode());
 //        setERPISGenertePK("NO");    
 //        SequenceImpl seq = new SequenceImpl("SO_SALES_ORDER_SEQ", getDBTransaction());
 //        setSalesorderseq(seq.getSequenceNumber());

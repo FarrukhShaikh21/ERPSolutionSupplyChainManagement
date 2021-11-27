@@ -74,7 +74,7 @@
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Return"
                                    disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"/>
                         <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Return"
-                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='Y'}" id="b1"/>
+                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
                                    id="b6" disabled="#{bindings.Posted.inputValue=='Y'}">
                           <af:resetActionListener/>
@@ -119,7 +119,7 @@
                           <af:inputDate value="#{bindings.ReturnDate.inputValue}"
                                         required="#{bindings.ReturnDate.hints.mandatory}"
                                         columns="#{bindings.ReturnDate.hints.displayWidth}"
-                                        shortDesc="#{bindings.ReturnDate.hints.tooltip}" id="id2">
+                                        shortDesc="#{bindings.ReturnDate.hints.tooltip}" id="id2" simple="true">
                             <f:validator binding="#{bindings.ReturnDate.validator}"/>
                             <af:convertDateTime pattern="#{bindings.ReturnDate.format}"/>
                           </af:inputDate>
@@ -155,6 +155,7 @@
                                                         shortDesc="#{bindings.txtStoreName.hints.tooltip}"
                                                         simple="true" autoSubmit="true">
                             <f:validator binding="#{bindings.txtStoreName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedStoreValues}"/>
                           </af:inputComboboxListOfValues>
                           <af:spacer width="10" height="10" id="s3"/>
                           <af:outputText value="#{bindings.Storeid.inputValue}" id="ot3" noWrap="true"

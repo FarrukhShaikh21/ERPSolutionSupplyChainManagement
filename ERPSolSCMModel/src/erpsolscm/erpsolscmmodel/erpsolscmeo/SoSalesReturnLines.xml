@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="SO_SALES_RETURN_LINES"
   AliasName="SoSalesReturnLines"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLinesImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="Salesretid"
     IsNotNull="true"
@@ -121,7 +127,7 @@
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -140,7 +146,7 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -191,7 +197,7 @@
     Scale="6"
     ColumnName="DISCOUNT_AMOUNT_BC"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -209,7 +215,7 @@
     Scale="6"
     ColumnName="RET_QTY"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -218,7 +224,7 @@
     Scale="6"
     ColumnName="RET_DISCOUNT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -327,7 +333,7 @@
     Name="SalesQty"
     ColumnName="SALES_QTY"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -430,6 +436,13 @@
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"
     PrimaryKey="true"/>
+  <Attribute
+    Name="txtGrossAmount"
+    ColumnName="TXT_GROSS_AMOUNT"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    TableName="SO_SALES_RETURN_LINES"/>
   <AccessorAttribute
     Name="SoSalesReturn"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.RSrl328Assoc"

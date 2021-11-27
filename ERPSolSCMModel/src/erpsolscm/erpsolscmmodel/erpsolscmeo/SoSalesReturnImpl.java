@@ -1125,7 +1125,7 @@ public class SoSalesReturnImpl extends ERPSolGlobalsEntityImpl {
         setERPSolPKSeqName("SO_SALES_RETURN_SEQ");
         setLocationid(ERPSolGlobClassModel.doGetUserLocationCode());
         setStoreid(ERPSolGlobClassModel.doGetUserStoreCode());
-        setStoreid(ERPSolGlobClassModel.doGetUserCompanyCode());
+        setCompanyid(ERPSolGlobClassModel.doGetUserCompanyCode());
     //        setERPISGenertePK("NO");
     //        SequenceImpl seq = new SequenceImpl("SO_SALES_ORDER_SEQ", getDBTransaction());
     //        setSalesorderseq(seq.getSequenceNumber());

@@ -15,6 +15,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
 
+import oracle.adf.model.AttributeBinding;
+
 import oracle.binding.BindingContainer;
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.OperationBinding;
@@ -100,13 +102,13 @@ public class ERPSolSCMBean {
         System.out.println("a");
         BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
         System.out.println("b");
-        DCIteratorBinding ERPSolib =(DCIteratorBinding)ERPSolbc.get("SoSalesOrderViewCRUDIterator");
+        AttributeBinding ERPLocid =(AttributeBinding)ERPSolbc.getControlBinding("Locationid");
         System.out.println("c");
-        String ERPLocid=""+ERPSolib.getCurrentRow().getAttribute("Locationid");
+//        String ERPLocid=""+ERPSolib.getCurrentRow().getAttribute("Locationid");
         System.out.println("d");
-        System.out.println(ERPLocid);//ERPSolGlobalViewBean.
+        System.out.println(ERPLocid.getInputValue());//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "AllStoresAutoSuggestRO",
-                                                            "LOCATIONID='"+ERPLocid+"' AND UPPER(CONCAT(STOREID,STORE_NAME))", "StoreName", "Storeid", 10);
+                                                            "LOCATIONID='"+ERPLocid.getInputValue()+"' AND UPPER(CONCAT(STOREID,STORE_NAME))", "StoreName", "Storeid", 10);
         return ResultList;
         
     }
@@ -118,13 +120,13 @@ public class ERPSolSCMBean {
         System.out.println("a");
         BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
         System.out.println("b");
-        DCIteratorBinding ERPSolib =(DCIteratorBinding)ERPSolbc.get("SoSalesOrderViewCRUDIterator");
+        AttributeBinding ERPLocid =(AttributeBinding)ERPSolbc.getControlBinding("Locationid");
         System.out.println("c");
-        String ERPLocid=""+ERPSolib.getCurrentRow().getAttribute("Locationid");
+        
         System.out.println("d");
         System.out.println(ERPLocid);//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "AllCustomersAutoSuggestRO",
-                                                            "LOCATIONID='"+ERPLocid+"' AND UPPER(CONCAT(CUSTOMERID,CUSTOMER_NAME))", "CustomerName", "Customerid", 10);
+                                                            "LOCATIONID='"+ERPLocid.getInputValue()+"' AND UPPER(CONCAT(CUSTOMERID,CUSTOMER_NAME))", "CustomerName", "Customerid", 10);
         return ResultList;
         
     }   
@@ -136,13 +138,13 @@ public class ERPSolSCMBean {
         System.out.println("a");
         BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
         System.out.println("b");
-        DCIteratorBinding ERPSolib =(DCIteratorBinding)ERPSolbc.get("SoSalesOrderViewCRUDIterator");
+        AttributeBinding ERPCustomerId =(AttributeBinding)ERPSolbc.getControlBinding("Customerid");
         System.out.println("c");
-        String ERPCustomerId=""+ERPSolib.getCurrentRow().getAttribute("Customerid");
+//        String ERPCustomerId=""+ERPSolib.getCurrentRow().getAttribute("Customerid");
         System.out.println("d");
         System.out.println(ERPCustomerId);//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "SoSalesPersonsAutoSuggestRO",
-                                                            "SALESPERSONID IN (SELECT ASP.SALESPERSONID from ALL_CUSTOMER_SALESPERSON ASP WHERE ASP.CUSTOMERID='"+ERPCustomerId+"') AND UPPER(CONCAT(Salespersonid,name))", "Name", "Salespersonid", 10);
+                                                            "SALESPERSONID IN (SELECT ASP.SALESPERSONID from ALL_CUSTOMER_SALESPERSON ASP WHERE ASP.CUSTOMERID='"+ERPCustomerId.getInputValue()+"') AND UPPER(CONCAT(Salespersonid,name))", "Name", "Salespersonid", 10);
         return ResultList;
         
     }   
@@ -154,13 +156,13 @@ public class ERPSolSCMBean {
         System.out.println("a");
         BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
         System.out.println("b");
-        DCIteratorBinding ERPSolib =(DCIteratorBinding)ERPSolbc.get("SoSalesOrderViewCRUDIterator");
+//        Attribute ERPSolib =(Attribute)ERPSolbc.get("SoSalesOrderViewCRUDIterator");
         System.out.println("c");
-        String ERPLocid=""+ERPSolib.getCurrentRow().getAttribute("Locationid");
+        AttributeBinding ERPLocid =(AttributeBinding)ERPSolbc.getControlBinding("Locationid");
         System.out.println("d");
-        System.out.println(ERPLocid);//ERPSolGlobalViewBean.
+        System.out.println(ERPLocid.getInputValue());//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "PuSuppliersAutoSuggestRO",
-                                                            "LOCATIONID='"+ERPLocid+"' AND UPPER(CONCAT(SUPPLIERID,SUPP_NAME))", "SuppName", "Supplierid", 10);
+                                                            "LOCATIONID='"+ERPLocid.getInputValue()+"' AND UPPER(CONCAT(SUPPLIERID,SUPP_NAME))", "SuppName", "Supplierid", 10);
         return ResultList;
         
     }   
