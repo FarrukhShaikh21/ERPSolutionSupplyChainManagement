@@ -17,12 +17,11 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="SoSalesReturn"/>
-      <Attr Name="_foreignKey" Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturn.XpksoSalesReturn"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturn.Salesretid"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturn.Salesretseq"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
@@ -32,11 +31,10 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="SoSalesReturnLines"/>
-      <Attr Name="_foreignKey" Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLines.RSrl328"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLines.Salesretid"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLines.Salesretseq"/>
     </AttrArray>
   </AssociationEnd>
 </Association>
