@@ -317,13 +317,6 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoRebateCustomerIdAssoc.SoRebate"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
-  <AccessorAttribute
-    Name="SoSalesPersons"
-    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonSoRebateRebateIdAssoc"
-    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonSoRebateRebateIdAssoc.SoSalesPersons"
-    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonSoRebateRebateIdAssoc.SoRebate"
-    Type="oracle.jbo.server.EntityImpl"
-    IsUpdateable="true"/>
   <Key
     Name="PkSoRebate"
     PrimaryKey="true">
