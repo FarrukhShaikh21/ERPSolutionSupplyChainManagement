@@ -313,14 +313,12 @@
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
     Name="Srdetlid"
-    IsNotNull="true"
     Precision="25"
     ColumnName="SRDETLID"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_RETURN_LINES"
-    PrimaryKey="true">
+    TableName="SO_SALES_RETURN_LINES">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="25"/>
     </DesignTime>
@@ -417,6 +415,21 @@
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="Salesretseq"
+    ColumnName="SALESRETSEQ"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SO_SALES_RETURN_LINES"/>
+  <Attribute
+    Name="Salesreturnlinseq"
+    ColumnName="SALESRETURNLINSEQ"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SO_SALES_RETURN_LINES"
+    PrimaryKey="true"/>
   <AccessorAttribute
     Name="SoSalesReturn"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.RSrl328Assoc"
@@ -438,7 +451,7 @@
       <Attr Name="_DBObjectName" Value="SYS_C0015778"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLines.Srdetlid"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLines.Salesreturnlinseq"/>
     </AttrArray>
   </Key>
   <Key

@@ -299,6 +299,13 @@
     EntityAttrName="ConsignmentNo"
     EntityUsage="SoSalesReturn"
     AliasName="CONSIGNMENT_NO"/>
+  <ViewAttribute
+    Name="Salesretseq"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="Salesretseq"
+    EntityUsage="SoSalesReturn"
+    AliasName="SALESRETSEQ"/>
   <ViewLinkAccessor
     Name="SoSalesReturnLinesView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.RSrl328Link"

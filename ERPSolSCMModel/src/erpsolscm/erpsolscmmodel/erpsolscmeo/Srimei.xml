@@ -30,8 +30,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="35"/>
     </DesignTime>
@@ -43,8 +42,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -56,8 +54,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -66,10 +63,9 @@
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SRIMEI"
-    PrimaryKey="true"/>
+    TableName="SRIMEI"/>
   <Attribute
     Name="Modifiedby"
     Precision="20"
@@ -77,8 +73,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -87,10 +82,9 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SRIMEI"
-    PrimaryKey="true"/>
+    TableName="SRIMEI"/>
   <Attribute
     Name="IsCopy"
     Precision="1"
@@ -98,8 +92,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -111,8 +104,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -124,8 +116,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -137,8 +128,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -150,8 +140,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -163,8 +152,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -176,8 +164,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -189,8 +176,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -202,8 +188,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -215,8 +200,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -228,8 +212,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -241,8 +224,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
@@ -254,8 +236,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -267,8 +248,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -280,8 +260,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -293,8 +272,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -306,8 +284,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -319,8 +296,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRIMEI"
-    PrimaryKey="true">
+    TableName="SRIMEI">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
@@ -333,8 +309,21 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SRIMEI"
-    PrimaryKey="true"/>
+    TableName="SRIMEI"/>
+  <Attribute
+    Name="Salesretseq"
+    ColumnName="SALESRETSEQ"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SRIMEI"/>
+  <Attribute
+    Name="Salesreturnlinseq"
+    ColumnName="SALESRETURNLINSEQ"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SRIMEI"/>
   <AccessorAttribute
     Name="SoSalesReturn"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.SysC0017020Assoc"
@@ -357,31 +346,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Srdetlid"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Boxno"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.ImeiNo"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Createdby"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.CreatedDate"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Modifiedby"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.ModifiedDate"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.IsCopy"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.SymptomId"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Box"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Handfree"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Battery"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.BackCover"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.WarrantyCard"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Pop"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Charger"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.DataCable"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Salesretid"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Remarks"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Reject"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Lp"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Sc"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Productid"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.Ug"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.CompanyCode"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei.LpAmount"/>
     </AttrArray>
   </Key>
   <Key

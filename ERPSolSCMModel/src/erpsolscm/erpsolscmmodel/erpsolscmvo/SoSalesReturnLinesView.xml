@@ -277,6 +277,18 @@
     EntityAttrName="EbsItemid"
     EntityUsage="SoSalesReturnLines"
     AliasName="EBS_ITEMID"/>
+  <ViewAttribute
+    Name="Salesretseq"
+    PrecisionRule="true"
+    EntityAttrName="Salesretseq"
+    EntityUsage="SoSalesReturnLines"
+    AliasName="SALESRETSEQ"/>
+  <ViewAttribute
+    Name="Salesreturnlinseq"
+    PrecisionRule="true"
+    EntityAttrName="Salesreturnlinseq"
+    EntityUsage="SoSalesReturnLines"
+    AliasName="SALESRETURNLINSEQ"/>
   <ViewLinkAccessor
     Name="SrimeiView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.SysC0017022Link"

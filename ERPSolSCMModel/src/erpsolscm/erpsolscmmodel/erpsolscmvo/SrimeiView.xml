@@ -172,4 +172,16 @@
     EntityAttrName="LpAmount"
     EntityUsage="Srimei"
     AliasName="LP_AMOUNT"/>
+  <ViewAttribute
+    Name="Salesretseq"
+    PrecisionRule="true"
+    EntityAttrName="Salesretseq"
+    EntityUsage="Srimei"
+    AliasName="SALESRETSEQ"/>
+  <ViewAttribute
+    Name="Salesreturnlinseq"
+    PrecisionRule="true"
+    EntityAttrName="Salesreturnlinseq"
+    EntityUsage="Srimei"
+    AliasName="SALESRETURNLINSEQ"/>
 </ViewObject>
