@@ -334,15 +334,15 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Pid, using the alias name Pid.
      * @return the value of Pid
      */
-    public BigDecimal getPid() {
-        return (BigDecimal) getAttributeInternal(PID);
+    public Integer getPid() {
+        return (Integer) getAttributeInternal(PID);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Pid.
      * @param value value to set the Pid
      */
-    public void setPid(BigDecimal value) {
+    public void setPid(Integer value) {
         setAttributeInternal(PID, value);
     }
 
@@ -526,15 +526,15 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Rebateseq, using the alias name Rebateseq.
      * @return the value of Rebateseq
      */
-    public BigDecimal getRebateseq() {
-        return (BigDecimal) getAttributeInternal(REBATESEQ);
+    public Integer getRebateseq() {
+        return (Integer) getAttributeInternal(REBATESEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Rebateseq.
      * @param value value to set the Rebateseq
      */
-    public void setRebateseq(BigDecimal value) {
+    public void setRebateseq(Integer value) {
         setAttributeInternal(REBATESEQ, value);
     }
 
@@ -714,7 +714,7 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
 
      * @return a Key object based on given key constituents.
      */
-    public static Key createPrimaryKey(BigDecimal rebateseq) {
+    public static Key createPrimaryKey(Integer rebateseq) {
         return new Key(new Object[] { rebateseq });
     }
 

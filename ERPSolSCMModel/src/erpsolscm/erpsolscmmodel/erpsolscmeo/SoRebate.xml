@@ -19,7 +19,6 @@
   <Attribute
     Name="RebateId"
     IsUnique="true"
-    IsNotNull="true"
     Precision="15"
     ColumnName="REBATE_ID"
     SQLType="VARCHAR"
@@ -69,6 +68,14 @@
     TableName="SO_REBATE">
     <TransientExpression
       trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.Rdate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Posted"
@@ -198,7 +205,7 @@
     Name="Pid"
     ColumnName="PID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_REBATE"/>
   <Attribute
@@ -353,7 +360,7 @@
     IsNotNull="true"
     ColumnName="REBATESEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_REBATE"
     PrimaryKey="true"/>

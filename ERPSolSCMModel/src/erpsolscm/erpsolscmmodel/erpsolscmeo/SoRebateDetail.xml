@@ -213,7 +213,7 @@
     Name="Rebateseq"
     ColumnName="REBATESEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_REBATE_DETAIL"/>
   <Attribute
@@ -221,7 +221,7 @@
     IsNotNull="true"
     ColumnName="REBATEDETAILSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_REBATE_DETAIL"
     PrimaryKey="true"/>

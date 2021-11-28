@@ -29,7 +29,7 @@
     Scale="0"
     ColumnName="REBATE_IMEI_SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_REBATE_IMEI"
     PrimaryKey="true"/>
@@ -40,7 +40,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_REBATE_IMEI">
+    TableName="SO_REBATE_IMEI"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -61,7 +62,7 @@
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_REBATE_IMEI"/>
   <Attribute
@@ -80,7 +81,7 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_REBATE_IMEI"/>
   <Attribute
@@ -114,7 +115,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_REBATE_IMEI">
+    TableName="SO_REBATE_IMEI"
+    DefaultValue="M">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -126,7 +128,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_REBATE_IMEI">
+    TableName="SO_REBATE_IMEI"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -153,7 +156,7 @@
     Name="SaleDate"
     ColumnName="SALE_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_REBATE_IMEI"/>
   <Attribute

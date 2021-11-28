@@ -70,6 +70,15 @@
     <view id="SO_0171">
       <page>/SO_0171.jsf</page>
     </view>
+    <view id="SCAN_IMEI">
+      <page>/SCAN_IMEI.jsf</page>
+    </view>
+    <method-call id="ExeRebateDetail">
+      <method>#{bindings.Execute.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-BACK-FROM-REBATE-IMEI</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -111,6 +120,27 @@
       <control-flow-case id="__21">
         <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
         <to-activity-id>ERPSolSCMMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id>SO_0171</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome>ACT-SCAN-REBATE-IMEI</from-outcome>
+        <to-activity-id>SCAN_IMEI</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id>SCAN_IMEI</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome>ACT-BACK-FROM-REBATE-IMEI</from-outcome>
+        <to-activity-id>ExeRebateDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__23">
+      <from-activity-id>ExeRebateDetail</from-activity-id>
+      <control-flow-case id="__24">
+        <from-outcome>ACT-BACK-FROM-REBATE-IMEI</from-outcome>
+        <to-activity-id>SO_0171</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

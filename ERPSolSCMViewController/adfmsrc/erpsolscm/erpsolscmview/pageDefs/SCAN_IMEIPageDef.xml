@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SCAN_IMEIPageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SoRebateImeDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoRebateImeDetCRUDIterator"/>
+    <searchRegion Binds="SoRebateImeDetCRUDIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SoRebateImeDetCRUDQuery"/>
+    <iterator Binds="SoRebateCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoRebateCRUDIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SoRebateImeDetCRUDIterator" id="SoRebateImeDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoRebateImeiView" Name="SoRebateImeDetCRUD0">
+        <AttrNames>
+          <Item Value="Imei"/>
+          <Item Value="InvalidImei"/>
+          <Item Value="Createdby"/>
+          <Item Value="CreatedDate"/>
+          <Item Value="ErrorDescription"/>
+          <Item Value="Salesorderid"/>
+          <Item Value="SaleRate"/>
+          <Item Value="SaleDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="txtRebateImei">
+      <AttrNames>
+        <Item Value="txtRebateImei"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

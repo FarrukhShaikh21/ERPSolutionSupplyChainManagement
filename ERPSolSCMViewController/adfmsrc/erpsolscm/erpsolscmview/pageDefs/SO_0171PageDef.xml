@@ -7,6 +7,8 @@
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="SoRebateCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="SoRebateCRUDIterator"/>
+    <iterator Binds="SoRebateDetailCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoRebateDetailCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SoRebateCRUDIterator" id="RebateId">
@@ -82,5 +84,18 @@
                   DataControl="ERPSolSCMAppModuleDataControl"
                   InstanceName="data.ERPSolSCMAppModuleDataControl.SoRebateCRUD"
                   ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSuperviseSalesRebate_ERPSolSCMAppModuleDataControl_SoRebateCRUD_doSuperviseSalesRebate_result"/>
+    <list IterBinding="SoRebateCRUDIterator" StaticList="false" Uses="LovCatid" id="Catid" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <tree IterBinding="SoRebateDetailCRUDIterator" id="SoRebateDetailCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoRebateDetailView" Name="SoRebateDetailCRUD0">
+        <AttrNames>
+          <Item Value="Productid"/>
+          <Item Value="Discount"/>
+          <Item Value="RebateQty"/>
+          <Item Value="PreviousRate"/>
+          <Item Value="CurrentRate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

@@ -15,9 +15,11 @@
   PageIterMode="Full"
   ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoRebateViewImpl"
   ComponentInterface="erpsolscm.erpsolscmmodel.erpsolscmvo.common.SoRebateView"
-  ClientProxyName="erpsolscm.erpsolscmmodel.erpsolscmvo.client.SoRebateViewClient">
+  ClientProxyName="erpsolscm.erpsolscmmodel.erpsolscmvo.client.SoRebateViewClient"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoRebateViewRowImpl">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewAccessor
     Name="AccAllCustomersView"
@@ -34,6 +36,10 @@
   <ViewAccessor
     Name="AccPuSuppliersView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuSuppliersView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSretCategoryView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SretCategoryView"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtCustomerName"
@@ -135,6 +141,25 @@
     </AttrArray>
     <DisplayCriteria
       Name="PuSuppliersViewFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovCatid"
+    ListVOName="AccSretCategoryView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Catid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Catid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CatDesc"/>
+    </AttrArray>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="SoRebate"
@@ -282,7 +307,15 @@
     PrecisionRule="true"
     EntityAttrName="Catid"
     EntityUsage="SoRebate"
-    AliasName="CATID"/>
+    AliasName="CATID"
+    LOVName="LovCatid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Invoiceid"
     PrecisionRule="true"
@@ -372,6 +405,25 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtRebateImei"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmvo.SoRebateView.txtRebateImei_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="SoRebateDetailView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.FkSoRebatDetRebateseqLink"
@@ -416,4 +468,8 @@
         Type="void"/>
     </Method>
   </ClientInterface>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

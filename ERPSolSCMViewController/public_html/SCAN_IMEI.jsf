@@ -2,6 +2,184 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="SCAN_IMEI.jsf" id="d1">
-        <af:form id="f1"></af:form>
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="Scan IMEI" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t1">
+                        <af:button text="Back" id="b1" action="ACT-BACK-FROM-REBATE-IMEI"/>
+                        <af:button text="Okey" id="b2"
+                                   action="#{pageFlowScope.ERPSolSCMPageFlowBean.doGenerateSoRebateDetail}"/>
+                    </af:toolbar>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelGridLayout id="pgl1">
+                    <af:gridRow marginTop="5px" height="auto" id="gr1">
+                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+                            <af:inputText
+                                          label="#{bindings.txtRebateImei.hints.label}"
+                                          required="#{bindings.txtRebateImei.hints.mandatory}"
+                                          columns="#{bindings.txtRebateImei.hints.displayWidth}"
+                                          maximumLength="#{bindings.txtRebateImei.hints.precision}"
+                                          shortDesc="#{bindings.txtRebateImei.hints.tooltip}" id="it8" simple="true"
+                                          valueChangeListener="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolScanRebateImei}"
+                                          autoSubmit="true" value="#{bindings.txtRebateImei.inputValue}"
+                                          partialTriggers="it8">
+                                <f:validator binding="#{bindings.txtRebateImei.validator}"/>
+                            </af:inputText>
+                            <af:inputText label="Label 1" id="it1"
+                                          value="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolSalesOrderId}"/>
+                        </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch"
+                                     valign="stretch">
+                            <af:panelBox text="Scanned IMEI" id="pb1" showDisclosure="false">
+                                <f:facet name="toolbar"/>
+                                <af:table value="#{bindings.SoRebateImeDetCRUD.collectionModel}" var="row"
+                                          rows="#{bindings.SoRebateImeDetCRUD.rangeSize}"
+                                          emptyText="#{bindings.SoRebateImeDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.SoRebateImeDetCRUD.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.SoRebateImeDetCRUD.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.SoRebateImeDetCRUD.rangeSize}"
+                                          filterModel="#{bindings.SoRebateImeDetCRUDQuery.queryDescriptor}"
+                                          queryListener="#{bindings.SoRebateImeDetCRUDQuery.processQuery}"
+                                          filterVisible="true" varStatus="vs" id="t2" columnStretching="column:c5"
+                                          scrollPolicy="page" autoHeightRows="20" styleClass="AFStretchWidth">
+                                    <af:column sortProperty="#{bindings.SoRebateImeDetCRUD.hints.Imei.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SoRebateImeDetCRUD.hints.Imei.label}" id="c1"
+                                               width="200" displayIndex="-1">
+                                        <af:inputText value="#{row.bindings.Imei.inputValue}"
+                                                      label="#{bindings.SoRebateImeDetCRUD.hints.Imei.label}"
+                                                      required="#{bindings.SoRebateImeDetCRUD.hints.Imei.mandatory}"
+                                                      columns="#{bindings.SoRebateImeDetCRUD.hints.Imei.displayWidth}"
+                                                      maximumLength="#{bindings.SoRebateImeDetCRUD.hints.Imei.precision}"
+                                                      shortDesc="#{bindings.SoRebateImeDetCRUD.hints.Imei.tooltip}"
+                                                      id="it2" readOnly="true">
+                                            <f:validator binding="#{row.bindings.Imei.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SoRebateImeDetCRUD.hints.Createdby.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SoRebateImeDetCRUD.hints.Createdby.label}"
+                                               id="c3">
+                                        <af:inputText value="#{row.bindings.Createdby.inputValue}"
+                                                      label="#{bindings.SoRebateImeDetCRUD.hints.Createdby.label}"
+                                                      required="#{bindings.SoRebateImeDetCRUD.hints.Createdby.mandatory}"
+                                                      columns="#{bindings.SoRebateImeDetCRUD.hints.Createdby.displayWidth}"
+                                                      maximumLength="#{bindings.SoRebateImeDetCRUD.hints.Createdby.precision}"
+                                                      shortDesc="#{bindings.SoRebateImeDetCRUD.hints.Createdby.tooltip}"
+                                                      id="it4" readOnly="true">
+                                            <f:validator binding="#{row.bindings.Createdby.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SoRebateImeDetCRUD.hints.CreatedDate.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SoRebateImeDetCRUD.hints.CreatedDate.label}"
+                                               id="c4">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.SoRebateImeDetCRUDQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.CreatedDate.value}"
+                                                          id="id1">
+                                                <af:convertDateTime pattern="#{bindings.SoRebateImeDetCRUD.hints.CreatedDate.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:inputDate value="#{row.bindings.CreatedDate.inputValue}"
+                                                      label="#{bindings.SoRebateImeDetCRUD.hints.CreatedDate.label}"
+                                                      required="#{bindings.SoRebateImeDetCRUD.hints.CreatedDate.mandatory}"
+                                                      columns="#{bindings.SoRebateImeDetCRUD.hints.CreatedDate.displayWidth}"
+                                                      shortDesc="#{bindings.SoRebateImeDetCRUD.hints.CreatedDate.tooltip}"
+                                                      id="id2" readOnly="true">
+                                            <f:validator binding="#{row.bindings.CreatedDate.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.SoRebateImeDetCRUD.hints.CreatedDate.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SoRebateImeDetCRUD.hints.ErrorDescription.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SoRebateImeDetCRUD.hints.ErrorDescription.label}"
+                                               id="c5" width="300" displayIndex="-1">
+                                        <af:inputText value="#{row.bindings.ErrorDescription.inputValue}"
+                                                      label="#{bindings.SoRebateImeDetCRUD.hints.ErrorDescription.label}"
+                                                      required="#{bindings.SoRebateImeDetCRUD.hints.ErrorDescription.mandatory}"
+                                                      columns="#{bindings.SoRebateImeDetCRUD.hints.ErrorDescription.displayWidth}"
+                                                      maximumLength="#{bindings.SoRebateImeDetCRUD.hints.ErrorDescription.precision}"
+                                                      shortDesc="#{bindings.SoRebateImeDetCRUD.hints.ErrorDescription.tooltip}"
+                                                      id="it5" readOnly="true">
+                                            <f:validator binding="#{row.bindings.ErrorDescription.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SoRebateImeDetCRUD.hints.Salesorderid.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SoRebateImeDetCRUD.hints.Salesorderid.label}"
+                                               id="c6" width="150">
+                                        <af:inputText value="#{row.bindings.Salesorderid.inputValue}"
+                                                      label="#{bindings.SoRebateImeDetCRUD.hints.Salesorderid.label}"
+                                                      required="#{bindings.SoRebateImeDetCRUD.hints.Salesorderid.mandatory}"
+                                                      columns="#{bindings.SoRebateImeDetCRUD.hints.Salesorderid.displayWidth}"
+                                                      maximumLength="#{bindings.SoRebateImeDetCRUD.hints.Salesorderid.precision}"
+                                                      shortDesc="#{bindings.SoRebateImeDetCRUD.hints.Salesorderid.tooltip}"
+                                                      id="it6" readOnly="true">
+                                            <f:validator binding="#{row.bindings.Salesorderid.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SoRebateImeDetCRUD.hints.SaleRate.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SoRebateImeDetCRUD.hints.SaleRate.label}" id="c7">
+                                        <af:inputText value="#{row.bindings.SaleRate.inputValue}"
+                                                      label="#{bindings.SoRebateImeDetCRUD.hints.SaleRate.label}"
+                                                      required="#{bindings.SoRebateImeDetCRUD.hints.SaleRate.mandatory}"
+                                                      columns="#{bindings.SoRebateImeDetCRUD.hints.SaleRate.displayWidth}"
+                                                      maximumLength="#{bindings.SoRebateImeDetCRUD.hints.SaleRate.precision}"
+                                                      shortDesc="#{bindings.SoRebateImeDetCRUD.hints.SaleRate.tooltip}"
+                                                      id="it7" readOnly="true">
+                                            <f:validator binding="#{row.bindings.SaleRate.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.SoRebateImeDetCRUD.hints.SaleRate.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SoRebateImeDetCRUD.hints.SaleDate.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SoRebateImeDetCRUD.hints.SaleDate.label}" id="c8">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.SoRebateImeDetCRUDQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.SaleDate.value}"
+                                                          id="id3">
+                                                <af:convertDateTime pattern="#{bindings.SoRebateImeDetCRUD.hints.SaleDate.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:inputDate value="#{row.bindings.SaleDate.inputValue}"
+                                                      label="#{bindings.SoRebateImeDetCRUD.hints.SaleDate.label}"
+                                                      required="#{bindings.SoRebateImeDetCRUD.hints.SaleDate.mandatory}"
+                                                      columns="#{bindings.SoRebateImeDetCRUD.hints.SaleDate.displayWidth}"
+                                                      shortDesc="#{bindings.SoRebateImeDetCRUD.hints.SaleDate.tooltip}"
+                                                      id="id4" readOnly="true">
+                                            <f:validator binding="#{row.bindings.SaleDate.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.SoRebateImeDetCRUD.hints.SaleDate.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SoRebateImeDetCRUD.hints.InvalidImei.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SoRebateImeDetCRUD.hints.InvalidImei.label}"
+                                               id="c2">
+                                        <af:inputText value="#{row.bindings.InvalidImei.inputValue}"
+                                                      label="#{bindings.SoRebateImeDetCRUD.hints.InvalidImei.label}"
+                                                      required="#{bindings.SoRebateImeDetCRUD.hints.InvalidImei.mandatory}"
+                                                      columns="#{bindings.SoRebateImeDetCRUD.hints.InvalidImei.displayWidth}"
+                                                      maximumLength="#{bindings.SoRebateImeDetCRUD.hints.InvalidImei.precision}"
+                                                      shortDesc="#{bindings.SoRebateImeDetCRUD.hints.InvalidImei.tooltip}"
+                                                      id="it3" readOnly="true">
+                                            <f:validator binding="#{row.bindings.InvalidImei.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelBox>
+                        </af:gridCell>
+                    </af:gridRow>
+                </af:panelGridLayout>
+            </af:panelHeader>
+        </af:form>
     </af:document>
 </f:view>

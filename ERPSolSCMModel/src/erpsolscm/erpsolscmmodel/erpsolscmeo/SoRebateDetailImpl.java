@@ -431,15 +431,15 @@ public class SoRebateDetailImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Rebateseq, using the alias name Rebateseq.
      * @return the value of Rebateseq
      */
-    public BigDecimal getRebateseq() {
-        return (BigDecimal) getAttributeInternal(REBATESEQ);
+    public Integer getRebateseq() {
+        return (Integer) getAttributeInternal(REBATESEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Rebateseq.
      * @param value value to set the Rebateseq
      */
-    public void setRebateseq(BigDecimal value) {
+    public void setRebateseq(Integer value) {
         setAttributeInternal(REBATESEQ, value);
     }
 
@@ -447,15 +447,15 @@ public class SoRebateDetailImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Rebatedetailseq, using the alias name Rebatedetailseq.
      * @return the value of Rebatedetailseq
      */
-    public BigDecimal getRebatedetailseq() {
-        return (BigDecimal) getAttributeInternal(REBATEDETAILSEQ);
+    public Integer getRebatedetailseq() {
+        return (Integer) getAttributeInternal(REBATEDETAILSEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Rebatedetailseq.
      * @param value value to set the Rebatedetailseq
      */
-    public void setRebatedetailseq(BigDecimal value) {
+    public void setRebatedetailseq(Integer value) {
         setAttributeInternal(REBATEDETAILSEQ, value);
     }
 
@@ -479,7 +479,7 @@ public class SoRebateDetailImpl extends ERPSolGlobalsEntityImpl {
 
      * @return a Key object based on given key constituents.
      */
-    public static Key createPrimaryKey(BigDecimal rebatedetailseq) {
+    public static Key createPrimaryKey(Integer rebatedetailseq) {
         return new Key(new Object[] { rebatedetailseq });
     }
 

@@ -66,7 +66,7 @@
       <property
          name="fromOutcome">ERP-ACT-SO-0167</property>
       <property
-         name="sdm:polyPoints">L50,157.53513,250.85059,T50</property>
+         name="sdm:polyPoints">L54,157.53516,254.35059,T50</property>
    </ControlFlowCase>
    <View
       id="View7">
@@ -203,9 +203,9 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">417.79883</property>
+         name="y">381.39648</property>
       <property
-         name="x">-131.5</property>
+         name="x">10.5</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -215,6 +215,64 @@
       <property
          name="fromOutcome">ERP-ACT-SO-0171</property>
       <property
-         name="sdm:polyPoints">R39,R21</property>
+         name="sdm:polyPoints">L46,10.5,247.35059,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View19">
+      <property
+         name="activityId">SCAN_IMEI</property>
+      <property
+         name="page">/SCAN_IMEI.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SCAN_IMEI&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">352.79883</property>
+      <property
+         name="x">-234.65918</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase20"
+      from="View20"
+      to="View19">
+      <property
+         name="fromOutcome">ACT-SCAN-REBATE-IMEI</property>
+      <property
+         name="sdm:polyPoints">L46,-112.07959,377.5459,-112.07959,352.44824,R50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase22"
+      from="View19"
+      to="MethodCall23">
+      <property
+         name="fromOutcome">ACT-BACK-FROM-REBATE-IMEI</property>
+      <property
+         name="sdm:polyPoints">B50,-234.65918,477.09766,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall23">
+      <property
+         name="activityId">ExeRebateDetail</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeRebateDetail&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">477.44824</property>
+      <property
+         name="x">-125.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase24"
+      from="MethodCall23"
+      to="View20">
+      <property
+         name="fromOutcome">ACT-BACK-FROM-REBATE-IMEI</property>
+      <property
+         name="sdm:polyPoints">R50,-57.5,477.09766,-57.5,384.5459,L54</property>
    </ControlFlowCase>
 </SDM>
