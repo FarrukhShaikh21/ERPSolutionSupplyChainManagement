@@ -5,6 +5,64 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SoRebateCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoRebateCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="RebateId">
+      <AttrNames>
+        <Item Value="RebateId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Rdate">
+      <AttrNames>
+        <Item Value="Rdate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SoRebateCRUDIterator" StaticList="false" Uses="LovtxtCustomerName" id="txtCustomerName"/>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Customerid">
+      <AttrNames>
+        <Item Value="Customerid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Storeid">
+      <AttrNames>
+        <Item Value="Storeid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SoRebateCRUDIterator" StaticList="false" Uses="LovtxtSalesPersonName"
+                  id="txtSalesPersonName"/>
+    <listOfValues IterBinding="SoRebateCRUDIterator" StaticList="false" Uses="LovtxtStoreName" id="txtStoreName"/>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="ManualRefNo">
+      <AttrNames>
+        <Item Value="ManualRefNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="ConsignmentNo">
+      <AttrNames>
+        <Item Value="ConsignmentNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SoRebateCRUDIterator" StaticList="false" Uses="LovtxtSupplierName" id="txtSupplierName"/>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Supplierid">
+      <AttrNames>
+        <Item Value="Supplierid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoRebateCRUDIterator" id="Salespersonid">
+      <AttrNames>
+        <Item Value="Salespersonid"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>

@@ -92,18 +92,9 @@
                     <af:panelGridLayout id="pgl5">
                       <af:gridRow marginTop="5px" height="auto" id="gr4">
                         <af:gridCell marginStart="5px" width="15%" id="gc2" valign="middle" halign="center">
-                          <af:outputLabel value="#{bindings.Salesretid.hints.label}" id="ol5"/>
+                          <af:outputLabel value="#{bindings.RebateId.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
-                          <af:inputText value="#{bindings.Salesretid.inputValue}"
-                                        label="#{bindings.Salesretid.hints.label}"
-                                        required="#{bindings.Salesretid.hints.mandatory}"
-                                        columns="#{bindings.Salesretid.hints.displayWidth}"
-                                        maximumLength="#{bindings.Salesretid.hints.precision}"
-                                        shortDesc="#{bindings.Salesretid.hints.tooltip}" id="it22" readOnly="true"
-                                        simple="true">
-                            <f:validator binding="#{bindings.Salesretid.validator}"/>
-                          </af:inputText>
                           <af:inputText value="#{bindings.Posted.inputValue}" label="#{bindings.Posted.hints.label}"
                                         required="#{bindings.Posted.hints.mandatory}"
                                         columns="#{bindings.Posted.hints.displayWidth}"
@@ -111,17 +102,24 @@
                                         shortDesc="#{bindings.Posted.hints.tooltip}" id="it21" rendered="false">
                             <f:validator binding="#{bindings.Posted.validator}"/>
                           </af:inputText>
+                          <af:inputText value="#{bindings.RebateId.inputValue}" simple="true"
+                                        required="#{bindings.RebateId.hints.mandatory}"
+                                        columns="#{bindings.RebateId.hints.displayWidth}"
+                                        maximumLength="#{bindings.RebateId.hints.precision}"
+                                        shortDesc="#{bindings.RebateId.hints.tooltip}" id="it3" readOnly="true">
+                            <f:validator binding="#{bindings.RebateId.validator}"/>
+                          </af:inputText>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc6" halign="center" valign="middle">
-                          <af:outputLabel value="#{bindings.ReturnDate.hints.label}" id="ol10"/>
+                          <af:outputLabel value="#{bindings.Rdate.hints.label}" id="ol9"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc7">
-                          <af:inputDate value="#{bindings.ReturnDate.inputValue}"
-                                        required="#{bindings.ReturnDate.hints.mandatory}"
-                                        columns="#{bindings.ReturnDate.hints.displayWidth}"
-                                        shortDesc="#{bindings.ReturnDate.hints.tooltip}" id="id2" simple="true">
-                            <f:validator binding="#{bindings.ReturnDate.validator}"/>
-                            <af:convertDateTime pattern="#{bindings.ReturnDate.format}"/>
+                          <af:inputDate value="#{bindings.Rdate.inputValue}"
+                                        required="#{bindings.Rdate.hints.mandatory}"
+                                        columns="#{bindings.Rdate.hints.displayWidth}"
+                                        shortDesc="#{bindings.Rdate.hints.tooltip}" id="id1">
+                            <f:validator binding="#{bindings.Rdate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.Rdate.format}"/>
                           </af:inputDate>
                         </af:gridCell>
                       </af:gridRow>
@@ -145,7 +143,7 @@
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc11" halign="stretch"
                                      valign="middle">
-                          <af:inputComboboxListOfValues id="iclov1"
+                          <af:inputComboboxListOfValues id="txtStoreNameId"
                                                         popupTitle="Search and Select: #{bindings.txtStoreName.hints.label}"
                                                         value="#{bindings.txtStoreName.inputValue}"
                                                         label="#{bindings.txtStoreName.hints.label}"
@@ -153,13 +151,12 @@
                                                         required="#{bindings.txtStoreName.hints.mandatory}"
                                                         columns="#{bindings.txtStoreName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtStoreName.hints.tooltip}"
-                                                        simple="true" autoSubmit="true">
+                                                        simple="true">
                             <f:validator binding="#{bindings.txtStoreName.validator}"/>
-                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedStoreValues}"/>
                           </af:inputComboboxListOfValues>
                           <af:spacer width="10" height="10" id="s3"/>
                           <af:outputText value="#{bindings.Storeid.inputValue}" id="ot3" noWrap="true"
-                                         partialTriggers="iclov1"/>
+                                         partialTriggers="txtStoreNameId"/>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr6">
@@ -180,11 +177,12 @@
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedCustomerValues}"/>
                           </af:inputComboboxListOfValues>
                           <af:spacer width="10" height="10" id="s2"/>
-                          <af:outputText value="#{bindings.Customerid.inputValue}" id="ot2" noWrap="true"
+                          <af:outputText value="#{bindings.Customerid.inputValue}"
+                                         shortDesc="#{bindings.Customerid.hints.tooltip}" id="ot7"
                                          partialTriggers="txtCustomerNameId"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc14" valign="middle" halign="center">
-                          <af:outputLabel value="#{bindings.Salespersonid.hints.label}" id="ol6"/>
+                          <af:outputLabel value="#{bindings.txtSalesPersonName.hints.label}" id="ol6"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc15" valign="middle"
                                      halign="stretch">
