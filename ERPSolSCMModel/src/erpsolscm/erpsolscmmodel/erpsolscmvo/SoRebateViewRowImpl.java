@@ -761,5 +761,12 @@ public class SoRebateViewRowImpl extends ViewRowImpl {
     public RowSet getAccSretCategoryView() {
         return (RowSet) getAttributeInternal(ACCSRETCATEGORYVIEW);
     }
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        if (getPosted().equals("Y")) {
+            return false;
+       }
+        return super.isAttributeUpdateable(i);
+    }
 }
 
