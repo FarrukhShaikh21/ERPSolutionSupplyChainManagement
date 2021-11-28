@@ -5,7 +5,7 @@
     <af:messages id="m1"/>
     <af:form id="f1">
       <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
-        <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.Salesretid.inputValue})"
+        <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.RebateId.inputValue})"
                    dialogListener="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolDialogConfirm}" type="yesNo">
           <f:facet name="buttonBar"/>
         </af:dialog>
@@ -95,19 +95,19 @@
                           <af:outputLabel value="#{bindings.RebateId.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
-                          <af:inputText value="#{bindings.Posted.inputValue}" label="#{bindings.Posted.hints.label}"
-                                        required="#{bindings.Posted.hints.mandatory}"
-                                        columns="#{bindings.Posted.hints.displayWidth}"
-                                        maximumLength="#{bindings.Posted.hints.precision}"
-                                        shortDesc="#{bindings.Posted.hints.tooltip}" id="it21" rendered="false">
-                            <f:validator binding="#{bindings.Posted.validator}"/>
-                          </af:inputText>
                           <af:inputText value="#{bindings.RebateId.inputValue}" simple="true"
                                         required="#{bindings.RebateId.hints.mandatory}"
                                         columns="#{bindings.RebateId.hints.displayWidth}"
                                         maximumLength="#{bindings.RebateId.hints.precision}"
                                         shortDesc="#{bindings.RebateId.hints.tooltip}" id="it3" readOnly="true">
                             <f:validator binding="#{bindings.RebateId.validator}"/>
+                          </af:inputText>
+                          <af:inputText value="#{bindings.Posted.inputValue}" label="#{bindings.Posted.hints.label}"
+                                        required="#{bindings.Posted.hints.mandatory}"
+                                        columns="#{bindings.Posted.hints.displayWidth}"
+                                        maximumLength="#{bindings.Posted.hints.precision}"
+                                        shortDesc="#{bindings.Posted.hints.tooltip}" id="it6" rendered="false">
+                            <f:validator binding="#{bindings.Posted.validator}"/>
                           </af:inputText>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc6" halign="center" valign="middle">
