@@ -529,6 +529,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuSupplierSoSalesReturnSupplierIdAssoc.PuSuppliers"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SoRebate"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuSupplierSoRebateSupplierIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuSupplierSoRebateSupplierIdAssoc.SoRebate"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuSupplierSoRebateSupplierIdAssoc.PuSuppliers"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpkpuSuppliers"
     PrimaryKey="true">

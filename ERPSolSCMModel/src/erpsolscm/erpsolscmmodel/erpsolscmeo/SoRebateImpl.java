@@ -50,11 +50,18 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
         Catid,
         Invoiceid,
         Rebateseq,
+        Supplierid,
+        ConsignmentNo,
+        txtSupplierName,
+        txtStoreName,
+        txtSalesPersonName,
+        txtCustomerName,
         SoRebateDetail,
         SoRebateImei,
         AllCustomers,
         SoSalesPersons,
-        AllStores;
+        AllStores,
+        PuSuppliers;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -104,11 +111,18 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
     public static final int CATID = AttributesEnum.Catid.index();
     public static final int INVOICEID = AttributesEnum.Invoiceid.index();
     public static final int REBATESEQ = AttributesEnum.Rebateseq.index();
+    public static final int SUPPLIERID = AttributesEnum.Supplierid.index();
+    public static final int CONSIGNMENTNO = AttributesEnum.ConsignmentNo.index();
+    public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
+    public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
+    public static final int TXTCUSTOMERNAME = AttributesEnum.txtCustomerName.index();
     public static final int SOREBATEDETAIL = AttributesEnum.SoRebateDetail.index();
     public static final int SOREBATEIMEI = AttributesEnum.SoRebateImei.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
     public static final int SOSALESPERSONS = AttributesEnum.SoSalesPersons.index();
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
+    public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -525,6 +539,102 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for Supplierid, using the alias name Supplierid.
+     * @return the value of Supplierid
+     */
+    public String getSupplierid() {
+        return (String) getAttributeInternal(SUPPLIERID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Supplierid.
+     * @param value value to set the Supplierid
+     */
+    public void setSupplierid(String value) {
+        setAttributeInternal(SUPPLIERID, value);
+    }
+
+    /**
+     * Gets the attribute value for ConsignmentNo, using the alias name ConsignmentNo.
+     * @return the value of ConsignmentNo
+     */
+    public String getConsignmentNo() {
+        return (String) getAttributeInternal(CONSIGNMENTNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ConsignmentNo.
+     * @param value value to set the ConsignmentNo
+     */
+    public void setConsignmentNo(String value) {
+        setAttributeInternal(CONSIGNMENTNO, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSupplierName, using the alias name txtSupplierName.
+     * @return the value of txtSupplierName
+     */
+    public String gettxtSupplierName() {
+        return (String) getAttributeInternal(TXTSUPPLIERNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSupplierName.
+     * @param value value to set the txtSupplierName
+     */
+    public void settxtSupplierName(String value) {
+        setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtStoreName, using the alias name txtStoreName.
+     * @return the value of txtStoreName
+     */
+    public String gettxtStoreName() {
+        return (String) getAttributeInternal(TXTSTORENAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtStoreName.
+     * @param value value to set the txtStoreName
+     */
+    public void settxtStoreName(String value) {
+        setAttributeInternal(TXTSTORENAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSalesPersonName, using the alias name txtSalesPersonName.
+     * @return the value of txtSalesPersonName
+     */
+    public String gettxtSalesPersonName() {
+        return (String) getAttributeInternal(TXTSALESPERSONNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSalesPersonName.
+     * @param value value to set the txtSalesPersonName
+     */
+    public void settxtSalesPersonName(String value) {
+        setAttributeInternal(TXTSALESPERSONNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCustomerName, using the alias name txtCustomerName.
+     * @return the value of txtCustomerName
+     */
+    public String gettxtCustomerName() {
+        return (String) getAttributeInternal(TXTCUSTOMERNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCustomerName.
+     * @param value value to set the txtCustomerName
+     */
+    public void settxtCustomerName(String value) {
+        setAttributeInternal(TXTCUSTOMERNAME, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSoRebateDetail() {
@@ -581,6 +691,21 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setAllStores(EntityImpl value) {
         setAttributeInternal(ALLSTORES, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public EntityImpl getPuSuppliers() {
+        return (EntityImpl) getAttributeInternal(PUSUPPLIERS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public void setPuSuppliers(EntityImpl value) {
+        setAttributeInternal(PUSUPPLIERS, value);
     }
 
 

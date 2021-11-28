@@ -61,15 +61,15 @@
         <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
       </outcome>
     </method-call>
-    <view id="SCAN_IMEI">
-      <page>/SCAN_IMEI.jsf</page>
-    </view>
     <method-call id="ExeSysModuleSoTransaction">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
         <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SO_0171">
+      <page>/SO_0171.jsf</page>
+    </view>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -87,6 +87,10 @@
         <from-outcome>ERP-ACT-SO-0161</from-outcome>
         <to-activity-id>SO_0161</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome>ERP-ACT-SO-0171</from-outcome>
+        <to-activity-id>SO_0171</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__11">
       <from-activity-id>*</from-activity-id>
@@ -100,20 +104,6 @@
       <control-flow-case id="__15">
         <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
         <to-activity-id>ExeSysModuleSoTransaction</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__16">
-      <from-activity-id>SO_0167</from-activity-id>
-      <control-flow-case id="__17">
-        <from-outcome>ERPSOLACT-IMEI-SCAN</from-outcome>
-        <to-activity-id>SCAN_IMEI</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__18">
-      <from-activity-id>SCAN_IMEI</from-activity-id>
-      <control-flow-case id="__19">
-        <from-outcome>ERPSOLBACK-TO-SO</from-outcome>
-        <to-activity-id>SO_0167</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__20">

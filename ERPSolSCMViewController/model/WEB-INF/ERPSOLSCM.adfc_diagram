@@ -169,41 +169,6 @@
       <property
          name="sdm:polyPoints">L50,-105.64844,32.195312,T50</property>
    </ControlFlowCase>
-   <View
-      id="View15">
-      <property
-         name="activityId">SCAN_IMEI</property>
-      <property
-         name="page">/SCAN_IMEI.jsf</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>SCAN_IMEI&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">503.79883</property>
-      <property
-         name="x">-211.65918</property>
-   </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase16"
-      from="View2"
-      to="View15">
-      <property
-         name="fromOutcome">ERPSOLACT-IMEI-SCAN</property>
-      <property
-         name="sdm:polyPoints">L46,-34.06201,430.3506,-34.06201,499.94824,R46</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase17"
-      from="View15"
-      to="View2">
-      <property
-         name="fromOutcome">ERPSOLBACK-TO-SO</property>
-      <property
-         name="sdm:polyPoints">R54,-27.062012,506.94824,-27.062012,437.3506,L54</property>
-   </ControlFlowCase>
    <MethodCall
       id="MethodCall18">
       <property
@@ -226,5 +191,30 @@
          name="fromOutcome">ACT-ERP-SOL-GOTO-SCM-MAIN</property>
       <property
          name="sdm:polyPoints">R50,-30.150879,182.09766,-30.150879,173.44824,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View20">
+      <property
+         name="activityId">SO_0171</property>
+      <property
+         name="page">/SO_0171.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SO_0171&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">417.79883</property>
+      <property
+         name="x">-131.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase21"
+      from="MethodCall4"
+      to="View20">
+      <property
+         name="fromOutcome">ERP-ACT-SO-0171</property>
+      <property
+         name="sdm:polyPoints">R39,R21</property>
    </ControlFlowCase>
 </SDM>
