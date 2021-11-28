@@ -13,7 +13,9 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoRebateViewImpl">
+  ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoRebateViewImpl"
+  ComponentInterface="erpsolscm.erpsolscmmodel.erpsolscmvo.common.SoRebateView"
+  ClientProxyName="erpsolscm.erpsolscmmodel.erpsolscmvo.client.SoRebateViewClient">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
   </DesignTime>
@@ -404,4 +406,14 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSuperviseSalesRebate"
+      MethodName="doSuperviseSalesRebate">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>

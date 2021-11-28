@@ -77,5 +77,10 @@
         <Item Value="Posted"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="doSuperviseSalesRebate" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSalesRebate" IsViewObjectMethod="true"
+                  DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoRebateCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSuperviseSalesRebate_ERPSolSCMAppModuleDataControl_SoRebateCRUD_doSuperviseSalesRebate_result"/>
   </bindings>
 </pageDefinition>

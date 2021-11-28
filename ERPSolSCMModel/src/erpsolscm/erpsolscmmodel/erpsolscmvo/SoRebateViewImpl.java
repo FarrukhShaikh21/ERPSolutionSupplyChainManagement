@@ -1,5 +1,7 @@
 package erpsolscm.erpsolscmmodel.erpsolscmvo;
 
+import erpsolscm.erpsolscmmodel.erpsolscmvo.common.SoRebateView;
+
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Types;
@@ -12,7 +14,7 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class SoRebateViewImpl extends ViewObjectImpl {
+public class SoRebateViewImpl extends ViewObjectImpl implements SoRebateView {
     /**
      * This is the default constructor (do not remove).
      */

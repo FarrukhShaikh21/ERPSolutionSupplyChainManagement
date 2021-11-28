@@ -6,7 +6,7 @@
     <af:form id="f1">
       <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
         <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.RebateId.inputValue})"
-                   dialogListener="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolDialogConfirm}" type="yesNo">
+                   dialogListener="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSoRebatelDialogConfirm}" type="yesNo">
           <f:facet name="buttonBar"/>
         </af:dialog>
       </af:popup>
@@ -42,7 +42,7 @@
       </af:popup>
       <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
         <f:facet name="erptempmain">
-          <af:panelHeader text="Sale Order" id="ph1" partialTriggers="b4 b3 b2 b1 b6 b5 ::d2">
+          <af:panelHeader text="Return Code" id="ph1" partialTriggers="b4 b3 b2 b1 b6 b5 ::d2">
             <f:facet name="context"/>
             <f:facet name="menuBar"/>
             <f:facet name="toolbar"/>
@@ -67,6 +67,9 @@
                                inlineStyle="border-color:#b8d6f3; outline-width:thin; border-width:thin thin thin thin;">
                     <f:facet name="toolbar">
                       <af:toolbar id="t1">
+                        <af:button actionListener="#{bindings.doSuperviseSalesRebate.execute}"
+                                   text="doSuperviseSalesRebate" disabled="#{!bindings.doSuperviseSalesRebate.enabled}"
+                                   id="b7" rendered="false"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
