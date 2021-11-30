@@ -99,6 +99,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.Productid_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="ProductDescription"
@@ -123,6 +129,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.ModelNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Quantity"
@@ -130,7 +142,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_ORDER_LINES"/>
+    TableName="SO_SALES_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.Quantity_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="MinSellingPrice"
     ColumnName="MIN_SELLING_PRICE"
@@ -144,7 +163,14 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SO_SALES_ORDER_LINES"/>
+    TableName="SO_SALES_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.ActUnitPriceBcurr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ActUnitPriceOcurr"
     ColumnName="ACT_UNIT_PRICE_OCURR"
@@ -456,14 +482,28 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SO_SALES_ORDER_LINES"/>
+    TableName="SO_SALES_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.AvailQty_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CurrQty"
     ColumnName="CURR_QTY"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SO_SALES_ORDER_LINES"/>
+    TableName="SO_SALES_ORDER_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.CurrQty_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ProvAmount"
     ColumnName="PROV_AMOUNT"
@@ -1076,7 +1116,6 @@
         Value="AvailQty"/>
     </validation:OnAttributes>
     <validation:OnCondition
-      trustMode="trusted"
       Name="OnConditionExpr"><![CDATA[Quantity!=null && Productid !=null]]></validation:OnCondition>
   </validation:CompareValidationBean>
   <ResourceBundle>
