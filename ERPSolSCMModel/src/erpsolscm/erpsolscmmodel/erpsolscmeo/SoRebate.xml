@@ -30,10 +30,10 @@
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.RebateId_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.RebateId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -51,10 +51,10 @@
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.Locationid_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.Locationid_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -154,10 +154,10 @@
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.Customerid_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.Customerid_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -342,6 +342,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.Catid_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Invoiceid"
@@ -411,10 +417,10 @@
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.txtSupplierName_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.txtSupplierName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -431,10 +437,10 @@
       trustMode="untrusted"><![CDATA[AllStores?.StoreName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.txtStoreName_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.txtStoreName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -451,10 +457,10 @@
       trustMode="untrusted"><![CDATA[SoSalesPersons?.Name]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.txtSalesPersonName_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.txtSalesPersonName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -471,10 +477,10 @@
       trustMode="untrusted"><![CDATA[AllCustomers?.CustomerName]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.txtCustomerName_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate.txtCustomerName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
