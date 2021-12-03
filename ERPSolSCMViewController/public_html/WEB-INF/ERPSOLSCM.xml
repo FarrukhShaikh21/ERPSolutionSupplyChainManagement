@@ -79,6 +79,9 @@
         <fixed-outcome>ACT-BACK-FROM-REBATE-IMEI</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SO_0167_SEARCH">
+      <page>/SO_0167_SEARCH.jsf</page>
+    </view>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -141,6 +144,20 @@
       <control-flow-case id="__24">
         <from-outcome>ACT-BACK-FROM-REBATE-IMEI</from-outcome>
         <to-activity-id>SO_0171</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id>SO_0167_SEARCH</from-activity-id>
+      <control-flow-case id="__26">
+        <from-outcome>ACT-BACK-TO-SO_0167</from-outcome>
+        <to-activity-id>SO_0167</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id>SO_0167</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome>ACT-SEARCH-S0-0167</from-outcome>
+        <to-activity-id>SO_0167_SEARCH</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

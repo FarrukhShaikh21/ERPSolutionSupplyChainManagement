@@ -40,6 +40,7 @@
                         <af:button actionListener="#{bindings.doSuperviseSalesRebate.execute}"
                                    text="doSuperviseSalesRebate" disabled="#{!bindings.doSuperviseSalesRebate.enabled}"
                                    id="b7" rendered="false"/>
+                        <af:button text="Search" id="b10" action="ACT-SEARCH-S0-0171"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"

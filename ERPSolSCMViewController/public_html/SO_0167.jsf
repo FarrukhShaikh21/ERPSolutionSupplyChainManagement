@@ -135,6 +135,7 @@
                       <af:toolbar id="t1">
                         <af:button actionListener="#{bindings.doSuperviseSaleOrder.execute}" text="doSuperviseSaleOrder"
                                    disabled="#{!bindings.doSuperviseSaleOrder.enabled}" id="b10" rendered="false"/>
+                        <af:button text="Search" id="b12" action="ACT-SEARCH-S0-0167"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
