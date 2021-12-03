@@ -68,23 +68,30 @@
                     <f:facet name="toolbar">
                       <af:toolbar id="t1">
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"/>
+                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"
+                                   icon="#{resource['images:imgPrevious.png']}"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
-                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                   icon="#{resource['images:imgNext.png']}"/>
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Return"
-                                   disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"/>
+                                   disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"
+                                   icon="#{resource['images:imgDelete.png']}"/>
                         <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Return"
-                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"/>
+                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
+                                   icon="#{resource['images:imgAdd.png']}"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
-                                   id="b6" disabled="#{bindings.Posted.inputValue=='Y'}">
+                                   id="b6" disabled="#{bindings.Posted.inputValue=='Y'}"
+                                   icon="#{resource['images:imgUndo.png']}">
                           <af:resetActionListener/>
                         </af:button>
                         <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b5"
-                                   disabled="#{bindings.Posted.inputValue=='Y'}"/>
+                                   disabled="#{bindings.Posted.inputValue=='Y'}"
+                                   icon="#{resource['images:imgSave.png']}"/>
                         <af:spacer width="50" height="10" id="s6"/>
                         <af:button text="Supervise Transaction" id="b9"
                                    visible="#{pageFlowScope.ERPSolTempBean.LERPSolAllowSubmit=='Y'}"
-                                   disabled="#{bindings.Posted.inputValue=='Y'}">
+                                   disabled="#{bindings.Posted.inputValue=='Y'}"
+                                   icon="#{resource['images:imgSupervise.png']}">
                           <af:showPopupBehavior popupId="::p1" triggerType="action"/>
                         </af:button>
                       </af:toolbar>
