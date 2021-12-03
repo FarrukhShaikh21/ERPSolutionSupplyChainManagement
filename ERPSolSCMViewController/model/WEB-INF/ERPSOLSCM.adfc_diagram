@@ -310,4 +310,39 @@
       <property
          name="sdm:polyPoints">B56,161.03516,499.1494,170.19531,499.1494,T56</property>
    </ControlFlowCase>
+   <View
+      id="View28">
+      <property
+         name="activityId">SO_0171_SEARCH</property>
+      <property
+         name="page">/SO_0171_SEARCH.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SO_0171_SEARCH&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">566.09766</property>
+      <property
+         name="x">-209.30469</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase29"
+      from="View28"
+      to="View20">
+      <property
+         name="fromOutcome">ACT-BACK-TO-SO_0171</property>
+      <property
+         name="sdm:polyPoints">R46,7.0,562.2471,B44</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase30"
+      from="View20"
+      to="View28">
+      <property
+         name="fromOutcome">ACT-SEARCH-S0-0171</property>
+      <property
+         name="sdm:polyPoints">B56,14.0,569.2471,R54</property>
+   </ControlFlowCase>
 </SDM>

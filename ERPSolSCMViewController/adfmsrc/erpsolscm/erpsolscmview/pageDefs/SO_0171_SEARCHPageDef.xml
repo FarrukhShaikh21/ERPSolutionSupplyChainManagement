@@ -4,29 +4,28 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="SoSalesOrderViewCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
-              id="SoSalesOrderViewCRUDIterator"/>
-    <searchRegion Criteria="SoSalesOrderFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="SoSalesOrderViewCRUDIterator" id="SoSalesOrderFindVCQuery1"/>
+    <iterator Binds="SoRebateCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoRebateCRUDIterator"/>
+    <searchRegion Criteria="SoRebateViewFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SoRebateCRUDIterator" id="SoRebateViewFindVCQuery"/>
   </executables>
   <bindings>
-    <tree IterBinding="SoSalesOrderViewCRUDIterator" id="SoSalesOrderViewCRUD">
-      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderView" Name="SoSalesOrderViewCRUD0">
+    <tree IterBinding="SoRebateCRUDIterator" id="SoRebateCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoRebateView" Name="SoRebateCRUD0">
         <AttrNames>
-          <Item Value="Salesorderid"/>
-          <Item Value="ConfirmDate"/>
+          <Item Value="RebateId"/>
+          <Item Value="Rdate"/>
           <Item Value="Locationid"/>
-          <Item Value="txtStoreName"/>
           <Item Value="Storeid"/>
-          <Item Value="txtCustomerName"/>
-          <Item Value="Customerid"/>
-          <Item Value="txtSalesPersonName"/>
-          <Item Value="Salespersonid"/>
-          <Item Value="Supplierid"/>
-          <Item Value="txtSupplierName"/>
-          <Item Value="CustomerDocRef"/>
-          <Item Value="Flexfield1"/>
+          <Item Value="txtStoreName"/>
           <Item Value="Posted"/>
+          <Item Value="Customerid"/>
+          <Item Value="txtCustomerName"/>
+          <Item Value="Salespersonid"/>
+          <Item Value="txtSalesPersonName"/>
+          <Item Value="txtSupplierName"/>
+          <Item Value="Postedby"/>
+          <Item Value="txtRebateImei"/>
           <Item Value="Remarks"/>
         </AttrNames>
       </nodeDefinition>

@@ -82,6 +82,9 @@
     <view id="SO_0167_SEARCH">
       <page>/SO_0167_SEARCH.jsf</page>
     </view>
+    <view id="SO_0171_SEARCH">
+      <page>/SO_0171_SEARCH.jsf</page>
+    </view>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -131,6 +134,10 @@
         <from-outcome>ACT-SCAN-REBATE-IMEI</from-outcome>
         <to-activity-id>SCAN_IMEI</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__32">
+        <from-outcome>ACT-SEARCH-S0-0171</from-outcome>
+        <to-activity-id>SO_0171_SEARCH</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__19">
       <from-activity-id>SCAN_IMEI</from-activity-id>
@@ -158,6 +165,13 @@
       <control-flow-case id="__29">
         <from-outcome>ACT-SEARCH-S0-0167</from-outcome>
         <to-activity-id>SO_0167_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__30">
+      <from-activity-id>SO_0171_SEARCH</from-activity-id>
+      <control-flow-case id="__31">
+        <from-outcome>ACT-BACK-TO-SO_0171</from-outcome>
+        <to-activity-id>SO_0171</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

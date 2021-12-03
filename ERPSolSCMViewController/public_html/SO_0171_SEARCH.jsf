@@ -5,121 +5,89 @@
         <af:messages id="m1"/>
         <af:form id="f1">
             <af:panelHeader text="Search Sales Order" id="ph1">
-                <af:panelGroupLayout layout="vertical" id="pgl1">
-                    <af:panelGroupLayout layout="vertical" id="pgl2">
-                        <af:panelHeader text="SoSalesOrder" id="ph2">
-                            <af:query id="qryId2" headerText="Search" disclosed="true"
-                                      value="#{bindings.SoSalesOrderFindVCQuery1.queryDescriptor}"
-                                      model="#{bindings.SoSalesOrderFindVCQuery1.queryModel}"
-                                      queryListener="#{bindings.SoSalesOrderFindVCQuery1.processQuery}"
-                                      queryOperationListener="#{bindings.SoSalesOrderFindVCQuery1.processQueryOperation}"
-                                      resultComponentId="::resId1"/>
-                        </af:panelHeader>
-                        <af:table value="#{bindings.SoSalesOrderViewCRUD.collectionModel}" var="row"
-                                  rows="#{bindings.SoSalesOrderViewCRUD.rangeSize}"
-                                  emptyText="#{bindings.SoSalesOrderViewCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                  rowBandingInterval="0"
-                                  selectedRowKeys="#{bindings.SoSalesOrderViewCRUD.collectionModel.selectedRow}"
-                                  selectionListener="#{bindings.SoSalesOrderViewCRUD.collectionModel.makeCurrent}"
-                                  rowSelection="single" fetchSize="#{bindings.SoSalesOrderViewCRUD.rangeSize}"
-                                  id="resId1">
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.Salesorderid.label}"
-                                       id="resId1c1">
-                                <af:link text="#{row.Salesorderid}" id="l1" partialSubmit="true"
-                                         action="ACT-BACK-TO-SO_0171"/>
-                                <af:outputText value="#{row.Salesorderid}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.Salesorderid.tooltip}"
-                                               id="ot1" rendered="false"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.ConfirmDate.label}"
-                                       id="resId1c2">
-                                <af:outputText value="#{row.ConfirmDate}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.ConfirmDate.tooltip}"
-                                               id="ot2">
-                                    <af:convertDateTime pattern="#{bindings.SoSalesOrderViewCRUD.hints.ConfirmDate.format}"/>
-                                </af:outputText>
-                            </af:column>
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.Locationid.label}"
-                                       id="resId1c3" width="80">
-                                <af:outputText value="#{row.Locationid}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.Locationid.tooltip}"
-                                               id="ot3"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.txtStoreName.label}"
-                                       id="resId1c4">
-                                <af:outputText value="#{row.txtStoreName}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.txtStoreName.tooltip}"
-                                               id="ot4"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.Storeid.label}" id="resId1c5">
-                                <af:outputText value="#{row.Storeid}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.Storeid.tooltip}"
-                                               id="ot5"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.txtCustomerName.label}"
-                                       id="resId1c6">
-                                <af:outputText value="#{row.txtCustomerName}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.txtCustomerName.tooltip}"
-                                               id="ot6"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.Customerid.label}"
-                                       id="resId1c7">
-                                <af:outputText value="#{row.Customerid}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.Customerid.tooltip}"
-                                               id="ot7"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.txtSalesPersonName.label}"
-                                       id="resId1c8">
-                                <af:outputText value="#{row.txtSalesPersonName}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.txtSalesPersonName.tooltip}"
-                                               id="ot8"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.Salespersonid.label}"
-                                       id="resId1c9">
-                                <af:outputText value="#{row.Salespersonid}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.Salespersonid.tooltip}"
-                                               id="ot9"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.Supplierid.label}"
-                                       id="resId1c10">
-                                <af:outputText value="#{row.Supplierid}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.Supplierid.tooltip}"
-                                               id="ot10"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.txtSupplierName.label}"
-                                       id="resId1c11">
-                                <af:outputText value="#{row.txtSupplierName}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.txtSupplierName.tooltip}"
-                                               id="ot11"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.CustomerDocRef.label}"
-                                       id="resId1c12">
-                                <af:outputText value="#{row.CustomerDocRef}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.CustomerDocRef.tooltip}"
-                                               id="ot12"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.Flexfield1.label}"
-                                       id="resId1c13">
-                                <af:outputText value="#{row.Flexfield1}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.Flexfield1.tooltip}"
-                                               id="ot13"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.Posted.label}" id="resId1c14">
-                                <af:outputText value="#{row.Posted}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.Posted.tooltip}"
-                                               id="ot14"/>
-                            </af:column>
-                            <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.Remarks.label}" id="resId1c15">
-                                <af:outputText value="#{row.Remarks}"
-                                               shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.Remarks.tooltip}"
-                                               id="ot15"/>
-                            </af:column>
-                        </af:table>
-                    </af:panelGroupLayout>
-                </af:panelGroupLayout>
                 <f:facet name="toolbar">
-                    <af:button text="Goto Sale Order" id="b1" action="ACT-BACK-TO-SO_0171"/>
+                    <af:button text="Goto Sale Return" id="b1" action="ACT-BACK-TO-SO_0171"/>
                 </f:facet>
+                <af:panelGroupLayout layout="vertical" id="pgl1">
+                    <af:panelHeader text="SoRebate" id="ph2">
+                        <af:query id="qryId1" headerText="Search" disclosed="true"
+                                  value="#{bindings.SoRebateViewFindVCQuery.queryDescriptor}"
+                                  model="#{bindings.SoRebateViewFindVCQuery.queryModel}"
+                                  queryListener="#{bindings.SoRebateViewFindVCQuery.processQuery}"
+                                  queryOperationListener="#{bindings.SoRebateViewFindVCQuery.processQueryOperation}"
+                                  resultComponentId="::resId1"/>
+                    </af:panelHeader>
+                    <af:table value="#{bindings.SoRebateCRUD.collectionModel}" var="row"
+                              rows="#{bindings.SoRebateCRUD.rangeSize}"
+                              emptyText="#{bindings.SoRebateCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.SoRebateCRUD.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.SoRebateCRUD.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.SoRebateCRUD.rangeSize}" id="resId1">
+                        <af:column headerText="#{bindings.SoRebateCRUD.hints.RebateId.label}" id="resId1c1">
+                            <af:link text="#{row.RebateId}" id="l1" partialSubmit="true"/>
+                            <af:outputText value="#{row.RebateId}"
+                                           shortDesc="#{bindings.SoRebateCRUD.hints.RebateId.tooltip}" id="ot1"
+                                           rendered="false"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoRebateCRUD.hints.Rdate.label}" id="resId1c2">
+                            <af:outputText value="#{row.Rdate}" shortDesc="#{bindings.SoRebateCRUD.hints.Rdate.tooltip}"
+                                           id="ot2">
+                                <af:convertDateTime pattern="#{bindings.SoRebateCRUD.hints.Rdate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoRebateCRUD.hints.Locationid.label}" id="resId1c3">
+                            <af:outputText value="#{row.Locationid}"
+                                           shortDesc="#{bindings.SoRebateCRUD.hints.Locationid.tooltip}" id="ot3"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoRebateCRUD.hints.Storeid.label}" id="resId1c4">
+                            <af:outputText value="#{row.Storeid}"
+                                           shortDesc="#{bindings.SoRebateCRUD.hints.Storeid.tooltip}" id="ot4"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoRebateCRUD.hints.txtStoreName.label}" id="resId1c5">
+                            <af:outputText value="#{row.txtStoreName}"
+                                           shortDesc="#{bindings.SoRebateCRUD.hints.txtStoreName.tooltip}" id="ot5"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoRebateCRUD.hints.Posted.label}" id="resId1c6">
+                            <af:outputText value="#{row.Posted}"
+                                           shortDesc="#{bindings.SoRebateCRUD.hints.Posted.tooltip}" id="ot6"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoRebateCRUD.hints.Customerid.label}" id="resId1c7">
+                            <af:outputText value="#{row.Customerid}"
+                                           shortDesc="#{bindings.SoRebateCRUD.hints.Customerid.tooltip}" id="ot7"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoRebateCRUD.hints.txtCustomerName.label}" id="resId1c8">
+                            <af:outputText value="#{row.txtCustomerName}"
+                                           shortDesc="#{bindings.SoRebateCRUD.hints.txtCustomerName.tooltip}" id="ot8"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoRebateCRUD.hints.Salespersonid.label}" id="resId1c9">
+                            <af:outputText value="#{row.Salespersonid}"
+                                           shortDesc="#{bindings.SoRebateCRUD.hints.Salespersonid.tooltip}" id="ot9"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoRebateCRUD.hints.txtSalesPersonName.label}" id="resId1c10">
+                            <af:outputText value="#{row.txtSalesPersonName}"
+                                           shortDesc="#{bindings.SoRebateCRUD.hints.txtSalesPersonName.tooltip}"
+                                           id="ot10"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoRebateCRUD.hints.txtSupplierName.label}" id="resId1c11">
+                            <af:outputText value="#{row.txtSupplierName}"
+                                           shortDesc="#{bindings.SoRebateCRUD.hints.txtSupplierName.tooltip}"
+                                           id="ot11"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoRebateCRUD.hints.Postedby.label}" id="resId1c12">
+                            <af:outputText value="#{row.Postedby}"
+                                           shortDesc="#{bindings.SoRebateCRUD.hints.Postedby.tooltip}" id="ot12"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoRebateCRUD.hints.txtRebateImei.label}" id="resId1c13">
+                            <af:outputText value="#{row.txtRebateImei}"
+                                           shortDesc="#{bindings.SoRebateCRUD.hints.txtRebateImei.tooltip}" id="ot13"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoRebateCRUD.hints.Remarks.label}" id="resId1c14">
+                            <af:outputText value="#{row.Remarks}"
+                                           shortDesc="#{bindings.SoRebateCRUD.hints.Remarks.tooltip}" id="ot14"/>
+                        </af:column>
+                    </af:table>
+                </af:panelGroupLayout>
             </af:panelHeader>
         </af:form>
     </af:document>
