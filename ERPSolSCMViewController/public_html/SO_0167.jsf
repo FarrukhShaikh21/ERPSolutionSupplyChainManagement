@@ -138,10 +138,10 @@
                         <af:button text="Search" id="b12" action="ACT-SEARCH-S0-0167"
                                    icon="#{resource['images:imgFind.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"
+                                   disabled="#{bindings.Salesorderid.inputValue==null}" partialSubmit="true" id="b4"
                                    icon="#{resource['images:imgPrevious.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
-                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                   disabled="#{bindings.Salesorderid.inputValue==null}" partialSubmit="true" id="b3"
                                    icon="#{resource['images:imgNext.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Order"
                                    disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"
@@ -160,7 +160,7 @@
                         <af:spacer width="50" height="10" id="s6"/>
                         <af:button text="Supervise Transaction" id="b9"
                                    visible="#{pageFlowScope.ERPSolTempBean.LERPSolAllowSubmit=='Y'}"
-                                   disabled="#{bindings.Posted.inputValue=='Y'}"
+                                   disabled="#{bindings.Posted.inputValue=='Y' || bindings.Salesorderid.inputValue==null}"
                                    icon="#{resource['images:imgSupervise.png']}" iconPosition="top">
                           <af:showPopupBehavior popupId="::p1" triggerType="action"/>
                         </af:button>
