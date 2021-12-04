@@ -4,7 +4,7 @@
     <af:document title="SO_0171_SEARCH.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
-            <af:panelHeader text="Search Sales Order" id="ph1">
+            <af:panelHeader text="Search : #{pageFlowScope.ERPSolTempBean.LERPSolActivityName}" id="ph1">
                 <f:facet name="toolbar">
                     <af:button text="Goto Sale Return" id="b1" action="ACT-BACK-TO-SO_0171"/>
                 </f:facet>

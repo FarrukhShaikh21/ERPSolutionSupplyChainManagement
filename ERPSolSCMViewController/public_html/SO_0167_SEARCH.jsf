@@ -4,7 +4,7 @@
     <af:document title="SO_0167_SEARCH.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
-            <af:panelHeader text="Search Sales Order" id="ph1">
+            <af:panelHeader text="Search : #{pageFlowScope.ERPSolTempBean.LERPSolActivityName}" id="ph1">
                 <af:panelGroupLayout layout="vertical" id="pgl1">
                     <af:panelGroupLayout layout="vertical" id="pgl2">
                         <af:panelHeader text="SoSalesOrder" id="ph2">
