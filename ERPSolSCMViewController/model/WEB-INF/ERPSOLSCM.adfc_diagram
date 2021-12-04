@@ -52,11 +52,11 @@
       islink="true"
       id="ControlFlowCase5"
       from="WildcardControlFlowRule3"
-      to="MethodCall4">
+      to="MethodCall36">
       <property
          name="fromOutcome">ACTStartERPSolutionTaskFlow</property>
       <property
-         name="sdm:polyPoints">B50,241.03516,161.75,241.03516,161.75,T50</property>
+         name="sdm:polyPoints">R50,429.5,84.149414,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -142,7 +142,7 @@
       <property
          name="fromOutcome">ACT-ERPSOL-RETURN-FROM-SCM</property>
       <property
-         name="sdm:polyPoints">B50,482.99997,16.169432,483.0,16.169432,T50</property>
+         name="sdm:polyPoints">B50,483.0,16.169434,483.0,16.169434,T50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall13">
@@ -344,5 +344,85 @@
          name="fromOutcome">ACT-SEARCH-S0-0171</property>
       <property
          name="sdm:polyPoints">B56,14.0,569.2471,R54</property>
+   </ControlFlowCase>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule31">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">-117.70117</property>
+      <property
+         name="x">236.0</property>
+   </WildcardControlFlowRule>
+   <TaskFlowReturn
+      id="TaskFlowReturn32">
+      <property
+         name="activityId">ACT-ERP-SOL-LOGOUT</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ACT-ERP-SOL-LOGOUT&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  ACT-ERP-SOL-LOGOUT&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-29.402344</property>
+      <property
+         name="x">289.0</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase33"
+      from="WildcardControlFlowRule31"
+      to="MethodCall34">
+      <property
+         name="fromOutcome">ACT-ERP-SOL-LOGOUT</property>
+      <property
+         name="sdm:polyPoints">B50,236.0,-74.47705,178.5,-74.47705,T50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall34">
+      <property
+         name="activityId">RollbackSCM</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>RollbackSCM&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-19.551758</property>
+      <property
+         name="x">178.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase35"
+      from="MethodCall34"
+      to="TaskFlowReturn32">
+      <property
+         name="fromOutcome">ACT-ERP-SOL-LOGOUT</property>
+      <property
+         name="sdm:polyPoints">R50,233.75,-19.902344,233.75,-29.75293,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall36">
+      <property
+         name="activityId">RollbackBeforeFormSCM</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>RollbackBeforeFormSCM&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">245.44824</property>
+      <property
+         name="x">429.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase37"
+      from="MethodCall36"
+      to="MethodCall4">
+      <property
+         name="fromOutcome">ACTStartERPSolutionTaskFlow</property>
+      <property
+         name="sdm:polyPoints">L50,335.26758,245.09766,335.26758,250.85059,R50</property>
    </ControlFlowCase>
 </SDM>

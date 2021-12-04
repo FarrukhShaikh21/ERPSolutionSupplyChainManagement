@@ -85,11 +85,28 @@
     <view id="SO_0171_SEARCH">
       <page>/SO_0171_SEARCH.jsf</page>
     </view>
+    <task-flow-return id="ACT-ERP-SOL-LOGOUT">
+      <outcome>
+        <name>ACT-ERP-SOL-LOGOUT</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="RollbackSCM">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-LOGOUT</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="RollbackBeforeFormSCM">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACTStartERPSolutionTaskFlow</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
         <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
-        <to-activity-id>doERPGotoSCMActivity</to-activity-id>
+        <to-activity-id>RollbackBeforeFormSCM</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__8">
@@ -172,6 +189,27 @@
       <control-flow-case id="__31">
         <from-outcome>ACT-BACK-TO-SO_0171</from-outcome>
         <to-activity-id>SO_0171</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__27">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__33">
+        <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
+        <to-activity-id>RollbackSCM</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__34">
+      <from-activity-id>RollbackSCM</from-activity-id>
+      <control-flow-case id="__35">
+        <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
+        <to-activity-id>ACT-ERP-SOL-LOGOUT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__36">
+      <from-activity-id>RollbackBeforeFormSCM</from-activity-id>
+      <control-flow-case id="__37">
+        <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
+        <to-activity-id>doERPGotoSCMActivity</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
