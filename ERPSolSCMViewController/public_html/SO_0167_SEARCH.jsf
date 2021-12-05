@@ -13,7 +13,7 @@
                                       model="#{bindings.SoSalesOrderFindVCQuery1.queryModel}"
                                       queryListener="#{bindings.SoSalesOrderFindVCQuery1.processQuery}"
                                       queryOperationListener="#{bindings.SoSalesOrderFindVCQuery1.processQueryOperation}"
-                                      resultComponentId="::resId1"/>
+                                      resultComponentId="::resId1" maxColumns="2" rows="3"/>
                         </af:panelHeader>
                         <af:table value="#{bindings.SoSalesOrderViewCRUD.collectionModel}" var="row"
                                   rows="#{bindings.SoSalesOrderViewCRUD.rangeSize}"
@@ -22,7 +22,7 @@
                                   selectedRowKeys="#{bindings.SoSalesOrderViewCRUD.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.SoSalesOrderViewCRUD.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.SoSalesOrderViewCRUD.rangeSize}"
-                                  id="resId1">
+                                  id="resId1" scrollPolicy="page" autoHeightRows="20" styleClass="AFStretchWidth">
                             <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.Salesorderid.label}"
                                        id="resId1c1">
                                 <af:link text="#{row.Salesorderid}" id="l1" partialSubmit="true"
@@ -32,7 +32,7 @@
                                                id="ot1" rendered="false"/>
                             </af:column>
                             <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.ConfirmDate.label}"
-                                       id="resId1c2">
+                                       id="resId1c2" width="70" displayIndex="-1">
                                 <af:outputText value="#{row.ConfirmDate}"
                                                shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.ConfirmDate.tooltip}"
                                                id="ot2">
@@ -46,7 +46,7 @@
                                                id="ot3"/>
                             </af:column>
                             <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.txtStoreName.label}"
-                                       id="resId1c4">
+                                       id="resId1c4" width="120" displayIndex="-1">
                                 <af:outputText value="#{row.txtStoreName}"
                                                shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.txtStoreName.tooltip}"
                                                id="ot4"/>
@@ -57,7 +57,7 @@
                                                id="ot5"/>
                             </af:column>
                             <af:column headerText="#{bindings.SoSalesOrderViewCRUD.hints.txtCustomerName.label}"
-                                       id="resId1c6">
+                                       id="resId1c6" width="120" displayIndex="-1">
                                 <af:outputText value="#{row.txtCustomerName}"
                                                shortDesc="#{bindings.SoSalesOrderViewCRUD.hints.txtCustomerName.tooltip}"
                                                id="ot6"/>

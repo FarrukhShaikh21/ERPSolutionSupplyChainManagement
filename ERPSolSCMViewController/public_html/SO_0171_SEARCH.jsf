@@ -15,7 +15,7 @@
                                   model="#{bindings.SoRebateViewFindVCQuery.queryModel}"
                                   queryListener="#{bindings.SoRebateViewFindVCQuery.processQuery}"
                                   queryOperationListener="#{bindings.SoRebateViewFindVCQuery.processQueryOperation}"
-                                  resultComponentId="::resId1"/>
+                                  resultComponentId="::resId1" saveQueryMode="hidden" rows="2" maxColumns="2"/>
                     </af:panelHeader>
                     <af:table value="#{bindings.SoRebateCRUD.collectionModel}" var="row"
                               rows="#{bindings.SoRebateCRUD.rangeSize}"
@@ -23,7 +23,8 @@
                               rowBandingInterval="0"
                               selectedRowKeys="#{bindings.SoRebateCRUD.collectionModel.selectedRow}"
                               selectionListener="#{bindings.SoRebateCRUD.collectionModel.makeCurrent}"
-                              rowSelection="single" fetchSize="#{bindings.SoRebateCRUD.rangeSize}" id="resId1">
+                              rowSelection="single" fetchSize="#{bindings.SoRebateCRUD.rangeSize}" id="resId1"
+                              scrollPolicy="page" autoHeightRows="10" styleClass="AFStretchWidth">
                         <af:column headerText="#{bindings.SoRebateCRUD.hints.RebateId.label}" id="resId1c1">
                             <af:link text="#{row.RebateId}" id="l1" partialSubmit="true"/>
                             <af:outputText value="#{row.RebateId}"
