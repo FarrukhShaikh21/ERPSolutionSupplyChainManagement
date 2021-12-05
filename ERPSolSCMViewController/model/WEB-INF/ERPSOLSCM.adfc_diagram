@@ -425,4 +425,46 @@
       <property
          name="sdm:polyPoints">L50,335.26758,245.09766,335.26758,250.85059,R50</property>
    </ControlFlowCase>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule38">
+      <property
+         name="activityId">*</property>
+      <property
+         name="y">116.29883</property>
+      <property
+         name="x">-296.0</property>
+   </WildcardControlFlowRule>
+   <MethodCall
+      id="MethodCall39">
+      <property
+         name="activityId">RollbackCloseFormSCM</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>RollbackCloseFormSCM&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">237.44824</property>
+      <property
+         name="x">-250.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase40"
+      from="WildcardControlFlowRule38"
+      to="MethodCall39">
+      <property
+         name="fromOutcome">ACT-ERP-CLOSE-FORM-SCM</property>
+      <property
+         name="sdm:polyPoints">B50,-296.0,171.02295,-250.5,171.02295,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase41"
+      from="MethodCall39"
+      to="View9">
+      <property
+         name="fromOutcome">ACT-ERP-CLOSE-FORM-SCM</property>
+      <property
+         name="sdm:polyPoints">R50,-209.5,237.09766,-209.5,227.44824,45.34668,227.44824,B50</property>
+   </ControlFlowCase>
 </SDM>

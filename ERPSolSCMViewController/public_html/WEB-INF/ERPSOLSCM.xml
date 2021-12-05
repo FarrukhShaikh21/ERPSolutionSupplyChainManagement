@@ -102,6 +102,12 @@
         <fixed-outcome>ACTStartERPSolutionTaskFlow</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="RollbackCloseFormSCM">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-CLOSE-FORM-SCM</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -210,6 +216,20 @@
       <control-flow-case id="__37">
         <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
         <to-activity-id>doERPGotoSCMActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__38">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__39">
+        <from-outcome>ACT-ERP-CLOSE-FORM-SCM</from-outcome>
+        <to-activity-id>RollbackCloseFormSCM</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__40">
+      <from-activity-id>RollbackCloseFormSCM</from-activity-id>
+      <control-flow-case id="__41">
+        <from-outcome>ACT-ERP-CLOSE-FORM-SCM</from-outcome>
+        <to-activity-id>ERPSolSCMMain</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
