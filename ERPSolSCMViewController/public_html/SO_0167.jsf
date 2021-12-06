@@ -136,32 +136,32 @@
                         <af:button actionListener="#{bindings.doSuperviseSaleOrder.execute}" text="doSuperviseSaleOrder"
                                    disabled="#{!bindings.doSuperviseSaleOrder.enabled}" id="b10" rendered="false"/>
                         <af:button text="Search" id="b12" action="ACT-SEARCH-S0-0167"
-                                   icon="#{resource['images:imgFind.png']}" iconPosition="top"/>
+                                   icon="#{resource['images:imgFind.png']}" iconPosition="top" accessKey="s"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{bindings.Salesorderid.inputValue==null}" partialSubmit="true" id="b4"
-                                   icon="#{resource['images:imgPrevious.png']}" iconPosition="top"/>
+                                   icon="#{resource['images:imgPrevious.png']}" iconPosition="top" accessKey="r"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
                                    disabled="#{bindings.Salesorderid.inputValue==null}" partialSubmit="true" id="b3"
-                                   icon="#{resource['images:imgNext.png']}" iconPosition="top"/>
+                                   icon="#{resource['images:imgNext.png']}" iconPosition="top" accessKey="n"/>
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Order"
                                    disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"
-                                   icon="#{resource['images:imgDelete.png']}" iconPosition="top"/>
+                                   icon="#{resource['images:imgDelete.png']}" iconPosition="top" accessKey="l"/>
                         <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Order"
                                    disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='Y'}" id="b1"
-                                   icon="#{resource['images:imgAdd.png']}" iconPosition="top"/>
+                                   icon="#{resource['images:imgAdd.png']}" iconPosition="top" accessKey="w"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
                                    id="b6" disabled="#{bindings.Posted.inputValue=='Y'}"
-                                   icon="#{resource['images:imgUndo.png']}" iconPosition="top">
+                                   icon="#{resource['images:imgUndo.png']}" iconPosition="top" accessKey="u">
                           <af:resetActionListener/>
                         </af:button>
                         <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b5"
                                    disabled="#{bindings.Posted.inputValue=='Y'}"
-                                   icon="#{resource['images:imgSave.png']}" iconPosition="top"/>
+                                   icon="#{resource['images:imgSave.png']}" iconPosition="top" accessKey="v"/>
                         <af:spacer width="50" height="10" id="s6"/>
                         <af:button text="Supervise Transaction" id="b9"
                                    visible="#{pageFlowScope.ERPSolTempBean.LERPSolAllowSubmit=='Y'}"
                                    disabled="#{bindings.Posted.inputValue=='Y' || bindings.Salesorderid.inputValue==null}"
-                                   icon="#{resource['images:imgSupervise.png']}" iconPosition="top">
+                                   icon="#{resource['images:imgSupervise.png']}" iconPosition="top" accessKey="t">
                           <af:showPopupBehavior popupId="::p1" triggerType="action"/>
                         </af:button>
                       </af:toolbar>
