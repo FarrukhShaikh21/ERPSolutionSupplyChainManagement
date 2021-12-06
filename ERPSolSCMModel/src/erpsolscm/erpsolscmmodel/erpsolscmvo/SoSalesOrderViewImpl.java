@@ -42,6 +42,12 @@ public class SoSalesOrderViewImpl extends ViewObjectImpl implements SoSalesOrder
             System.out.println(e.getMessage()+ "this is message");
             throw new JboException("Unable to supervise ");
         }
+        finally{
+            try {
+                cs.close();
+            } catch (SQLException e) {
+            }
+        }
     }
    
 }

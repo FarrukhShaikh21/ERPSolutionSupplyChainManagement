@@ -42,6 +42,12 @@ public class SoRebateViewImpl extends ViewObjectImpl implements SoRebateView {
             System.out.println(e.getMessage()+ "this is message");
             throw new JboException("Unable to supervise ");
         }
+        finally{
+            try {
+                cs.close();
+            } catch (SQLException e) {
+            }
+        }
     }   
 }
 
