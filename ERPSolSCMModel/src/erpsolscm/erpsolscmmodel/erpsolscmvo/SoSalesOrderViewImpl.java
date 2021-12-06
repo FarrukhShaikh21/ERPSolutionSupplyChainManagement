@@ -1,5 +1,7 @@
 package erpsolscm.erpsolscmmodel.erpsolscmvo;
 
+import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
+
 import erpsolscm.erpsolscmmodel.erpsolscmvo.common.SoSalesOrderView;
 
 import java.sql.CallableStatement;
@@ -23,8 +25,8 @@ public class SoSalesOrderViewImpl extends ViewObjectImpl implements SoSalesOrder
  
     public void doSuperviseSaleOrder() {
         
-        CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=PKG_SALE_ORDER.FUNC_SUBMIT_SALES_ORDER('"+this.getCurrentRow().getAttribute("Salesorderid")+"'); END;", 1);
-        System.out.println("begin ?:=PKG_SALE_ORDER.FUNC_SUBMIT_SALES_ORDER('"+this.getCurrentRow().getAttribute("Salesorderid")+"'); END;");
+        CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=PKG_SALE_ORDER.FUNC_SUBMIT_SALES_ORDER('"+this.getCurrentRow().getAttribute("Salesorderid")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;", 1);
+        System.out.println("begin ?:=PKG_SALE_ORDER.FUNC_SUBMIT_SALES_ORDER('"+this.getCurrentRow().getAttribute("Salesorderid")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;");
         try {
             cs.registerOutParameter(1, Types.VARCHAR);
             cs.executeUpdate();
