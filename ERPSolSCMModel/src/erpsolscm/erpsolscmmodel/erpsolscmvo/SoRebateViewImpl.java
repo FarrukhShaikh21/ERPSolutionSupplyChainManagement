@@ -23,8 +23,8 @@ public class SoRebateViewImpl extends ViewObjectImpl implements SoRebateView {
     
     public void doSuperviseSalesRebate() {
         
-        CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=PKG_SALE_ORDER.FUNC_SUBMIT_SALES_ORDER('"+this.getCurrentRow().getAttribute("RebateId")+"'); END;", 1);
-        System.out.println("begin ?:=PKG_SALE_ORDER.FUNC_SUBMIT_SALES_ORDER('"+this.getCurrentRow().getAttribute("RebateId")+"'); END;");
+        CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=Pkg_Sales_Rebate.FUNC_SUBMIT_SO_REBATE('"+this.getCurrentRow().getAttribute("RebateId")+"'); END;", 1);
+        System.out.println("begin ?:=Pkg_Sales_Rebate.FUNC_SUBMIT_SO_REBATE('"+this.getCurrentRow().getAttribute("RebateId")+"'); END;");
         try {
             cs.registerOutParameter(1, Types.VARCHAR);
             cs.executeUpdate();

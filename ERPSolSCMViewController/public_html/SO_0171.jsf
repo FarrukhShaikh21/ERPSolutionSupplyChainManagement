@@ -40,7 +40,8 @@
                         <af:button actionListener="#{bindings.doSuperviseSalesRebate.execute}"
                                    text="doSuperviseSalesRebate" disabled="#{!bindings.doSuperviseSalesRebate.enabled}"
                                    id="b7" rendered="false"/>
-                        <af:button text="Close Form" id="b11" action="ACT-ERP-CLOSE-FORM-SCM"/>
+                        <af:button text="Close Form" id="b11" action="ACT-ERP-CLOSE-FORM-SCM"
+                                   icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
                         <af:button text="Search" id="b10" action="ACT-SEARCH-S0-0171"
                                    icon="#{resource['images:imgFind.png']}"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
@@ -66,7 +67,8 @@
                         <af:spacer width="50" height="10" id="s6"/>
                         <af:button text="Supervise Transaction" id="b9"
                                    visible="#{pageFlowScope.ERPSolTempBean.LERPSolAllowSubmit=='Y'}"
-                                   disabled="#{bindings.Posted.inputValue=='Y'}">
+                                   disabled="#{bindings.Posted.inputValue=='Y'}"
+                                   icon="#{resource['images:imgSupervise.png']}" iconPosition="top">
                           <af:showPopupBehavior popupId="::p1" triggerType="action"/>
                         </af:button>
                       </af:toolbar>
