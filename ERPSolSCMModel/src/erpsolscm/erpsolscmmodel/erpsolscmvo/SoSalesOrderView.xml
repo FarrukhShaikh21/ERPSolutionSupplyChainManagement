@@ -107,6 +107,10 @@
       Name="AllCustomerSalespersonPIDVC"
       FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomerSalespersonView.AllCustomerSalespersonPIDVC"/>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccVWYesNoQVO"
+    ViewObjectName="erpsolglob.erpsolglobmodel.erpsolglobqvo.VWYesNoQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtCustomerName"
     ListVOName="AccAllCustomersView"
@@ -209,6 +213,25 @@
     </AttrArray>
     <DisplayCriteria
       Name="PuSuppliersViewFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovPosted"
+    ListVOName="AccVWYesNoQVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Posted"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="SoSalesOrder"
@@ -389,7 +412,15 @@
     PrecisionRule="true"
     EntityAttrName="Posted"
     EntityUsage="SoSalesOrder"
-    AliasName="POSTED"/>
+    AliasName="POSTED"
+    LOVName="LovPosted">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PostedBy"
     PrecisionRule="true"
@@ -838,31 +869,54 @@
         ViewAttribute="Salesorderid"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="Locationid"
         ViewAttribute="Locationid"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="Posted"
         ViewAttribute="Posted"
         Operator="="
         Conjunction="AND"
-        Value=""
-        Required="Optional"/>
+        Required="Optional"
+        UpperColumns="0"/>
       <ViewCriteriaItem
         Name="ConfirmDate"
         ViewAttribute="ConfirmDate"
         Operator="BETWEEN"
         Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SoSalesOrderViewCriteria_SoSalesOrderViewCriteria_row_0_AllCustomersView"
+        ViewAttribute="AllCustomersView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
         Required="Optional">
-        <ViewCriteriaItemValue
-          Name="SoSalesOrderViewCriteria_SoSalesOrderViewCriteria_row_0_AllStoresView_vcval0"
-          Value=""/>
+        <ViewCriteria
+          Name="AllCustomersViewNestedCriteria"
+          ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="AllCustomersViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="Customerid"
+              ViewAttribute="Customerid"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="CustomerName"
+              ViewAttribute="CustomerName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
       </ViewCriteriaItem>
       <ViewCriteriaItem
         Name="SoSalesPersonsView"
@@ -883,38 +937,6 @@
               ViewAttribute="Name"
               Operator="CONTAINS"
               Conjunction="AND"
-              Value=""
-              Required="Optional"/>
-          </ViewCriteriaRow>
-        </ViewCriteria>
-      </ViewCriteriaItem>
-      <ViewCriteriaItem
-        Name="SoSalesOrderViewCriteria_SoSalesOrderViewCriteria_row_0_AllCustomersView"
-        ViewAttribute="AllCustomersView"
-        Operator="EXISTS"
-        Conjunction="AND"
-        IsNestedCriteria="true"
-        Required="Optional">
-        <ViewCriteria
-          Name="AllCustomersViewNestedCriteria"
-          ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView"
-          Conjunction="AND">
-          <ViewCriteriaRow
-            Name="AllCustomersViewNestedCriteria_row_0"
-            UpperColumns="1">
-            <ViewCriteriaItem
-              Name="Customerid"
-              ViewAttribute="Customerid"
-              Operator="CONTAINS"
-              Conjunction="AND"
-              Value=""
-              Required="Optional"/>
-            <ViewCriteriaItem
-              Name="CustomerName"
-              ViewAttribute="CustomerName"
-              Operator="CONTAINS"
-              Conjunction="AND"
-              Value=""
               Required="Optional"/>
           </ViewCriteriaRow>
         </ViewCriteria>

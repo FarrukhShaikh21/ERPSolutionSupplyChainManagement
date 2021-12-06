@@ -129,7 +129,8 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
         AccPuSuppliersView,
         AccSoSalesPersonsDefaultView,
         AccVwFuncGetCustomerCreditLimit,
-        AccAllCustomerSalespersonPID;
+        AccAllCustomerSalespersonPID,
+        AccVWYesNoQVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -255,6 +256,7 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
     public static final int ACCSOSALESPERSONSDEFAULTVIEW = AttributesEnum.AccSoSalesPersonsDefaultView.index();
     public static final int ACCVWFUNCGETCUSTOMERCREDITLIMIT = AttributesEnum.AccVwFuncGetCustomerCreditLimit.index();
     public static final int ACCALLCUSTOMERSALESPERSONPID = AttributesEnum.AccAllCustomerSalespersonPID.index();
+    public static final int ACCVWYESNOQVO = AttributesEnum.AccVWYesNoQVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1849,6 +1851,13 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
      */
     public RowSet getAccAllCustomerSalespersonPID() {
         return (RowSet) getAttributeInternal(ACCALLCUSTOMERSALESPERSONPID);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVWYesNoQVO.
+     */
+    public RowSet getAccVWYesNoQVO() {
+        return (RowSet) getAttributeInternal(ACCVWYESNOQVO);
     }
 
     @Override
