@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
+import oracle.jbo.RowSet;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
@@ -56,12 +57,14 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
         txtStoreName,
         txtSalesPersonName,
         txtCustomerName,
+        txtErrorMessage,
         SoRebateDetail,
         SoRebateImei,
         AllCustomers,
         SoSalesPersons,
         AllStores,
-        PuSuppliers;
+        PuSuppliers,
+        AccVwFuncUserBackDateAllowed;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -117,12 +120,14 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
     public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
     public static final int TXTCUSTOMERNAME = AttributesEnum.txtCustomerName.index();
+    public static final int TXTERRORMESSAGE = AttributesEnum.txtErrorMessage.index();
     public static final int SOREBATEDETAIL = AttributesEnum.SoRebateDetail.index();
     public static final int SOREBATEIMEI = AttributesEnum.SoRebateImei.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
     public static final int SOSALESPERSONS = AttributesEnum.SoSalesPersons.index();
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
+    public static final int ACCVWFUNCUSERBACKDATEALLOWED = AttributesEnum.AccVwFuncUserBackDateAllowed.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -635,6 +640,22 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtErrorMessage, using the alias name txtErrorMessage.
+     * @return the value of txtErrorMessage
+     */
+    public String gettxtErrorMessage() {
+        return (String) getAttributeInternal(TXTERRORMESSAGE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtErrorMessage.
+     * @param value value to set the txtErrorMessage
+     */
+    public void settxtErrorMessage(String value) {
+        setAttributeInternal(TXTERRORMESSAGE, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSoRebateDetail() {
@@ -708,6 +729,13 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(PUSUPPLIERS, value);
     }
 
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncUserBackDateAllowed.
+     */
+    public RowSet getAccVwFuncUserBackDateAllowed() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCUSERBACKDATEALLOWED);
+    }
 
     /**
      * @param rebateseq key constituent

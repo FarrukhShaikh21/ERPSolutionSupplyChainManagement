@@ -147,7 +147,7 @@
                                    disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"
                                    icon="#{resource['images:imgDelete.png']}" iconPosition="top" accessKey="l"/>
                         <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Order"
-                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='Y'}" id="b1"
+                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
                                    icon="#{resource['images:imgAdd.png']}" iconPosition="top" accessKey="w"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
                                    id="b6" disabled="#{bindings.Posted.inputValue=='Y'}"
@@ -155,7 +155,6 @@
                           <af:resetActionListener/>
                         </af:button>
                         <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b5"
-                                   disabled="#{bindings.Posted.inputValue=='Y'}"
                                    icon="#{resource['images:imgSave.png']}" iconPosition="top" accessKey="v"/>
                         <af:spacer width="50" height="10" id="s6"/>
                         <af:button text="Supervise Transaction" id="b9"
@@ -167,7 +166,7 @@
                       </af:toolbar>
                     </f:facet>
                     <af:panelGridLayout id="pgl5">
-                      <af:gridRow marginTop="5px" height="auto" id="gr4">
+                      <af:gridRow height="30px" id="gr4">
                         <af:gridCell marginStart="5px" width="15%" id="gc2" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.Salesorderid.hints.label}" id="ol5"/>
                         </af:gridCell>
@@ -192,18 +191,19 @@
                         <af:gridCell marginStart="5px" width="15%" id="gc6" halign="center" valign="middle">
                           <af:outputLabel value="#{bindings.ConfirmDate.hints.label}" id="ol10"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc7">
+                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc7" valign="middle">
                           <af:inputDate value="#{bindings.ConfirmDate.inputValue}"
                                         label="#{bindings.ConfirmDate.hints.label}"
                                         required="#{bindings.ConfirmDate.hints.mandatory}"
                                         columns="#{bindings.ConfirmDate.hints.displayWidth}"
-                                        shortDesc="#{bindings.ConfirmDate.hints.tooltip}" id="id1" simple="true">
+                                        shortDesc="#{bindings.ConfirmDate.hints.tooltip}" id="id1" simple="true"
+                                        autoSubmit="true">
                             <f:validator binding="#{bindings.ConfirmDate.validator}"/>
                             <af:convertDateTime pattern="#{bindings.ConfirmDate.format}"/>
                           </af:inputDate>
                         </af:gridCell>
                       </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" id="gr5">
+                      <af:gridRow height="30px" id="gr5">
                         <af:gridCell marginStart="5px" width="15%" id="gc8" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.Locationid.hints.label}" id="ol4"/>
                         </af:gridCell>
@@ -239,11 +239,11 @@
                           <af:outputText value="#{bindings.Storeid.inputValue}" id="ot3" noWrap="true"/>
                         </af:gridCell>
                       </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" id="gr6">
+                      <af:gridRow height="30px" id="gr6">
                         <af:gridCell marginStart="5px" width="15%" id="gc12" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.txtCustomerName.hints.label}" id="ol1"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" id="gc13" halign="stretch" valign="stretch">
+                        <af:gridCell marginStart="5px" width="35%" id="gc13" halign="stretch" valign="middle">
                           <af:inputComboboxListOfValues id="txtCustomerNameId"
                                                         popupTitle="Search and Select: #{bindings.txtCustomerName.hints.label}"
                                                         value="#{bindings.txtCustomerName.inputValue}"
@@ -283,8 +283,8 @@
                                          partialTriggers="txtSalesPersonNameId txtCustomerNameId" noWrap="true"/>
                         </af:gridCell>
                       </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" id="gr7">
-                        <af:gridCell marginStart="5px" width="15%" id="gc16" valign="middle">
+                      <af:gridRow height="30px" id="gr7">
+                        <af:gridCell marginStart="5px" width="15%" id="gc16" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.RemainingCreditLimit.hints.label}" id="ol7"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc17" valign="middle">
@@ -314,7 +314,7 @@
                           </af:inputText>
                         </af:gridCell>
                       </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" id="gr8">
+                      <af:gridRow height="30px" id="gr8">
                         <af:gridCell marginStart="5px" width="15%" id="gc20" halign="center" valign="middle">
                           <af:outputLabel value="#{bindings.txtSupplierName.hints.label}" id="ol3"/>
                         </af:gridCell>
@@ -350,12 +350,12 @@
                           </af:inputText>
                         </af:gridCell>
                       </af:gridRow>
-                      <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
-                        <af:gridCell marginStart="5px" width="15%" id="gc24" halign="center">
+                      <af:gridRow height="30px" marginBottom="5px" id="gr9">
+                        <af:gridCell marginStart="5px" width="15%" id="gc24" halign="center" valign="middle">
                           <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol2"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="75%" id="gc25" columnSpan="3" rowSpan="1"
-                                     halign="stretch">
+                                     halign="stretch" valign="middle">
                           <af:inputText value="#{bindings.Remarks.inputValue}" label="#{bindings.Remarks.hints.label}"
                                         required="#{bindings.Remarks.hints.mandatory}"
                                         columns="#{bindings.Remarks.hints.displayWidth}"

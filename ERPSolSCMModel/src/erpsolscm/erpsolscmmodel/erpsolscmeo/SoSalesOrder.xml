@@ -37,6 +37,10 @@
     Name="AccVwFuncShowAgingAlert"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncShowAgingAlertQVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwFuncUserBackDateAllowed"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncUserBackDateAllowedQVO"
+    RowLevelBinds="true"/>
   <Attribute
     Name="Salesorderseq"
     IsNotNull="true"
@@ -665,6 +669,37 @@ return true;]]></validation:TransientExpression>
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:ExpressionValidationBean
+      Name="ConfirmDateCheckDateBR"
+      OperandType="EXPR"
+      Inverse="false">
+      <validation:MsgIds>
+        <validation:Item
+          Value="ERP_SOL_USER_DATE"/>
+      </validation:MsgIds>
+      <validation:ResExpressions
+        Name="ConfirmDateCheckDateBR_ResExprList">
+        <validation:Expression
+          trustMode="trusted"
+          Name="0"><![CDATA[txtErrorMessage]]></validation:Expression>
+      </validation:ResExpressions>
+      <validation:TransientExpression
+        trustMode="trusted"><![CDATA[AccVwFuncUserBackDateAllowed.setNamedWhereClauseParam("P_ADF_USERID",erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode());
+AccVwFuncUserBackDateAllowed.setNamedWhereClauseParam("P_ADF_MODULEID", "SO-0167");
+AccVwFuncUserBackDateAllowed.setNamedWhereClauseParam("P_ADF_DATE", newValue);
+println("0")
+AccVwFuncUserBackDateAllowed.executeQuery();
+println("a")
+println(AccVwFuncUserBackDateAllowed.first().getAttribute("Status"));
+if(!AccVwFuncUserBackDateAllowed.first().getAttribute("Status").toString().equals("ERPSOLSUCCESS"))
+{
+settxtErrorMessage(AccVwFuncUserBackDateAllowed.first().getAttribute("Status").toString());
+adf.error.raise("ERP_SOL_USER_DATE");
+return false;
+}
+
+return true;]]></validation:TransientExpression>
+    </validation:ExpressionValidationBean>
   </Attribute>
   <Attribute
     Name="HoBehalf"
@@ -1305,8 +1340,7 @@ return true;]]></validation:TransientExpression>
     ColumnType="DATE"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+    <TransientExpression><![CDATA[adf.currentDateTime]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

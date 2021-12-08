@@ -410,10 +410,15 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
      */
     public void setSalespersonid(String value) {
         setAttributeInternal(SALESPERSONID, value);
-        getAccAllCustomerSalespersonPID().setNamedWhereClauseParam("P_ADF_CUSTOMERID", getCustomerid());
-        getAccAllCustomerSalespersonPID().setNamedWhereClauseParam("P_ADF_SALESPERSONID", value);
-        getAccAllCustomerSalespersonPID().executeQuery();
-        setPid((Integer)getAccAllCustomerSalespersonPID().first().getAttribute("Id"));
+        try {
+            getAccAllCustomerSalespersonPID().setNamedWhereClauseParam("P_ADF_CUSTOMERID", getCustomerid());
+            getAccAllCustomerSalespersonPID().setNamedWhereClauseParam("P_ADF_SALESPERSONID", value);
+            getAccAllCustomerSalespersonPID().executeQuery();
+            setPid((Integer) getAccAllCustomerSalespersonPID().first().getAttribute("Id"));
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
     }
 
     /**

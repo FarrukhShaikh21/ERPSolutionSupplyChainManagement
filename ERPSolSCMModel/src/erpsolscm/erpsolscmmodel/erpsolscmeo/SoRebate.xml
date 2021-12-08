@@ -10,12 +10,17 @@
   DBObjectName="SO_REBATE"
   AliasName="SoRebate"
   BindingStyle="OracleName"
-  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebateImpl">
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebateImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <ViewAccessor
+    Name="AccVwFuncUserBackDateAllowed"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncUserBackDateAllowedQVO"
+    RowLevelBinds="true"/>
   <Attribute
     Name="RebateId"
     IsUnique="true"
@@ -76,6 +81,40 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:ExpressionValidationBean
+      Name="RdateBackDateBR"
+      OperandType="EXPR"
+      Inverse="false">
+      <validation:OnCondition
+        trustMode="untrusted"
+        Name="OnConditionExpr"><![CDATA[newValue!=null]]></validation:OnCondition>
+      <validation:MsgIds>
+        <validation:Item
+          Value="ERP_SOL_REB_USER_DATE"/>
+      </validation:MsgIds>
+      <validation:ResExpressions
+        Name="RdateBackDateBR_ResExprList">
+        <validation:Expression
+          trustMode="untrusted"
+          Name="0"><![CDATA[txtErrorMessage]]></validation:Expression>
+      </validation:ResExpressions>
+      <validation:TransientExpression
+        trustMode="trusted"><![CDATA[AccVwFuncUserBackDateAllowed.setNamedWhereClauseParam("P_ADF_USERID",erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode());
+AccVwFuncUserBackDateAllowed.setNamedWhereClauseParam("P_ADF_MODULEID", "SO-0171");
+AccVwFuncUserBackDateAllowed.setNamedWhereClauseParam("P_ADF_DATE", newValue);
+println("0")
+AccVwFuncUserBackDateAllowed.executeQuery();
+println("a")
+println(AccVwFuncUserBackDateAllowed.first().getAttribute("Status"));
+if(!AccVwFuncUserBackDateAllowed.first().getAttribute("Status").toString().equals("ERPSOLSUCCESS"))
+{
+settxtErrorMessage(AccVwFuncUserBackDateAllowed.first().getAttribute("Status").toString());
+adf.error.raise("ERP_SOL_REB_USER_DATE");
+return false;
+}
+
+return true;]]></validation:TransientExpression>
+    </validation:ExpressionValidationBean>
   </Attribute>
   <Attribute
     Name="Posted"
@@ -484,6 +523,15 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtErrorMessage"
+    Precision="80"
+    ColumnName="TXT_ERROR_MESSAGE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false"/>
   <AccessorAttribute
     Name="SoRebateDetail"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.FkSoRebatDetRebateseqAssoc"
