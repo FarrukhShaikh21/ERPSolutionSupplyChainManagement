@@ -16,6 +16,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class SoRebateViewRowImpl extends ViewRowImpl {
+
     public static final int ENTITY_SOREBATE = 0;
 
     /**
@@ -64,8 +65,10 @@ public class SoRebateViewRowImpl extends ViewRowImpl {
         AccSoSalesPersonsView,
         AccAllStoresView,
         AccPuSuppliersView,
-        AccSretCategoryView;
-        private static AttributesEnum[] vals = null;
+        AccSretCategoryView,
+        AccVWYesNoQVO;
+        static AttributesEnum[] vals = null;
+        ;
         private static final int firstIndex = 0;
 
         public int index() {
@@ -87,6 +90,7 @@ public class SoRebateViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int REBATEID = AttributesEnum.RebateId.index();
     public static final int LOCATIONID = AttributesEnum.Locationid.index();
     public static final int RDATE = AttributesEnum.Rdate.index();
@@ -130,6 +134,7 @@ public class SoRebateViewRowImpl extends ViewRowImpl {
     public static final int ACCALLSTORESVIEW = AttributesEnum.AccAllStoresView.index();
     public static final int ACCPUSUPPLIERSVIEW = AttributesEnum.AccPuSuppliersView.index();
     public static final int ACCSRETCATEGORYVIEW = AttributesEnum.AccSretCategoryView.index();
+    public static final int ACCVWYESNOQVO = AttributesEnum.AccVWYesNoQVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -761,6 +766,14 @@ public class SoRebateViewRowImpl extends ViewRowImpl {
     public RowSet getAccSretCategoryView() {
         return (RowSet) getAttributeInternal(ACCSRETCATEGORYVIEW);
     }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVWYesNoQVO.
+     */
+    public RowSet getAccVWYesNoQVO() {
+        return (RowSet) getAttributeInternal(ACCVWYESNOQVO);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         if (getPosted().equals("Y")) {

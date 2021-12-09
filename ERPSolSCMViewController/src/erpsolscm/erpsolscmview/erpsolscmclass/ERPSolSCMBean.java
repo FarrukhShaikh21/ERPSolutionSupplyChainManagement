@@ -34,6 +34,7 @@ import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.jbo.ApplicationModule;
+import oracle.jbo.JboException;
 import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.DBTransaction;
@@ -58,11 +59,20 @@ public class ERPSolSCMBean {
     
     public void doSetERPSolSCMSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
-        ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_CODE", getERPSolStrUserCode());
-        ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_REGION", getERPSolStrUserRegionCode());
-        ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_LOCATION", getERPSolStrUserLocationCode());
-        ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_STORE", getERPSolStrUserStoreCode());
-        ADFContext.getCurrent().getPageFlowScope().put("GLOB_COMPANY_CODE", 2);
+        if (getERPSolStrUserCode().length()==0) {
+           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Users Defaults are not defined properly. Please Check"));
+           throw new JboException("Users Defaults are not defined properly. Please Check");
+       }
+        try {
+            ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_CODE", getERPSolStrUserCode().toString());
+            ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_REGION", getERPSolStrUserCode().toString());
+            ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_LOCATION",getERPSolStrUserLocationCode().toString());
+            ADFContext.getCurrent().getPageFlowScope().put("GLOB_USER_STORE", getERPSolStrUserStoreCode().toString());
+            ADFContext.getCurrent().getPageFlowScope().put("GLOB_COMPANY_CODE", "D");
+        } catch (Exception e) {
+            e.printStackTrace();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Users Defaults are not defined properly. Please Check"));
+        }
     }
 
 

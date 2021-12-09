@@ -48,7 +48,10 @@
       </AttrNames>
     </attributeValues>
     <action IterBinding="SoSalesOrderViewCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
+            Action="createWithParams" InstanceName="ERPSolSCMAppModuleDataControl.SoSalesOrderViewCRUD"
+            DataControl="ERPSolSCMAppModuleDataControl">
+      <NamedData NDName="Remarks" NDValue="#{''}" NDType="java.lang.String"/>
+    </action>
     <action IterBinding="SoSalesOrderViewCRUDIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <action IterBinding="SoSalesOrderViewCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>

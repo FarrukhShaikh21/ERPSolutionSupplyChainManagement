@@ -19,7 +19,7 @@
               <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc29" halign="stretch">
                 <af:selectOneChoice label="#{bindings.txtScanType.hints.label}"
                                     value="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolScanType}" id="soc1"
-                                    autoSubmit="true">
+                                    autoSubmit="true" visible="#{bindings.Posted.inputValue=='N'}">
                   <af:selectItem label="Box" value="B" id="si1"/>
                   <af:selectItem label="IMEI" value="I" id="si2"/>
                 </af:selectOneChoice>
@@ -27,7 +27,7 @@
             </af:gridRow>
             <af:gridRow id="gr15">
               <af:gridCell id="gc31" width="100%" halign="stretch" valign="stretch">
-                <af:panelGroupLayout id="pgl7" layout="horizontal">
+                <af:panelGroupLayout id="pgl7" layout="horizontal" visible="#{bindings.Posted.inputValue=='N'}">
                   <af:inputText
                                 label="#{bindings.txtIMEIAndBox.hints.label}"
                                 required="#{bindings.txtIMEIAndBox.hints.mandatory}"
@@ -138,10 +138,10 @@
                         <af:button text="Search" id="b12" action="ACT-SEARCH-S0-0167"
                                    icon="#{resource['images:imgFind.png']}" iconPosition="top" accessKey="s"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                                   disabled="#{bindings.Salesorderid.inputValue==null}" partialSubmit="true" id="b4"
+                                   disabled="#{bindings.Salesorderid.inputValue==null || !bindings.Previous.enabled}" partialSubmit="true" id="b4"
                                    icon="#{resource['images:imgPrevious.png']}" iconPosition="top" accessKey="r"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
-                                   disabled="#{bindings.Salesorderid.inputValue==null}" partialSubmit="true" id="b3"
+                                   disabled="#{bindings.Salesorderid.inputValue==null || !bindings.Next.enabled}" partialSubmit="true" id="b3"
                                    icon="#{resource['images:imgNext.png']}" iconPosition="top" accessKey="n"/>
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Order"
                                    disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"
@@ -167,7 +167,7 @@
                     </f:facet>
                     <af:panelGridLayout id="pgl5">
                       <af:gridRow height="30px" id="gr4">
-                        <af:gridCell marginStart="5px" width="15%" id="gc2" valign="middle" halign="center">
+                        <af:gridCell marginStart="5px" width="15%" id="gc2" valign="middle">
                           <af:outputLabel value="#{bindings.Salesorderid.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
@@ -188,7 +188,7 @@
                             <f:validator binding="#{bindings.Posted.validator}"/>
                           </af:inputText>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc6" halign="center" valign="middle">
+                        <af:gridCell marginStart="5px" width="15%" id="gc6" valign="middle">
                           <af:outputLabel value="#{bindings.ConfirmDate.hints.label}" id="ol10"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc7" valign="middle">
@@ -204,7 +204,7 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow height="30px" id="gr5">
-                        <af:gridCell marginStart="5px" width="15%" id="gc8" valign="middle" halign="center">
+                        <af:gridCell marginStart="5px" width="15%" id="gc8" valign="middle">
                           <af:outputLabel value="#{bindings.Locationid.hints.label}" id="ol4"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc9" halign="stretch" valign="middle">
@@ -218,7 +218,7 @@
                             <f:validator binding="#{bindings.Locationid.validator}"/>
                           </af:inputText>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc10" valign="middle" halign="center">
+                        <af:gridCell marginStart="5px" width="15%" id="gc10" valign="middle">
                           <af:outputLabel value="#{bindings.txtStoreName.hints.label}" id="ol11"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc11" halign="stretch"
@@ -240,7 +240,7 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow height="30px" id="gr6">
-                        <af:gridCell marginStart="5px" width="15%" id="gc12" valign="middle" halign="center">
+                        <af:gridCell marginStart="5px" width="15%" id="gc12" valign="middle">
                           <af:outputLabel value="#{bindings.txtCustomerName.hints.label}" id="ol1"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc13" halign="stretch" valign="middle">
@@ -252,7 +252,9 @@
                                                         required="#{bindings.txtCustomerName.hints.mandatory}"
                                                         columns="#{bindings.txtCustomerName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtCustomerName.hints.tooltip}"
-                                                        contentStyle="width:80%" simple="true" autoSubmit="true">
+                                                        contentStyle="width:80%" simple="true" autoSubmit="true"
+                                                        readOnly="#{bindings.SoSalesOrderLinesDetCRUDIterator.estimatedRowCount>0}"
+                                                        partialTriggers="pc1:b8 pc1:b7">
                             <f:validator binding="#{bindings.txtCustomerName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedCustomerValues}"/>
                           </af:inputComboboxListOfValues>
@@ -260,7 +262,7 @@
                           <af:outputText value="#{bindings.Customerid.inputValue}" id="ot2" noWrap="true"
                                          partialTriggers="txtCustomerNameId"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc14" valign="middle" halign="center">
+                        <af:gridCell marginStart="5px" width="15%" id="gc14" valign="middle">
                           <af:outputLabel value="#{bindings.Salespersonid.hints.label}" id="ol6"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc15" valign="middle"
@@ -284,7 +286,7 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow height="30px" id="gr7">
-                        <af:gridCell marginStart="5px" width="15%" id="gc16" valign="middle" halign="center">
+                        <af:gridCell marginStart="5px" width="15%" id="gc16" valign="middle">
                           <af:outputLabel value="#{bindings.RemainingCreditLimit.hints.label}" id="ol7"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc17" valign="middle">
@@ -299,7 +301,7 @@
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.RemainingCreditLimit.format}"/>
                           </af:inputText>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc18" valign="middle" halign="center">
+                        <af:gridCell marginStart="5px" width="15%" id="gc18" valign="middle">
                           <af:outputLabel value="#{bindings.CustomerDocRef.hints.label}" id="ol8"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc19" valign="middle">
@@ -315,7 +317,7 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow height="30px" id="gr8">
-                        <af:gridCell marginStart="5px" width="15%" id="gc20" halign="center" valign="middle">
+                        <af:gridCell marginStart="5px" width="15%" id="gc20" valign="middle">
                           <af:outputLabel value="#{bindings.txtSupplierName.hints.label}" id="ol3"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc21" halign="stretch" valign="middle">
@@ -336,7 +338,7 @@
                                          shortDesc="#{bindings.Supplierid.hints.tooltip}" id="ot5" noWrap="true"
                                          partialTriggers="txtSupplierNameId"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="15%" id="gc22" valign="middle" halign="center">
+                        <af:gridCell marginStart="5px" width="15%" id="gc22" valign="middle">
                           <af:outputLabel value="#{bindings.Flexfield1.hints.label}" id="ol9"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc23" valign="middle">
@@ -351,7 +353,7 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow height="30px" marginBottom="5px" id="gr9">
-                        <af:gridCell marginStart="5px" width="15%" id="gc24" halign="center" valign="middle">
+                        <af:gridCell marginStart="5px" width="15%" id="gc24" valign="middle">
                           <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol2"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="75%" id="gc25" columnSpan="3" rowSpan="1"

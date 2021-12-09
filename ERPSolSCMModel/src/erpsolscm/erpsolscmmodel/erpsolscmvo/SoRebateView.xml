@@ -41,6 +41,10 @@
     Name="AccSretCategoryView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SretCategoryView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVWYesNoQVO"
+    ViewObjectName="erpsolglob.erpsolglobmodel.erpsolglobqvo.VWYesNoQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtCustomerName"
     ListVOName="AccAllCustomersView"
@@ -161,6 +165,24 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LovPosted"
+    ListVOName="AccVWYesNoQVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Posted"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SoRebate"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate"/>
@@ -192,7 +214,15 @@
     PrecisionRule="true"
     EntityAttrName="Posted"
     EntityUsage="SoRebate"
-    AliasName="POSTED"/>
+    AliasName="POSTED"
+    LOVName="LovPosted">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Postedby"
     PrecisionRule="true"
@@ -455,24 +485,24 @@
         ViewAttribute="RebateId"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="Rdate"
         ViewAttribute="Rdate"
         Operator="BETWEEN"
         Conjunction="AND"
-        Required="Optional">
-        <ViewCriteriaItemValue
-          Name="SoRebateViewCriteria_SoRebateViewCriteria_row_0_AllStoresView_vcval0"
-          Value=""/>
-      </ViewCriteriaItem>
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Posted"
+        ViewAttribute="Posted"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
       <ViewCriteriaItem
         Name="Storeid"
         ViewAttribute="Storeid"
         Operator="CONTAINS"
         Conjunction="AND"
-        Value=""
         Required="Optional"/>
       <ViewCriteriaItem
         Name="SoSalesPersonsView"
@@ -493,14 +523,12 @@
               ViewAttribute="Salespersonid"
               Operator="CONTAINS"
               Conjunction="AND"
-              Value=""
               Required="Optional"/>
             <ViewCriteriaItem
               Name="Name"
               ViewAttribute="Name"
               Operator="CONTAINS"
               Conjunction="AND"
-              Value=""
               Required="Optional"/>
           </ViewCriteriaRow>
         </ViewCriteria>
@@ -524,14 +552,12 @@
               ViewAttribute="Customerid"
               Operator="CONTAINS"
               Conjunction="AND"
-              Value=""
               Required="Optional"/>
             <ViewCriteriaItem
               Name="CustomerName"
               ViewAttribute="CustomerName"
               Operator="CONTAINS"
               Conjunction="AND"
-              Value=""
               Required="Optional"/>
           </ViewCriteriaRow>
         </ViewCriteria>
