@@ -66,7 +66,6 @@
   <Attribute
     Name="Lineno"
     IsUnique="true"
-    IsNotNull="true"
     Precision="4"
     Scale="0"
     ColumnName="LINENO"
@@ -1062,6 +1061,7 @@
       <Attr Name="_referencedKey" Value="PK_SO_SALES_ORDER"/>
       <Attr Name="_isForeign" Value="true"/>
       <Attr Name="_DBObjectName" Value="FK_SO_SALES_ORDER_LINES"/>
+      <Attr Name="_isCascadeDelete" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.Salesorderseq"/>

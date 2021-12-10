@@ -123,6 +123,7 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
         AllStoresView,
         SoSalesPersonsView,
         PuSuppliersView,
+        AllLocationsView,
         AccAllCustomersView,
         AccAllStoresView,
         AccSoSalesPersonsView,
@@ -249,6 +250,7 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
     public static final int ALLSTORESVIEW = AttributesEnum.AllStoresView.index();
     public static final int SOSALESPERSONSVIEW = AttributesEnum.SoSalesPersonsView.index();
     public static final int PUSUPPLIERSVIEW = AttributesEnum.PuSuppliersView.index();
+    public static final int ALLLOCATIONSVIEW = AttributesEnum.AllLocationsView.index();
     public static final int ACCALLCUSTOMERSVIEW = AttributesEnum.AccAllCustomersView.index();
     public static final int ACCALLSTORESVIEW = AttributesEnum.AccAllStoresView.index();
     public static final int ACCSOSALESPERSONSVIEW = AttributesEnum.AccSoSalesPersonsView.index();
@@ -1807,6 +1809,20 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
      */
     public void setPuSuppliersView(Row value) {
         setAttributeInternal(PUSUPPLIERSVIEW, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link AllLocationsView.
+     */
+    public Row getAllLocationsView() {
+        return (Row) getAttributeInternal(ALLLOCATIONSVIEW);
+    }
+
+    /**
+     * Sets the master-detail link AllLocationsView between this object and <code>value</code>.
+     */
+    public void setAllLocationsView(Row value) {
+        setAttributeInternal(ALLLOCATIONSVIEW, value);
     }
 
     /**

@@ -1853,15 +1853,32 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation==DML_INSERT) {
+            System.out.println("this is a");
+           populateAttributeAsChanged(SALESORDERID, getSoSalesOrder().getAttribute("Salesorderid").toString());
+           System.out.println("this is b");
+           String pkValue="FUNC_GET_MAX_ID('SO_SALES_ORDER_LINES WHERE SALESORDERID=''"+getSalesorderid()+"''','LINENO')";
+           System.out.println("this is c");
+           System.out.println(pkValue + "pk value");
+           System.out.println("this is d");
+           String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
+           System.out.println("this is e");
+           populateAttributeAsChanged(LINENO, Integer.parseInt(result));
+        }
         if (operation!=DML_DELETE) {
+           System.out.println("this is f");
             populateAttributeAsChanged(ACTLINEGRAMBCURR, new BigDecimal(gettxtGrossAmount()==null?0:gettxtGrossAmount() ));
+           System.out.println("this is g");
            populateAttributeAsChanged(ACTLINEGRAMTOCURR, new BigDecimal(gettxtGrossAmount()==null?0:gettxtGrossAmount() ));
+           System.out.println("this is h");
 //           populateAttributeAsChanged(DISCOUNTAMOUNTOC, new BigDecimal(gettxtDiscountAmount()==null?0:gettxtDiscountAmount() ));
            populateAttributeAsChanged(DISCOUNTAMOUNTBC, getDiscountAmountOc());
+           System.out.println("this is i");
            populateAttributeAsChanged(LINENETAMTBCURR, new BigDecimal(gettxtNetAmount()==null?0:gettxtNetAmount() ));
+           System.out.println("this is j");
            populateAttributeAsChanged(LINENETAMTOCURR, gettxtNetAmount());
-
-           populateAttributeAsChanged(SALESORDERID, getSoSalesOrder().getAttribute("Salesorderid").toString());
+           System.out.println("this is k");
+          
            
        }
         super.doDML(operation, e);

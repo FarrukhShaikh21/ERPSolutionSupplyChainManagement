@@ -98,9 +98,7 @@
     PrecisionRule="true"
     EntityAttrName="Lineno"
     EntityUsage="SoSalesOrderLines"
-    AliasName="LINENO">
-    <TransientExpression><![CDATA[getRowSet().count("Lineno")+1]]></TransientExpression>
-  </ViewAttribute>
+    AliasName="LINENO"/>
   <ViewAttribute
     Name="Uomsid"
     IsNotNull="true"

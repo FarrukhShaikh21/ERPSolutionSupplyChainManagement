@@ -123,6 +123,7 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         AllStores,
         SoSalesPersons,
         PuSuppliers,
+        AllLocations,
         AccVwFuncCheckIsCustomerActive,
         AccVwFuncCheckSecurityCheque,
         AccVwFuncCheckCustomerCancelCheque,
@@ -246,6 +247,7 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
     public static final int SOSALESPERSONS = AttributesEnum.SoSalesPersons.index();
     public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
+    public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
     public static final int ACCVWFUNCCHECKISCUSTOMERACTIVE = AttributesEnum.AccVwFuncCheckIsCustomerActive.index();
     public static final int ACCVWFUNCCHECKSECURITYCHEQUE = AttributesEnum.AccVwFuncCheckSecurityCheque.index();
     public static final int ACCVWFUNCCHECKCUSTOMERCANCELCHEQUE =
@@ -1747,6 +1749,20 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
 
 
     /**
+     * @return the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public EntityImpl getAllLocations() {
+        return (EntityImpl) getAttributeInternal(ALLLOCATIONS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public void setAllLocations(EntityImpl value) {
+        setAttributeInternal(ALLLOCATIONS, value);
+    }
+
+    /**
      * Gets the view accessor <code>RowSet</code> AccVwFuncCheckIsCustomerActive.
      */
     public RowSet getAccVwFuncCheckIsCustomerActive() {
@@ -1788,6 +1804,7 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public RowSet getAccVwFuncUserBackDateAllowed() {
         return (RowSet) getAttributeInternal(ACCVWFUNCUSERBACKDATEALLOWED);
     }
+
 
     /**
      * @param salesorderseq key constituent

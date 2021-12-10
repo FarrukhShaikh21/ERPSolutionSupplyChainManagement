@@ -972,6 +972,12 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllLocationsView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllLocationsSoSalesOrderLocationIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
   <ClientInterface
     Name="__clientInterface">
     <Method

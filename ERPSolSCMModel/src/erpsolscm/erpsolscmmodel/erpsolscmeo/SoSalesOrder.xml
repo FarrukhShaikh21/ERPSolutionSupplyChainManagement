@@ -680,11 +680,9 @@ return true;]]></validation:TransientExpression>
       <validation:ResExpressions
         Name="ConfirmDateCheckDateBR_ResExprList">
         <validation:Expression
-          trustMode="trusted"
           Name="0"><![CDATA[txtErrorMessage]]></validation:Expression>
       </validation:ResExpressions>
-      <validation:TransientExpression
-        trustMode="trusted"><![CDATA[AccVwFuncUserBackDateAllowed.setNamedWhereClauseParam("P_ADF_USERID",erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode());
+      <validation:TransientExpression><![CDATA[AccVwFuncUserBackDateAllowed.setNamedWhereClauseParam("P_ADF_USERID",erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode());
 AccVwFuncUserBackDateAllowed.setNamedWhereClauseParam("P_ADF_MODULEID", "SO-0167");
 AccVwFuncUserBackDateAllowed.setNamedWhereClauseParam("P_ADF_DATE", newValue);
 println("0")
@@ -1012,7 +1010,8 @@ return true;]]></validation:TransientExpression>
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_ORDER">
+    TableName="SO_SALES_ORDER"
+    DefaultValue="Y">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -1404,6 +1403,13 @@ return true;]]></validation:TransientExpression>
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuSupplierSoSalesOrderSupplierIdAssoc.SoSalesOrder"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AllLocations"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllLocationsSoSalesOrderLocationIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllLocationsSoSalesOrderLocationIdAssoc.AllLocations"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllLocationsSoSalesOrderLocationIdAssoc.SoSalesOrder"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkSoSalesOrder"
     PrimaryKey="true">
@@ -1466,6 +1472,17 @@ return true;]]></validation:TransientExpression>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.Supplierid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SoSalesOrder4">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKALL_LOCATIONS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SO_SALES_ORDER4"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.Locationid"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

@@ -54,6 +54,22 @@ public class SoSalesOrderViewImpl extends ViewObjectImpl implements SoSalesOrder
             }
         }
     }
+   @Override
+    public Row next() {
+        // TODO Implement this method
+       if (getApplicationModule().getTransaction().isDirty()) {
+            throw new JboException("Please Save/Undo Changes First.");
+       }
+        return super.next();
+    }
    
+    @Override
+     public Row previous() {
+         // TODO Implement this method
+        if (getApplicationModule().getTransaction().isDirty()) {
+             throw new JboException("Please Save/Undo Changes First.");
+        }
+         return super.previous();
+     }
 }
 
