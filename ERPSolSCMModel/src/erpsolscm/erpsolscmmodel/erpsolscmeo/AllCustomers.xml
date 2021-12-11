@@ -17,8 +17,7 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="ALL_CUSTOMERS"
-    PrimaryKey="true"/>
+    TableName="ALL_CUSTOMERS"/>
   <Attribute
     Name="Customerid"
     IsUnique="true"
@@ -28,7 +27,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMERS">
+    TableName="ALL_CUSTOMERS"
+    PrimaryKey="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -1018,7 +1018,7 @@
       <Attr Name="_DBObjectName" Value="PK_ALL_CUSTOMERS"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers.Customerseq"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers.Customerid"/>
     </AttrArray>
   </Key>
   <Key
