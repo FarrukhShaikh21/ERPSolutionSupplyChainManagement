@@ -1094,11 +1094,13 @@
         Value="Quantity"/>
     </validation:OnAttributes>
     <validation:OnCondition
-      Name="OnConditionExpr"><![CDATA[Productid!=null]]></validation:OnCondition>
+      Name="OnConditionExpr"
+      trustMode="trusted"><![CDATA[Productid!=null && SoSalesOrder?.txtApplyCreditlimit=='Y']]></validation:OnCondition>
     <validation:ResExpressions
       Name="SoSalesOrderLinesCreditLimitBR_ResExprList">
       <validation:Expression
-        Name="0"><![CDATA[FuncVwFuncGetCustomerCreditLimitStop?.first()?.getAttribute("Creditlimit")]]></validation:Expression>
+        Name="0"
+        trustMode="trusted"><![CDATA[FuncVwFuncGetCustomerCreditLimitStop?.first()?.getAttribute("Creditlimit")]]></validation:Expression>
     </validation:ResExpressions>
   </validation:CompareValidationBean>
   <validation:CompareValidationBean
