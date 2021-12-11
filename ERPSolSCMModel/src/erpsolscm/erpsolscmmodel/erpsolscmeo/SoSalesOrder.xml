@@ -53,14 +53,12 @@
   <Attribute
     Name="Salesorderid"
     IsUnique="true"
-    IsNotNull="true"
     Precision="20"
     ColumnName="SALESORDERID"
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_ORDER"
-    DefaultValue="1">
+    TableName="SO_SALES_ORDER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -278,6 +276,10 @@ return true;
 
 return true;]]></validation:TransientExpression>
     </validation:ExpressionValidationBean>
+    <Dependencies>
+      <Item
+        Value="Locationid"/>
+    </Dependencies>
   </Attribute>
   <Attribute
     Name="Statusid"
@@ -314,7 +316,6 @@ return true;]]></validation:TransientExpression>
   </Attribute>
   <Attribute
     Name="Locationid"
-    IsNotNull="true"
     Precision="15"
     ColumnName="LOCATIONID"
     SQLType="VARCHAR"
@@ -1229,7 +1230,10 @@ return true;]]></validation:TransientExpression>
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression><![CDATA[AllCustomers?.CustomerName]]></TransientExpression>
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[AllCustomers?.CustomerName]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -1241,6 +1245,8 @@ return true;]]></validation:TransientExpression>
     <Dependencies>
       <Item
         Value="Customerid"/>
+      <Item
+        Value="Locationid"/>
     </Dependencies>
   </Attribute>
   <Attribute
@@ -1367,6 +1373,44 @@ return true;]]></validation:TransientExpression>
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtLocationName"
+    Precision="80"
+    ColumnName="TXT_LOCATION_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[AllLocations?.LocationDescription]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.txtLocationName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtApplyCreditlimit"
+    Precision="80"
+    ColumnName="TXT_APPLY_CREDITLIMIT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[AllLocations?.ApplyCreditlimit==null?"N":AllLocations?.ApplyCreditlimit]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Dependencies>
+      <Item
+        Value="Locationid"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="SoSalesOrderLines"

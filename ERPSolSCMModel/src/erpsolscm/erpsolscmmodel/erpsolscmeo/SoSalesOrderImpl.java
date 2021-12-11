@@ -118,6 +118,8 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         txtErrorMessage,
         txtCurrentDate,
         txtScanType,
+        txtLocationName,
+        txtApplyCreditlimit,
         SoSalesOrderLines,
         AllCustomers,
         AllStores,
@@ -242,6 +244,8 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTERRORMESSAGE = AttributesEnum.txtErrorMessage.index();
     public static final int TXTCURRENTDATE = AttributesEnum.txtCurrentDate.index();
     public static final int TXTSCANTYPE = AttributesEnum.txtScanType.index();
+    public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
+    public static final int TXTAPPLYCREDITLIMIT = AttributesEnum.txtApplyCreditlimit.index();
     public static final int SOSALESORDERLINES = AttributesEnum.SoSalesOrderLines.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
@@ -1680,6 +1684,38 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(TXTSCANTYPE, value);
     }
 
+
+    /**
+     * Gets the attribute value for txtLocationName, using the alias name txtLocationName.
+     * @return the value of txtLocationName
+     */
+    public String gettxtLocationName() {
+        return (String) getAttributeInternal(TXTLOCATIONNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtLocationName.
+     * @param value value to set the txtLocationName
+     */
+    public void settxtLocationName(String value) {
+        setAttributeInternal(TXTLOCATIONNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtApplyCreditlimit, using the alias name txtApplyCreditlimit.
+     * @return the value of txtApplyCreditlimit
+     */
+    public String gettxtApplyCreditlimit() {
+        return (String) getAttributeInternal(TXTAPPLYCREDITLIMIT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtApplyCreditlimit.
+     * @param value value to set the txtApplyCreditlimit
+     */
+    public void settxtApplyCreditlimit(String value) {
+        setAttributeInternal(TXTAPPLYCREDITLIMIT, value);
+    }
 
     /**
      * @return the associated entity oracle.jbo.RowIterator.
