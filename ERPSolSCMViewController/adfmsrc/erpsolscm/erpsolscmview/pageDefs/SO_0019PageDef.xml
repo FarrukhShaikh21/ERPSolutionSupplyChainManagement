@@ -5,6 +5,18 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SoSalesPersonsCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesPersonsCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <tree IterBinding="SoSalesPersonsCRUDIterator" id="SoSalesPersonsCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView" Name="SoSalesPersonsCRUD0">
+        <AttrNames>
+          <Item Value="Locationid"/>
+          <Item Value="Salespersonid"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
 </pageDefinition>

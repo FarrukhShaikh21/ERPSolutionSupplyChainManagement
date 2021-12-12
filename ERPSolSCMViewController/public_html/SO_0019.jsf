@@ -2,9 +2,56 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="SO_0019.jsf" id="d1">
+        <af:messages id="m1"/>
         <af:form id="f1">
             <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
-                <f:facet name="erptempmain"/>
+                <f:facet name="erptempmain">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.SoSalesPersonsCRUD.collectionModel}" var="row"
+                                  rows="#{bindings.SoSalesPersonsCRUD.rangeSize}"
+                                  emptyText="#{bindings.SoSalesPersonsCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.SoSalesPersonsCRUD.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.SoSalesPersonsCRUD.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.SoSalesPersonsCRUD.rangeSize}" id="t1">
+                            <af:column headerText="#{bindings.SoSalesPersonsCRUD.hints.Locationid.label}" id="c1"
+                                       width="200">
+                                <af:selectOneChoice value="#{row.bindings.Locationid.inputValue}"
+                                                    label="#{row.bindings.Locationid.label}"
+                                                    required="#{bindings.SoSalesPersonsCRUD.hints.Locationid.mandatory}"
+                                                    shortDesc="#{bindings.SoSalesPersonsCRUD.hints.Locationid.tooltip}"
+                                                    id="soc1">
+                                    <f:selectItems value="#{row.bindings.Locationid.items}" id="si1"/>
+                                    <f:validator binding="#{row.bindings.Locationid.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column headerText="#{bindings.SoSalesPersonsCRUD.hints.Salespersonid.label}" id="c2">
+                                <af:inputText value="#{row.bindings.Salespersonid.inputValue}"
+                                              label="#{bindings.SoSalesPersonsCRUD.hints.Salespersonid.label}"
+                                              required="#{bindings.SoSalesPersonsCRUD.hints.Salespersonid.mandatory}"
+                                              columns="#{bindings.SoSalesPersonsCRUD.hints.Salespersonid.displayWidth}"
+                                              maximumLength="#{bindings.SoSalesPersonsCRUD.hints.Salespersonid.precision}"
+                                              shortDesc="#{bindings.SoSalesPersonsCRUD.hints.Salespersonid.tooltip}"
+                                              id="it1">
+                                    <f:validator binding="#{row.bindings.Salespersonid.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SoSalesPersonsCRUD.hints.Name.label}" id="c3" width="200">
+                                <af:inputText value="#{row.bindings.Name.inputValue}"
+                                              label="#{bindings.SoSalesPersonsCRUD.hints.Name.label}"
+                                              required="#{bindings.SoSalesPersonsCRUD.hints.Name.mandatory}"
+                                              columns="#{bindings.SoSalesPersonsCRUD.hints.Name.displayWidth}"
+                                              maximumLength="#{bindings.SoSalesPersonsCRUD.hints.Name.precision}"
+                                              shortDesc="#{bindings.SoSalesPersonsCRUD.hints.Name.tooltip}" id="it2">
+                                    <f:validator binding="#{row.bindings.Name.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </f:facet>
                 <f:facet name="erptempleft"/>
             </af:pageTemplate>
         </af:form>
