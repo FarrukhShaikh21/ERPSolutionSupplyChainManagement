@@ -108,6 +108,9 @@
         <fixed-outcome>ACT-ERP-CLOSE-FORM-SCM</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SO_0019">
+      <page>/SO_0019.jsf</page>
+    </view>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -128,6 +131,10 @@
       <control-flow-case id="__16">
         <from-outcome>ERP-ACT-SO-0171</from-outcome>
         <to-activity-id>SO_0171</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__42">
+        <from-outcome>ERP-ACT-SO-0019</from-outcome>
+        <to-activity-id>SO_0019</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__11">

@@ -25,6 +25,10 @@
     Name="AccAllLocationsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllLocationsView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSoSalesTerritoryView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesTerritoryView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovLocationid"
     ListVOName="AccAllLocationsView"
@@ -40,6 +44,24 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="LocationDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovSalesterritoryid"
+    ListVOName="AccSoSalesTerritoryView"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Salesterritoryid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Salesterritoryid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Salesterritoryid"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -59,7 +81,15 @@
     PrecisionRule="true"
     EntityAttrName="Salesterritoryid"
     EntityUsage="SoSalesPersons"
-    AliasName="SALESTERRITORYID"/>
+    AliasName="SALESTERRITORYID"
+    LOVName="LovSalesterritoryid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Empid"
     PrecisionRule="true"

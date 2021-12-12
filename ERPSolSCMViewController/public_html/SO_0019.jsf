@@ -8,7 +8,13 @@
                 <f:facet name="erptempmain">
                     <af:panelCollection id="pc1">
                         <f:facet name="menus"/>
-                        <f:facet name="toolbar"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t2">
+                                <af:button actionListener="#{bindings.CreateInsert.execute}"
+                                           disabled="#{!bindings.CreateInsert.enabled}" id="b1"
+                                           icon="#{resource['images:imgAdd.png']}" text="Add Salesperson"/>
+                            </af:toolbar>
+                        </f:facet>
                         <f:facet name="statusbar"/>
                         <af:table value="#{bindings.SoSalesPersonsCRUD.collectionModel}" var="row"
                                   rows="#{bindings.SoSalesPersonsCRUD.rangeSize}"
@@ -16,7 +22,8 @@
                                   rowBandingInterval="0"
                                   selectedRowKeys="#{bindings.SoSalesPersonsCRUD.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.SoSalesPersonsCRUD.collectionModel.makeCurrent}"
-                                  rowSelection="single" fetchSize="#{bindings.SoSalesPersonsCRUD.rangeSize}" id="t1">
+                                  rowSelection="single" fetchSize="#{bindings.SoSalesPersonsCRUD.rangeSize}" id="t1"
+                                  columnStretching="column:c3" partialTriggers="::b1">
                             <af:column headerText="#{bindings.SoSalesPersonsCRUD.hints.Locationid.label}" id="c1"
                                        width="200">
                                 <af:selectOneChoice value="#{row.bindings.Locationid.inputValue}"
@@ -48,6 +55,17 @@
                                               shortDesc="#{bindings.SoSalesPersonsCRUD.hints.Name.tooltip}" id="it2">
                                     <f:validator binding="#{row.bindings.Name.validator}"/>
                                 </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.SoSalesPersonsCRUD.hints.Salesterritoryid.label}" id="c4"
+                                       width="200" displayIndex="-1">
+                                <af:selectOneChoice value="#{row.bindings.Salesterritoryid.inputValue}"
+                                                    label="#{row.bindings.Salesterritoryid.label}"
+                                                    required="#{bindings.SoSalesPersonsCRUD.hints.Salesterritoryid.mandatory}"
+                                                    shortDesc="#{bindings.SoSalesPersonsCRUD.hints.Salesterritoryid.tooltip}"
+                                                    id="soc2">
+                                    <f:selectItems value="#{row.bindings.Salesterritoryid.items}" id="si2"/>
+                                    <f:validator binding="#{row.bindings.Salesterritoryid.validator}"/>
+                                </af:selectOneChoice>
                             </af:column>
                         </af:table>
                     </af:panelCollection>

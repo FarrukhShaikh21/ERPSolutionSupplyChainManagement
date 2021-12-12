@@ -15,8 +15,11 @@
           <Item Value="Locationid"/>
           <Item Value="Salespersonid"/>
           <Item Value="Name"/>
+          <Item Value="Salesterritoryid"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="SoSalesPersonsCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

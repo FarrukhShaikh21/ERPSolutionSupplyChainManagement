@@ -215,7 +215,7 @@
       <property
          name="fromOutcome">ERP-ACT-SO-0171</property>
       <property
-         name="sdm:polyPoints">L46,10.5,247.35059,T50</property>
+         name="sdm:polyPoints">L50,10.5,250.85059,T50</property>
    </ControlFlowCase>
    <View
       id="View19">
@@ -466,5 +466,30 @@
          name="fromOutcome">ACT-ERP-CLOSE-FORM-SCM</property>
       <property
          name="sdm:polyPoints">R50,-209.5,237.09766,-209.5,227.44824,45.34668,227.44824,B50</property>
+   </ControlFlowCase>
+   <View
+      id="View42">
+      <property
+         name="activityId">SO_0019</property>
+      <property
+         name="page">/SO_0019.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SO_0019&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">313.79883</property>
+      <property
+         name="x">-462.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase43"
+      from="MethodCall4"
+      to="View42">
+      <property
+         name="fromOutcome">ERP-ACT-SO-0019</property>
+      <property
+         name="sdm:polyPoints">L42,-110.73242,243.85059,-110.73242,313.44824,R50</property>
    </ControlFlowCase>
 </SDM>
