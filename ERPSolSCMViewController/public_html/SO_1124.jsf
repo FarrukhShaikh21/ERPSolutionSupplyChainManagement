@@ -16,7 +16,7 @@
                                                                 label="#{bindings.Companyid.label}"
                                                                 required="#{bindings.Companyid.hints.mandatory}"
                                                                 shortDesc="#{bindings.Companyid.hints.tooltip}"
-                                                                id="soc1" autoSubmit="true">
+                                                                id="soc1" autoSubmit="true" contentStyle="width:50%">
                                                 <f:selectItems value="#{bindings.Companyid.items}" id="si1"/>
                                                 <f:validator binding="#{bindings.Companyid.validator}"/>
                                             </af:selectOneChoice>
@@ -24,7 +24,7 @@
                                                                 label="#{bindings.Regionid.label}"
                                                                 required="#{bindings.Regionid.hints.mandatory}"
                                                                 shortDesc="#{bindings.Regionid.hints.tooltip}"
-                                                                id="soc2">
+                                                                id="soc2" contentStyle="width:50%">
                                                 <f:selectItems value="#{bindings.Regionid.items}" id="si2"/>
                                                 <f:validator binding="#{bindings.Regionid.validator}"/>
                                             </af:selectOneChoice>
@@ -48,7 +48,7 @@
                                                                   columns="#{bindings.Locationid.hints.displayWidth}"
                                                                   maximumLength="#{bindings.Locationid.hints.precision}"
                                                                   shortDesc="#{bindings.Locationid.hints.tooltip}"
-                                                                  id="it5" simple="true">
+                                                                  id="it5" simple="true" readOnly="true">
                                                         <f:validator binding="#{bindings.Locationid.validator}"/>
                                                     </af:inputText>
                                                 </af:panelGroupLayout>
@@ -164,10 +164,24 @@
                                                     </af:inputText>
                                                 </af:panelGroupLayout>
                                             </af:panelLabelAndMessage>
+                                            <af:inputDate value="#{bindings.txtFromDate.inputValue}"
+                                                          label="#{bindings.txtFromDate.hints.label}"
+                                                          required="#{bindings.txtFromDate.hints.mandatory}"
+                                                          columns="#{bindings.txtFromDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtFromDate.hints.tooltip}" id="id2">
+                                                <f:validator binding="#{bindings.txtFromDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.txtFromDate.format}"/>
+                                            </af:inputDate>
+                                            <af:inputDate value="#{bindings.txtToDate.inputValue}"
+                                                          label="#{bindings.txtToDate.hints.label}"
+                                                          required="#{bindings.txtToDate.hints.mandatory}"
+                                                          columns="#{bindings.txtToDate.hints.displayWidth}"
+                                                          shortDesc="#{bindings.txtToDate.hints.tooltip}" id="id1">
+                                                <f:validator binding="#{bindings.txtToDate.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.txtToDate.format}"/>
+                                            </af:inputDate>
                                         </af:panelFormLayout>
                                     </af:gridCell>
-                                </af:gridRow>
-                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2"
                                                  halign="stretch" valign="stretch">
                                         <af:table value="#{bindings.SysProgramDetRO.collectionModel}" var="row"
@@ -183,11 +197,9 @@
                                                   filterVisible="true" varStatus="vs" id="t1" displayRow="selected"
                                                   scrollPolicy="page" horizontalGridVisible="false"
                                                   verticalGridVisible="false" autoHeightRows="15"
-                                                  styleClass="AFStretchWidth">
+                                                  styleClass="AFStretchWidth" columnStretching="column:c2">
                                             <af:column sortProperty="#{bindings.SysProgramDetRO.hints.Moduleid.name}"
-                                                       filterable="true"
-                                                       headerText="Report ID"
-                                                       id="c1">
+                                                       filterable="true" headerText="Report ID" id="c1">
                                                 <af:inputText value="#{row.bindings.Moduleid.inputValue}"
                                                               label="#{bindings.SysProgramDetRO.hints.Moduleid.label}"
                                                               required="#{bindings.SysProgramDetRO.hints.Moduleid.mandatory}"
@@ -199,9 +211,8 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column sortProperty="#{bindings.SysProgramDetRO.hints.ModuleName.name}"
-                                                       filterable="true"
-                                                       headerText="Report Name"
-                                                       id="c2" width="200" displayIndex="-1">
+                                                       filterable="true" headerText="Report Name" id="c2" width="200"
+                                                       displayIndex="-1">
                                                 <af:inputText value="#{row.bindings.ModuleName.inputValue}"
                                                               label="#{bindings.SysProgramDetRO.hints.ModuleName.label}"
                                                               required="#{bindings.SysProgramDetRO.hints.ModuleName.mandatory}"
@@ -213,9 +224,7 @@
                                                 </af:inputText>
                                             </af:column>
                                             <af:column sortProperty="#{bindings.SysProgramDetRO.hints.ExecName.name}"
-                                                       filterable="true"
-                                                       headerText="Action"
-                                                       id="c3">
+                                                       filterable="true" headerText="Action" id="c3">
                                                 <af:inputText value="#{row.bindings.ExecName.inputValue}"
                                                               label="#{bindings.SysProgramDetRO.hints.ExecName.label}"
                                                               required="#{bindings.SysProgramDetRO.hints.ExecName.mandatory}"

@@ -64,5 +64,15 @@
                   id="txtLocationName"/>
     <list IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovRegionid" id="Regionid"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="VwSoSalesReportROIterator" id="txtToDate">
+      <AttrNames>
+        <Item Value="txtToDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwSoSalesReportROIterator" id="txtFromDate">
+      <AttrNames>
+        <Item Value="txtFromDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
