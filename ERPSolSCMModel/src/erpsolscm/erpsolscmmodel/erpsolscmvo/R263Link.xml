@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="R263Link"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpsolscm.erpsolscmmodel.erpsolscmeo.R263Assoc">
+  <ViewLinkDefEnd
+    Name="ParentCompanyAllCompanyView"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCompanyView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ParentCompanyAllCompanyView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCompanyView.Companyid"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="AllCompanyView"
+    Cardinality="-1"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCompanyView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="AllCompanyView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCompanyView.ParentCompany"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>
