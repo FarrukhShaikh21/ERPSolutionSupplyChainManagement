@@ -61,6 +61,9 @@
   <ViewUsage
     Name="SoSalesPersonsCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"/>
+  <ViewUsage
+    Name="VwSoSalesReportRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

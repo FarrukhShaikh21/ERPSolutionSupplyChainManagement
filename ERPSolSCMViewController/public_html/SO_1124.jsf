@@ -10,7 +10,117 @@
                         <f:facet name="center">
                             <af:panelGridLayout id="pgl1">
                                 <af:gridRow marginTop="5px" height="auto" id="gr1">
-                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1"/>
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+                                        <af:panelFormLayout id="pfl1">
+                                            <af:selectOneChoice value="#{bindings.Companyid.inputValue}"
+                                                                label="#{bindings.Companyid.label}"
+                                                                required="#{bindings.Companyid.hints.mandatory}"
+                                                                shortDesc="#{bindings.Companyid.hints.tooltip}"
+                                                                id="soc1">
+                                                <f:selectItems value="#{bindings.Companyid.items}" id="si1"/>
+                                                <f:validator binding="#{bindings.Companyid.validator}"/>
+                                            </af:selectOneChoice>
+                                            <af:inputText value="#{bindings.Regionid.inputValue}"
+                                                          label="#{bindings.Regionid.hints.label}"
+                                                          required="#{bindings.Regionid.hints.mandatory}"
+                                                          columns="#{bindings.Regionid.hints.displayWidth}"
+                                                          maximumLength="#{bindings.Regionid.hints.precision}"
+                                                          shortDesc="#{bindings.Regionid.hints.tooltip}" id="it4">
+                                                <f:validator binding="#{bindings.Regionid.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.Locationid.inputValue}"
+                                                          label="#{bindings.Locationid.hints.label}"
+                                                          required="#{bindings.Locationid.hints.mandatory}"
+                                                          columns="#{bindings.Locationid.hints.displayWidth}"
+                                                          maximumLength="#{bindings.Locationid.hints.precision}"
+                                                          shortDesc="#{bindings.Locationid.hints.tooltip}" id="it5">
+                                                <f:validator binding="#{bindings.Locationid.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.Storeid.inputValue}"
+                                                          label="#{bindings.Storeid.hints.label}"
+                                                          required="#{bindings.Storeid.hints.mandatory}"
+                                                          columns="#{bindings.Storeid.hints.displayWidth}"
+                                                          maximumLength="#{bindings.Storeid.hints.precision}"
+                                                          shortDesc="#{bindings.Storeid.hints.tooltip}"
+                                                          partialTriggers="txtStoreNameId" id="it6">
+                                                <f:validator binding="#{bindings.Storeid.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.Customerid.inputValue}"
+                                                          label="#{bindings.Customerid.hints.label}"
+                                                          required="#{bindings.Customerid.hints.mandatory}"
+                                                          columns="#{bindings.Customerid.hints.displayWidth}"
+                                                          maximumLength="#{bindings.Customerid.hints.precision}"
+                                                          shortDesc="#{bindings.Customerid.hints.tooltip}" id="it7">
+                                                <f:validator binding="#{bindings.Customerid.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.Salespersonid.inputValue}"
+                                                          label="#{bindings.Salespersonid.hints.label}"
+                                                          required="#{bindings.Salespersonid.hints.mandatory}"
+                                                          columns="#{bindings.Salespersonid.hints.displayWidth}"
+                                                          maximumLength="#{bindings.Salespersonid.hints.precision}"
+                                                          shortDesc="#{bindings.Salespersonid.hints.tooltip}"
+                                                          partialTriggers="txtSalespersonNameId" id="it8">
+                                                <f:validator binding="#{bindings.Salespersonid.validator}"/>
+                                            </af:inputText>
+                                            <af:inputText value="#{bindings.Productgroup.inputValue}"
+                                                          label="#{bindings.Productgroup.hints.label}"
+                                                          required="#{bindings.Productgroup.hints.mandatory}"
+                                                          columns="#{bindings.Productgroup.hints.displayWidth}"
+                                                          maximumLength="#{bindings.Productgroup.hints.precision}"
+                                                          shortDesc="#{bindings.Productgroup.hints.tooltip}" id="it9">
+                                                <f:validator binding="#{bindings.Productgroup.validator}"/>
+                                            </af:inputText>
+                                            <af:inputComboboxListOfValues id="productidId"
+                                                                          popupTitle="Search and Select: #{bindings.Productid.hints.label}"
+                                                                          value="#{bindings.Productid.inputValue}"
+                                                                          label="#{bindings.Productid.hints.label}"
+                                                                          model="#{bindings.Productid.listOfValuesModel}"
+                                                                          required="#{bindings.Productid.hints.mandatory}"
+                                                                          columns="#{bindings.Productid.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.Productid.hints.tooltip}">
+                                                <f:validator binding="#{bindings.Productid.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                            <af:inputComboboxListOfValues id="txtCustomerNameId"
+                                                                          popupTitle="Search and Select: #{bindings.txtCustomerName.hints.label}"
+                                                                          value="#{bindings.txtCustomerName.inputValue}"
+                                                                          label="#{bindings.txtCustomerName.hints.label}"
+                                                                          model="#{bindings.txtCustomerName.listOfValuesModel}"
+                                                                          required="#{bindings.txtCustomerName.hints.mandatory}"
+                                                                          columns="#{bindings.txtCustomerName.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtCustomerName.hints.tooltip}">
+                                                <f:validator binding="#{bindings.txtCustomerName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                            <af:inputComboboxListOfValues id="txtSalespersonNameId"
+                                                                          popupTitle="Search and Select: #{bindings.txtSalespersonName.hints.label}"
+                                                                          value="#{bindings.txtSalespersonName.inputValue}"
+                                                                          label="#{bindings.txtSalespersonName.hints.label}"
+                                                                          model="#{bindings.txtSalespersonName.listOfValuesModel}"
+                                                                          required="#{bindings.txtSalespersonName.hints.mandatory}"
+                                                                          columns="#{bindings.txtSalespersonName.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtSalespersonName.hints.tooltip}">
+                                                <f:validator binding="#{bindings.txtSalespersonName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                            <af:inputText value="#{bindings.txtModelNo.inputValue}"
+                                                          label="#{bindings.txtModelNo.hints.label}"
+                                                          required="#{bindings.txtModelNo.hints.mandatory}"
+                                                          columns="#{bindings.txtModelNo.hints.displayWidth}"
+                                                          maximumLength="#{bindings.txtModelNo.hints.precision}"
+                                                          shortDesc="#{bindings.txtModelNo.hints.tooltip}"
+                                                          partialTriggers="productidId" id="it10">
+                                                <f:validator binding="#{bindings.txtModelNo.validator}"/>
+                                            </af:inputText>
+                                            <af:inputComboboxListOfValues id="txtStoreNameId"
+                                                                          popupTitle="Search and Select: #{bindings.txtStoreName.hints.label}"
+                                                                          value="#{bindings.txtStoreName.inputValue}"
+                                                                          label="#{bindings.txtStoreName.hints.label}"
+                                                                          model="#{bindings.txtStoreName.listOfValuesModel}"
+                                                                          required="#{bindings.txtStoreName.hints.mandatory}"
+                                                                          columns="#{bindings.txtStoreName.hints.displayWidth}"
+                                                                          shortDesc="#{bindings.txtStoreName.hints.tooltip}">
+                                                <f:validator binding="#{bindings.txtStoreName.validator}"/>
+                                            </af:inputComboboxListOfValues>
+                                        </af:panelFormLayout>
+                                    </af:gridCell>
                                 </af:gridRow>
                                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
@@ -24,10 +134,13 @@
                                                   fetchSize="#{bindings.SysProgramDetRO.rangeSize}"
                                                   filterModel="#{bindings.SysProgramDetROQuery.queryDescriptor}"
                                                   queryListener="#{bindings.SysProgramDetROQuery.processQuery}"
-                                                  filterVisible="true" varStatus="vs" id="t1">
+                                                  filterVisible="true" varStatus="vs" id="t1" displayRow="selected"
+                                                  scrollPolicy="page" horizontalGridVisible="false"
+                                                  verticalGridVisible="false" autoHeightRows="15"
+                                                  styleClass="AFStretchWidth">
                                             <af:column sortProperty="#{bindings.SysProgramDetRO.hints.Moduleid.name}"
                                                        filterable="true"
-                                                       headerText="#{bindings.SysProgramDetRO.hints.Moduleid.label}"
+                                                       headerText="Report ID"
                                                        id="c1">
                                                 <af:inputText value="#{row.bindings.Moduleid.inputValue}"
                                                               label="#{bindings.SysProgramDetRO.hints.Moduleid.label}"
@@ -35,14 +148,14 @@
                                                               columns="#{bindings.SysProgramDetRO.hints.Moduleid.displayWidth}"
                                                               maximumLength="#{bindings.SysProgramDetRO.hints.Moduleid.precision}"
                                                               shortDesc="#{bindings.SysProgramDetRO.hints.Moduleid.tooltip}"
-                                                              id="it1">
+                                                              id="it1" readOnly="true">
                                                     <f:validator binding="#{row.bindings.Moduleid.validator}"/>
                                                 </af:inputText>
                                             </af:column>
                                             <af:column sortProperty="#{bindings.SysProgramDetRO.hints.ModuleName.name}"
                                                        filterable="true"
-                                                       headerText="#{bindings.SysProgramDetRO.hints.ModuleName.label}"
-                                                       id="c2">
+                                                       headerText="Report Name"
+                                                       id="c2" width="200" displayIndex="-1">
                                                 <af:inputText value="#{row.bindings.ModuleName.inputValue}"
                                                               label="#{bindings.SysProgramDetRO.hints.ModuleName.label}"
                                                               required="#{bindings.SysProgramDetRO.hints.ModuleName.mandatory}"
@@ -55,7 +168,7 @@
                                             </af:column>
                                             <af:column sortProperty="#{bindings.SysProgramDetRO.hints.ExecName.name}"
                                                        filterable="true"
-                                                       headerText="#{bindings.SysProgramDetRO.hints.ExecName.label}"
+                                                       headerText="Action"
                                                        id="c3">
                                                 <af:inputText value="#{row.bindings.ExecName.inputValue}"
                                                               label="#{bindings.SysProgramDetRO.hints.ExecName.label}"
@@ -63,9 +176,10 @@
                                                               columns="#{bindings.SysProgramDetRO.hints.ExecName.displayWidth}"
                                                               maximumLength="#{bindings.SysProgramDetRO.hints.ExecName.precision}"
                                                               shortDesc="#{bindings.SysProgramDetRO.hints.ExecName.tooltip}"
-                                                              id="it3">
+                                                              id="it3" rendered="false">
                                                     <f:validator binding="#{row.bindings.ExecName.validator}"/>
                                                 </af:inputText>
+                                                <af:link text="Execute Report" id="l1"/>
                                             </af:column>
                                         </af:table>
                                     </af:gridCell>

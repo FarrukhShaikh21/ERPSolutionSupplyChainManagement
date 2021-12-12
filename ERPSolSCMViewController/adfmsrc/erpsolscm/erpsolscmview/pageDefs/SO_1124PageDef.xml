@@ -9,6 +9,8 @@
               id="SysProgramDetROIterator"/>
     <searchRegion Binds="SysProgramDetROIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SysProgramDetROQuery"/>
+    <iterator Binds="VwSoSalesReportRO" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="VwSoSalesReportROIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="SysProgramDetROIterator" id="SysProgramDetRO">
@@ -20,5 +22,48 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovProductid" id="Productid"/>
+    <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtCustomerName"
+                  id="txtCustomerName"/>
+    <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtSalespersonName"
+                  id="txtSalespersonName"/>
+    <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtStoreName" id="txtStoreName"/>
+    <list IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovCompanyid" id="Companyid"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="VwSoSalesReportROIterator" id="Regionid">
+      <AttrNames>
+        <Item Value="Regionid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwSoSalesReportROIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwSoSalesReportROIterator" id="Storeid">
+      <AttrNames>
+        <Item Value="Storeid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwSoSalesReportROIterator" id="Customerid">
+      <AttrNames>
+        <Item Value="Customerid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwSoSalesReportROIterator" id="Salespersonid">
+      <AttrNames>
+        <Item Value="Salespersonid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwSoSalesReportROIterator" id="Productgroup">
+      <AttrNames>
+        <Item Value="Productgroup"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VwSoSalesReportROIterator" id="txtModelNo">
+      <AttrNames>
+        <Item Value="txtModelNo"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
