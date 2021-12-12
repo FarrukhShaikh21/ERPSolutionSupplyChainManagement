@@ -21,6 +21,28 @@
     Name="P_ADF_CUSTOMERID"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <ViewAccessor
+    Name="AccAllLocationsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllLocationsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovLocationid"
+    ListVOName="AccAllLocationsView"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LocationDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SoSalesPersons"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesPersons"/>
@@ -74,7 +96,15 @@
     PrecisionRule="true"
     EntityAttrName="Locationid"
     EntityUsage="SoSalesPersons"
-    AliasName="LOCATIONID"/>
+    AliasName="LOCATIONID"
+    LOVName="LovLocationid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Createdby"
     PrecisionRule="true"
