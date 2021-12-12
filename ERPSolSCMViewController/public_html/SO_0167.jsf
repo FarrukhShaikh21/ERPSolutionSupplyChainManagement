@@ -135,6 +135,8 @@
                       <af:toolbar id="t1">
                         <af:button actionListener="#{bindings.doSuperviseSaleOrder.execute}" text="doSuperviseSaleOrder"
                                    disabled="#{!bindings.doSuperviseSaleOrder.enabled}" id="b10" rendered="false"/>
+                        <af:button text="Close Form" id="b13" icon="#{resource['images:imgExitForm.png']}"
+                                   action="ACT-ERP-CLOSE-FORM-SCM" iconPosition="top"/>
                         <af:button text="Search" id="b12" action="ACT-SEARCH-S0-0167"
                                    icon="#{resource['images:imgFind.png']}" iconPosition="top" accessKey="s"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"

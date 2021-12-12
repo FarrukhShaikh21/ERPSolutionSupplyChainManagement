@@ -47,7 +47,7 @@
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled || bindings.RebateId.inputValue==null}" partialSubmit="true" id="b4"
                                    icon="#{resource['images:imgPrevious.png']}" iconPosition="top"/>
-                        <af:button actionListener="#{bindings.Next.execute || bindings.RebateId.inputValue==null}" text="Next"
+                        <af:button actionListener="#{bindings.Next.execute}" text="Next"
                                    disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
                                    icon="#{resource['images:imgNext.png']}" iconPosition="top"/>
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Return"
