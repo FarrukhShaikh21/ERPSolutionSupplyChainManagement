@@ -5,23 +5,14 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="VwSoSalesReportRO" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="VwSoSalesReportROIterator"/>
     <iterator Binds="SysProgramDetRO" RangeSize="25" DataControl="ERPSolTempAppModuleDataControl"
               id="SysProgramDetROIterator"/>
     <searchRegion Binds="SysProgramDetROIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SysProgramDetROQuery"/>
-    <iterator Binds="VwSoSalesReportRO" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
-              id="VwSoSalesReportROIterator"/>
   </executables>
   <bindings>
-    <tree IterBinding="SysProgramDetROIterator" id="SysProgramDetRO">
-      <nodeDefinition DefName="erpsoltemp.erpsoltempmodel.erpsoltempvo.SysProgramView" Name="SysProgramDetRO0">
-        <AttrNames>
-          <Item Value="Moduleid"/>
-          <Item Value="ModuleName"/>
-          <Item Value="ExecName"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovProductid" id="Productid"/>
     <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtCustomerName"
                   id="txtCustomerName"/>
@@ -74,5 +65,15 @@
         <Item Value="txtFromDate"/>
       </AttrNames>
     </attributeValues>
+
+    <tree IterBinding="SysProgramDetROIterator" id="SysProgramDetRO">
+      <nodeDefinition DefName="erpsoltemp.erpsoltempmodel.erpsoltempvo.SysProgramView" Name="SysProgramDetRO0">
+        <AttrNames>
+          <Item Value="Moduleid"/>
+          <Item Value="ModuleName"/>
+          <Item Value="ExecName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>    
   </bindings>
 </pageDefinition>

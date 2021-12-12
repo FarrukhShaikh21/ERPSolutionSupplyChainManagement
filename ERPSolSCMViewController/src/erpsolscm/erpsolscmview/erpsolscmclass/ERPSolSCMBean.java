@@ -9,7 +9,11 @@ import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Types;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -39,6 +43,9 @@ import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.DBTransaction;
 
+import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
+import org.apache.myfaces.trinidad.util.Service;
+
 public class ERPSolSCMBean {
     public ERPSolSCMBean() {
         super();
@@ -56,7 +63,7 @@ public class ERPSolSCMBean {
     RichInputText ERPSolImeiBoxText;
     RichInputText ERPSolRebateImeiBoxText;
     String ERPSolImeiString;
-    
+    String ERPSolReportName;
     public void doSetERPSolSCMSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
         if (getERPSolStrUserCode().length()==0) {
@@ -135,9 +142,10 @@ public class ERPSolSCMBean {
         System.out.println("b");
         AttributeBinding ERPLocid =(AttributeBinding)ERPSolbc.getControlBinding("Locationid");
         System.out.println("c");
-        
+//        ERPSolbc.set
         System.out.println("d");
         System.out.println(ERPLocid);//ERPSolGlobalViewBean.
+        System.out.println("myname");
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "AllCustomersAutoSuggestRO",
                                                             "LOCATIONID='"+ERPLocid.getInputValue()+"' AND UPPER(CONCAT(CUSTOMERID,CUSTOMER_NAME))", "CustomerName", "Customerid", 10);
         return ResultList;
@@ -410,5 +418,95 @@ public class ERPSolSCMBean {
            
         return "ACT-BACK-FROM-REBATE-IMEI";
     }
-      
+    
+    public String doERPSolExecuteReport() {
+        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SysProgramDetROIterator");
+        ApplicationModule am=ib.getViewObject().getApplicationModule();
+        ViewObject vo=am.findViewObject("QVOReport");
+        if (vo!=null) {
+            vo.remove();
+       }
+        
+        vo=am.createViewObjectFromQueryStmt("QVOReport", "select PARAMETER_VALUE FROM so_sales_parameter a where a.Parameter_Id='REPORT_SERVER_URL'");
+        vo.executeQuery();
+        String pReportUrl=vo.first().getAttribute(0).toString();
+        vo.remove();
+        vo=am.createViewObjectFromQueryStmt("QVOReport", "select PATH PATH FROM SYSTEM a where a.PROJECTID='SO' ");
+        vo.executeQuery();
+        String pReportPath=vo.first().getAttribute(0).toString();
+        System.out.println(pReportPath);
+        pReportPath=pReportPath+ERPSolReportName;
+        
+ 
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        System.out.println("b");
+        AttributeBinding ERPCompanyid       =(AttributeBinding)ERPSolbc.getControlBinding("Companyid");
+        AttributeBinding ERPRegionid        =(AttributeBinding)ERPSolbc.getControlBinding("Regionid");
+        AttributeBinding ERPLocationid      =(AttributeBinding)ERPSolbc.getControlBinding("Locationid");
+        AttributeBinding ERPStoreid         =(AttributeBinding)ERPSolbc.getControlBinding("Storeid");
+        AttributeBinding ERPCustomerid      =(AttributeBinding)ERPSolbc.getControlBinding("Customerid");
+        AttributeBinding ERPSalespersonid   =(AttributeBinding)ERPSolbc.getControlBinding("Salespersonid");
+        AttributeBinding ERPProductgroup    =(AttributeBinding)ERPSolbc.getControlBinding("Productgroup");
+        AttributeBinding ERPProductid       =(AttributeBinding)ERPSolbc.getControlBinding("Productid");
+        AttributeBinding ERPFromDate        =(AttributeBinding)ERPSolbc.getControlBinding("txtFromDate");
+        AttributeBinding ERPToDate          =(AttributeBinding)ERPSolbc.getControlBinding("txtToDate");
+        String reportParameter="";
+        reportParameter="P_COMPANY_ID="+ (ERPCompanyid.getInputValue()==null?"":ERPCompanyid.getInputValue());
+        reportParameter+="&P_REGIONID_ID="+(ERPRegionid.getInputValue()==null?"":ERPRegionid.getInputValue());
+        reportParameter+="&P_LOCATION_ID="+(ERPLocationid.getInputValue()==null?"":ERPLocationid.getInputValue());
+        reportParameter+="&P_STOREID_ID="+(ERPStoreid.getInputValue()==null?"":ERPStoreid.getInputValue());
+        reportParameter+="&P_CUSTOMER_ID="+(ERPCustomerid.getInputValue()==null?"":ERPCustomerid.getInputValue());
+        reportParameter+="&P_SALESPERSON_ID="+(ERPSalespersonid.getInputValue()==null?"":ERPSalespersonid.getInputValue());
+        reportParameter+="&P_PRODUCT_GROUP_ID="+(ERPProductgroup.getInputValue()==null?"":ERPProductgroup.getInputValue());
+        reportParameter+="&P_PRODUCT_ID="+(ERPProductid.getInputValue()==null?"":ERPProductid.getInputValue());
+        reportParameter+="&P_FROM_DATE="+(ERPFromDate.getInputValue()==null?"":doERPSolGetFormatDate(""+ERPFromDate.getInputValue() ) );
+        reportParameter+="&P_TO_DATE="+(ERPToDate.getInputValue()==null?"":doERPSolGetFormatDate(""+ERPToDate.getInputValue())  );
+        
+        pReportUrl=pReportUrl.replace("<P_REPORT_PATH>", pReportPath);
+        pReportUrl=pReportUrl.replace("<P_REPORT_PARAMETERS>", reportParameter);
+        
+        System.out.println(pReportPath);
+        System.out.println(reportParameter);
+        System.out.println(pReportUrl);
+        
+        doErpSolOpenReportTab(pReportUrl);
+        return null;
+    }
+
+    public void setERPSolReportName(String ERPSolReportName) {
+        this.ERPSolReportName = ERPSolReportName;
+    }
+
+    public String getERPSolReportName() {
+        return ERPSolReportName;
+    }
+  
+    public void doErpSolOpenReportTab(String url) {
+    ExtendedRenderKitService erks =
+    Service.getRenderKitService(FacesContext.getCurrentInstance(), ExtendedRenderKitService.class);
+    StringBuilder strb = new StringBuilder("window.open('" + url + "');");
+    erks.addScript(FacesContext.getCurrentInstance(), strb.toString());
+    }  
+    
+    public String doERPSolGetFormatDate(String pDate) {
+     
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        String fromDate="";
+        try {
+            Date dt = sdf.parse(pDate);
+            sdf=new SimpleDateFormat("dd-MMM-yyyy");
+            fromDate=sdf.format(dt).toUpperCase();
+            return fromDate;
+        }
+        catch (NullPointerException npe) {
+            System.out.println("null parseexception");
+        }
+        catch (ParseException e) {
+            System.out.println("parseexception");
+        }
+        /////////////
+           
+        return null;
+    }
 }
