@@ -2,9 +2,79 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="SO_1124.jsf" id="d1">
+        <af:messages id="m1"/>
         <af:form id="f1">
             <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
-                <f:facet name="erptempmain"/>
+                <f:facet name="erptempmain">
+                    <af:decorativeBox id="db1">
+                        <f:facet name="center">
+                            <af:panelGridLayout id="pgl1">
+                                <af:gridRow marginTop="5px" height="auto" id="gr1">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1"/>
+                                </af:gridRow>
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                                    <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
+                                        <af:table value="#{bindings.SysProgramDetRO.collectionModel}" var="row"
+                                                  rows="#{bindings.SysProgramDetRO.rangeSize}"
+                                                  emptyText="#{bindings.SysProgramDetRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                  rowBandingInterval="0"
+                                                  selectedRowKeys="#{bindings.SysProgramDetRO.collectionModel.selectedRow}"
+                                                  selectionListener="#{bindings.SysProgramDetRO.collectionModel.makeCurrent}"
+                                                  rowSelection="single"
+                                                  fetchSize="#{bindings.SysProgramDetRO.rangeSize}"
+                                                  filterModel="#{bindings.SysProgramDetROQuery.queryDescriptor}"
+                                                  queryListener="#{bindings.SysProgramDetROQuery.processQuery}"
+                                                  filterVisible="true" varStatus="vs" id="t1">
+                                            <af:column sortProperty="#{bindings.SysProgramDetRO.hints.Moduleid.name}"
+                                                       filterable="true"
+                                                       headerText="#{bindings.SysProgramDetRO.hints.Moduleid.label}"
+                                                       id="c1">
+                                                <af:inputText value="#{row.bindings.Moduleid.inputValue}"
+                                                              label="#{bindings.SysProgramDetRO.hints.Moduleid.label}"
+                                                              required="#{bindings.SysProgramDetRO.hints.Moduleid.mandatory}"
+                                                              columns="#{bindings.SysProgramDetRO.hints.Moduleid.displayWidth}"
+                                                              maximumLength="#{bindings.SysProgramDetRO.hints.Moduleid.precision}"
+                                                              shortDesc="#{bindings.SysProgramDetRO.hints.Moduleid.tooltip}"
+                                                              id="it1">
+                                                    <f:validator binding="#{row.bindings.Moduleid.validator}"/>
+                                                </af:inputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.SysProgramDetRO.hints.ModuleName.name}"
+                                                       filterable="true"
+                                                       headerText="#{bindings.SysProgramDetRO.hints.ModuleName.label}"
+                                                       id="c2">
+                                                <af:inputText value="#{row.bindings.ModuleName.inputValue}"
+                                                              label="#{bindings.SysProgramDetRO.hints.ModuleName.label}"
+                                                              required="#{bindings.SysProgramDetRO.hints.ModuleName.mandatory}"
+                                                              columns="#{bindings.SysProgramDetRO.hints.ModuleName.displayWidth}"
+                                                              maximumLength="#{bindings.SysProgramDetRO.hints.ModuleName.precision}"
+                                                              shortDesc="#{bindings.SysProgramDetRO.hints.ModuleName.tooltip}"
+                                                              id="it2">
+                                                    <f:validator binding="#{row.bindings.ModuleName.validator}"/>
+                                                </af:inputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.SysProgramDetRO.hints.ExecName.name}"
+                                                       filterable="true"
+                                                       headerText="#{bindings.SysProgramDetRO.hints.ExecName.label}"
+                                                       id="c3">
+                                                <af:inputText value="#{row.bindings.ExecName.inputValue}"
+                                                              label="#{bindings.SysProgramDetRO.hints.ExecName.label}"
+                                                              required="#{bindings.SysProgramDetRO.hints.ExecName.mandatory}"
+                                                              columns="#{bindings.SysProgramDetRO.hints.ExecName.displayWidth}"
+                                                              maximumLength="#{bindings.SysProgramDetRO.hints.ExecName.precision}"
+                                                              shortDesc="#{bindings.SysProgramDetRO.hints.ExecName.tooltip}"
+                                                              id="it3">
+                                                    <f:validator binding="#{row.bindings.ExecName.validator}"/>
+                                                </af:inputText>
+                                            </af:column>
+                                        </af:table>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </f:facet>
+                        <f:facet name="top"/>
+                    </af:decorativeBox>
+                </f:facet>
                 <f:facet name="erptempleft"/>
             </af:pageTemplate>
         </af:form>
