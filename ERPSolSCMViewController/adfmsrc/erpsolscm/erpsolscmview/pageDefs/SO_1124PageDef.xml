@@ -65,7 +65,6 @@
         <Item Value="txtFromDate"/>
       </AttrNames>
     </attributeValues>
-
     <tree IterBinding="SysProgramDetROIterator" id="SysProgramDetRO">
       <nodeDefinition DefName="erpsoltemp.erpsoltempmodel.erpsoltempvo.SysProgramView" Name="SysProgramDetRO0">
         <AttrNames>
@@ -74,6 +73,6 @@
           <Item Value="ExecName"/>
         </AttrNames>
       </nodeDefinition>
-    </tree>    
+    </tree>
   </bindings>
 </pageDefinition>

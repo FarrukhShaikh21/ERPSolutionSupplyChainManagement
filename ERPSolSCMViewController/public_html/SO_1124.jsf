@@ -38,8 +38,9 @@
                                                                                   required="#{bindings.txtLocationName.hints.mandatory}"
                                                                                   columns="#{bindings.txtLocationName.hints.displayWidth}"
                                                                                   shortDesc="#{bindings.txtLocationName.hints.tooltip}"
-                                                                                  simple="true">
+                                                                                  simple="true" autoSubmit="true">
                                                         <f:validator binding="#{bindings.txtLocationName.validator}"/>
+                                                        <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
                                                     </af:inputComboboxListOfValues>
                                                     <af:spacer width="10" height="10" id="s5"/>
                                                     <af:inputText value="#{bindings.Locationid.inputValue}"
@@ -63,8 +64,10 @@
                                                                                   required="#{bindings.txtStoreName.hints.mandatory}"
                                                                                   columns="#{bindings.txtStoreName.hints.displayWidth}"
                                                                                   shortDesc="#{bindings.txtStoreName.hints.tooltip}"
-                                                                                  simple="true">
+                                                                                  simple="true"
+                                                                                  partialTriggers="txtLocationNameId">
                                                         <f:validator binding="#{bindings.txtStoreName.validator}"/>
+                                                        <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
                                                     </af:inputComboboxListOfValues>
                                                     <af:spacer width="10" height="10" id="s4"/>
                                                     <af:inputText value="#{bindings.Storeid.inputValue}"
@@ -73,7 +76,7 @@
                                                                   columns="#{bindings.Storeid.hints.displayWidth}"
                                                                   maximumLength="#{bindings.Storeid.hints.precision}"
                                                                   shortDesc="#{bindings.Storeid.hints.tooltip}"
-                                                                  partialTriggers="txtStoreNameId" id="it6"
+                                                                  partialTriggers="txtStoreNameId txtLocationNameId" id="it6"
                                                                   simple="true" readOnly="true">
                                                         <f:validator binding="#{bindings.Storeid.validator}"/>
                                                     </af:inputText>
@@ -89,7 +92,10 @@
                                                                                   required="#{bindings.txtCustomerName.hints.mandatory}"
                                                                                   columns="#{bindings.txtCustomerName.hints.displayWidth}"
                                                                                   shortDesc="#{bindings.txtCustomerName.hints.tooltip}"
-                                                                                  simple="true">
+                                                                                  simple="true"
+                                                                                  partialTriggers="txtLocationNameId"
+                                                                                  inlineStyle="voice-volume:medium;"
+                                                                                  autoSubmit="true">
                                                         <f:validator binding="#{bindings.txtCustomerName.validator}"/>
                                                         <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedCustomerValues}"/>
                                                     </af:inputComboboxListOfValues>
@@ -100,7 +106,8 @@
                                                                   columns="#{bindings.Customerid.hints.displayWidth}"
                                                                   maximumLength="#{bindings.Customerid.hints.precision}"
                                                                   shortDesc="#{bindings.Customerid.hints.tooltip}"
-                                                                  id="it7" simple="true" readOnly="true">
+                                                                  id="it7" simple="true" readOnly="true"
+                                                                  partialTriggers="txtLocationNameId txtCustomerNameId">
                                                         <f:validator binding="#{bindings.Customerid.validator}"/>
                                                     </af:inputText>
                                                 </af:panelGroupLayout>
@@ -115,8 +122,11 @@
                                                                                   required="#{bindings.txtSalespersonName.hints.mandatory}"
                                                                                   columns="#{bindings.txtSalespersonName.hints.displayWidth}"
                                                                                   shortDesc="#{bindings.txtSalespersonName.hints.tooltip}"
-                                                                                  simple="true">
+                                                                                  simple="true"
+                                                                                  partialTriggers="txtLocationNameId txtCustomerNameId">
                                                         <f:validator binding="#{bindings.txtSalespersonName.validator}"/>
+                                                        <af:autoSuggestBehavior/>
+                                                        <af:autoSuggestBehavior/>
                                                     </af:inputComboboxListOfValues>
                                                     <af:spacer width="10" height="10" id="s2"/>
                                                     <af:inputText value="#{bindings.Salespersonid.inputValue}"
@@ -125,7 +135,7 @@
                                                                   columns="#{bindings.Salespersonid.hints.displayWidth}"
                                                                   maximumLength="#{bindings.Salespersonid.hints.precision}"
                                                                   shortDesc="#{bindings.Salespersonid.hints.tooltip}"
-                                                                  partialTriggers="txtSalespersonNameId" id="it8"
+                                                                  partialTriggers="txtLocationNameId txtCustomerNameId txtSalespersonNameId" id="it8"
                                                                   simple="true" readOnly="true">
                                                         <f:validator binding="#{bindings.Salespersonid.validator}"/>
                                                     </af:inputText>
@@ -185,70 +195,60 @@
                                     </af:gridCell>
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2"
                                                  halign="stretch">
-                                        <af:panelCollection id="pc1" styleClass="AFStretchWidth"
-                                                            featuresOff="detach viewMenu">
-                                            <f:facet name="menus"/>
-                                            <f:facet name="toolbar"/>
-                                            <f:facet name="statusbar"/>
-                                            <af:table value="#{bindings.SysProgramDetRO.collectionModel}" var="row"
-                                                      rows="#{bindings.SysProgramDetRO.rangeSize}"
-                                                      emptyText="#{bindings.SysProgramDetRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                      rowBandingInterval="0"
-                                                      selectedRowKeys="#{bindings.SysProgramDetRO.collectionModel.selectedRow}"
-                                                      selectionListener="#{bindings.SysProgramDetRO.collectionModel.makeCurrent}"
-                                                      rowSelection="single"
-                                                      fetchSize="#{bindings.SysProgramDetRO.rangeSize}"
-                                                      filterModel="#{bindings.SysProgramDetROQuery.queryDescriptor}"
-                                                      queryListener="#{bindings.SysProgramDetROQuery.processQuery}"
-                                                      filterVisible="true" varStatus="vs" id="t1"
-                                                      scrollPolicy="page" horizontalGridVisible="false"
-                                                      verticalGridVisible="false" autoHeightRows="15"
-                                                      styleClass="AFStretchWidth" columnStretching="column:c2">
-                                                <af:column sortProperty="#{bindings.SysProgramDetRO.hints.Moduleid.name}"
-                                                           filterable="true" headerText="Report ID" id="c1">
-                                                    <af:inputText value="#{row.bindings.Moduleid.inputValue}"
-                                                                  label="#{bindings.SysProgramDetRO.hints.Moduleid.label}"
-                                                                  required="#{bindings.SysProgramDetRO.hints.Moduleid.mandatory}"
-                                                                  columns="#{bindings.SysProgramDetRO.hints.Moduleid.displayWidth}"
-                                                                  maximumLength="#{bindings.SysProgramDetRO.hints.Moduleid.precision}"
-                                                                  shortDesc="#{bindings.SysProgramDetRO.hints.Moduleid.tooltip}"
-                                                                  id="it1" readOnly="true">
-                                                        <f:validator binding="#{row.bindings.Moduleid.validator}"/>
-                                                    </af:inputText>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.SysProgramDetRO.hints.ModuleName.name}"
-                                                           filterable="true" headerText="Report Name" id="c2"
-                                                           width="200" displayIndex="-1">
-                                                    <af:inputText value="#{row.bindings.ModuleName.inputValue}"
-                                                                  label="#{bindings.SysProgramDetRO.hints.ModuleName.label}"
-                                                                  required="#{bindings.SysProgramDetRO.hints.ModuleName.mandatory}"
-                                                                  columns="#{bindings.SysProgramDetRO.hints.ModuleName.displayWidth}"
-                                                                  maximumLength="#{bindings.SysProgramDetRO.hints.ModuleName.precision}"
-                                                                  shortDesc="#{bindings.SysProgramDetRO.hints.ModuleName.tooltip}"
-                                                                  id="it2" readOnly="true">
-                                                        <f:validator binding="#{row.bindings.ModuleName.validator}"/>
-                                                    </af:inputText>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.SysProgramDetRO.hints.ExecName.name}"
-                                                           filterable="true" headerText="Action" id="c3">
-                                                    <af:inputText value="#{row.bindings.ExecName.inputValue}"
-                                                                  label="#{bindings.SysProgramDetRO.hints.ExecName.label}"
-                                                                  required="#{bindings.SysProgramDetRO.hints.ExecName.mandatory}"
-                                                                  columns="#{bindings.SysProgramDetRO.hints.ExecName.displayWidth}"
-                                                                  maximumLength="#{bindings.SysProgramDetRO.hints.ExecName.precision}"
-                                                                  shortDesc="#{bindings.SysProgramDetRO.hints.ExecName.tooltip}"
-                                                                  id="it3" rendered="false">
-                                                        <f:validator binding="#{row.bindings.ExecName.validator}"/>
-                                                    </af:inputText>
-                                                    <af:link text="Execute Report" id="l1"
-                                                             action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecuteReport}"
-                                                             partialSubmit="true">
-                                                        <af:setActionListener from="#{row.bindings.ExecName.inputValue}"
-                                                                              to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolReportName}"/>
-                                                    </af:link>
-                                                </af:column>
-                                            </af:table>
-                                        </af:panelCollection>
+                                        <af:table value="#{bindings.SysProgramDetRO.collectionModel}" var="row"
+                                                  rows="#{bindings.SysProgramDetRO.rangeSize}"
+                                                  emptyText="#{bindings.SysProgramDetRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                  rowBandingInterval="0"
+                                                  selectedRowKeys="#{bindings.SysProgramDetRO.collectionModel.selectedRow}"
+                                                  selectionListener="#{bindings.SysProgramDetRO.collectionModel.makeCurrent}"
+                                                  rowSelection="single"
+                                                  fetchSize="#{bindings.SysProgramDetRO.rangeSize}"
+                                                  filterModel="#{bindings.SysProgramDetROQuery.queryDescriptor}"
+                                                  queryListener="#{bindings.SysProgramDetROQuery.processQuery}"
+                                                  filterVisible="true" varStatus="vs" id="t1">
+                                            <af:column sortProperty="#{bindings.SysProgramDetRO.hints.Moduleid.name}"
+                                                       filterable="true"
+                                                       headerText="#{bindings.SysProgramDetRO.hints.Moduleid.label}"
+                                                       id="c1">
+                                                <af:inputText value="#{row.bindings.Moduleid.inputValue}"
+                                                              label="#{bindings.SysProgramDetRO.hints.Moduleid.label}"
+                                                              required="#{bindings.SysProgramDetRO.hints.Moduleid.mandatory}"
+                                                              columns="#{bindings.SysProgramDetRO.hints.Moduleid.displayWidth}"
+                                                              maximumLength="#{bindings.SysProgramDetRO.hints.Moduleid.precision}"
+                                                              shortDesc="#{bindings.SysProgramDetRO.hints.Moduleid.tooltip}"
+                                                              id="it1">
+                                                    <f:validator binding="#{row.bindings.Moduleid.validator}"/>
+                                                </af:inputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.SysProgramDetRO.hints.ModuleName.name}"
+                                                       filterable="true"
+                                                       headerText="#{bindings.SysProgramDetRO.hints.ModuleName.label}"
+                                                       id="c2">
+                                                <af:inputText value="#{row.bindings.ModuleName.inputValue}"
+                                                              label="#{bindings.SysProgramDetRO.hints.ModuleName.label}"
+                                                              required="#{bindings.SysProgramDetRO.hints.ModuleName.mandatory}"
+                                                              columns="#{bindings.SysProgramDetRO.hints.ModuleName.displayWidth}"
+                                                              maximumLength="#{bindings.SysProgramDetRO.hints.ModuleName.precision}"
+                                                              shortDesc="#{bindings.SysProgramDetRO.hints.ModuleName.tooltip}"
+                                                              id="it2">
+                                                    <f:validator binding="#{row.bindings.ModuleName.validator}"/>
+                                                </af:inputText>
+                                            </af:column>
+                                            <af:column sortProperty="#{bindings.SysProgramDetRO.hints.ExecName.name}"
+                                                       filterable="true"
+                                                       headerText="#{bindings.SysProgramDetRO.hints.ExecName.label}"
+                                                       id="c3">
+                                                <af:inputText value="#{row.bindings.ExecName.inputValue}"
+                                                              label="#{bindings.SysProgramDetRO.hints.ExecName.label}"
+                                                              required="#{bindings.SysProgramDetRO.hints.ExecName.mandatory}"
+                                                              columns="#{bindings.SysProgramDetRO.hints.ExecName.displayWidth}"
+                                                              maximumLength="#{bindings.SysProgramDetRO.hints.ExecName.precision}"
+                                                              shortDesc="#{bindings.SysProgramDetRO.hints.ExecName.tooltip}"
+                                                              id="it3">
+                                                    <f:validator binding="#{row.bindings.ExecName.validator}"/>
+                                                </af:inputText>
+                                            </af:column>
+                                        </af:table>
                                     </af:gridCell>
                                 </af:gridRow>
                             </af:panelGridLayout>

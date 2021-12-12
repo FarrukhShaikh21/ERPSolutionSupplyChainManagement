@@ -64,6 +64,9 @@
   <ViewUsage
     Name="VwSoSalesReportRO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO"/>
+  <ViewUsage
+    Name="AllLocationsAutoSuggestRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllLocationsView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

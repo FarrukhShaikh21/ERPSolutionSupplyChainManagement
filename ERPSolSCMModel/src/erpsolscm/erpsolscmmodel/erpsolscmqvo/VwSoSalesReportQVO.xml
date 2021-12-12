@@ -25,7 +25,17 @@
   <ViewAccessor
     Name="AccAllCustomersView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AllCustomersViewByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView.AllCustomersViewByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"0":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccInItemsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
@@ -33,11 +43,31 @@
   <ViewAccessor
     Name="AccSoSalesPersonsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SoSalesPersonsByCustomerVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView.SoSalesPersonsByCustomerVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_CUSTOMERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Customerid==null?"0":Customerid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccAllStoresView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AllStoresViewByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView.AllStoresViewByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATION_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"0":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccAllLocationsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllLocationsView"
@@ -88,7 +118,8 @@
       <Item Value="Customerid"/>
     </AttrArray>
     <DisplayCriteria
-      Name="AllCustomersViewFindVC"/>
+      Name="AllCustomersViewFindVC"
+      Hint="showAndExecute"/>
   </ListBinding>
   <ListBinding
     Name="LovProductid"
@@ -319,6 +350,8 @@
     <Dependencies>
       <Item
         Value="Locationid"/>
+      <Item
+        Value="txtLocationName"/>
     </Dependencies>
     <Properties>
       <SchemaBasedProperties>
@@ -346,6 +379,16 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="Customerid"/>
+      <Item
+        Value="Locationid"/>
+      <Item
+        Value="txtCustomerName"/>
+      <Item
+        Value="txtLocationName"/>
+    </Dependencies>
   </ViewAttribute>
   <ViewAttribute
     Name="Productgroup"
@@ -410,6 +453,8 @@
     <Dependencies>
       <Item
         Value="Locationid"/>
+      <Item
+        Value="txtLocationName"/>
     </Dependencies>
   </ViewAttribute>
   <ViewAttribute
@@ -433,6 +478,16 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="Customerid"/>
+      <Item
+        Value="Locationid"/>
+      <Item
+        Value="txtCustomerName"/>
+      <Item
+        Value="txtLocationName"/>
+    </Dependencies>
   </ViewAttribute>
   <ViewAttribute
     Name="txtModelNo"
