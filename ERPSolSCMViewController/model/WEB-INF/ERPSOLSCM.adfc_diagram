@@ -66,7 +66,7 @@
       <property
          name="fromOutcome">ERP-ACT-SO-0167</property>
       <property
-         name="sdm:polyPoints">L54,157.53516,254.35059,T50</property>
+         name="sdm:polyPoints">L58,157.53516,257.8506,T50</property>
    </ControlFlowCase>
    <View
       id="View7">
@@ -163,11 +163,11 @@
       islink="true"
       id="ControlFlowCase14"
       from="MethodCall13"
-      to="MethodCall18">
+      to="MethodCall44">
       <property
          name="fromOutcome">ACT-ERP-SOL-GOTO-SCM-MAIN</property>
       <property
-         name="sdm:polyPoints">L50,-105.64844,32.195312,T50</property>
+         name="sdm:polyPoints">L50,-163.82422,32.195312,-163.82422,59.597656,R46</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall18">
@@ -491,5 +491,53 @@
          name="fromOutcome">ERP-ACT-SO-0019</property>
       <property
          name="sdm:polyPoints">L42,-110.73242,243.85059,-110.73242,313.44824,R50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall44">
+      <property
+         name="activityId">ExecuteWithParamsSCMReport</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParamsSCMReport&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">63.448242</property>
+      <property
+         name="x">-329.64844</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase45"
+      from="MethodCall44"
+      to="MethodCall18">
+      <property
+         name="fromOutcome">ACT-ERP-SOL-GOTO-SCM-MAIN</property>
+      <property
+         name="sdm:polyPoints">R54,-105.64844,66.59766,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View46">
+      <property
+         name="activityId">SO_1124</property>
+      <property
+         name="page">/SO_1124.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SO_1124&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">429.79883</property>
+      <property
+         name="x">-500.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase47"
+      from="MethodCall4"
+      to="View46">
+      <property
+         name="fromOutcome">ERP-ACT-SO-1124</property>
+      <property
+         name="sdm:polyPoints">L38,-500.5,240.35059,T50</property>
    </ControlFlowCase>
 </SDM>

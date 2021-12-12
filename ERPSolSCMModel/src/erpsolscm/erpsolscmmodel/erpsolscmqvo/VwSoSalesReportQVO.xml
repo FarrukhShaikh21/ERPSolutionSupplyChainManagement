@@ -38,6 +38,14 @@
     Name="AccAllStoresView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllLocationsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllLocationsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSoSalesTerritoryView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesTerritoryView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovCompanyid"
     ListVOName="AccAllCompanyView"
@@ -69,7 +77,7 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
-      <Item Value="Companyid"/>
+      <Item Value="Customerid"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="CustomerName"/>
@@ -157,6 +165,50 @@
     <DisplayCriteria
       Name="AllStoresViewFindVC"/>
   </ListBinding>
+  <ListBinding
+    Name="LovtxtLocationName"
+    ListVOName="AccAllLocationsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLocationName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LocationDescription"/>
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LocationDescription"/>
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovRegionid"
+    ListVOName="AccSoSalesTerritoryView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Regionid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Salesterritoryid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Salesterritoryid"/>
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[select 1 as pk, null companyid,null regionid,null locationid,null storeid, null customerid, null salespersonid,null productgroup,null productid from dual]]></SQLQuery>
   <ViewAttribute
     Name="Pk"
@@ -167,7 +219,7 @@
     ColumnType="NUMBER"
     AliasName="PK"
     Expression="PK"
-    SQLType="NUMERIC">
+    SQLType="INTEGER">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -206,13 +258,16 @@
     ColumnType="VARCHAR2"
     AliasName="REGIONID"
     Expression="REGIONID"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LovRegionid">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.Regionid_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -236,7 +291,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Storeid"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.lang.String"
@@ -255,7 +309,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Customerid"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.lang.String"
@@ -278,7 +331,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Salespersonid"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.lang.String"
@@ -297,7 +349,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Productgroup"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.lang.String"
@@ -316,7 +367,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Productid"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.lang.String"
@@ -349,12 +399,12 @@
     LOVName="LovtxtCustomerName">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
         <LABEL
           ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.txtCustomerName_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
     <Dependencies>
@@ -422,6 +472,28 @@
           ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.txtStoreName_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtLocationName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtLocationName">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.txtLocationName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

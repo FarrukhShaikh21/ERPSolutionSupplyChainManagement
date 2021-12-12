@@ -30,11 +30,6 @@
     <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtStoreName" id="txtStoreName"/>
     <list IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovCompanyid" id="Companyid"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="VwSoSalesReportROIterator" id="Regionid">
-      <AttrNames>
-        <Item Value="Regionid"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="VwSoSalesReportROIterator" id="Locationid">
       <AttrNames>
         <Item Value="Locationid"/>
@@ -65,5 +60,9 @@
         <Item Value="txtModelNo"/>
       </AttrNames>
     </attributeValues>
+    <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
+    <list IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovRegionid" id="Regionid"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

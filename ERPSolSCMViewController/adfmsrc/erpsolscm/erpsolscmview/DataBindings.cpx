@@ -21,6 +21,8 @@
           usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef11"/>
     <page path="/SO_0019.jsf" usageId="erpsolscm_erpsolscmview_SO_0019PageDef"/>
     <page path="/SO_1124.jsf" usageId="erpsolscm_erpsolscmview_SO_1124PageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParamsSCMReport"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolscm_erpsolscmview_SO_0167PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0167PageDef"/>
@@ -45,6 +47,8 @@
           path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef11"/>
     <page id="erpsolscm_erpsolscmview_SO_0019PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0019PageDef"/>
     <page id="erpsolscm_erpsolscmview_SO_1124PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_1124PageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolSCMAppModuleDataControl" Package="erpsolscm.erpsolscmmodel.erpsolscmam"
