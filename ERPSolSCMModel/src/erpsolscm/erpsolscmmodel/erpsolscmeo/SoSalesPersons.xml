@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="SO_SALES_PERSONS"
   AliasName="SoSalesPersons"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesPersonsImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="Salespersonid"
     IsNotNull="true"
@@ -134,7 +140,7 @@
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_PERSONS"/>
   <Attribute
@@ -153,7 +159,7 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_PERSONS"/>
   <Attribute
@@ -180,6 +186,13 @@
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="Salespersonseq"
+    ColumnName="SALESPERSONSEQ"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SO_SALES_PERSONS"/>
   <AccessorAttribute
     Name="SoSalesOrder"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonsSoSalesOrderSalesPersonIDAssoc"

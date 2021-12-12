@@ -135,6 +135,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="Salespersonseq"
+    PrecisionRule="true"
+    EntityAttrName="Salespersonseq"
+    EntityUsage="SoSalesPersons"
+    AliasName="SALESPERSONSEQ"/>
   <ViewCriteria
     Name="SoSalesPersonsFindVc"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"
