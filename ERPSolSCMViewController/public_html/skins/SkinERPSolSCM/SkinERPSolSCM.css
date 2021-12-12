@@ -41,6 +41,13 @@ af|inputText::content{
 }
 
 
+af|selectOneChoice::content{
+    height:25px;
+    font-weight: bold;
+    font-family: Verdana;
+}
+
+
 
 af|inputDate::content{
     height:25px;
