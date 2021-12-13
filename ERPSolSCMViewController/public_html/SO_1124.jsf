@@ -141,14 +141,14 @@
                                                     </af:inputText>
                                                 </af:panelGroupLayout>
                                             </af:panelLabelAndMessage>
-                                            <af:inputText value="#{bindings.Productgroup.inputValue}"
-                                                          label="#{bindings.Productgroup.hints.label}"
-                                                          required="#{bindings.Productgroup.hints.mandatory}"
-                                                          columns="#{bindings.Productgroup.hints.displayWidth}"
-                                                          maximumLength="#{bindings.Productgroup.hints.precision}"
-                                                          shortDesc="#{bindings.Productgroup.hints.tooltip}" id="it9">
+                                            <af:selectOneChoice value="#{bindings.Productgroup.inputValue}"
+                                                                label="#{bindings.Productgroup.label}"
+                                                                required="#{bindings.Productgroup.hints.mandatory}"
+                                                                shortDesc="#{bindings.Productgroup.hints.tooltip}"
+                                                                id="soc3" contentStyle="width:200px" autoSubmit="true">
+                                                <f:selectItems value="#{bindings.Productgroup.items}" id="si3"/>
                                                 <f:validator binding="#{bindings.Productgroup.validator}"/>
-                                            </af:inputText>
+                                            </af:selectOneChoice>
                                             <af:panelLabelAndMessage label="#{bindings.txtModelNo.hints.label}" id="plam4">
                                                 <af:panelGroupLayout id="pgl5" layout="horizontal">
                                                     <af:inputComboboxListOfValues id="productidId"
@@ -159,7 +159,8 @@
                                                                                   required="#{bindings.Productid.hints.mandatory}"
                                                                                   columns="#{bindings.Productid.hints.displayWidth}"
                                                                                   shortDesc="#{bindings.Productid.hints.tooltip}"
-                                                                                  simple="true">
+                                                                                  simple="true" autoSubmit="true"
+                                                                                  partialTriggers="soc3">
                                                         <f:validator binding="#{bindings.Productid.validator}"/>
                                                     </af:inputComboboxListOfValues>
                                                     <af:spacer width="10" height="10" id="s3"/>
@@ -169,7 +170,7 @@
                                                                   columns="#{bindings.txtModelNo.hints.displayWidth}"
                                                                   maximumLength="#{bindings.txtModelNo.hints.precision}"
                                                                   shortDesc="#{bindings.txtModelNo.hints.tooltip}"
-                                                                  partialTriggers="productidId" id="it10" simple="true"
+                                                                  partialTriggers="productidId soc3" id="it10" simple="true"
                                                                   readOnly="true">
                                                         <f:validator binding="#{bindings.txtModelNo.validator}"/>
                                                     </af:inputText>
@@ -179,7 +180,8 @@
                                                           label="#{bindings.txtFromDate.hints.label}"
                                                           required="#{bindings.txtFromDate.hints.mandatory}"
                                                           columns="#{bindings.txtFromDate.hints.displayWidth}"
-                                                          shortDesc="#{bindings.txtFromDate.hints.tooltip}" id="id2">
+                                                          shortDesc="#{bindings.txtFromDate.hints.tooltip}" id="id2"
+                                                          autoSubmit="true">
                                                 <f:validator binding="#{bindings.txtFromDate.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.txtFromDate.format}"/>
                                             </af:inputDate>
@@ -187,7 +189,8 @@
                                                           label="#{bindings.txtToDate.hints.label}"
                                                           required="#{bindings.txtToDate.hints.mandatory}"
                                                           columns="#{bindings.txtToDate.hints.displayWidth}"
-                                                          shortDesc="#{bindings.txtToDate.hints.tooltip}" id="id1">
+                                                          shortDesc="#{bindings.txtToDate.hints.tooltip}" id="id1"
+                                                          autoSubmit="true">
                                                 <f:validator binding="#{bindings.txtToDate.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.txtToDate.format}"/>
                                             </af:inputDate>

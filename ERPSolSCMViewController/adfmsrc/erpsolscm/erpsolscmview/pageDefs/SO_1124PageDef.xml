@@ -41,11 +41,6 @@
         <Item Value="Salespersonid"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="VwSoSalesReportROIterator" id="Productgroup">
-      <AttrNames>
-        <Item Value="Productgroup"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="VwSoSalesReportROIterator" id="txtModelNo">
       <AttrNames>
         <Item Value="txtModelNo"/>
@@ -74,5 +69,7 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <list IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovProductgroup" id="Productgroup"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

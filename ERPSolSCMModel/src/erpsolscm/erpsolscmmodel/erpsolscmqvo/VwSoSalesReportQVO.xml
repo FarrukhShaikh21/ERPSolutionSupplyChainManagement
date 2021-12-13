@@ -39,7 +39,17 @@
   <ViewAccessor
     Name="AccInItemsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InItemsViewBySiGroupIdVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView.InItemsViewBySiGroupIdVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_aDF_SIGROUPID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Productgroup]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccSoSalesPersonsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"
@@ -75,6 +85,10 @@
   <ViewAccessor
     Name="AccSoSalesTerritoryView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesTerritoryView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccInStockItemGroupView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InStockItemGroupView"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LovCompanyid"
@@ -240,6 +254,25 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LovProductgroup"
+    ListVOName="AccInStockItemGroupView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Productgroup"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Sigroupid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[select 1 as pk, null companyid,null regionid,null locationid,null storeid, null customerid, null salespersonid,null productgroup,null productid from dual]]></SQLQuery>
   <ViewAttribute
     Name="Pk"
@@ -398,13 +431,16 @@
     ColumnType="VARCHAR2"
     AliasName="PRODUCTGROUP"
     Expression="PRODUCTGROUP"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LovProductgroup">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.Productgroup_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -428,6 +464,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="Productgroup"/>
+    </Dependencies>
   </ViewAttribute>
   <ViewAttribute
     Name="txtCustomerName"
@@ -507,6 +547,12 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="Productgroup"/>
+      <Item
+        Value="Productid"/>
+    </Dependencies>
   </ViewAttribute>
   <ViewAttribute
     Name="txtStoreName"
