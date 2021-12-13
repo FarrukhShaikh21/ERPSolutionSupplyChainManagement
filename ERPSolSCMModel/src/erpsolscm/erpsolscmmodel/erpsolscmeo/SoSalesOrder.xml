@@ -1069,7 +1069,7 @@ return true;]]></validation:TransientExpression>
     TableName="SO_SALES_ORDER"/>
   <Attribute
     Name="RebateId"
-    Precision="15"
+    Precision="20"
     ColumnName="REBATE_ID"
     SQLType="VARCHAR"
     Type="java.lang.String"

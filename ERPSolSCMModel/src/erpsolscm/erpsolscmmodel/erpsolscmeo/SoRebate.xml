@@ -24,7 +24,7 @@
   <Attribute
     Name="RebateId"
     IsUnique="true"
-    Precision="15"
+    Precision="20"
     ColumnName="REBATE_ID"
     SQLType="VARCHAR"
     Type="java.lang.String"
@@ -98,8 +98,7 @@
           trustMode="untrusted"
           Name="0"><![CDATA[txtErrorMessage]]></validation:Expression>
       </validation:ResExpressions>
-      <validation:TransientExpression
-        trustMode="trusted"><![CDATA[AccVwFuncUserBackDateAllowed.setNamedWhereClauseParam("P_ADF_USERID",erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode());
+      <validation:TransientExpression><![CDATA[AccVwFuncUserBackDateAllowed.setNamedWhereClauseParam("P_ADF_USERID",erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode());
 AccVwFuncUserBackDateAllowed.setNamedWhereClauseParam("P_ADF_MODULEID", "SO-0171");
 AccVwFuncUserBackDateAllowed.setNamedWhereClauseParam("P_ADF_DATE", newValue);
 println("0")
