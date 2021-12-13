@@ -26,7 +26,7 @@
                               rowSelection="single" fetchSize="#{bindings.SoRebateCRUD.rangeSize}" id="resId1"
                               scrollPolicy="page" autoHeightRows="10" styleClass="AFStretchWidth">
                         <af:column headerText="#{bindings.SoRebateCRUD.hints.RebateId.label}" id="resId1c1">
-                            <af:link text="#{row.RebateId}" id="l1" partialSubmit="true"/>
+                            <af:link text="#{row.RebateId}" id="l1" partialSubmit="true" action="ACT-BACK-TO-SO_0171"/>
                             <af:outputText value="#{row.RebateId}"
                                            shortDesc="#{bindings.SoRebateCRUD.hints.RebateId.tooltip}" id="ot1"
                                            rendered="false"/>
