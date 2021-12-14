@@ -7,6 +7,8 @@
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="SoSalesReturnCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="SoSalesReturnCRUDIterator"/>
+    <iterator Binds="SoSalesReturnLinesDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesReturnLinesDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Salesretid">
@@ -82,5 +84,30 @@
     </attributeValues>
     <listOfValues IterBinding="SoSalesReturnCRUDIterator" StaticList="false" Uses="LovtxtSalesPersonName"
                   id="txtSalesPersonName"/>
+    <tree IterBinding="SoSalesReturnLinesDetCRUDIterator" id="SoSalesReturnLinesDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnLinesView"
+                      Name="SoSalesReturnLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="Rlineno"/>
+          <Item Value="Productid"/>
+          <Item Value="ModelNo"/>
+          <Item Value="ActUnitPriceFcurr"/>
+          <Item Value="RetQty"/>
+          <Item Value="txtGrossAmount"/>
+          <Item Value="RetDiscountAmount"/>
+          <Item Value="txtRetDiscountAmount"/>
+          <Item Value="txtNetAmount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SoSalesReturnLinesDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SoSalesReturnLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="doSuperviseSalesReturn" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSalesReturn" IsViewObjectMethod="true"
+                  DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesReturnCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSuperviseSalesReturn_ERPSolSCMAppModuleDataControl_SoSalesReturnCRUD_doSuperviseSalesReturn_result"/>
   </bindings>
 </pageDefinition>

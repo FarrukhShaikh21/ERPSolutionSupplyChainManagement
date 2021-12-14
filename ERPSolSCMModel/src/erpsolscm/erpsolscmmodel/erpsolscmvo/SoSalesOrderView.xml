@@ -987,6 +987,13 @@
         Name="_return_type_"
         Type="void"/>
     </Method>
+    <Method
+      Name="doReadyForWarehouse"
+      MethodName="doReadyForWarehouse">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
   </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle

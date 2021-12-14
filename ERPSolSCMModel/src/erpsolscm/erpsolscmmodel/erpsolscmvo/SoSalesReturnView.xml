@@ -13,9 +13,12 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  RowClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnViewRowImpl">
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnViewRowImpl"
+  ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnViewImpl"
+  ComponentInterface="erpsolscm.erpsolscmmodel.erpsolscmvo.common.SoSalesReturnView"
+  ClientProxyName="erpsolscm.erpsolscmmodel.erpsolscmvo.client.SoSalesReturnViewClient">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewAccessor
@@ -607,4 +610,14 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSuperviseSalesReturn"
+      MethodName="doSuperviseSalesReturn">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>

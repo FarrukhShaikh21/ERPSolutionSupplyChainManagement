@@ -66,7 +66,7 @@
       <property
          name="fromOutcome">ERP-ACT-SO-0167</property>
       <property
-         name="sdm:polyPoints">L58,157.53516,257.8506,T50</property>
+         name="sdm:polyPoints">L62,157.53516,261.3506,T50</property>
    </ControlFlowCase>
    <View
       id="View7">
@@ -215,7 +215,7 @@
       <property
          name="fromOutcome">ERP-ACT-SO-0171</property>
       <property
-         name="sdm:polyPoints">L50,10.5,250.85059,T50</property>
+         name="sdm:polyPoints">L54,10.5,254.35059,T50</property>
    </ControlFlowCase>
    <View
       id="View19">
@@ -490,7 +490,7 @@
       <property
          name="fromOutcome">ERP-ACT-SO-0019</property>
       <property
-         name="sdm:polyPoints">L42,-110.73242,243.85059,-110.73242,313.44824,R50</property>
+         name="sdm:polyPoints">L46,-110.73242,247.35059,-110.73242,313.44824,R50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall44">

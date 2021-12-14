@@ -12,7 +12,50 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnLinesViewRowImpl"
+  ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnLinesViewImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_objectSuperClassName"
+      Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsViewObjectImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="AccInItemsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwFuncGetItemRateByLocDate"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemRateByLocDateQVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovProductid"
+    ListVOName="AccInItemsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Productid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Uomsid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Productid"/>
+      <Item Value="ModelNo"/>
+      <Item Value="Uomsid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Productid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="InItemsFindVC"/>
+  </ListBinding>
   <EntityUsage
     Name="SoSalesReturnLines"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLines"/>
@@ -41,7 +84,15 @@
     PrecisionRule="true"
     EntityAttrName="Productid"
     EntityUsage="SoSalesReturnLines"
-    AliasName="PRODUCTID"/>
+    AliasName="PRODUCTID"
+    LOVName="LovProductid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ModelNo"
     PrecisionRule="true"
@@ -65,13 +116,23 @@
     PrecisionRule="true"
     EntityAttrName="ActUnitPriceBcurr"
     EntityUsage="SoSalesReturnLines"
-    AliasName="ACT_UNIT_PRICE_BCURR"/>
+    AliasName="ACT_UNIT_PRICE_BCURR">
+    <Dependencies>
+      <Item
+        Value="Productid"/>
+    </Dependencies>
+  </ViewAttribute>
   <ViewAttribute
     Name="ActUnitPriceFcurr"
     PrecisionRule="true"
     EntityAttrName="ActUnitPriceFcurr"
     EntityUsage="SoSalesReturnLines"
-    AliasName="ACT_UNIT_PRICE_FCURR"/>
+    AliasName="ACT_UNIT_PRICE_FCURR">
+    <Dependencies>
+      <Item
+        Value="Productid"/>
+    </Dependencies>
+  </ViewAttribute>
   <ViewAttribute
     Name="Createdby"
     PrecisionRule="true"
@@ -289,9 +350,45 @@
     EntityAttrName="Salesreturnlinseq"
     EntityUsage="SoSalesReturnLines"
     AliasName="SALESRETURNLINSEQ"/>
+  <ViewAttribute
+    Name="txtGrossAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtGrossAmount"
+    EntityUsage="SoSalesReturnLines"
+    AliasName="TXT_GROSS_AMOUNT"/>
+  <ViewAttribute
+    Name="txtNetAmount"
+    PrecisionRule="true"
+    EntityAttrName="txtNetAmount"
+    EntityUsage="SoSalesReturnLines"
+    AliasName="TXT_NET_AMOUNT"
+    IsQueriable="false"
+    IsPersistent="false"/>
+  <ViewAttribute
+    Name="txtRetDiscountAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtRetDiscountAmount"
+    EntityUsage="SoSalesReturnLines"
+    AliasName="TXT_RET_DISCOUNT_AMOUNT"/>
   <ViewLinkAccessor
     Name="SrimeiView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.SysC0017022Link"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="InItemsView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoSalesReturnLinesProductIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SoSalesReturnView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.RSrl328Link"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
 </ViewObject>

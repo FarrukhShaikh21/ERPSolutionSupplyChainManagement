@@ -18,7 +18,6 @@
   </DesignTime>
   <Attribute
     Name="Salesretid"
-    IsNotNull="true"
     Precision="20"
     ColumnName="SALESRETID"
     SQLType="VARCHAR"

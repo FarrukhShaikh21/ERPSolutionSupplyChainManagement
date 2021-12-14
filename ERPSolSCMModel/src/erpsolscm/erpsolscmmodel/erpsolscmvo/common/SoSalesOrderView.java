@@ -7,5 +7,7 @@ import oracle.jbo.ViewObject;
 // ---------------------------------------------------------------------
 public interface SoSalesOrderView extends ViewObject {
     void doSuperviseSaleOrder();
+
+    void doReadyForWarehouse();
 }
 

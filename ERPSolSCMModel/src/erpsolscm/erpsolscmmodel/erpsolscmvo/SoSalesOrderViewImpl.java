@@ -54,6 +54,12 @@ public class SoSalesOrderViewImpl extends ViewObjectImpl implements SoSalesOrder
             }
         }
     }
+
+    public void doReadyForWarehouse() {
+            this.getCurrentRow().setAttribute("ReadyForIssue", "Y");
+            this.getDBTransaction().commit();
+    }
+    
    @Override
     public Row next() {
         // TODO Implement this method

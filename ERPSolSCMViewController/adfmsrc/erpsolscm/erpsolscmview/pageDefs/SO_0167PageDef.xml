@@ -150,5 +150,19 @@
         <Item Value="Posted"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="ReadyForIssue">
+      <AttrNames>
+        <Item Value="ReadyForIssue"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doReadyForWarehouse" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doReadyForWarehouse" IsViewObjectMethod="true" DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesOrderViewCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doReadyForWarehouse_ERPSolSCMAppModuleDataControl_SoSalesOrderViewCRUD_doReadyForWarehouse_result"/>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Companyid">
+      <AttrNames>
+        <Item Value="Companyid"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
