@@ -1012,7 +1012,7 @@ return true;]]></validation:TransientExpression>
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SO_SALES_ORDER"
-    DefaultValue="Y">
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>

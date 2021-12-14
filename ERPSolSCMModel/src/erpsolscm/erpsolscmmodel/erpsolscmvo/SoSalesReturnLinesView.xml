@@ -30,24 +30,24 @@
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemRateByLocDateQVO"
     RowLevelBinds="true"/>
   <ListBinding
-    Name="LovProductid"
+    Name="LovModelNo"
     ListVOName="AccInItemsView"
     ListRangeSize="-1"
     ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="Productid"/>
+      <Item Value="ModelNo"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
-      <Item Value="ModelNo"/>
       <Item Value="Uomsid"/>
+      <Item Value="Productid"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="Productid"/>
       <Item Value="ModelNo"/>
       <Item Value="Uomsid"/>
+      <Item Value="Productid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ModelNo"/>
@@ -84,8 +84,14 @@
     PrecisionRule="true"
     EntityAttrName="Productid"
     EntityUsage="SoSalesReturnLines"
-    AliasName="PRODUCTID"
-    LOVName="LovProductid">
+    AliasName="PRODUCTID"/>
+  <ViewAttribute
+    Name="ModelNo"
+    PrecisionRule="true"
+    EntityAttrName="ModelNo"
+    EntityUsage="SoSalesReturnLines"
+    AliasName="MODEL_NO"
+    LOVName="LovModelNo">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -93,12 +99,6 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
-  <ViewAttribute
-    Name="ModelNo"
-    PrecisionRule="true"
-    EntityAttrName="ModelNo"
-    EntityUsage="SoSalesReturnLines"
-    AliasName="MODEL_NO"/>
   <ViewAttribute
     Name="Quantity"
     PrecisionRule="true"

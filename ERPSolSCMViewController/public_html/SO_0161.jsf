@@ -83,7 +83,7 @@
                                    disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
                                    icon="#{resource['images:imgAdd.png']}"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
-                                   id="b6" disabled="#{bindings.Posted.inputValue=='Y'}"
+                                   id="b6"
                                    icon="#{resource['images:imgUndo.png']}">
                           <af:resetActionListener/>
                         </af:button>
@@ -351,29 +351,28 @@
                                             pattern="#{bindings.SoSalesReturnLinesDetCRUD.hints.Rlineno.format}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.label}" id="c2"
-                                 width="120" displayIndex="-1">
-                        <af:inputComboboxListOfValues id="productidId"
-                                                      popupTitle="Search and Select: #{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.label}"
-                                                      value="#{row.bindings.Productid.inputValue}"
-                                                      model="#{row.bindings.Productid.listOfValuesModel}"
-                                                      required="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.mandatory}"
-                                                      columns="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.displayWidth}"
-                                                      shortDesc="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.tooltip}"
+                      <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.label}" id="c3"
+                                 width="150">
+                        <af:inputComboboxListOfValues id="modelNoId"
+                                                      popupTitle="Search and Select: #{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.label}"
+                                                      value="#{row.bindings.ModelNo.inputValue}"
+                                                      model="#{row.bindings.ModelNo.listOfValuesModel}"
+                                                      required="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.mandatory}"
+                                                      columns="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.displayWidth}"
+                                                      shortDesc="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.tooltip}"
                                                       autoSubmit="true">
-                          <f:validator binding="#{row.bindings.Productid.validator}"/>
-                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedModelValues}"/>
+                          <f:validator binding="#{row.bindings.ModelNo.validator}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
-                      <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.label}" id="c3"
-                                 width="150" displayIndex="-1">
-                        <af:inputText value="#{row.bindings.ModelNo.inputValue}"
-                                      label="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.label}"
-                                      required="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.mandatory}"
-                                      columns="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.displayWidth}"
-                                      maximumLength="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.precision}"
-                                      shortDesc="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.tooltip}" id="it6">
-                          <f:validator binding="#{row.bindings.ModelNo.validator}"/>
+                      <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.label}" id="c2">
+                        <af:inputText value="#{row.bindings.Productid.inputValue}"
+                                      label="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.label}"
+                                      required="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.mandatory}"
+                                      columns="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.displayWidth}"
+                                      maximumLength="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.precision}"
+                                      shortDesc="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.tooltip}"
+                                      id="it6" readOnly="true">
+                          <f:validator binding="#{row.bindings.Productid.validator}"/>
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.ActUnitPriceFcurr.label}"
@@ -384,7 +383,7 @@
                                       columns="#{bindings.SoSalesReturnLinesDetCRUD.hints.ActUnitPriceFcurr.displayWidth}"
                                       maximumLength="#{bindings.SoSalesReturnLinesDetCRUD.hints.ActUnitPriceFcurr.precision}"
                                       shortDesc="#{bindings.SoSalesReturnLinesDetCRUD.hints.ActUnitPriceFcurr.tooltip}"
-                                      id="it7" readOnly="true" partialTriggers="productidId">
+                                      id="it7" readOnly="true" partialTriggers="modelNoId">
                           <f:validator binding="#{row.bindings.ActUnitPriceFcurr.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesReturnLinesDetCRUD.hints.ActUnitPriceFcurr.format}"/>

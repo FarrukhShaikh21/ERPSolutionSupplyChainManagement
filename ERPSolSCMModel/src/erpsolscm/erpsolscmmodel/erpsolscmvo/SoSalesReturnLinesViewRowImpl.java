@@ -232,7 +232,9 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      */
     public void setProductid(String value) {
         setAttributeInternal(PRODUCTID, value);
-        
+        System.out.println(getSoSalesReturnView().getAttribute("ReturnDate"));
+        System.out.println(value);
+        System.out.println(getSoSalesReturnView().getAttribute("Locationid"));
         try{
             getAccVwFuncGetItemRateByLocDate().setNamedWhereClauseParam("P_ADF_DATE", getSoSalesReturnView().getAttribute("ReturnDate"));
             getAccVwFuncGetItemRateByLocDate().setNamedWhereClauseParam("P_ADF_ITEMID", value);
