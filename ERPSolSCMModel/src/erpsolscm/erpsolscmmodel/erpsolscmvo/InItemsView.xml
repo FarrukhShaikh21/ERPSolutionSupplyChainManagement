@@ -836,4 +836,9 @@
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoSalesOrderLinesItemidLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SoSalesReturnLinesView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoSalesReturnLinesProductIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

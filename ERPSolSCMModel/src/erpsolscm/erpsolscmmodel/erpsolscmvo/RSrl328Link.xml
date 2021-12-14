@@ -16,6 +16,7 @@
       <Attr Name="_finderName" Value="SoSalesReturnView"/>
       <Attr Name="_isUpdateable" Value="true"/>
       <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_accessor" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnView.Salesretid"/>
