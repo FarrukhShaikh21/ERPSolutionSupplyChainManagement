@@ -34,7 +34,10 @@
     SQLType="DATE"
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SO_SALES_RETURN"/>
+    TableName="SO_SALES_RETURN">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="Customerid"
     Precision="15"

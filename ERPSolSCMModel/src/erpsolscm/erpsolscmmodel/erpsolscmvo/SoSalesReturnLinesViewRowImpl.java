@@ -76,7 +76,8 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
         InItemsView,
         SoSalesReturnView,
         AccInItemsView,
-        AccVwFuncGetItemRateByLocDate;
+        AccVwFuncGetItemRateByLocDate,
+        AccVwFuncGetItemDiscountByLocationReturn;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -155,6 +156,8 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
     public static final int SOSALESRETURNVIEW = AttributesEnum.SoSalesReturnView.index();
     public static final int ACCINITEMSVIEW = AttributesEnum.AccInItemsView.index();
     public static final int ACCVWFUNCGETITEMRATEBYLOCDATE = AttributesEnum.AccVwFuncGetItemRateByLocDate.index();
+    public static final int ACCVWFUNCGETITEMDISCOUNTBYLOCATIONRETURN =
+        AttributesEnum.AccVwFuncGetItemDiscountByLocationReturn.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -247,7 +250,28 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
             setActUnitPriceBcurr(new BigDecimal("0") );
             setActUnitPriceFcurr(new BigDecimal("0"));
             exc.printStackTrace();
-            }        
+            }  
+        try{
+            System.out.println("a");
+            getAccVwFuncGetItemDiscountByLocationReturn().setNamedWhereClauseParam("P_ADF_DATE", getSoSalesReturnView().getAttribute("ReturnDate"));
+                System.out.println("b");
+            getAccVwFuncGetItemDiscountByLocationReturn().setNamedWhereClauseParam("P_ADF_ITEMID", value);
+                System.out.println("d");
+            getAccVwFuncGetItemDiscountByLocationReturn().setNamedWhereClauseParam("P_ADF_LOCATIONID", getSoSalesReturnView().getAttribute("Locationid"));
+                System.out.println("e");
+            getAccVwFuncGetItemDiscountByLocationReturn().executeQuery();
+                System.out.println("f");
+            BigDecimal erpsoldiscount= (new BigDecimal(""+getAccVwFuncGetItemDiscountByLocationReturn().first().getAttribute("Discount"))) ;
+                System.out.println("g"+erpsoldiscount);
+            erpsoldiscount=((getActUnitPriceFcurr().multiply(erpsoldiscount)).divide(new BigDecimal(100)));
+            setRetDiscountAmount( Integer.parseInt(""+Math.round(erpsoldiscount.doubleValue())) );
+//                erpsoldiscount=getActUnitPriceFcurr().multiply(erpsoldiscount);
+            }
+            catch(Exception exc) {
+            setActUnitPriceBcurr(new BigDecimal("0") );
+            setActUnitPriceFcurr(new BigDecimal("0"));
+            exc.printStackTrace();
+            }         
     }
 
     /**
@@ -1002,5 +1026,13 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
     public RowSet getAccVwFuncGetItemRateByLocDate() {
         return (RowSet) getAttributeInternal(ACCVWFUNCGETITEMRATEBYLOCDATE);
     }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncGetItemDiscountByLocationReturn.
+     */
+    public RowSet getAccVwFuncGetItemDiscountByLocationReturn() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCGETITEMDISCOUNTBYLOCATIONRETURN);
+    }
+
 }
 

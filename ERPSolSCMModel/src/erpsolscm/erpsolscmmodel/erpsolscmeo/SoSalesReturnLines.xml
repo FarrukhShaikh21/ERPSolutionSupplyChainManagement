@@ -18,7 +18,6 @@
   </DesignTime>
   <Attribute
     Name="Salesretid"
-    IsNotNull="true"
     Precision="20"
     ColumnName="SALESRETID"
     SQLType="VARCHAR"
@@ -31,7 +30,6 @@
   </Attribute>
   <Attribute
     Name="Rlineno"
-    IsNotNull="true"
     Precision="4"
     Scale="0"
     ColumnName="RLINENO"
@@ -208,7 +206,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_RETURN_LINES"/>
+    TableName="SO_SALES_RETURN_LINES"
+    DefaultValue="0"/>
   <Attribute
     Name="RetQty"
     Precision="20"
@@ -217,7 +216,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SO_SALES_RETURN_LINES"/>
+    TableName="SO_SALES_RETURN_LINES">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLines.RetQty_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="RetDiscountAmount"
     Precision="20"
@@ -235,7 +243,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_RETURN_LINES"/>
+    TableName="SO_SALES_RETURN_LINES"
+    DefaultValue="0"/>
   <Attribute
     Name="ReceivedQty"
     Precision="20"
@@ -253,7 +262,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_RETURN_LINES"/>
+    TableName="SO_SALES_RETURN_LINES"
+    DefaultValue="0"/>
   <Attribute
     Name="RemQty"
     Precision="20"
@@ -271,7 +281,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_RETURN_LINES"/>
+    TableName="SO_SALES_RETURN_LINES"
+    DefaultValue="0"/>
   <Attribute
     Name="RetSedAmount"
     Precision="20"
@@ -280,7 +291,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_RETURN_LINES"/>
+    TableName="SO_SALES_RETURN_LINES"
+    DefaultValue="0"/>
   <Attribute
     Name="RetSedp"
     Precision="20"
@@ -289,7 +301,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_RETURN_LINES"/>
+    TableName="SO_SALES_RETURN_LINES"
+    DefaultValue="0"/>
   <Attribute
     Name="ExtraTaxAmountBc"
     Precision="20"
@@ -298,7 +311,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_RETURN_LINES"/>
+    TableName="SO_SALES_RETURN_LINES"
+    DefaultValue="0"/>
   <Attribute
     Name="RetExtraTaxAmount"
     Precision="20"
@@ -307,7 +321,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_RETURN_LINES"/>
+    TableName="SO_SALES_RETURN_LINES"
+    DefaultValue="0"/>
   <Attribute
     Name="RetExtraTaxp"
     Precision="20"
@@ -316,7 +331,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_SALES_RETURN_LINES"/>
+    TableName="SO_SALES_RETURN_LINES"
+    DefaultValue="0"/>
   <Attribute
     Name="Srdetlid"
     Precision="25"

@@ -1,5 +1,6 @@
 package erpsolscm.erpsolscmmodel.erpsolscmeo;
 
+import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
 import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
 
 import java.math.BigDecimal;
@@ -36,10 +37,24 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
     protected void doDML(int operation, TransactionEvent e) {
         if (operation==DML_INSERT) {
             populateAttributeAsChanged(SALESRETID, getSoSalesReturn().getAttribute("Salesretid"));
+/////////
+           String pkValue="FUNC_GET_MAX_ID('SO_SALES_RETURN_LINES WHERE SALESRETID=''"+getSalesretid()+"''','RLINENO')";
+           System.out.println("this is c");
+           System.out.println(pkValue + "pk value");
+           System.out.println("this is d");
+           String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
+           System.out.println("this is e");
+           populateAttributeAsChanged(RLINENO, Integer.parseInt(result));
+           populateAttributeAsChanged(SRDETLID, getSalesretid()+"-"+getRlineno());
+           
+////////
         }
-        if (operation!=DML_INSERT) {
+        if (operation!=DML_DELETE) {
            populateAttributeAsChanged(DEFAULTDISCOUNTAMOUNT, getRetDiscountAmount());
+           populateAttributeAsChanged(FCURRDEFAULTDISCOUNTAMOUNT, getRetDiscountAmount());
            populateAttributeAsChanged(ACTUNITPRICEBCURR, getActUnitPriceFcurr());
+           populateAttributeAsChanged(RECEIVEDQTY, getRetQty());
+           populateAttributeAsChanged(QUANTITY, getRetQty());
        }
         super.doDML(operation, e);
     }

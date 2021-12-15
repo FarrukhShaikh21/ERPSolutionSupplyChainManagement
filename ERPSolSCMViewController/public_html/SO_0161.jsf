@@ -352,7 +352,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.label}" id="c3"
-                                 width="150">
+                                 width="200">
                         <af:inputComboboxListOfValues id="modelNoId"
                                                       popupTitle="Search and Select: #{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.label}"
                                                       value="#{row.bindings.ModelNo.inputValue}"
@@ -362,6 +362,7 @@
                                                       shortDesc="#{bindings.SoSalesReturnLinesDetCRUD.hints.ModelNo.tooltip}"
                                                       autoSubmit="true">
                           <f:validator binding="#{row.bindings.ModelNo.validator}"/>
+                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedModelValues}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.label}" id="c2">
@@ -371,7 +372,7 @@
                                       columns="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.displayWidth}"
                                       maximumLength="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.precision}"
                                       shortDesc="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.tooltip}"
-                                      id="it6" readOnly="true">
+                                      id="it6" readOnly="true" partialTriggers="modelNoId">
                           <f:validator binding="#{row.bindings.Productid.validator}"/>
                         </af:inputText>
                       </af:column>

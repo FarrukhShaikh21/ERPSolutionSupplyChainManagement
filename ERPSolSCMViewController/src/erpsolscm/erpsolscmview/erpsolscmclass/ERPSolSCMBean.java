@@ -4,6 +4,8 @@ import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
 
 import erpsolglob.erpsolglobview.erpclass.ERPSolGlobalViewBean;
 
+import java.math.BigDecimal;
+
 import java.sql.CallableStatement;
 
 import java.sql.SQLException;
@@ -694,4 +696,11 @@ public class ERPSolSCMBean {
            
         return null;
     }
+    public static void main(String[] args) {
+        BigDecimal fcurr=new BigDecimal(2250);
+       BigDecimal discount=new BigDecimal(7.5);
+       discount=((fcurr.multiply(discount)).divide(new BigDecimal(100)));
+       System.out.println(Math.round(discount.doubleValue()) ); 
+    
+   }
 }

@@ -29,6 +29,10 @@
     Name="AccVwFuncGetItemRateByLocDate"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemRateByLocDateQVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwFuncGetItemDiscountByLocationReturn"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemDiscountByLocationReturnQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovModelNo"
     ListVOName="AccInItemsView"
