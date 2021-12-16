@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
+import oracle.jbo.RowSet;
 import oracle.jbo.domain.BFileDomain;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
@@ -113,7 +114,8 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
         txtNetAmount,
         SoSalesReturn,
         Srimei,
-        InItems;
+        InItems,
+        AccVwFuncBalanceQuantityForReturnQVO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -189,6 +191,8 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int SOSALESRETURN = AttributesEnum.SoSalesReturn.index();
     public static final int SRIMEI = AttributesEnum.Srimei.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
+    public static final int ACCVWFUNCBALANCEQUANTITYFORRETURNQVO =
+        AttributesEnum.AccVwFuncBalanceQuantityForReturnQVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -752,15 +756,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for DefaultDiscountAmount, using the alias name DefaultDiscountAmount.
      * @return the value of DefaultDiscountAmount
      */
-    public BigDecimal getDefaultDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(DEFAULTDISCOUNTAMOUNT);
+    public Integer getDefaultDiscountAmount() {
+        return (Integer) getAttributeInternal(DEFAULTDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for DefaultDiscountAmount.
      * @param value value to set the DefaultDiscountAmount
      */
-    public void setDefaultDiscountAmount(BigDecimal value) {
+    public void setDefaultDiscountAmount(Integer value) {
         setAttributeInternal(DEFAULTDISCOUNTAMOUNT, value);
     }
 
@@ -768,15 +772,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for FcurrRetDiscountAmount, using the alias name FcurrRetDiscountAmount.
      * @return the value of FcurrRetDiscountAmount
      */
-    public BigDecimal getFcurrRetDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(FCURRRETDISCOUNTAMOUNT);
+    public Integer getFcurrRetDiscountAmount() {
+        return (Integer) getAttributeInternal(FCURRRETDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for FcurrRetDiscountAmount.
      * @param value value to set the FcurrRetDiscountAmount
      */
-    public void setFcurrRetDiscountAmount(BigDecimal value) {
+    public void setFcurrRetDiscountAmount(Integer value) {
         setAttributeInternal(FCURRRETDISCOUNTAMOUNT, value);
     }
 
@@ -800,15 +804,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for FcurrDefaultDiscountAmount, using the alias name FcurrDefaultDiscountAmount.
      * @return the value of FcurrDefaultDiscountAmount
      */
-    public BigDecimal getFcurrDefaultDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(FCURRDEFAULTDISCOUNTAMOUNT);
+    public Integer getFcurrDefaultDiscountAmount() {
+        return (Integer) getAttributeInternal(FCURRDEFAULTDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for FcurrDefaultDiscountAmount.
      * @param value value to set the FcurrDefaultDiscountAmount
      */
-    public void setFcurrDefaultDiscountAmount(BigDecimal value) {
+    public void setFcurrDefaultDiscountAmount(Integer value) {
         setAttributeInternal(FCURRDEFAULTDISCOUNTAMOUNT, value);
     }
 
@@ -896,15 +900,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Salesretseq, using the alias name Salesretseq.
      * @return the value of Salesretseq
      */
-    public BigDecimal getSalesretseq() {
-        return (BigDecimal) getAttributeInternal(SALESRETSEQ);
+    public Integer getSalesretseq() {
+        return (Integer) getAttributeInternal(SALESRETSEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Salesretseq.
      * @param value value to set the Salesretseq
      */
-    public void setSalesretseq(BigDecimal value) {
+    public void setSalesretseq(Integer value) {
         setAttributeInternal(SALESRETSEQ, value);
     }
 
@@ -1007,6 +1011,14 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
     public void setInItems(EntityImpl value) {
         setAttributeInternal(INITEMS, value);
     }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncBalanceQuantityForReturnQVO.
+     */
+    public RowSet getAccVwFuncBalanceQuantityForReturnQVO() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCBALANCEQUANTITYFORRETURNQVO);
+    }
+
 
     /**
      * @param salesreturnlinseq key constituent

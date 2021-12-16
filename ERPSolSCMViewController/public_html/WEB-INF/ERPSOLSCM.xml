@@ -120,6 +120,12 @@
     <view id="SO_1124">
       <page>/SO_1124.jsf</page>
     </view>
+    <method-call id="ExecuteWithParamsSCMMaster">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -161,7 +167,7 @@
       <from-activity-id>doERPSolSCMSessionGlobals</from-activity-id>
       <control-flow-case id="__15">
         <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
-        <to-activity-id>ExecuteWithParamsSCMReport</to-activity-id>
+        <to-activity-id>ExecuteWithParamsSCMMaster</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__20">
@@ -257,6 +263,13 @@
       <control-flow-case id="__44">
         <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
         <to-activity-id>ExeSysModuleSoTransaction</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__46">
+      <from-activity-id>ExecuteWithParamsSCMMaster</from-activity-id>
+      <control-flow-case id="__47">
+        <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
+        <to-activity-id>ExecuteWithParamsSCMReport</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

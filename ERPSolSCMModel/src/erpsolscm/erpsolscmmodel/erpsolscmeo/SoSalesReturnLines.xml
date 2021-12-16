@@ -10,12 +10,32 @@
   DBObjectName="SO_SALES_RETURN_LINES"
   AliasName="SoSalesReturnLines"
   BindingStyle="OracleName"
-  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLinesImpl">
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLinesImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|DML"/>
     <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <ViewAccessor
+    Name="AccVwFuncBalanceQuantityForReturnQVO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncBalanceQuantityForReturnQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_DATE">
+        <TransientExpression><![CDATA[SoSalesReturn?.ReturnDate]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_CUSTOMERID">
+        <TransientExpression><![CDATA[SoSalesReturn?.Customerid]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_PRODUCTID">
+        <TransientExpression><![CDATA[Productid==null?"-1":Productid]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_SALESRETID">
+        <TransientExpression><![CDATA[Salesretid==null?"-1":Salesretid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <Attribute
     Name="Salesretid"
     Precision="20"
@@ -367,7 +387,7 @@
     Scale="6"
     ColumnName="DEFAULT_DISCOUNT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -376,7 +396,7 @@
     Scale="6"
     ColumnName="FCURR_RET_DISCOUNT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -394,7 +414,7 @@
     Scale="6"
     ColumnName="FCURR_DEFAULT_DISCOUNT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -441,7 +461,7 @@
     Name="Salesretseq"
     ColumnName="SALESRETSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -460,10 +480,8 @@
     ColumnType="INTEGER"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[(ActUnitPriceFcurr==null?0:ActUnitPriceFcurr) * (RetQty==null?0:RetQty)]]></TransientExpression>
-    <RecalcCondition
-      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[(ActUnitPriceFcurr==null?0:ActUnitPriceFcurr) * (RetQty==null?0:RetQty)]]></TransientExpression>
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Dependencies>
       <Item
         Value="ActUnitPriceFcurr"/>
@@ -487,8 +505,7 @@
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[(RetDiscountAmount==null?0:RetDiscountAmount) * (RetQty==null?0:RetQty)]]></TransientExpression>
+    <TransientExpression><![CDATA[(RetDiscountAmount==null?0:RetDiscountAmount) * (RetQty==null?0:RetQty)]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -514,8 +531,7 @@
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[txtGrossAmount - txtRetDiscountAmount]]></TransientExpression>
+    <TransientExpression><![CDATA[txtGrossAmount - txtRetDiscountAmount]]></TransientExpression>
     <Dependencies>
       <Item
         Value="ActUnitPriceFcurr"/>
@@ -591,6 +607,28 @@
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLines.Uomsid"/>
     </AttrArray>
   </Key>
+  <validation:CompareValidationBean
+    Name="SoSalesReturnLinesBalanceBR"
+    ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLines_Rule_0"
+    OnAttribute="RetQty"
+    OperandType="VO_USAGE"
+    Inverse="false"
+    CompareType="LESSTHANEQUALTO"
+    ViewAccAttrName="BalanceQuantity"
+    ViewAccName="AccVwFuncBalanceQuantityForReturnQVO">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="RetQty"/>
+      <validation:Item
+        Value="Productid"/>
+    </validation:OnAttributes>
+    <validation:ResExpressions
+      Name="SoSalesReturnLinesBalanceBR_ResExprList">
+      <validation:Expression
+        Name="0"
+        trustMode="untrusted"><![CDATA[AccVwFuncBalanceQuantityForReturnQVO?.first().getAttribute("BalanceQuantity")]]></validation:Expression>
+    </validation:ResExpressions>
+  </validation:CompareValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>

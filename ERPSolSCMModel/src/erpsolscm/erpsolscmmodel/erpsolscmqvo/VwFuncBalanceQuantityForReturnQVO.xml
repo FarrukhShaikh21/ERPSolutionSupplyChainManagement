@@ -19,23 +19,23 @@
     </SchemaBasedProperties>
   </Properties>
   <Variable
-    Name="P_SALESRETID"
-    Kind="where"
-    Type="java.lang.String"/>
-  <Variable
     Name="P_ADF_DATE"
     Kind="where"
     Type="oracle.jbo.domain.Date"/>
   <Variable
-    Name="P_PRODUCTID"
+    Name="P_ADF_SALESRETID"
     Kind="where"
     Type="java.lang.String"/>
   <Variable
-    Name="P_CUSTOMERID"
+    Name="P_ADF_CUSTOMERID"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT  
-1 as PK,PKG_SALE_ORDER.FUNC_BALANCE_QTY_FOR_RETURN(:P_SALESRETID ,:P_CUSTOMERID ,:P_PRODUCTID ,:P_DATE) Balance_Quantity 
+  <Variable
+    Name="P_ADF_PRODUCTID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT   
+1 as PK,PKG_SALE_ORDER.FUNC_BALANCE_QTY_FOR_RETURN(:P_ADF_SALESRETID ,:P_ADF_CUSTOMERID ,:P_ADF_PRODUCTID ,:P_ADF_DATE) Balance_Quantity  
 FROM DUAL]]></SQLQuery>
   <ViewAttribute
     Name="Pk"
@@ -46,18 +46,18 @@ FROM DUAL]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="PK"
     Expression="PK"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="BalanceQuantity"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="4000"
-    Type="java.lang.String"
+    Type="java.math.BigDecimal"
     ColumnType="VARCHAR2"
     AliasName="BALANCE_QUANTITY"
     Expression="BALANCE_QUANTITY"
-    SQLType="VARCHAR">
+    SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>

@@ -758,15 +758,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for DEFAULT_DISCOUNT_AMOUNT using the alias name DefaultDiscountAmount.
      * @return the DEFAULT_DISCOUNT_AMOUNT
      */
-    public BigDecimal getDefaultDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(DEFAULTDISCOUNTAMOUNT);
+    public Integer getDefaultDiscountAmount() {
+        return (Integer) getAttributeInternal(DEFAULTDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as attribute value for DEFAULT_DISCOUNT_AMOUNT using the alias name DefaultDiscountAmount.
      * @param value value to set the DEFAULT_DISCOUNT_AMOUNT
      */
-    public void setDefaultDiscountAmount(BigDecimal value) {
+    public void setDefaultDiscountAmount(Integer value) {
         setAttributeInternal(DEFAULTDISCOUNTAMOUNT, value);
     }
 
@@ -774,15 +774,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for FCURR_RET_DISCOUNT_AMOUNT using the alias name FcurrRetDiscountAmount.
      * @return the FCURR_RET_DISCOUNT_AMOUNT
      */
-    public BigDecimal getFcurrRetDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(FCURRRETDISCOUNTAMOUNT);
+    public Integer getFcurrRetDiscountAmount() {
+        return (Integer) getAttributeInternal(FCURRRETDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as attribute value for FCURR_RET_DISCOUNT_AMOUNT using the alias name FcurrRetDiscountAmount.
      * @param value value to set the FCURR_RET_DISCOUNT_AMOUNT
      */
-    public void setFcurrRetDiscountAmount(BigDecimal value) {
+    public void setFcurrRetDiscountAmount(Integer value) {
         setAttributeInternal(FCURRRETDISCOUNTAMOUNT, value);
     }
 
@@ -806,15 +806,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for FCURR_DEFAULT_DISCOUNT_AMOUNT using the alias name FcurrDefaultDiscountAmount.
      * @return the FCURR_DEFAULT_DISCOUNT_AMOUNT
      */
-    public BigDecimal getFcurrDefaultDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(FCURRDEFAULTDISCOUNTAMOUNT);
+    public Integer getFcurrDefaultDiscountAmount() {
+        return (Integer) getAttributeInternal(FCURRDEFAULTDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as attribute value for FCURR_DEFAULT_DISCOUNT_AMOUNT using the alias name FcurrDefaultDiscountAmount.
      * @param value value to set the FCURR_DEFAULT_DISCOUNT_AMOUNT
      */
-    public void setFcurrDefaultDiscountAmount(BigDecimal value) {
+    public void setFcurrDefaultDiscountAmount(Integer value) {
         setAttributeInternal(FCURRDEFAULTDISCOUNTAMOUNT, value);
     }
 
@@ -902,15 +902,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for SALESRETSEQ using the alias name Salesretseq.
      * @return the SALESRETSEQ
      */
-    public BigDecimal getSalesretseq() {
-        return (BigDecimal) getAttributeInternal(SALESRETSEQ);
+    public Integer getSalesretseq() {
+        return (Integer) getAttributeInternal(SALESRETSEQ);
     }
 
     /**
      * Sets <code>value</code> as attribute value for SALESRETSEQ using the alias name Salesretseq.
      * @param value value to set the SALESRETSEQ
      */
-    public void setSalesretseq(BigDecimal value) {
+    public void setSalesretseq(Integer value) {
         setAttributeInternal(SALESRETSEQ, value);
     }
 
