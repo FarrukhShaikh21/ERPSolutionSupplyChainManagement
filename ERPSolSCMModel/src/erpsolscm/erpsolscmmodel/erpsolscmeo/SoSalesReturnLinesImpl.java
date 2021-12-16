@@ -324,15 +324,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for ActUnitPriceBcurr, using the alias name ActUnitPriceBcurr.
      * @return the value of ActUnitPriceBcurr
      */
-    public BigDecimal getActUnitPriceBcurr() {
-        return (BigDecimal) getAttributeInternal(ACTUNITPRICEBCURR);
+    public Integer getActUnitPriceBcurr() {
+        return (Integer) getAttributeInternal(ACTUNITPRICEBCURR);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ActUnitPriceBcurr.
      * @param value value to set the ActUnitPriceBcurr
      */
-    public void setActUnitPriceBcurr(BigDecimal value) {
+    public void setActUnitPriceBcurr(Integer value) {
         setAttributeInternal(ACTUNITPRICEBCURR, value);
     }
 
@@ -340,15 +340,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for ActUnitPriceFcurr, using the alias name ActUnitPriceFcurr.
      * @return the value of ActUnitPriceFcurr
      */
-    public BigDecimal getActUnitPriceFcurr() {
-        return (BigDecimal) getAttributeInternal(ACTUNITPRICEFCURR);
+    public Integer getActUnitPriceFcurr() {
+        return (Integer) getAttributeInternal(ACTUNITPRICEFCURR);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ActUnitPriceFcurr.
      * @param value value to set the ActUnitPriceFcurr
      */
-    public void setActUnitPriceFcurr(BigDecimal value) {
+    public void setActUnitPriceFcurr(Integer value) {
         setAttributeInternal(ACTUNITPRICEFCURR, value);
     }
 
@@ -564,15 +564,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for ReceivedQty, using the alias name ReceivedQty.
      * @return the value of ReceivedQty
      */
-    public BigDecimal getReceivedQty() {
-        return (BigDecimal) getAttributeInternal(RECEIVEDQTY);
+    public Integer getReceivedQty() {
+        return (Integer) getAttributeInternal(RECEIVEDQTY);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ReceivedQty.
      * @param value value to set the ReceivedQty
      */
-    public void setReceivedQty(BigDecimal value) {
+    public void setReceivedQty(Integer value) {
         setAttributeInternal(RECEIVEDQTY, value);
     }
 
@@ -660,15 +660,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for ExtraTaxAmountBc, using the alias name ExtraTaxAmountBc.
      * @return the value of ExtraTaxAmountBc
      */
-    public BigDecimal getExtraTaxAmountBc() {
-        return (BigDecimal) getAttributeInternal(EXTRATAXAMOUNTBC);
+    public Integer getExtraTaxAmountBc() {
+        return (Integer) getAttributeInternal(EXTRATAXAMOUNTBC);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ExtraTaxAmountBc.
      * @param value value to set the ExtraTaxAmountBc
      */
-    public void setExtraTaxAmountBc(BigDecimal value) {
+    public void setExtraTaxAmountBc(Integer value) {
         setAttributeInternal(EXTRATAXAMOUNTBC, value);
     }
 
@@ -740,15 +740,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for AddDiscountAmount, using the alias name AddDiscountAmount.
      * @return the value of AddDiscountAmount
      */
-    public BigDecimal getAddDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(ADDDISCOUNTAMOUNT);
+    public Integer getAddDiscountAmount() {
+        return (Integer) getAttributeInternal(ADDDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for AddDiscountAmount.
      * @param value value to set the AddDiscountAmount
      */
-    public void setAddDiscountAmount(BigDecimal value) {
+    public void setAddDiscountAmount(Integer value) {
         setAttributeInternal(ADDDISCOUNTAMOUNT, value);
     }
 
@@ -788,15 +788,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for FcurrAddDiscountAmount, using the alias name FcurrAddDiscountAmount.
      * @return the value of FcurrAddDiscountAmount
      */
-    public BigDecimal getFcurrAddDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(FCURRADDDISCOUNTAMOUNT);
+    public Integer getFcurrAddDiscountAmount() {
+        return (Integer) getAttributeInternal(FCURRADDDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for FcurrAddDiscountAmount.
      * @param value value to set the FcurrAddDiscountAmount
      */
-    public void setFcurrAddDiscountAmount(BigDecimal value) {
+    public void setFcurrAddDiscountAmount(Integer value) {
         setAttributeInternal(FCURRADDDISCOUNTAMOUNT, value);
     }
 
@@ -820,15 +820,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for PerUnitLandedCost, using the alias name PerUnitLandedCost.
      * @return the value of PerUnitLandedCost
      */
-    public BigDecimal getPerUnitLandedCost() {
-        return (BigDecimal) getAttributeInternal(PERUNITLANDEDCOST);
+    public Integer getPerUnitLandedCost() {
+        return (Integer) getAttributeInternal(PERUNITLANDEDCOST);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for PerUnitLandedCost.
      * @param value value to set the PerUnitLandedCost
      */
-    public void setPerUnitLandedCost(BigDecimal value) {
+    public void setPerUnitLandedCost(Integer value) {
         setAttributeInternal(PERUNITLANDEDCOST, value);
     }
 
@@ -836,15 +836,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Incentive, using the alias name Incentive.
      * @return the value of Incentive
      */
-    public BigDecimal getIncentive() {
-        return (BigDecimal) getAttributeInternal(INCENTIVE);
+    public Integer getIncentive() {
+        return (Integer) getAttributeInternal(INCENTIVE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Incentive.
      * @param value value to set the Incentive
      */
-    public void setIncentive(BigDecimal value) {
+    public void setIncentive(Integer value) {
         setAttributeInternal(INCENTIVE, value);
     }
 
@@ -868,15 +868,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for GiftSchm, using the alias name GiftSchm.
      * @return the value of GiftSchm
      */
-    public BigDecimal getGiftSchm() {
-        return (BigDecimal) getAttributeInternal(GIFTSCHM);
+    public Integer getGiftSchm() {
+        return (Integer) getAttributeInternal(GIFTSCHM);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for GiftSchm.
      * @param value value to set the GiftSchm
      */
-    public void setGiftSchm(BigDecimal value) {
+    public void setGiftSchm(Integer value) {
         setAttributeInternal(GIFTSCHM, value);
     }
 
@@ -932,15 +932,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for txtGrossAmount, using the alias name txtGrossAmount.
      * @return the value of txtGrossAmount
      */
-    public BigDecimal gettxtGrossAmount() {
-        return (BigDecimal) getAttributeInternal(TXTGROSSAMOUNT);
+    public Integer gettxtGrossAmount() {
+        return (Integer) getAttributeInternal(TXTGROSSAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for txtGrossAmount.
      * @param value value to set the txtGrossAmount
      */
-    public void settxtGrossAmount(BigDecimal value) {
+    public void settxtGrossAmount(Integer value) {
         setAttributeInternal(TXTGROSSAMOUNT, value);
     }
 
@@ -949,15 +949,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for txtRetDiscountAmount, using the alias name txtRetDiscountAmount.
      * @return the value of txtRetDiscountAmount
      */
-    public BigDecimal gettxtRetDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(TXTRETDISCOUNTAMOUNT);
+    public Integer gettxtRetDiscountAmount() {
+        return (Integer) getAttributeInternal(TXTRETDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for txtRetDiscountAmount.
      * @param value value to set the txtRetDiscountAmount
      */
-    public void settxtRetDiscountAmount(BigDecimal value) {
+    public void settxtRetDiscountAmount(Integer value) {
         setAttributeInternal(TXTRETDISCOUNTAMOUNT, value);
     }
 
@@ -965,15 +965,15 @@ public class SoSalesReturnLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for txtNetAmount, using the alias name txtNetAmount.
      * @return the value of txtNetAmount
      */
-    public BigDecimal gettxtNetAmount() {
-        return (BigDecimal) getAttributeInternal(TXTNETAMOUNT);
+    public Integer gettxtNetAmount() {
+        return (Integer) getAttributeInternal(TXTNETAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for txtNetAmount.
      * @param value value to set the txtNetAmount
      */
-    public void settxtNetAmount(BigDecimal value) {
+    public void settxtNetAmount(Integer value) {
         setAttributeInternal(TXTNETAMOUNT, value);
     }
 

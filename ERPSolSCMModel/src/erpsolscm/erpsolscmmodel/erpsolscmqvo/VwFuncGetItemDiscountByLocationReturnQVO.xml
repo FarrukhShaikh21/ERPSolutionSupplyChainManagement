@@ -40,17 +40,17 @@
     ColumnType="NUMBER"
     AliasName="PK"
     Expression="PK"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="Discount"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     AliasName="DISCOUNT"
     Expression="DISCOUNT"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="Pk"/>
   </AttrArray>

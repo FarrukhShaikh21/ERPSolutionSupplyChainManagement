@@ -243,12 +243,12 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
             getAccVwFuncGetItemRateByLocDate().setNamedWhereClauseParam("P_ADF_ITEMID", value);
             getAccVwFuncGetItemRateByLocDate().setNamedWhereClauseParam("P_ADF_LOCATIONID", getSoSalesReturnView().getAttribute("Locationid"));
             getAccVwFuncGetItemRateByLocDate().executeQuery();
-            setActUnitPriceFcurr(new BigDecimal(""+getAccVwFuncGetItemRateByLocDate().first().getAttribute("Rate"))) ;
-            setActUnitPriceBcurr(new BigDecimal(""+ getAccVwFuncGetItemRateByLocDate().first().getAttribute("Rate"))) ;
+            setActUnitPriceFcurr((Integer)getAccVwFuncGetItemRateByLocDate().first().getAttribute("Rate")) ;
+            setActUnitPriceBcurr((Integer)(getAccVwFuncGetItemRateByLocDate().first().getAttribute("Rate"))) ;
             }
             catch(Exception exc) {
-            setActUnitPriceBcurr(new BigDecimal("0") );
-            setActUnitPriceFcurr(new BigDecimal("0"));
+            setActUnitPriceBcurr(0) ;
+            setActUnitPriceFcurr(0);
             exc.printStackTrace();
             }  
         try{
@@ -261,15 +261,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
                 System.out.println("e");
             getAccVwFuncGetItemDiscountByLocationReturn().executeQuery();
                 System.out.println("f");
-            BigDecimal erpsoldiscount= (new BigDecimal(""+getAccVwFuncGetItemDiscountByLocationReturn().first().getAttribute("Discount"))) ;
-                System.out.println("g"+erpsoldiscount);
-            erpsoldiscount=((getActUnitPriceFcurr().multiply(erpsoldiscount)).divide(new BigDecimal(100)));
-            setRetDiscountAmount( Integer.parseInt(""+Math.round(erpsoldiscount.doubleValue())) );
+            Integer erpsoldiscount= ((Integer)getAccVwFuncGetItemDiscountByLocationReturn().first().getAttribute("Discount")) ;
+               
+            erpsoldiscount= Math.round( (getActUnitPriceFcurr()*(erpsoldiscount))/100);
+            setRetDiscountAmount(erpsoldiscount);
 //                erpsoldiscount=getActUnitPriceFcurr().multiply(erpsoldiscount);
             }
             catch(Exception exc) {
-            setActUnitPriceBcurr(new BigDecimal("0") );
-            setActUnitPriceFcurr(new BigDecimal("0"));
+            setActUnitPriceBcurr(0 );
+            setActUnitPriceFcurr(0);
             exc.printStackTrace();
             }         
     }
@@ -326,15 +326,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for ACT_UNIT_PRICE_BCURR using the alias name ActUnitPriceBcurr.
      * @return the ACT_UNIT_PRICE_BCURR
      */
-    public BigDecimal getActUnitPriceBcurr() {
-        return (BigDecimal) getAttributeInternal(ACTUNITPRICEBCURR);
+    public Integer getActUnitPriceBcurr() {
+        return (Integer) getAttributeInternal(ACTUNITPRICEBCURR);
     }
 
     /**
      * Sets <code>value</code> as attribute value for ACT_UNIT_PRICE_BCURR using the alias name ActUnitPriceBcurr.
      * @param value value to set the ACT_UNIT_PRICE_BCURR
      */
-    public void setActUnitPriceBcurr(BigDecimal value) {
+    public void setActUnitPriceBcurr(Integer value) {
         setAttributeInternal(ACTUNITPRICEBCURR, value);
     }
 
@@ -342,15 +342,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for ACT_UNIT_PRICE_FCURR using the alias name ActUnitPriceFcurr.
      * @return the ACT_UNIT_PRICE_FCURR
      */
-    public BigDecimal getActUnitPriceFcurr() {
-        return (BigDecimal) getAttributeInternal(ACTUNITPRICEFCURR);
+    public Integer getActUnitPriceFcurr() {
+        return (Integer) getAttributeInternal(ACTUNITPRICEFCURR);
     }
 
     /**
      * Sets <code>value</code> as attribute value for ACT_UNIT_PRICE_FCURR using the alias name ActUnitPriceFcurr.
      * @param value value to set the ACT_UNIT_PRICE_FCURR
      */
-    public void setActUnitPriceFcurr(BigDecimal value) {
+    public void setActUnitPriceFcurr(Integer value) {
         setAttributeInternal(ACTUNITPRICEFCURR, value);
     }
 
@@ -566,15 +566,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for RECEIVED_QTY using the alias name ReceivedQty.
      * @return the RECEIVED_QTY
      */
-    public BigDecimal getReceivedQty() {
-        return (BigDecimal) getAttributeInternal(RECEIVEDQTY);
+    public Integer getReceivedQty() {
+        return (Integer) getAttributeInternal(RECEIVEDQTY);
     }
 
     /**
      * Sets <code>value</code> as attribute value for RECEIVED_QTY using the alias name ReceivedQty.
      * @param value value to set the RECEIVED_QTY
      */
-    public void setReceivedQty(BigDecimal value) {
+    public void setReceivedQty(Integer value) {
         setAttributeInternal(RECEIVEDQTY, value);
     }
 
@@ -662,15 +662,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for EXTRA_TAX_AMOUNT_BC using the alias name ExtraTaxAmountBc.
      * @return the EXTRA_TAX_AMOUNT_BC
      */
-    public BigDecimal getExtraTaxAmountBc() {
-        return (BigDecimal) getAttributeInternal(EXTRATAXAMOUNTBC);
+    public Integer getExtraTaxAmountBc() {
+        return (Integer) getAttributeInternal(EXTRATAXAMOUNTBC);
     }
 
     /**
      * Sets <code>value</code> as attribute value for EXTRA_TAX_AMOUNT_BC using the alias name ExtraTaxAmountBc.
      * @param value value to set the EXTRA_TAX_AMOUNT_BC
      */
-    public void setExtraTaxAmountBc(BigDecimal value) {
+    public void setExtraTaxAmountBc(Integer value) {
         setAttributeInternal(EXTRATAXAMOUNTBC, value);
     }
 
@@ -742,15 +742,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for ADD_DISCOUNT_AMOUNT using the alias name AddDiscountAmount.
      * @return the ADD_DISCOUNT_AMOUNT
      */
-    public BigDecimal getAddDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(ADDDISCOUNTAMOUNT);
+    public Integer getAddDiscountAmount() {
+        return (Integer) getAttributeInternal(ADDDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as attribute value for ADD_DISCOUNT_AMOUNT using the alias name AddDiscountAmount.
      * @param value value to set the ADD_DISCOUNT_AMOUNT
      */
-    public void setAddDiscountAmount(BigDecimal value) {
+    public void setAddDiscountAmount(Integer value) {
         setAttributeInternal(ADDDISCOUNTAMOUNT, value);
     }
 
@@ -790,15 +790,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for FCURR_ADD_DISCOUNT_AMOUNT using the alias name FcurrAddDiscountAmount.
      * @return the FCURR_ADD_DISCOUNT_AMOUNT
      */
-    public BigDecimal getFcurrAddDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(FCURRADDDISCOUNTAMOUNT);
+    public Integer getFcurrAddDiscountAmount() {
+        return (Integer) getAttributeInternal(FCURRADDDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as attribute value for FCURR_ADD_DISCOUNT_AMOUNT using the alias name FcurrAddDiscountAmount.
      * @param value value to set the FCURR_ADD_DISCOUNT_AMOUNT
      */
-    public void setFcurrAddDiscountAmount(BigDecimal value) {
+    public void setFcurrAddDiscountAmount(Integer value) {
         setAttributeInternal(FCURRADDDISCOUNTAMOUNT, value);
     }
 
@@ -822,15 +822,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for PER_UNIT_LANDED_COST using the alias name PerUnitLandedCost.
      * @return the PER_UNIT_LANDED_COST
      */
-    public BigDecimal getPerUnitLandedCost() {
-        return (BigDecimal) getAttributeInternal(PERUNITLANDEDCOST);
+    public Integer getPerUnitLandedCost() {
+        return (Integer) getAttributeInternal(PERUNITLANDEDCOST);
     }
 
     /**
      * Sets <code>value</code> as attribute value for PER_UNIT_LANDED_COST using the alias name PerUnitLandedCost.
      * @param value value to set the PER_UNIT_LANDED_COST
      */
-    public void setPerUnitLandedCost(BigDecimal value) {
+    public void setPerUnitLandedCost(Integer value) {
         setAttributeInternal(PERUNITLANDEDCOST, value);
     }
 
@@ -838,15 +838,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for INCENTIVE using the alias name Incentive.
      * @return the INCENTIVE
      */
-    public BigDecimal getIncentive() {
-        return (BigDecimal) getAttributeInternal(INCENTIVE);
+    public Integer getIncentive() {
+        return (Integer) getAttributeInternal(INCENTIVE);
     }
 
     /**
      * Sets <code>value</code> as attribute value for INCENTIVE using the alias name Incentive.
      * @param value value to set the INCENTIVE
      */
-    public void setIncentive(BigDecimal value) {
+    public void setIncentive(Integer value) {
         setAttributeInternal(INCENTIVE, value);
     }
 
@@ -870,15 +870,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for GIFT_SCHM using the alias name GiftSchm.
      * @return the GIFT_SCHM
      */
-    public BigDecimal getGiftSchm() {
-        return (BigDecimal) getAttributeInternal(GIFTSCHM);
+    public Integer getGiftSchm() {
+        return (Integer) getAttributeInternal(GIFTSCHM);
     }
 
     /**
      * Sets <code>value</code> as attribute value for GIFT_SCHM using the alias name GiftSchm.
      * @param value value to set the GIFT_SCHM
      */
-    public void setGiftSchm(BigDecimal value) {
+    public void setGiftSchm(Integer value) {
         setAttributeInternal(GIFTSCHM, value);
     }
 
@@ -934,15 +934,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for TXT_GROSS_AMOUNT using the alias name txtGrossAmount.
      * @return the TXT_GROSS_AMOUNT
      */
-    public BigDecimal gettxtGrossAmount() {
-        return (BigDecimal) getAttributeInternal(TXTGROSSAMOUNT);
+    public Integer gettxtGrossAmount() {
+        return (Integer) getAttributeInternal(TXTGROSSAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as attribute value for TXT_GROSS_AMOUNT using the alias name txtGrossAmount.
      * @param value value to set the TXT_GROSS_AMOUNT
      */
-    public void settxtGrossAmount(BigDecimal value) {
+    public void settxtGrossAmount(Integer value) {
         setAttributeInternal(TXTGROSSAMOUNT, value);
     }
 
@@ -950,15 +950,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for TXT_NET_AMOUNT using the alias name txtNetAmount.
      * @return the TXT_NET_AMOUNT
      */
-    public BigDecimal gettxtNetAmount() {
-        return (BigDecimal) getAttributeInternal(TXTNETAMOUNT);
+    public Integer gettxtNetAmount() {
+        return (Integer) getAttributeInternal(TXTNETAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as attribute value for TXT_NET_AMOUNT using the alias name txtNetAmount.
      * @param value value to set the TXT_NET_AMOUNT
      */
-    public void settxtNetAmount(BigDecimal value) {
+    public void settxtNetAmount(Integer value) {
         setAttributeInternal(TXTNETAMOUNT, value);
     }
 
@@ -966,15 +966,15 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for TXT_RET_DISCOUNT_AMOUNT using the alias name txtRetDiscountAmount.
      * @return the TXT_RET_DISCOUNT_AMOUNT
      */
-    public BigDecimal gettxtRetDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(TXTRETDISCOUNTAMOUNT);
+    public Integer gettxtRetDiscountAmount() {
+        return (Integer) getAttributeInternal(TXTRETDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as attribute value for TXT_RET_DISCOUNT_AMOUNT using the alias name txtRetDiscountAmount.
      * @param value value to set the TXT_RET_DISCOUNT_AMOUNT
      */
-    public void settxtRetDiscountAmount(BigDecimal value) {
+    public void settxtRetDiscountAmount(Integer value) {
         setAttributeInternal(TXTRETDISCOUNTAMOUNT, value);
     }
 

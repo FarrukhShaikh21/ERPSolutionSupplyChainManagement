@@ -69,7 +69,7 @@
                       <af:toolbar id="t1">
                         <af:button text="Search" id="b8" icon="#{resource['images:imgFind.png']}" iconPosition="top"/>
                         <af:button text="Close Form" id="b7" icon="#{resource['images:imgExitForm.png']}"
-                                   iconPosition="top"/>
+                                   iconPosition="top" action="ACT-ERP-CLOSE-FORM-SCM"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"
                                    icon="#{resource['images:imgPrevious.png']}"/>
@@ -187,8 +187,7 @@
                                                         model="#{bindings.txtCustomerName.listOfValuesModel}"
                                                         required="#{bindings.txtCustomerName.hints.mandatory}"
                                                         columns="#{bindings.txtCustomerName.hints.displayWidth}"
-                                                        shortDesc="#{bindings.txtCustomerName.hints.tooltip}"
-                                                        contentStyle="width:80%" simple="true" autoSubmit="true">
+                                                        shortDesc="#{bindings.txtCustomerName.hints.tooltip}" simple="true" autoSubmit="true">
                             <f:validator binding="#{bindings.txtCustomerName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedCustomerValues}"/>
                           </af:inputComboboxListOfValues>
@@ -199,7 +198,7 @@
                         <af:gridCell marginStart="5px" width="15%" id="gc14" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.Salespersonid.hints.label}" id="ol6"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc15" valign="middle"
+                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc15" valign="stretch"
                                      halign="stretch">
                           <af:inputComboboxListOfValues id="txtSalesPersonNameId"
                                                         popupTitle="Search and Select: #{bindings.txtSalesPersonName.hints.label}"
@@ -209,7 +208,7 @@
                                                         required="#{bindings.txtSalesPersonName.hints.mandatory}"
                                                         columns="#{bindings.txtSalesPersonName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtSalesPersonName.hints.tooltip}"
-                                                        simple="true" autoSubmit="true" contentStyle="width:80%"
+                                                        simple="true" autoSubmit="true"
                                                         partialTriggers="txtCustomerNameId">
                             <f:validator binding="#{bindings.txtSalesPersonName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedSalesPersonValues}"/>

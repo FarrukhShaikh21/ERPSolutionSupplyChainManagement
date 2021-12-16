@@ -23,16 +23,23 @@
     RowLevelBinds="true">
     <ParameterMap>
       <PIMap Variable="P_ADF_DATE">
-        <TransientExpression><![CDATA[SoSalesReturn?.ReturnDate]]></TransientExpression>
-      </PIMap>
-      <PIMap Variable="P_CUSTOMERID">
-        <TransientExpression><![CDATA[SoSalesReturn?.Customerid]]></TransientExpression>
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[SoSalesReturn?.ReturnDate]]></TransientExpression>
       </PIMap>
       <PIMap Variable="P_PRODUCTID">
         <TransientExpression><![CDATA[Productid==null?"-1":Productid]]></TransientExpression>
       </PIMap>
-      <PIMap Variable="P_SALESRETID">
-        <TransientExpression><![CDATA[Salesretid==null?"-1":Salesretid]]></TransientExpression>
+      <PIMap Variable="P_ADF_CUSTOMERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[SoSalesReturn?.Customerid]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_PRODUCTID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Productid==null?"-1":Productid]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_SALESRETID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Salesretid==null?"-1":Salesretid]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -117,7 +124,7 @@
     Scale="4"
     ColumnName="ACT_UNIT_PRICE_BCURR"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -126,7 +133,7 @@
     Scale="4"
     ColumnName="ACT_UNIT_PRICE_FCURR"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -271,7 +278,7 @@
     Scale="6"
     ColumnName="RECEIVED_QTY"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -329,7 +336,7 @@
     Scale="6"
     ColumnName="EXTRA_TAX_AMOUNT_BC"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"
     DefaultValue="0"/>
@@ -378,7 +385,7 @@
     Scale="6"
     ColumnName="ADD_DISCOUNT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -405,7 +412,7 @@
     Scale="6"
     ColumnName="FCURR_ADD_DISCOUNT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -421,14 +428,14 @@
     Name="PerUnitLandedCost"
     ColumnName="PER_UNIT_LANDED_COST"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
     Name="Incentive"
     ColumnName="INCENTIVE"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -442,7 +449,7 @@
     Name="GiftSchm"
     ColumnName="GIFT_SCHM"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES"/>
   <Attribute
@@ -476,7 +483,7 @@
     Name="txtGrossAmount"
     ColumnName="TXT_GROSS_AMOUNT"
     SQLType="INTEGER"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="INTEGER"
     IsPersistent="false"
     IsQueriable="false">
@@ -501,7 +508,7 @@
     Name="txtRetDiscountAmount"
     ColumnName="TXT_RET_DISCOUNT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
@@ -527,7 +534,7 @@
     Name="txtNetAmount"
     ColumnName="TXT_NET_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
