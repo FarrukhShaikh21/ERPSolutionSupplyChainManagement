@@ -129,6 +129,12 @@
     <view id="SO_0167_IMEI">
       <page>/SO_0167_IMEI.jsf</page>
     </view>
+    <method-call id="ExecuteWithParamsSoLinesBySOID">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SO-0167-IMEI-SCAN</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -220,7 +226,7 @@
       </control-flow-case>
       <control-flow-case id="__48">
         <from-outcome>ACT-ERP-SO-0167-IMEI-SCAN</from-outcome>
-        <to-activity-id>SO_0167_IMEI</to-activity-id>
+        <to-activity-id>ExecuteWithParamsSoLinesBySOID</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__30">
@@ -284,6 +290,13 @@
       <control-flow-case id="__50">
         <from-outcome>ERPSOLBACK</from-outcome>
         <to-activity-id>SO_0167</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__51">
+      <from-activity-id>ExecuteWithParamsSoLinesBySOID</from-activity-id>
+      <control-flow-case id="__52">
+        <from-outcome>ACT-ERP-SO-0167-IMEI-SCAN</from-outcome>
+        <to-activity-id>SO_0167_IMEI</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

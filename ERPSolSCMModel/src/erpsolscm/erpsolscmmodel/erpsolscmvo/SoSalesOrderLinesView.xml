@@ -18,6 +18,10 @@
     <Attr Name="_codeGenFlag2" Value="Access"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
+  <Variable
+    Name="P_ADF_SALESORDERID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AccInItemsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
@@ -647,6 +651,43 @@
     EntityAttrName="Itemid"
     EntityUsage="SoSalesOrderLines"
     AliasName="ITEMID"/>
+  <ViewCriteria
+    Name="SoSalesOrderLinesBySalesOrderIDVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SoSalesOrderLinesViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Salesorderid"
+        ViewAttribute="Salesorderid"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_SALESORDERID"
+        IsBindVarValue="true"
+        Required="Optional"
+        UpperColumns="0"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SoSalesOrderView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

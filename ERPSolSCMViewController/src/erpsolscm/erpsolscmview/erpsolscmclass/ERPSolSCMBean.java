@@ -298,8 +298,8 @@ public class ERPSolSCMBean {
                      {  
                          
                          erpsoldbt.commit();
-                     dc.getApplicationModule().findViewObject("SoSalesOrderImeiDetCRUD").executeQuery();
-                         dc.getApplicationModule().findViewObject("SoSalesOrderViewCRUD").getCurrentRow().setAttribute("txtIMEIAndBox", null);
+                     dc.getApplicationModule().findViewObject("SoSalesOrderImeiSCANCRUD").executeQuery();
+//                         dc.getApplicationModule().findViewObject("SoSalesOrderViewCRUD").getCurrentRow().setAttribute("txtIMEIAndBox", null);
                      }
                      else {
                          FacesContext.getCurrentInstance().addMessage(null , new FacesMessage(ERPSolPlsql));
@@ -715,7 +715,7 @@ public class ERPSolSCMBean {
                      if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
                      {  
                      erpsoldbt.commit();
-                     dc.getApplicationModule().findViewObject("SoSalesOrderImeiDetCRUD").executeQuery();
+                     dc.getApplicationModule().findViewObject("SoSalesOrderImeiSCANCRUD").executeQuery();
                      }
                      else {
                          FacesContext.getCurrentInstance().addMessage(null , new FacesMessage(ERPSolPlsql));
@@ -758,7 +758,7 @@ public class ERPSolSCMBean {
                      if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
                      {  
                      erpsoldbt.commit();
-                     dc.getApplicationModule().findViewObject("SoSalesOrderImeiDetCRUD").executeQuery();
+                     dc.getApplicationModule().findViewObject("SoSalesOrderImeiSCANCRUD").executeQuery();
                      }
                      else {
                          FacesContext.getCurrentInstance().addMessage(null , new FacesMessage(ERPSolPlsql));

@@ -25,12 +25,11 @@
                             shortDesc="#{bindings.ModelNo.hints.tooltip}" id="it7" rendered="false">
                 <f:validator binding="#{bindings.ModelNo.validator}"/>
               </af:inputText>
-              <af:inputText value="#{bindings.Salesorderid.inputValue}" label="#{bindings.Salesorderid.hints.label}"
+              <af:inputText value="#{bindings.Salesorderid.inputValue}" simple="true"
                             required="#{bindings.Salesorderid.hints.mandatory}"
                             columns="#{bindings.Salesorderid.hints.displayWidth}"
                             maximumLength="#{bindings.Salesorderid.hints.precision}"
-                            shortDesc="#{bindings.Salesorderid.hints.tooltip}" id="it6" readOnly="true"
-                            rendered="false">
+                            shortDesc="#{bindings.Salesorderid.hints.tooltip}" id="it6" rendered="false">
                 <f:validator binding="#{bindings.Salesorderid.validator}"/>
               </af:inputText>
             </af:gridCell>
@@ -45,7 +44,8 @@
                                      method="#{pageFlowScope.ERPSolSCMPageFlowBean.handleEnterEventBox}"/>
                 </af:inputText>
                 <af:spacer width="10" height="10" id="s1"/>
-                <af:inputText id="it5" simple="true" placeholder="Scan IME Here" autoSubmit="true" label="dw">
+                <af:inputText id="it5" simple="true" placeholder="Scan IME Here" autoSubmit="true" label="dw"
+                              maximumLength="15">
                                             <af:clientListener method="handleEnterEvent" type="keyPress"/>
                             <af:serverListener type="EnterEvent"
                                                method="#{pageFlowScope.ERPSolSCMPageFlowBean.handleEnterEventIMEI}"/>
@@ -56,12 +56,12 @@
           </af:gridRow>
           <af:gridRow marginTop="5px" marginBottom="5px" id="gr2">
             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
-              <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+              <af:panelCollection id="pc1" styleClass="AFStretchWidth" featuresOff="viewMenu detach">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t2">
                     <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true" id="b3"
-                               icon="#{resource['images:imgUndo.png']}" iconPosition="top" rendered="false">
+                               icon="#{resource['images:imgUndo.png']}" iconPosition="top">
                       <af:resetActionListener/>
                     </af:button>
                     <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" id="b2" icon="#{resource['images:imgSave.png']}"
@@ -82,7 +82,7 @@
                           filterModel="#{bindings.SoSalesOrderImeiDetCRUDQuery.queryDescriptor}"
                           queryListener="#{bindings.SoSalesOrderImeiDetCRUDQuery.processQuery}" filterVisible="true"
                           varStatus="vs" id="t1" partialTriggers="::b1" styleClass="AFStretchWidth" scrollPolicy="page"
-                          autoHeightRows="8" displayRow="selected">
+                          autoHeightRows="8">
                   <af:column sortProperty="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.name}" filterable="true"
                              headerText="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.label}" id="c2" width="150"
                              displayIndex="-1">
@@ -95,6 +95,7 @@
                                   disabled="true">
                       <f:validator binding="#{row.bindings.ItemRefId.validator}"/>
                     </af:inputText>
+                    <f:facet name="footer"/>
                   </af:column>
                   <af:column sortProperty="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.name}" filterable="true"
                              headerText="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.label}" id="c3" width="200">
@@ -120,6 +121,13 @@
                                   disabled="true">
                       <f:validator binding="#{row.bindings.ImeiNo.validator}"/>
                     </af:inputText>
+                    <f:facet name="footer">
+                      <af:outputText value="Count : #{bindings.txtCountRecord.inputValue}"
+                                     shortDesc="#{bindings.txtCountRecord.hints.tooltip}" id="ot1"
+                                     inlineStyle="font-weight:bold">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.txtCountRecord.format}"/>
+                      </af:outputText>
+                    </f:facet>
                   </af:column>
                 </af:table>
               </af:panelCollection>

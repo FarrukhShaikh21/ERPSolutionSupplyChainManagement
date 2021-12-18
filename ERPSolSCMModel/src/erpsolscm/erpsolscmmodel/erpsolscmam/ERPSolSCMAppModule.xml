@@ -67,6 +67,16 @@
   <ViewUsage
     Name="AllLocationsAutoSuggestRO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllLocationsView"/>
+  <ViewUsage
+    Name="SoSalesOrderLinesBySOIDRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesView">
+    <ViewCriteriaUsage
+      Name="SoSalesOrderLinesBySalesOrderIDVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesView.SoSalesOrderLinesBySalesOrderIDVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="SoSalesOrderImeiSCANCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderImeiView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
@@ -102,5 +112,11 @@
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.FkRebatImeiRebateseqLink"
     SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoRebateCRUD"
     DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoRebateImeDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="SoSalesOrderLineSaleOrderImeiSalesorderlineseqLink2"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesOrderLineSaleOrderImeiSalesorderlineseqLink"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderLinesBySOIDRO"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderImeiSCANCRUD"
     Reversed="false"/>
 </AppModule>

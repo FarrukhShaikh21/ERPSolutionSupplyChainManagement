@@ -4,14 +4,12 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="SoSalesOrderImeiDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+    <iterator Binds="SoSalesOrderImeiSCANCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="SoSalesOrderImeiDetCRUDIterator"/>
     <searchRegion Binds="SoSalesOrderImeiDetCRUDIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SoSalesOrderImeiDetCRUDQuery"/>
-    <iterator Binds="SoSalesOrderViewCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
-              id="SoSalesOrderViewCRUDIterator"/>
-    <iterator Binds="SoSalesOrderLinesDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
-              id="SoSalesOrderLinesDetCRUDIterator"/>
+    <iterator Binds="SoSalesOrderLinesBySOIDRO" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesOrderLinesBySOIDROIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="SoSalesOrderImeiDetCRUDIterator" id="SoSalesOrderImeiDetCRUD">
@@ -31,12 +29,17 @@
             DataControl="ERPSolSCMAppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSolSCMAppModuleDataControl"/>
-    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Salesorderid">
+    <attributeValues IterBinding="SoSalesOrderImeiDetCRUDIterator" id="txtCountRecord">
+      <AttrNames>
+        <Item Value="txtCountRecord"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderLinesBySOIDROIterator" id="Salesorderid">
       <AttrNames>
         <Item Value="Salesorderid"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="SoSalesOrderLinesDetCRUDIterator" id="ModelNo">
+    <attributeValues IterBinding="SoSalesOrderLinesBySOIDROIterator" id="ModelNo">
       <AttrNames>
         <Item Value="ModelNo"/>
       </AttrNames>
