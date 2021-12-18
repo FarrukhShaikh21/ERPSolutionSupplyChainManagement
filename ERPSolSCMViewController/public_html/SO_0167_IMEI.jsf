@@ -61,7 +61,7 @@
                 <f:facet name="toolbar">
                   <af:toolbar id="t2">
                     <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true" id="b3"
-                               icon="#{resource['images:imgUndo.png']}" iconPosition="top">
+                               icon="#{resource['images:imgUndo.png']}" iconPosition="top" rendered="false">
                       <af:resetActionListener/>
                     </af:button>
                     <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" id="b2" icon="#{resource['images:imgSave.png']}"
