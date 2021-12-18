@@ -39,6 +39,8 @@ import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
 
+import oracle.adf.view.rich.render.ClientEvent;
+
 import oracle.jbo.ApplicationModule;
 import oracle.jbo.JboException;
 import oracle.jbo.Row;
@@ -696,6 +698,93 @@ public class ERPSolSCMBean {
            
         return null;
     }
+  
+    public void handleEnterEventIMEI(ClientEvent ce) {
+    String value = (String) ce.getParameters().get("fvalue");
+    System.out.println(value);
+
+        DCBindingContainer bc = (DCBindingContainer) ERPSolGlobalViewBean.doGetERPBindings();
+        DCDataControl dc = bc.getDataControl();
+        String ERPSolPlsql="begin ?:=PKG_SALE_ORDER.FUNC_IMEI_BOX_VALIDATION('"+getERPSolSalesOrderId()+"','"+value+"','I','"+getERPSolProductId()+"'); end;";
+        DBTransaction erpsoldbt=(DBTransaction)dc.getApplicationModule().getTransaction();
+        CallableStatement cs = erpsoldbt.createCallableStatement(ERPSolPlsql, DBTransaction.DEFAULT);
+        try {
+                     cs.registerOutParameter(1, Types.VARCHAR);
+                     cs.executeUpdate();
+                     ERPSolPlsql=cs.getString(1);
+                     if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
+                     {  
+                     erpsoldbt.commit();
+                     dc.getApplicationModule().findViewObject("SoSalesOrderImeiDetCRUD").executeQuery();
+                     }
+                     else {
+                         FacesContext.getCurrentInstance().addMessage(null , new FacesMessage(ERPSolPlsql));
+                     }
+                 } catch (SQLException e) {
+                     
+                 }
+                 finally{
+                    try {
+                        cs.close();
+                    } catch (SQLException e) {
+                    }
+                }
+//        setERPSolImeiBox(null);
+//        getERPSolImeiBoxText().setValue(null);
+//        AdfFacesContext.getCurrentInstance().addPartialTarget(getERPSolImeiBoxText());
+        
+
+//        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+//        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");
+//        ViewObject ERPSolvo=ib.getViewObject();
+//        Row ERPsolrow=ERPSolvo.createRow();
+//        ERPsolrow.setAttribute("ImeiNo", message);
+//        ERPSolvo.insertRow(ERPsolrow);
+    }
+  
+    public void handleEnterEventBox(ClientEvent ce) {
+    String value = (String) ce.getParameters().get("fvalue");
+    System.out.println(value);
+
+        DCBindingContainer bc = (DCBindingContainer) ERPSolGlobalViewBean.doGetERPBindings();
+        DCDataControl dc = bc.getDataControl();
+        String ERPSolPlsql="begin ?:=PKG_SALE_ORDER.FUNC_IMEI_BOX_VALIDATION('"+getERPSolSalesOrderId()+"','"+value+"','B','"+getERPSolProductId()+"'); end;";
+        DBTransaction erpsoldbt=(DBTransaction)dc.getApplicationModule().getTransaction();
+        CallableStatement cs = erpsoldbt.createCallableStatement(ERPSolPlsql, DBTransaction.DEFAULT);
+        try {
+                     cs.registerOutParameter(1, Types.VARCHAR);
+                     cs.executeUpdate();
+                     ERPSolPlsql=cs.getString(1);
+                     if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
+                     {  
+                     erpsoldbt.commit();
+                     dc.getApplicationModule().findViewObject("SoSalesOrderImeiDetCRUD").executeQuery();
+                     }
+                     else {
+                         FacesContext.getCurrentInstance().addMessage(null , new FacesMessage(ERPSolPlsql));
+                     }
+                 } catch (SQLException e) {
+                     
+                 }
+                 finally{
+                    try {
+                        cs.close();
+                    } catch (SQLException e) {
+                    }
+                }
+    //        setERPSolImeiBox(null);
+    //        getERPSolImeiBoxText().setValue(null);
+    //        AdfFacesContext.getCurrentInstance().addPartialTarget(getERPSolImeiBoxText());
+        
+
+    //        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+    //        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");
+    //        ViewObject ERPSolvo=ib.getViewObject();
+    //        Row ERPsolrow=ERPSolvo.createRow();
+    //        ERPsolrow.setAttribute("ImeiNo", message);
+    //        ERPSolvo.insertRow(ERPsolrow);
+    }
+    
     public static void main(String[] args) {
         BigDecimal fcurr=new BigDecimal(2250);
        BigDecimal discount=new BigDecimal(7.5);
@@ -703,4 +792,12 @@ public class ERPSolSCMBean {
        System.out.println(Math.round(discount.doubleValue()) ); 
     
    }
+    public String ERPSolGoToBack() {
+    if (ERPSolGlobalViewBean.doIsERPSolTransactionDirty()) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Please Save/Undo Changes."));
+            return null;
+       }
+    return "ERPSOLBACK";
+    }
+    
 }

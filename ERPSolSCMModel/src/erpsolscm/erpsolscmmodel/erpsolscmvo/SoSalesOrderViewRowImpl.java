@@ -1884,7 +1884,7 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
     @Override
     public boolean isAttributeUpdateable(int i) {
         // TODO Implement this method
-        if (getPosted().equals("Y") ||getPosted().equals("Y")) {
+        if (getPosted().equals("Y") ||getReadyForIssue().equals("Y")) {
             return false;
        }
         return super.isAttributeUpdateable(i);

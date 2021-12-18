@@ -563,4 +563,39 @@
       <property
          name="sdm:polyPoints">R54,-433.64844,9.896484,-433.64844,63.097656,L50</property>
    </ControlFlowCase>
+   <View
+      id="View51">
+      <property
+         name="activityId">SO_0167_IMEI</property>
+      <property
+         name="page">/SO_0167_IMEI.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SO_0167_IMEI&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">558.09766</property>
+      <property
+         name="x">346.0244</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase52"
+      from="View2"
+      to="View51">
+      <property
+         name="fromOutcome">ACT-ERP-SO-0167-IMEI-SCAN</property>
+      <property
+         name="sdm:polyPoints">R46,258.7798,430.3506,258.7798,554.2471,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase53"
+      from="View51"
+      to="View2">
+      <property
+         name="fromOutcome">ERPSOLBACK</property>
+      <property
+         name="sdm:polyPoints">L54,251.77979,561.2471,251.77979,437.3506,R54</property>
+   </ControlFlowCase>
 </SDM>

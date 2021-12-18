@@ -1925,6 +1925,24 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
             
            
        }
+        
+        if (operation==DML_DELETE) {
+            CallableStatement cs=null;
+            String ERPsolPLSQL="begin update item_imei_info set is_available='Y', customerid=null,sale_date=null ";
+            ERPsolPLSQL+=" where IMEI in(select soi.Imei_No from so_Sales_order_imei soi where soi.Salesorderlineseq="+getSalesorderlineseq()+"); end;";
+            System.out.println(ERPsolPLSQL);
+            cs=getDBTransaction().createCallableStatement(ERPsolPLSQL, getDBTransaction().DEFAULT);
+            try {
+                cs.executeUpdate();
+            } catch (SQLException f) {
+            }
+            finally{
+                try {
+                    cs.close();
+                } catch (SQLException f) {
+                }
+            }
+        }
     }
     
 }

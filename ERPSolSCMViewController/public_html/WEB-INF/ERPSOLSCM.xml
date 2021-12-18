@@ -126,6 +126,9 @@
         <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SO_0167_IMEI">
+      <page>/SO_0167_IMEI.jsf</page>
+    </view>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -215,6 +218,10 @@
         <from-outcome>ACT-SEARCH-S0-0167</from-outcome>
         <to-activity-id>SO_0167_SEARCH</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__48">
+        <from-outcome>ACT-ERP-SO-0167-IMEI-SCAN</from-outcome>
+        <to-activity-id>SO_0167_IMEI</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__30">
       <from-activity-id>SO_0171_SEARCH</from-activity-id>
@@ -270,6 +277,13 @@
       <control-flow-case id="__47">
         <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
         <to-activity-id>ExecuteWithParamsSCMReport</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__49">
+      <from-activity-id>SO_0167_IMEI</from-activity-id>
+      <control-flow-case id="__50">
+        <from-outcome>ERPSOLBACK</from-outcome>
+        <to-activity-id>SO_0167</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

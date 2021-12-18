@@ -160,7 +160,7 @@
                                    disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
                                    icon="#{resource['images:imgAdd.png']}" iconPosition="top" accessKey="w"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
-                                   id="b6" disabled="#{bindings.Posted.inputValue=='Y'}"
+                                   id="b6"
                                    icon="#{resource['images:imgUndo.png']}" iconPosition="top" accessKey="u">
                           <af:resetActionListener/>
                         </af:button>
@@ -459,7 +459,7 @@
                               autoHeightRows="10" scrollPolicy="page">
                       <af:column id="c12" width="80" displayIndex="-1">
                         <af:button text="IMEI" id="b11"
-                                   action="#{pageFlowScope.ERPSolSCMPageFlowBean.DoShowERPSolImeiPopup}">
+                                   action="ACT-ERP-SO-0167-IMEI-SCAN">
                           <af:setActionListener from="#{bindings.Salesorderid.inputValue}"
                                                 to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolSalesOrderId}"/>
                           <af:setActionListener from="#{row.bindings.Productid.inputValue}"

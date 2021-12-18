@@ -14,7 +14,8 @@
     Cardinality="1"
     Source="true"
     Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines"
-    LockLevel="NONE">
+    LockLevel="NONE"
+    DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="SoSalesOrderLines"/>
@@ -28,7 +29,8 @@
   <AssociationEnd
     Name="SoSalesOrderImei"
     Cardinality="-1"
-    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderImei">
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderImei"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="SoSalesOrderImei"/>

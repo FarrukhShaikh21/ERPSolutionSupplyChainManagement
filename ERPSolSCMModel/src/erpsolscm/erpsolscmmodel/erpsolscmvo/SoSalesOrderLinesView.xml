@@ -52,11 +52,13 @@
     <AttrArray Name="DerivedAttrNames">
       <Item Value="Productid"/>
       <Item Value="Itemid"/>
+      <Item Value="ModelNo"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="ModelNo"/>
       <Item Value="Productid"/>
       <Item Value="Itemid"/>
+      <Item Value="ModelNo"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Description"/>
