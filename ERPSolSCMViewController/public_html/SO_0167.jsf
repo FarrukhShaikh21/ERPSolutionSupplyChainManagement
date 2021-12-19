@@ -186,6 +186,13 @@
                           <af:outputLabel value="#{bindings.Salesorderid.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
+                          <af:inputText value="#{bindings.Productid.inputValue}" simple="true"
+                                        required="#{bindings.Productid.hints.mandatory}"
+                                        columns="#{bindings.Productid.hints.displayWidth}"
+                                        maximumLength="#{bindings.Productid.hints.precision}"
+                                        shortDesc="#{bindings.Productid.hints.tooltip}" id="it24" rendered="false">
+                            <f:validator binding="#{bindings.Productid.validator}"/>
+                          </af:inputText>
                           <af:inputText value="#{bindings.Companyid.inputValue}"
                                         label="#{bindings.Companyid.hints.label}"
                                         required="#{bindings.Companyid.hints.mandatory}"
@@ -422,7 +429,7 @@
                 </af:gridCell>
               </af:gridRow>
             </af:panelGridLayout>
-            <af:panelGridLayout id="pgl1">
+            <af:panelGridLayout id="pgl1" styleClass="AFAuxiliaryStretchWidth">
               <af:gridRow id="gr10">
                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc28"
                              styleClass="ERPSolFormEntryAreaHeader" halign="stretch" valign="stretch">
@@ -436,9 +443,9 @@
                   </af:panelGridLayout>
                 </af:gridCell>
               </af:gridRow>
-              <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
-                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc27" halign="stretch">
-                  <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+              <af:gridRow marginTop="5px" marginBottom="5px" id="gr11">
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc27" halign="stretch" valign="stretch">
+                  <af:panelCollection id="pc1" styleClass="AFAuxiliaryStretchWidth">
                     <f:facet name="menus"/>
                     <f:facet name="toolbar">
                       <af:toolbar id="t3">
@@ -456,7 +463,7 @@
                               selectedRowKeys="#{bindings.SoSalesOrderLinesDetCRUD.collectionModel.selectedRow}"
                               selectionListener="#{bindings.SoSalesOrderLinesDetCRUD.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.SoSalesOrderLinesDetCRUD.rangeSize}" id="t2" partialTriggers="::b7 ::b8"
-                              autoHeightRows="10" scrollPolicy="page">
+                              autoHeightRows="10" scrollPolicy="page" styleClass="AFAuxiliaryStretchWidth">
                       <af:column id="c12" width="80" displayIndex="-1">
                         <af:button text="IMEI" id="b11"
                                    action="ACT-ERP-SO-0167-IMEI-SCAN">

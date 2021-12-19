@@ -9,9 +9,12 @@
   </executables>
   <bindings>
     <action IterBinding="SoSalesOrderLinesBySOIDROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
-            Action="executeWithParams">
+            Action="executeWithParams" InstanceName="ERPSolSCMAppModuleDataControl.SoSalesOrderLinesBySOIDRO"
+            DataControl="ERPSolSCMAppModuleDataControl">
       <NamedData NDName="P_ADF_SALESORDERID"
                  NDValue="#{data.erpsolscm_erpsolscmview_SO_0167PageDef.Salesorderid.inputValue}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="P_ADF_PRODUCTID" NDValue="#{data.erpsolscm_erpsolscmview_SO_0167PageDef.Productid.inputValue}"
                  NDType="java.lang.String"/>
     </action>
   </bindings>

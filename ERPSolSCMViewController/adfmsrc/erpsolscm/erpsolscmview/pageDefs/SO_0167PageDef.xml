@@ -164,5 +164,10 @@
         <Item Value="Companyid"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderLinesDetCRUDIterator" id="Productid">
+      <AttrNames>
+        <Item Value="Productid"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

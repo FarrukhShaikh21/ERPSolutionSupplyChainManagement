@@ -22,6 +22,10 @@
     Name="P_ADF_SALESORDERID"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_PRODUCTID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AccInItemsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
@@ -686,6 +690,15 @@
         IsBindVarValue="true"
         Required="Optional"
         UpperColumns="0"/>
+      <ViewCriteriaItem
+        Name="Productid"
+        ViewAttribute="Productid"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_PRODUCTID"
+        UpperColumns="0"
+        IsBindVarValue="true"
+        Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor

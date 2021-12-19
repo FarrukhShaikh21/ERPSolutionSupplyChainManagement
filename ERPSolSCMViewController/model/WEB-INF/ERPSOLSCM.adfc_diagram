@@ -596,7 +596,7 @@
       <property
          name="fromOutcome">ERPSOLBACK</property>
       <property
-         name="sdm:polyPoints">L54,251.77979,561.2471,251.77979,437.3506,R54</property>
+         name="sdm:polyPoints">L50,251.77979,557.7471,251.77979,433.8506,R50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall54">
