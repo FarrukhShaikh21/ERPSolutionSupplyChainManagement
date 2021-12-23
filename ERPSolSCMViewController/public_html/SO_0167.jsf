@@ -629,12 +629,12 @@
                     <f:facet name="secondaryToolbar">
                       <af:toolbar id="t5">
                         <af:panelGroupLayout id="pgl9" layout="horizontal">
-                          <af:outputText value="Quantity: #{bindings.txtSumQuantity.inputValue}"
+                          <af:outputText value="Quantity : #{bindings.txtSumQuantity.inputValue}"
                                          shortDesc="#{bindings.txtSumQuantity.hints.tooltip}" id="ot7"
                                          inlineStyle="font-weight:bold">
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.txtSumQuantity.format}"/>
                           </af:outputText>
-                          <af:outputText value="Gross: #{bindings.txtSumGross.inputValue}"
+                          <af:outputText value="Gross : #{bindings.txtSumGross.inputValue}"
                                          shortDesc="#{bindings.txtSumGross.hints.tooltip}" id="ot9"
                                          inlineStyle="font-weight:bold">
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.txtSumGross.format}"/>
@@ -644,7 +644,7 @@
                                          inlineStyle="font-weight:bold">
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.txtSumDiscount.format}"/>
                           </af:outputText>
-                          <af:outputText value="Net Amount:#{bindings.txtSumNetAmount.inputValue}"
+                          <af:outputText value="Net Amount : #{bindings.txtSumNetAmount.inputValue}"
                                          shortDesc="#{bindings.txtSumNetAmount.hints.tooltip}" id="ot8"
                                          inlineStyle="font-weight:bold">
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.txtSumNetAmount.format}"/>
