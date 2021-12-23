@@ -118,6 +118,10 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
         txtScanType,
         txtErrorMessage,
         txtIMEIAndBox,
+        txtSumGross,
+        txtSumNetAmount,
+        txtSumQuantity,
+        txtSumDiscount,
         SoSalesOrderLinesView,
         AllCustomersView,
         AllStoresView,
@@ -245,6 +249,10 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
     public static final int TXTSCANTYPE = AttributesEnum.txtScanType.index();
     public static final int TXTERRORMESSAGE = AttributesEnum.txtErrorMessage.index();
     public static final int TXTIMEIANDBOX = AttributesEnum.txtIMEIAndBox.index();
+    public static final int TXTSUMGROSS = AttributesEnum.txtSumGross.index();
+    public static final int TXTSUMNETAMOUNT = AttributesEnum.txtSumNetAmount.index();
+    public static final int TXTSUMQUANTITY = AttributesEnum.txtSumQuantity.index();
+    public static final int TXTSUMDISCOUNT = AttributesEnum.txtSumDiscount.index();
     public static final int SOSALESORDERLINESVIEW = AttributesEnum.SoSalesOrderLinesView.index();
     public static final int ALLCUSTOMERSVIEW = AttributesEnum.AllCustomersView.index();
     public static final int ALLSTORESVIEW = AttributesEnum.AllStoresView.index();
@@ -1746,6 +1754,38 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
 //            } catch (SQLException e) {
 //            }
 //        }
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtSumGross.
+     * @return the txtSumGross
+     */
+    public Integer gettxtSumGross() {
+        return (Integer) getAttributeInternal(TXTSUMGROSS);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtSumNetAmount.
+     * @return the txtSumNetAmount
+     */
+    public Integer gettxtSumNetAmount() {
+        return (Integer) getAttributeInternal(TXTSUMNETAMOUNT);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtSumQuantity.
+     * @return the txtSumQuantity
+     */
+    public Integer gettxtSumQuantity() {
+        return (Integer) getAttributeInternal(TXTSUMQUANTITY);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute txtSumDiscount.
+     * @return the txtSumDiscount
+     */
+    public Integer gettxtSumDiscount() {
+        return (Integer) getAttributeInternal(TXTSUMDISCOUNT);
     }
 
     /**

@@ -445,7 +445,7 @@
               </af:gridRow>
               <af:gridRow marginTop="5px" marginBottom="5px" id="gr11">
                 <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc27" halign="stretch" valign="stretch">
-                  <af:panelCollection id="pc1" styleClass="AFAuxiliaryStretchWidth">
+                  <af:panelCollection id="pc1" styleClass="AFAuxiliaryStretchWidth" featuresOff="detach">
                     <f:facet name="menus"/>
                     <f:facet name="toolbar">
                       <af:toolbar id="t3">
@@ -622,8 +622,39 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtNetAmount.format}"/>
                         </af:inputText>
+                        <f:facet name="header"/>
                       </af:column>
                     </af:table>
+                    <f:facet name="viewMenu"/>
+                    <f:facet name="secondaryToolbar">
+                      <af:toolbar id="t5">
+                        <af:panelGroupLayout id="pgl9" layout="horizontal">
+                          <af:outputText value="Quantity: #{bindings.txtSumQuantity.inputValue}"
+                                         shortDesc="#{bindings.txtSumQuantity.hints.tooltip}" id="ot7"
+                                         inlineStyle="font-weight:bold">
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.txtSumQuantity.format}"/>
+                          </af:outputText>
+                          <af:outputText value="Gross: #{bindings.txtSumGross.inputValue}"
+                                         shortDesc="#{bindings.txtSumGross.hints.tooltip}" id="ot9"
+                                         inlineStyle="font-weight:bold">
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.txtSumGross.format}"/>
+                          </af:outputText>
+                          <af:outputText value="Discount : #{bindings.txtSumDiscount.inputValue}"
+                                         shortDesc="#{bindings.txtSumDiscount.hints.tooltip}" id="ot10"
+                                         inlineStyle="font-weight:bold">
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.txtSumDiscount.format}"/>
+                          </af:outputText>
+                          <af:outputText value="Net Amount:#{bindings.txtSumNetAmount.inputValue}"
+                                         shortDesc="#{bindings.txtSumNetAmount.hints.tooltip}" id="ot8"
+                                         inlineStyle="font-weight:bold">
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.txtSumNetAmount.format}"/>
+                          </af:outputText>
+                          <f:facet name="separator">
+                            <af:spacer width="10" height="10" id="s7"/>
+                          </f:facet>
+                        </af:panelGroupLayout>
+                      </af:toolbar>
+                    </f:facet>
                   </af:panelCollection>
                 </af:gridCell>
               </af:gridRow>

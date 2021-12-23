@@ -169,5 +169,25 @@
         <Item Value="Productid"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="txtSumQuantity">
+      <AttrNames>
+        <Item Value="txtSumQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="txtSumNetAmount">
+      <AttrNames>
+        <Item Value="txtSumNetAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="txtSumGross">
+      <AttrNames>
+        <Item Value="txtSumGross"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="txtSumDiscount">
+      <AttrNames>
+        <Item Value="txtSumDiscount"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
