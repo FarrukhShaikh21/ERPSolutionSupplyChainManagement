@@ -1035,6 +1035,18 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key
+    Name="AltKeySoLines"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SO_SALES_ORDER_LINES"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.Productid"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.Salesorderseq"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="PkSoSalesOrderLines"
     PrimaryKey="true">
     <DesignTime>
@@ -1078,31 +1090,23 @@
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.Itemid"/>
     </AttrArray>
   </Key>
-  <validation:CompareValidationBean
-    Name="SoSalesOrderLinesCreditLimitBR"
-    ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines_Rule_0"
-    OnAttribute="txtNetAmount"
-    OperandType="VO_USAGE"
-    Inverse="false"
-    CompareType="LESSTHANEQUALTO"
-    ViewAccAttrName="Creditlimit"
-    ViewAccName="FuncVwFuncGetCustomerCreditLimitStop">
+  <validation:UniqueKeyValidationBean
+    Name="SoSalesOrderLinesDupProBR"
+    ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines_Rule_2"
+    KeyName="AltKeySoLines">
     <validation:OnAttributes>
       <validation:Item
-        Value="txtNetAmount"/>
+        Value="Productid"/>
       <validation:Item
-        Value="Quantity"/>
+        Value="Salesorderseq"/>
     </validation:OnAttributes>
-    <validation:OnCondition
-      Name="OnConditionExpr"
-      trustMode="trusted"><![CDATA[Productid!=null && SoSalesOrder?.txtApplyCreditlimit=='Y']]></validation:OnCondition>
     <validation:ResExpressions
-      Name="SoSalesOrderLinesCreditLimitBR_ResExprList">
+      Name="SoSalesOrderLinesDupProBR_ResExprList">
       <validation:Expression
-        Name="0"
-        trustMode="trusted"><![CDATA[FuncVwFuncGetCustomerCreditLimitStop?.first()?.getAttribute("Creditlimit")]]></validation:Expression>
+        trustMode="trusted"
+        Name="0"><![CDATA[Productid]]></validation:Expression>
     </validation:ResExpressions>
-  </validation:CompareValidationBean>
+  </validation:UniqueKeyValidationBean>
   <validation:CompareValidationBean
     Name="SoSalesOrderLinesQuantityBR"
     ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines_Rule_1"
@@ -1119,6 +1123,29 @@
     </validation:OnAttributes>
     <validation:OnCondition
       Name="OnConditionExpr"><![CDATA[Quantity!=null && Productid !=null]]></validation:OnCondition>
+  </validation:CompareValidationBean>
+  <validation:CompareValidationBean
+    Name="SoSalesOrderLinesCreditLimitBR"
+    ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines_Rule_0"
+    OnAttribute="txtNetAmount"
+    OperandType="VO_USAGE"
+    Inverse="false"
+    CompareType="LESSTHANEQUALTO"
+    ViewAccAttrName="Creditlimit"
+    ViewAccName="FuncVwFuncGetCustomerCreditLimitStop">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="txtNetAmount"/>
+      <validation:Item
+        Value="Quantity"/>
+    </validation:OnAttributes>
+    <validation:OnCondition
+      Name="OnConditionExpr"><![CDATA[Productid!=null && SoSalesOrder?.txtApplyCreditlimit=='Y']]></validation:OnCondition>
+    <validation:ResExpressions
+      Name="SoSalesOrderLinesCreditLimitBR_ResExprList">
+      <validation:Expression
+        Name="0"><![CDATA[FuncVwFuncGetCustomerCreditLimitStop?.first()?.getAttribute("Creditlimit")]]></validation:Expression>
+    </validation:ResExpressions>
   </validation:CompareValidationBean>
   <ResourceBundle>
     <PropertiesBundle

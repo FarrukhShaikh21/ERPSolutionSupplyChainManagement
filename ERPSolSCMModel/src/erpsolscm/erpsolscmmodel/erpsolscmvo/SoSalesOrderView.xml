@@ -849,7 +849,7 @@
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[SoSalesOrderLinesView?.sum("txtGrossAmount")]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[SoSalesOrderLinesView?.sum("txtGrossAmount")==null?0:SoSalesOrderLinesView?.sum("txtGrossAmount")]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
@@ -872,7 +872,7 @@
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[SoSalesOrderLinesView?.sum("txtNetAmount")]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[SoSalesOrderLinesView?.sum("txtNetAmount")==null?0:SoSalesOrderLinesView?.sum("txtNetAmount")]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
@@ -895,7 +895,7 @@
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[SoSalesOrderLinesView?.sum("Quantity")]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[SoSalesOrderLinesView?.sum("Quantity")==null?0:SoSalesOrderLinesView?.sum("Quantity")]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
@@ -918,7 +918,7 @@
     AliasName="VIEW_ATTR"
     SQLType="INTEGER">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[SoSalesOrderLinesView?.sum("DiscountAmountOc")]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[SoSalesOrderLinesView?.sum("DiscountAmountOc")==null?0:SoSalesOrderLinesView?.sum("DiscountAmountOc")]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Properties>
