@@ -71,5 +71,7 @@
     </tree>
     <list IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovProductgroup" id="Productgroup"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtSalesTerritoryId"
+          id="txtSalesTerritoryId" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

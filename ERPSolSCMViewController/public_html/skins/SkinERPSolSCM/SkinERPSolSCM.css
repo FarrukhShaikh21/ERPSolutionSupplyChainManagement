@@ -41,9 +41,10 @@ af|inputText::label{
 
 af|inputComboboxListOfValues::label{
     font-weight: bold;
-    color: Blue;
-    font-weight: bold;
+    color: Black;
 }
+
+
 
 af|inputText::content{
     height:25px;
@@ -58,6 +59,12 @@ af|selectOneChoice::content{
     font-family: Verdana;
 }
 
+af|selectOneChoice::label{  font-weight: bold;
+    color: Black;
+    /*font-weight: bold;*/
+    /*font-size: medium;*/
+    font-family: Verdana;
+}
 
 
 af|inputDate::content{
