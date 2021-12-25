@@ -25,7 +25,7 @@ public class SoSalesReturnViewImpl extends ViewObjectImpl implements SoSalesRetu
     }
     public void doSuperviseSalesReturn() {
         
-        CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=Pkg_Sales_Rebate.FUNC_SUBMIT_SALES_RETURN('"+this.getCurrentRow().getAttribute("Salesretid")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;", 1);
+        CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=pkg_sale_order.func_submit_sales_return('"+this.getCurrentRow().getAttribute("Salesretid")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;", 1);
 //        System.out.println("begin ?:=Pkg_Sales_Rebate.FUNC_SUBMIT_SALES_RETURN('"+this.getCurrentRow().getAttribute("Salesretid")+"'); END;");
         try {
             cs.registerOutParameter(1, Types.VARCHAR);
