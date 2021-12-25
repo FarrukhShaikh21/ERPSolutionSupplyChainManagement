@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="SO_0161_SEARCH.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="panelHeader 1" id="ph2">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t1">
+                        <af:button text="Back To Sales Return" id="b1" icon="#{resource['images:imgExitForm.png']}"
+                                   iconPosition="top"/>
+                    </af:toolbar>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelGroupLayout layout="vertical" id="pgl1">
+                    <af:panelHeader text="SoSalesReturn" id="ph1">
+                        <af:query id="qryId1" headerText="Search" disclosed="true"
+                                  value="#{bindings.SoSalesReturnViewFindVCQuery.queryDescriptor}"
+                                  model="#{bindings.SoSalesReturnViewFindVCQuery.queryModel}"
+                                  queryListener="#{bindings.SoSalesReturnViewFindVCQuery.processQuery}"
+                                  queryOperationListener="#{bindings.SoSalesReturnViewFindVCQuery.processQueryOperation}"
+                                  resultComponentId="::resId1" saveQueryMode="hidden" modeChangeVisible="false"
+                                  maxColumns="2" rows="4"/>
+                    </af:panelHeader>
+                    <af:table value="#{bindings.SoSalesReturnCRUD.collectionModel}" var="row"
+                              rows="#{bindings.SoSalesReturnCRUD.rangeSize}"
+                              emptyText="#{bindings.SoSalesReturnCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.SoSalesReturnCRUD.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.SoSalesReturnCRUD.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.SoSalesReturnCRUD.rangeSize}" id="resId1">
+                        <af:column headerText="#{bindings.SoSalesReturnCRUD.hints.Salesretid.label}" id="resId1c1">
+                            <af:link text="#{row.Salesretid}" id="l1" partialSubmit="true"
+                                     action="ERP-ACT-0161-SEARCH-BACK"/>
+                            <af:outputText value="#{row.Salesretid}"
+                                           shortDesc="#{bindings.SoSalesReturnCRUD.hints.Salesretid.tooltip}" id="ot1"
+                                           rendered="false"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoSalesReturnCRUD.hints.ReturnDate.label}" id="resId1c2">
+                            <af:outputText value="#{row.ReturnDate}"
+                                           shortDesc="#{bindings.SoSalesReturnCRUD.hints.ReturnDate.tooltip}" id="ot2">
+                                <af:convertDateTime pattern="#{bindings.SoSalesReturnCRUD.hints.ReturnDate.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoSalesReturnCRUD.hints.Locationid.label}" id="resId1c3">
+                            <af:outputText value="#{row.Locationid}"
+                                           shortDesc="#{bindings.SoSalesReturnCRUD.hints.Locationid.tooltip}" id="ot3"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoSalesReturnCRUD.hints.txtCustomerName.label}" id="resId1c4">
+                            <af:outputText value="#{row.txtCustomerName}"
+                                           shortDesc="#{bindings.SoSalesReturnCRUD.hints.txtCustomerName.tooltip}"
+                                           id="ot4"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoSalesReturnCRUD.hints.Customerid.label}" id="resId1c5">
+                            <af:outputText value="#{row.Customerid}"
+                                           shortDesc="#{bindings.SoSalesReturnCRUD.hints.Customerid.tooltip}" id="ot5"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoSalesReturnCRUD.hints.txtSalesPersonName.label}"
+                                   id="resId1c6">
+                            <af:outputText value="#{row.txtSalesPersonName}"
+                                           shortDesc="#{bindings.SoSalesReturnCRUD.hints.txtSalesPersonName.tooltip}"
+                                           id="ot6"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoSalesReturnCRUD.hints.Salespersonid.label}" id="resId1c7">
+                            <af:outputText value="#{row.Salespersonid}"
+                                           shortDesc="#{bindings.SoSalesReturnCRUD.hints.Salespersonid.tooltip}"
+                                           id="ot7"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoSalesReturnCRUD.hints.Storeid.label}" id="resId1c8">
+                            <af:outputText value="#{row.Storeid}"
+                                           shortDesc="#{bindings.SoSalesReturnCRUD.hints.Storeid.tooltip}" id="ot8"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoSalesReturnCRUD.hints.txtStoreName.label}" id="resId1c9">
+                            <af:outputText value="#{row.txtStoreName}"
+                                           shortDesc="#{bindings.SoSalesReturnCRUD.hints.txtStoreName.tooltip}"
+                                           id="ot9"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.SoSalesReturnCRUD.hints.Posted.label}" id="resId1c10">
+                            <af:selectOneChoice value="#{row.bindings.Posted.inputValue}"
+                                                label="#{row.bindings.Posted.label}"
+                                                required="#{bindings.SoSalesReturnCRUD.hints.Posted.mandatory}"
+                                                shortDesc="#{bindings.SoSalesReturnCRUD.hints.Posted.tooltip}"
+                                                readOnly="true" id="soc1">
+                                <f:selectItems value="#{row.bindings.Posted.items}" id="si1"/>
+                                <f:validator binding="#{row.bindings.Posted.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                    </af:table>
+                </af:panelGroupLayout>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

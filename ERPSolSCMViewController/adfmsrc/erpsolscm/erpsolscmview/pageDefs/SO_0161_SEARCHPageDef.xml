@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0161_SEARCHPageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SoSalesReturnCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesReturnCRUDIterator"/>
+    <searchRegion Criteria="SoSalesReturnViewFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SoSalesReturnCRUDIterator" id="SoSalesReturnViewFindVCQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SoSalesReturnCRUDIterator" id="SoSalesReturnCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnView" Name="SoSalesReturnCRUD0">
+        <AttrNames>
+          <Item Value="Salesretid"/>
+          <Item Value="ReturnDate"/>
+          <Item Value="Locationid"/>
+          <Item Value="txtCustomerName"/>
+          <Item Value="Customerid"/>
+          <Item Value="txtSalesPersonName"/>
+          <Item Value="Salespersonid"/>
+          <Item Value="Storeid"/>
+          <Item Value="txtStoreName"/>
+          <Item Value="Posted"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
