@@ -91,7 +91,8 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
         AccSoSalesPersonsDefView,
         AccAllCustomerSalespersonPid,
         AccPuSuppliersView,
-        AccAllStoresView;
+        AccAllStoresView,
+        AccVWYesNoQVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -183,6 +184,7 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
     public static final int ACCALLCUSTOMERSALESPERSONPID = AttributesEnum.AccAllCustomerSalespersonPid.index();
     public static final int ACCPUSUPPLIERSVIEW = AttributesEnum.AccPuSuppliersView.index();
     public static final int ACCALLSTORESVIEW = AttributesEnum.AccAllStoresView.index();
+    public static final int ACCVWYESNOQVO = AttributesEnum.AccVWYesNoQVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1176,6 +1178,13 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
      */
     public RowSet getAccAllStoresView() {
         return (RowSet) getAttributeInternal(ACCALLSTORESVIEW);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVWYesNoQVO.
+     */
+    public RowSet getAccVWYesNoQVO() {
+        return (RowSet) getAttributeInternal(ACCVWYESNOQVO);
     }
 }
 

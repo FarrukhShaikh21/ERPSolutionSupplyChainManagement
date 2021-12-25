@@ -3,7 +3,9 @@
 @namespace af "http://xmlns.oracle.com/adf/faces/rich";
 @namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
 
-
+af|query af|selectOneChoice::content{
+    width:185px;
+}
 af|outputLabel{
     font-weight: bold;
     color: Black;

@@ -86,6 +86,10 @@
     Name="AccAllStoresView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVWYesNoQVO"
+    ViewObjectName="erpsolglob.erpsolglobmodel.erpsolglobqvo.VWYesNoQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovCatid"
     ListVOName="AccSretCategoryView"
@@ -205,6 +209,25 @@
     <DisplayCriteria
       Name="AllStoresViewFindVC"/>
   </ListBinding>
+  <ListBinding
+    Name="LovPosted"
+    ListVOName="AccVWYesNoQVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Posted"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SoSalesReturn"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturn"/>
@@ -256,7 +279,15 @@
     PrecisionRule="true"
     EntityAttrName="Posted"
     EntityUsage="SoSalesReturn"
-    AliasName="POSTED"/>
+    AliasName="POSTED"
+    LOVName="LovPosted">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedDate"
     PrecisionRule="true"
@@ -576,6 +607,111 @@
     EntityAttrName="ManualRefNo"
     EntityUsage="SoSalesReturn"
     AliasName="MANUAL_REF_NO"/>
+  <ViewCriteria
+    Name="SoSalesReturnViewFindVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SoSalesReturnViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Salesretid"
+        ViewAttribute="Salesretid"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ReturnDate"
+        ViewAttribute="ReturnDate"
+        Operator="BEFORE"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Posted"
+        ViewAttribute="Posted"
+        Operator="="
+        Conjunction="AND"
+        UpperColumns="0"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="AllCustomersView"
+        ViewAttribute="AllCustomersView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="AllCustomersViewNestedCriteria"
+          ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="AllCustomersViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="Customerid"
+              ViewAttribute="Customerid"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="CustomerName"
+              ViewAttribute="CustomerName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
+        Name="SoSalesReturnViewCriteria_SoSalesReturnViewCriteria_row_0_AllStoresView"
+        ViewAttribute="AllStoresView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="AllStoresViewNestedCriteria"
+          ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="AllStoresViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="AllStoresViewNestedCriteria_AllStoresViewNestedCriteria_row_0_Storeid"
+              ViewAttribute="Storeid"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="StoreName"
+              ViewAttribute="StoreName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SoSalesReturnLinesView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.RSrl328Link"

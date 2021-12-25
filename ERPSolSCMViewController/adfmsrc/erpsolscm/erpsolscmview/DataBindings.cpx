@@ -28,6 +28,7 @@
     <page path="/SO_0167_IMEI.jsf" usageId="erpsolscm_erpsolscmview_SO_0167_IMEIPageDef"/>
     <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParamsSoLinesBySOID"
           usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111"/>
+    <page path="/SO_0161_SEARCH.jsf" usageId="erpsolscm_erpsolscmview_SO_0161_SEARCHPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolscm_erpsolscmview_SO_0167PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0167PageDef"/>
@@ -59,6 +60,8 @@
     <page id="erpsolscm_erpsolscmview_SO_0167_IMEIPageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0167_IMEIPageDef"/>
     <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111"
           path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111"/>
+    <page id="erpsolscm_erpsolscmview_SO_0161_SEARCHPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.SO_0161_SEARCHPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolSCMAppModuleDataControl" Package="erpsolscm.erpsolscmmodel.erpsolscmam"

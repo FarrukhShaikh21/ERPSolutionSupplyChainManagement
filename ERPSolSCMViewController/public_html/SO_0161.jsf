@@ -67,7 +67,8 @@
                                inlineStyle="border-color:#b8d6f3; outline-width:thin; border-width:thin thin thin thin;">
                     <f:facet name="toolbar">
                       <af:toolbar id="t1">
-                        <af:button text="Search" id="b8" icon="#{resource['images:imgFind.png']}" iconPosition="top"/>
+                        <af:button text="Search" id="b8" icon="#{resource['images:imgFind.png']}" iconPosition="top"
+                                   action="ERP-ACT-0161-SEARCH"/>
                         <af:button text="Close Form" id="b7" icon="#{resource['images:imgExitForm.png']}"
                                    iconPosition="top" action="ACT-ERP-CLOSE-FORM-SCM"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
