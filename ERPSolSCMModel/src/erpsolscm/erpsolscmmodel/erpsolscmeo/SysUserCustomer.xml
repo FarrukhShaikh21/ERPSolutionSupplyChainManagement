@@ -78,6 +78,13 @@
     ColumnType="DATE"
     TableName="SYS_USER_CUSTOMER"
     PrimaryKey="true"/>
+  <AccessorAttribute
+    Name="AllCustomers"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSysUserCustomersCustomerIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSysUserCustomersCustomerIdAssoc.AllCustomers"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSysUserCustomersCustomerIdAssoc.SysUserCustomer"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="SysusercustomerPrimaryKey"
     PrimaryKey="true">
@@ -91,6 +98,17 @@
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysUserCustomer.CreatedDate"/>
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysUserCustomer.Modifiedby"/>
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysUserCustomer.ModifiedDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SysUserCustomer">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_ALL_CUSTOMERS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SYS_USER_CUSTOMER"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysUserCustomer.Customerid"/>
     </AttrArray>
   </Key>
 </Entity>

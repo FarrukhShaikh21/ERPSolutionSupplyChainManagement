@@ -663,6 +663,11 @@
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCustomersSoRebateCustomerIdLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SysUserCustomerView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCustomersSysUserCustomersCustomerIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>

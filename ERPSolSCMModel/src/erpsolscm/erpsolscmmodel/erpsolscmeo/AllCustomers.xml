@@ -992,6 +992,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoRebateCustomerIdAssoc.AllCustomers"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SysUserCustomer"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSysUserCustomersCustomerIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSysUserCustomersCustomerIdAssoc.SysUserCustomer"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSysUserCustomersCustomerIdAssoc.AllCustomers"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="ChkAllCustRestGift">
     <DesignTime>
