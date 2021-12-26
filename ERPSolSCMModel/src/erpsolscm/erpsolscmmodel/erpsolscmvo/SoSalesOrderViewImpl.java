@@ -77,5 +77,21 @@ public class SoSalesOrderViewImpl extends ViewObjectImpl implements SoSalesOrder
         }
          return super.previous();
      }
+
+    /**
+     * Returns the variable value for P_ADF_USERID.
+     * @return variable value for P_ADF_USERID
+     */
+    public String getP_ADF_USERID() {
+        return (String) ensureVariableManager().getVariableValue("P_ADF_USERID");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_ADF_USERID.
+     * @param value value to bind as P_ADF_USERID
+     */
+    public void setP_ADF_USERID(String value) {
+        ensureVariableManager().setVariableValue("P_ADF_USERID", value);
+    }
 }
 

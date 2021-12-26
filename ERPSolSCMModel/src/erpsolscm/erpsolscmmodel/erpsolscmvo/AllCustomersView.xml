@@ -17,6 +17,10 @@
     Name="P_ADF_LOCATIONID"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_USERID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="AllCustomers"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers"/>
@@ -646,6 +650,60 @@
         Operator="CONTAINS"
         Conjunction="AND"
         Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="AllCustomersViewByUserVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="AllCustomersViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SysUserCustomerView"
+        ViewAttribute="SysUserCustomerView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SysUserCustomerViewNestedCriteria"
+          ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SysUserCustomerView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SysUserCustomerViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="SysUserCustomerViewNestedCriteria_SysUserCustomerViewNestedCriteria_row_0_Userid"
+              ViewAttribute="Userid"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_USERID"
+              UpperColumns="0"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor
