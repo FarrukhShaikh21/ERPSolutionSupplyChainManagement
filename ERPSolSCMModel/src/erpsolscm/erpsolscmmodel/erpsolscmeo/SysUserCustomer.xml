@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysUserCustomer"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="SYS_USER_CUSTOMER"
+  AliasName="SysUserCustomer"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="Userid"
+    Precision="25"
+    ColumnName="USERID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_USER_CUSTOMER"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Customerid"
+    Precision="15"
+    ColumnName="CUSTOMERID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_USER_CUSTOMER"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Createdby"
+    Precision="20"
+    ColumnName="CREATEDBY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_USER_CUSTOMER"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SYS_USER_CUSTOMER"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Modifiedby"
+    Precision="20"
+    ColumnName="MODIFIEDBY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_USER_CUSTOMER"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedDate"
+    ColumnName="MODIFIED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="SYS_USER_CUSTOMER"
+    PrimaryKey="true"/>
+  <Key
+    Name="SysusercustomerPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYSUSERCUSTOMER_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysUserCustomer.Userid"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysUserCustomer.Customerid"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysUserCustomer.Createdby"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysUserCustomer.CreatedDate"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysUserCustomer.Modifiedby"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysUserCustomer.ModifiedDate"/>
+    </AttrArray>
+  </Key>
+</Entity>
