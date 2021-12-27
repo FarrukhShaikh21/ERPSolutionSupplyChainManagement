@@ -190,7 +190,7 @@
     Name="Salespersonseq"
     ColumnName="SALESPERSONSEQ"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_PERSONS"/>
   <AccessorAttribute

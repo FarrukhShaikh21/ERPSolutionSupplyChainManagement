@@ -328,15 +328,15 @@ public class SoSalesPersonsImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for Salespersonseq, using the alias name Salespersonseq.
      * @return the value of Salespersonseq
      */
-    public BigDecimal getSalespersonseq() {
-        return (BigDecimal) getAttributeInternal(SALESPERSONSEQ);
+    public Integer getSalespersonseq() {
+        return (Integer) getAttributeInternal(SALESPERSONSEQ);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for Salespersonseq.
      * @param value value to set the Salespersonseq
      */
-    public void setSalespersonseq(BigDecimal value) {
+    public void setSalespersonseq(Integer value) {
         setAttributeInternal(SALESPERSONSEQ, value);
     }
 

@@ -163,11 +163,11 @@
       islink="true"
       id="ControlFlowCase14"
       from="MethodCall13"
-      to="MethodCall48">
+      to="MethodCall59">
       <property
          name="fromOutcome">ACT-ERP-SOL-GOTO-SCM-MAIN</property>
       <property
-         name="sdm:polyPoints">L50,-267.82422,32.195312,-267.82422,2.8964844,R46</property>
+         name="sdm:polyPoints">T50,2.0,-21.804688,-641.64844,-21.804688,T50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall18">
@@ -540,28 +540,15 @@
       <property
          name="sdm:polyPoints">L38,-500.5,240.35059,T50</property>
    </ControlFlowCase>
-   <MethodCall
-      id="MethodCall48">
-      <property
-         name="activityId">ExecuteWithParamsSCMMaster</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParamsSCMMaster&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="exceptionHandler">false</property>
-      <property
-         name="y">6.7470703</property>
-      <property
-         name="x">-537.64844</property>
-   </MethodCall>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase49"
-      from="MethodCall48"
+      from="MethodCall59"
       to="MethodCall44">
       <property
          name="fromOutcome">ACT-ERP-SOL-GOTO-SCM-MAIN</property>
       <property
-         name="sdm:polyPoints">R54,-433.64844,9.896484,-433.64844,63.097656,L50</property>
+         name="sdm:polyPoints">R50,-485.64844,45.79883,-485.64844,63.097656,L50</property>
    </ControlFlowCase>
    <View
       id="View51">
@@ -656,4 +643,17 @@
       <property
          name="sdm:polyPoints">L54,453.61523,417.5459,453.61523,429.70117,R54</property>
    </ControlFlowCase>
+   <MethodCall
+      id="MethodCall59">
+      <property
+         name="activityId">ExecuteWithParams</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParams&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">46.149414</property>
+      <property
+         name="x">-641.64844</property>
+   </MethodCall>
 </SDM>

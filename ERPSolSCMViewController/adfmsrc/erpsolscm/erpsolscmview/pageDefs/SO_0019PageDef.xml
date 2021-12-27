@@ -21,5 +21,10 @@
     </tree>
     <action IterBinding="SoSalesPersonsCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action IterBinding="SoSalesPersonsCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

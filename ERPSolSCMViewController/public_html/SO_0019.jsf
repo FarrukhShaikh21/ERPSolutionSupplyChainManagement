@@ -6,13 +6,22 @@
         <af:form id="f1">
             <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
                 <f:facet name="erptempmain">
-                    <af:panelCollection id="pc1">
+                    <af:panelCollection id="pc1" featuresOff="viewMenu detach">
                         <f:facet name="menus"/>
                         <f:facet name="toolbar">
                             <af:toolbar id="t2">
                                 <af:button actionListener="#{bindings.CreateInsert.execute}"
                                            disabled="#{!bindings.CreateInsert.enabled}" id="b1"
                                            icon="#{resource['images:imgAdd.png']}" text="Add Salesperson"/>
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b2"
+                                           icon="#{resource['images:imgSave.png']}"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true" id="b3"
+                                           icon="#{resource['images:imgUndo.png']}">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                           disabled="#{!bindings.Delete.enabled}" id="b4"
+                                           icon="#{resource['images:imgDelete.png']}"/>
                             </af:toolbar>
                         </f:facet>
                         <f:facet name="statusbar"/>
@@ -23,7 +32,7 @@
                                   selectedRowKeys="#{bindings.SoSalesPersonsCRUD.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.SoSalesPersonsCRUD.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.SoSalesPersonsCRUD.rangeSize}" id="t1"
-                                  columnStretching="column:c3" partialTriggers="::b1">
+                                  columnStretching="column:c3" partialTriggers="::b1 ::b4">
                             <af:column headerText="#{bindings.SoSalesPersonsCRUD.hints.Locationid.label}" id="c1"
                                        width="200">
                                 <af:selectOneChoice value="#{row.bindings.Locationid.inputValue}"
@@ -35,7 +44,8 @@
                                     <f:validator binding="#{row.bindings.Locationid.validator}"/>
                                 </af:selectOneChoice>
                             </af:column>
-                            <af:column headerText="#{bindings.SoSalesPersonsCRUD.hints.Salespersonid.label}" id="c2">
+                            <af:column headerText="#{bindings.SoSalesPersonsCRUD.hints.Salespersonid.label}" id="c2"
+                                       width="150" displayIndex="-1">
                                 <af:inputText value="#{row.bindings.Salespersonid.inputValue}"
                                               label="#{bindings.SoSalesPersonsCRUD.hints.Salespersonid.label}"
                                               required="#{bindings.SoSalesPersonsCRUD.hints.Salespersonid.mandatory}"
@@ -52,7 +62,8 @@
                                               required="#{bindings.SoSalesPersonsCRUD.hints.Name.mandatory}"
                                               columns="#{bindings.SoSalesPersonsCRUD.hints.Name.displayWidth}"
                                               maximumLength="#{bindings.SoSalesPersonsCRUD.hints.Name.precision}"
-                                              shortDesc="#{bindings.SoSalesPersonsCRUD.hints.Name.tooltip}" id="it2">
+                                              shortDesc="#{bindings.SoSalesPersonsCRUD.hints.Name.tooltip}" id="it2"
+                                              contentStyle="width:100%">
                                     <f:validator binding="#{row.bindings.Name.validator}"/>
                                 </af:inputText>
                             </af:column>

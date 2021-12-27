@@ -120,12 +120,6 @@
     <view id="SO_1124">
       <page>/SO_1124.jsf</page>
     </view>
-    <method-call id="ExecuteWithParamsSCMMaster">
-      <method>#{bindings.ExecuteWithParams.execute}</method>
-      <outcome>
-        <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
-      </outcome>
-    </method-call>
     <view id="SO_0167_IMEI">
       <page>/SO_0167_IMEI.jsf</page>
     </view>
@@ -138,6 +132,12 @@
     <view id="SO_0161_SEARCH">
       <page>/SO_0161_SEARCH.jsf</page>
     </view>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -179,7 +179,7 @@
       <from-activity-id>doERPSolSCMSessionGlobals</from-activity-id>
       <control-flow-case id="__15">
         <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
-        <to-activity-id>ExecuteWithParamsSCMMaster</to-activity-id>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__20">
@@ -281,13 +281,6 @@
         <to-activity-id>ExeSysModuleSoTransaction</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
-    <control-flow-rule id="__46">
-      <from-activity-id>ExecuteWithParamsSCMMaster</from-activity-id>
-      <control-flow-case id="__47">
-        <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
-        <to-activity-id>ExecuteWithParamsSCMReport</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
     <control-flow-rule id="__49">
       <from-activity-id>SO_0167_IMEI</from-activity-id>
       <control-flow-case id="__50">
@@ -314,6 +307,13 @@
       <control-flow-case id="__56">
         <from-outcome>ERP-ACT-0161-SEARCH-BACK</from-outcome>
         <to-activity-id>SO_0161</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__46">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__47">
+        <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
+        <to-activity-id>ExecuteWithParamsSCMReport</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

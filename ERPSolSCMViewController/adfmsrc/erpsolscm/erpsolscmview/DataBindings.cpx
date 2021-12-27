@@ -23,12 +23,12 @@
     <page path="/SO_1124.jsf" usageId="erpsolscm_erpsolscmview_SO_1124PageDef"/>
     <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParamsSCMReport"
           usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1"/>
-    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParamsSCMMaster"
-          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11"/>
     <page path="/SO_0167_IMEI.jsf" usageId="erpsolscm_erpsolscmview_SO_0167_IMEIPageDef"/>
     <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParamsSoLinesBySOID"
           usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111"/>
     <page path="/SO_0161_SEARCH.jsf" usageId="erpsolscm_erpsolscmview_SO_0161_SEARCHPageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParams"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolscm_erpsolscmview_SO_0167PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0167PageDef"/>
@@ -55,13 +55,13 @@
     <page id="erpsolscm_erpsolscmview_SO_1124PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_1124PageDef"/>
     <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1"
           path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1"/>
-    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11"
-          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11"/>
     <page id="erpsolscm_erpsolscmview_SO_0167_IMEIPageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0167_IMEIPageDef"/>
     <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111"
           path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111"/>
     <page id="erpsolscm_erpsolscmview_SO_0161_SEARCHPageDef"
           path="erpsolscm.erpsolscmview.pageDefs.SO_0161_SEARCHPageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolSCMAppModuleDataControl" Package="erpsolscm.erpsolscmmodel.erpsolscmam"
