@@ -35,6 +35,7 @@
       <managed-bean-class>erpsoltemp.erpsoltempview.erptempclass.ERPSolutionTemplateBean</managed-bean-class>
       <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
+    <exception-handler>ERPSolSCMException</exception-handler>
     <view id="SO_0167">
       <page>/SO_0167.jsf</page>
     </view>
@@ -136,6 +137,15 @@
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
         <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="ERPSolSCMException">
+      <page>/ERPSolSCMException.jsf</page>
+    </view>
+    <method-call id="ERPSolBackFromSCMException">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-GOTO-MAIN-FROM-EXCEPTION</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__6">
@@ -314,6 +324,20 @@
       <control-flow-case id="__47">
         <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
         <to-activity-id>ExecuteWithParamsSCMReport</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__57">
+      <from-activity-id>ERPSolSCMException</from-activity-id>
+      <control-flow-case id="__58">
+        <from-outcome>ACT-ERP-GOTO-MAIN-FROM-EXCEPTION</from-outcome>
+        <to-activity-id>ERPSolBackFromSCMException</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__59">
+      <from-activity-id>ERPSolBackFromSCMException</from-activity-id>
+      <control-flow-case id="__60">
+        <from-outcome>ACT-ERP-GOTO-MAIN-FROM-EXCEPTION</from-outcome>
+        <to-activity-id>ERPSolSCMMain</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

@@ -465,7 +465,7 @@
       <property
          name="fromOutcome">ACT-ERP-CLOSE-FORM-SCM</property>
       <property
-         name="sdm:polyPoints">R50,-209.5,237.09766,-209.5,227.44824,45.34668,227.44824,B50</property>
+         name="sdm:polyPoints">R50,-209.5,237.09766,-209.5,227.44824,41.84668,227.44824,B44</property>
    </ControlFlowCase>
    <View
       id="View42">
@@ -656,4 +656,52 @@
       <property
          name="x">-641.64844</property>
    </MethodCall>
+   <View
+      id="View60">
+      <property
+         name="activityId">ERPSolSCMException</property>
+      <property
+         name="page">/ERPSolSCMException.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ERPSolSCMException&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">true</property>
+      <property
+         name="y">504.09766</property>
+      <property
+         name="x">-693.3086</property>
+   </View>
+   <MethodCall
+      id="MethodCall61">
+      <property
+         name="activityId">ERPSolBackFromSCMException</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ERPSolBackFromSCMException&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">558.7471</property>
+      <property
+         name="x">-341.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase62"
+      from="View60"
+      to="MethodCall61">
+      <property
+         name="fromOutcome">ACT-ERP-GOTO-MAIN-FROM-EXCEPTION</property>
+      <property
+         name="sdm:polyPoints">R50,-517.4043,503.74707,-517.4043,558.3965,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase63"
+      from="MethodCall61"
+      to="View9">
+      <property
+         name="fromOutcome">ACT-ERP-GOTO-MAIN-FROM-EXCEPTION</property>
+      <property
+         name="sdm:polyPoints">B50,-341.5,612.3965,48.84668,612.3965,B56</property>
+   </ControlFlowCase>
 </SDM>
