@@ -16,15 +16,26 @@ public class SoSalesOrderImeiViewImpl extends ViewObjectImpl implements SoSalesO
     public SoSalesOrderImeiViewImpl() {
     }    
     public void doERPSolRemoveBox() {
-        String ERPSolBox=this.getCurrentRow().getAttribute("TempBoxNo").toString();
-        this.setRangeSize(-1);
-        
-        for (int i = 0; i < this.getViewObject().getEstimatedRowCount(); i++) {
-            if (getRowAtRangeIndex(i).getAttribute("TempBoxNo").toString().equals(ERPSolBox)) {
-               getRowAtRangeIndex(i).remove();
-               i--;
-           }
-       }
+        try {
+            //if selected box is null then exception will be handled
+            String ERPSolBox = this.getCurrentRow().getAttribute("TempBoxNo").toString();
+            this.setRangeSize(-1);
+
+            for (int i = 0; i < this.getViewObject().getEstimatedRowCount(); i++) {
+                try {//if row box no is null then system will move to next record in loop
+                    if (getRowAtRangeIndex(i).getAttribute("TempBoxNo").toString().equals(ERPSolBox)) {
+                        getRowAtRangeIndex(i).remove();
+                        i--;
+                    }
+                } catch (Exception e) {
+                    // TODO: Add catch code
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            // TODO: Add catch code
+//            e.printStackTrace();
+        }
 
     }
 }
