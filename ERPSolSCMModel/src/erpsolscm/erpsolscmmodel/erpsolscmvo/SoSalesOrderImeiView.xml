@@ -13,7 +13,9 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderImeiViewImpl">
+  ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderImeiViewImpl"
+  ComponentInterface="erpsolscm.erpsolscmmodel.erpsolscmvo.common.SoSalesOrderImeiView"
+  ClientProxyName="erpsolscm.erpsolscmmodel.erpsolscmvo.client.SoSalesOrderImeiViewClient">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
   </DesignTime>
@@ -119,6 +121,16 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doERPSolRemoveBox"
+      MethodName="doERPSolRemoveBox">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
