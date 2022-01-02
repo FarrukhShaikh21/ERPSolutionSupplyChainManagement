@@ -5,7 +5,11 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="SoSalesOrderImeiSCANCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
-              id="SoSalesOrderImeiDetCRUDIterator"/>
+              id="SoSalesOrderImeiDetCRUDIterator">
+      <sortCriteria>
+        <sort attribute="SalesOrderImeiSno" ascending="false"/>
+      </sortCriteria>
+    </iterator>
     <searchRegion Binds="SoSalesOrderImeiDetCRUDIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SoSalesOrderImeiDetCRUDQuery"/>
     <iterator Binds="SoSalesOrderLinesBySOIDRO" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
@@ -44,5 +48,9 @@
         <Item Value="ModelNo"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="doERPSolRemoveBox" RequiresUpdateModel="true" Action="invokeMethod" MethodName="doERPSolRemoveBox"
+                  IsViewObjectMethod="true" DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesOrderImeiSCANCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doERPSolRemoveBox_ERPSolSCMAppModuleDataControl_SoSalesOrderImeiSCANCRUD_doERPSolRemoveBox_result"/>
   </bindings>
 </pageDefinition>

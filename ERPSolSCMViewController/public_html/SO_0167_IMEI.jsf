@@ -66,7 +66,10 @@
                     </af:button>
                     <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" id="b2" icon="#{resource['images:imgSave.png']}"
                                iconPosition="top"/>
-                    <af:button actionListener="#{bindings.Delete.execute}" text="Delete IMEI"
+                    <af:button actionListener="#{bindings.doERPSolRemoveBox.execute}" text="Delete Selected Box IMEI"
+                               disabled="#{!bindings.doERPSolRemoveBox.enabled}" id="b5"
+                               icon="#{resource['images:imgDelete.png']}"/>
+                    <af:button actionListener="#{bindings.Delete.execute}" text="Delete Single IMEI"
                                disabled="#{!bindings.Delete.enabled}" id="b1"
                                icon="#{resource['images:imgDelete.png']}"/>
                   </af:toolbar>

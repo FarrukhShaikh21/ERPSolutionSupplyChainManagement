@@ -22,6 +22,7 @@ public class SoSalesOrderImeiViewImpl extends ViewObjectImpl implements SoSalesO
         for (int i = 0; i < this.getViewObject().getEstimatedRowCount(); i++) {
             if (getRowAtRangeIndex(i).getAttribute("TempBoxNo").toString().equals(ERPSolBox)) {
                getRowAtRangeIndex(i).remove();
+               i--;
            }
        }
 
