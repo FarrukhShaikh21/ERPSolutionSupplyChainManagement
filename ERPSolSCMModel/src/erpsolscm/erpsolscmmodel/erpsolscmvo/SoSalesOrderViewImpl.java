@@ -8,6 +8,7 @@ import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Types;
 
+import oracle.jbo.AttributeList;
 import oracle.jbo.JboException;
 import oracle.jbo.Row;
 import oracle.jbo.server.ViewObjectImpl;
@@ -92,6 +93,29 @@ public class SoSalesOrderViewImpl extends ViewObjectImpl implements SoSalesOrder
      */
     public void setP_ADF_USERID(String value) {
         ensureVariableManager().setVariableValue("P_ADF_USERID", value);
+    }
+    @Override
+    protected void create() {
+        
+        
+        // TODO Implement this method
+        super.create();
+    }
+
+    @Override
+    public Row createAndInitRow(AttributeList attributeList) {
+        if (getDBTransaction().isDirty()) {
+            throw new JboException("Please Save/Undo Transaction.");
+       }
+        // TODO Implement this method
+        System.out.println("this is create calling creae init row");
+        return super.createAndInitRow(attributeList);
+    }
+    @Override
+    public void insertRow(Row row) {
+        // TODO Implement this method
+        System.out.println("inserting row");
+        super.insertRow(row);
     }
 }
 

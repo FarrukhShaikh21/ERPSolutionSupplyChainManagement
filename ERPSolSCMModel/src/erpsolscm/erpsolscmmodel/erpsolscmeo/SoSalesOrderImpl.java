@@ -120,6 +120,7 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         txtScanType,
         txtLocationName,
         txtApplyCreditlimit,
+        txtSalesTerritory,
         SoSalesOrderLines,
         AllCustomers,
         AllStores,
@@ -246,6 +247,7 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTSCANTYPE = AttributesEnum.txtScanType.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
     public static final int TXTAPPLYCREDITLIMIT = AttributesEnum.txtApplyCreditlimit.index();
+    public static final int TXTSALESTERRITORY = AttributesEnum.txtSalesTerritory.index();
     public static final int SOSALESORDERLINES = AttributesEnum.SoSalesOrderLines.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
@@ -1718,6 +1720,22 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for txtSalesTerritory, using the alias name txtSalesTerritory.
+     * @return the value of txtSalesTerritory
+     */
+    public String gettxtSalesTerritory() {
+        return (String) getAttributeInternal(TXTSALESTERRITORY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSalesTerritory.
+     * @param value value to set the txtSalesTerritory
+     */
+    public void settxtSalesTerritory(String value) {
+        setAttributeInternal(TXTSALESTERRITORY, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSoSalesOrderLines() {
@@ -1757,14 +1775,14 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     /**
      * @return the associated entity oracle.jbo.server.EntityImpl.
      */
-    public EntityImpl getSoSalesPersons() {
-        return (EntityImpl) getAttributeInternal(SOSALESPERSONS);
+    public SoSalesPersonsImpl getSoSalesPersons() {
+        return (SoSalesPersonsImpl) getAttributeInternal(SOSALESPERSONS);
     }
 
     /**
      * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
      */
-    public void setSoSalesPersons(EntityImpl value) {
+    public void setSoSalesPersons(SoSalesPersonsImpl value) {
         setAttributeInternal(SOSALESPERSONS, value);
     }
 
@@ -1870,10 +1888,13 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
             System.out.println(pkValue + "pk value");
             String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
             populateAttributeAsChanged(SALESORDERID, result);
+            populateAttributeAsChanged(SALESTERRITORYID, gettxtSalesTerritory());
         }
         else if (operation==DML_UPDATE) {
+           populateAttributeAsChanged(SALESTERRITORYID, gettxtSalesTerritory());
             if (getPosted().equals("Y")) {
                 populateAttributeAsChanged(POSTEDBY, ERPSolGlobClassModel.doGetUserCode());
+               
            }
        }
         super.doDML(operation, e);

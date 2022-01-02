@@ -934,6 +934,14 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtSalesTerritory"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSalesTerritory"
+    EntityUsage="SoSalesOrder"
+    AliasName="TXT_SALES_TERRITORY"/>
   <ViewCriteria
     Name="SoSalesOrderFindVC"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderView"
@@ -986,29 +994,6 @@
         Conjunction="AND"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="SoSalesPersonsView"
-        ViewAttribute="SoSalesPersonsView"
-        Operator="EXISTS"
-        Conjunction="AND"
-        IsNestedCriteria="true"
-        Required="Optional">
-        <ViewCriteria
-          Name="SoSalesPersonsViewNestedCriteria"
-          ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"
-          Conjunction="AND">
-          <ViewCriteriaRow
-            Name="SoSalesPersonsViewNestedCriteria_row_0"
-            UpperColumns="1">
-            <ViewCriteriaItem
-              Name="Name"
-              ViewAttribute="Name"
-              Operator="CONTAINS"
-              Conjunction="AND"
-              Required="Optional"/>
-          </ViewCriteriaRow>
-        </ViewCriteria>
-      </ViewCriteriaItem>
-      <ViewCriteriaItem
         Name="SoSalesOrderViewCriteria_SoSalesOrderViewCriteria_row_0_AllCustomersView"
         ViewAttribute="AllCustomersView"
         Operator="EXISTS"
@@ -1031,6 +1016,29 @@
             <ViewCriteriaItem
               Name="CustomerName"
               ViewAttribute="CustomerName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
+        Name="SoSalesPersonsView"
+        ViewAttribute="SoSalesPersonsView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="SoSalesPersonsViewNestedCriteria"
+          ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SoSalesPersonsViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="Name"
+              ViewAttribute="Name"
               Operator="CONTAINS"
               Conjunction="AND"
               Required="Optional"/>

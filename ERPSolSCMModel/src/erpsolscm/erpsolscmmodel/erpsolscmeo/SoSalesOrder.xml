@@ -1412,6 +1412,23 @@ return true;]]></validation:TransientExpression>
         Value="Locationid"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="txtSalesTerritory"
+    Precision="80"
+    ColumnName="TXT_SALES_TERRITORY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SO_SALES_ORDER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SoSalesPersons?.Salesterritoryid]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Salespersonid"/>
+    </Dependencies>
+  </Attribute>
   <AccessorAttribute
     Name="SoSalesOrderLines"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SalesOrderSaleOrderLinesSalesOrderSeqAssoc"

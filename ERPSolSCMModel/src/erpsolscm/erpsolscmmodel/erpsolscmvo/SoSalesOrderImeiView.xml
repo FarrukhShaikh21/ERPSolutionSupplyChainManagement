@@ -12,7 +12,11 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderImeiViewImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+  </DesignTime>
   <EntityUsage
     Name="SoSalesOrderImei"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderImei"/>

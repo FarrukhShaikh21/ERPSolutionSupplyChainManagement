@@ -122,6 +122,7 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
         txtSumNetAmount,
         txtSumQuantity,
         txtSumDiscount,
+        txtSalesTerritory,
         SoSalesOrderLinesView,
         AllCustomersView,
         AllStoresView,
@@ -253,6 +254,7 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
     public static final int TXTSUMNETAMOUNT = AttributesEnum.txtSumNetAmount.index();
     public static final int TXTSUMQUANTITY = AttributesEnum.txtSumQuantity.index();
     public static final int TXTSUMDISCOUNT = AttributesEnum.txtSumDiscount.index();
+    public static final int TXTSALESTERRITORY = AttributesEnum.txtSalesTerritory.index();
     public static final int SOSALESORDERLINESVIEW = AttributesEnum.SoSalesOrderLinesView.index();
     public static final int ALLCUSTOMERSVIEW = AttributesEnum.AllCustomersView.index();
     public static final int ALLSTORESVIEW = AttributesEnum.AllStoresView.index();
@@ -1786,6 +1788,22 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
      */
     public Integer gettxtSumDiscount() {
         return (Integer) getAttributeInternal(TXTSUMDISCOUNT);
+    }
+
+    /**
+     * Gets the attribute value for TXT_SALES_TERRITORY using the alias name txtSalesTerritory.
+     * @return the TXT_SALES_TERRITORY
+     */
+    public String gettxtSalesTerritory() {
+        return (String) getAttributeInternal(TXTSALESTERRITORY);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_SALES_TERRITORY using the alias name txtSalesTerritory.
+     * @param value value to set the TXT_SALES_TERRITORY
+     */
+    public void settxtSalesTerritory(String value) {
+        setAttributeInternal(TXTSALESTERRITORY, value);
     }
 
     /**
