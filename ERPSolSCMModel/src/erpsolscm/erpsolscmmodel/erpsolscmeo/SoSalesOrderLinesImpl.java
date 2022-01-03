@@ -121,6 +121,7 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
         txtNetAmount,
         txtDiscountAmount,
         Itemid,
+        txtPosted,
         SoSalesOrder,
         InItems,
         InItems1,
@@ -244,6 +245,7 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
     public static final int TXTDISCOUNTAMOUNT = AttributesEnum.txtDiscountAmount.index();
     public static final int ITEMID = AttributesEnum.Itemid.index();
+    public static final int TXTPOSTED = AttributesEnum.txtPosted.index();
     public static final int SOSALESORDER = AttributesEnum.SoSalesOrder.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
     public static final int INITEMS1 = AttributesEnum.InItems1.index();
@@ -1738,6 +1740,22 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setItemid(String value) {
         setAttributeInternal(ITEMID, value);
+    }
+
+    /**
+     * Gets the attribute value for txtPosted, using the alias name txtPosted.
+     * @return the value of txtPosted
+     */
+    public String gettxtPosted() {
+        return (String) getAttributeInternal(TXTPOSTED);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtPosted.
+     * @param value value to set the txtPosted
+     */
+    public void settxtPosted(String value) {
+        setAttributeInternal(TXTPOSTED, value);
     }
 
     /**

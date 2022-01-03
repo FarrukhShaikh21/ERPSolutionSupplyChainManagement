@@ -999,6 +999,27 @@
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="txtPosted"
+    Precision="80"
+    ColumnName="TXT_POSTED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SO_SALES_ORDER_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SoSalesOrder?.Posted]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.txtPosted_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SoSalesOrder"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SalesOrderSaleOrderLinesSalesOrderSeqAssoc"
@@ -1103,7 +1124,6 @@
     <validation:ResExpressions
       Name="SoSalesOrderLinesDupProBR_ResExprList">
       <validation:Expression
-        trustMode="trusted"
         Name="0"><![CDATA[Productid]]></validation:Expression>
     </validation:ResExpressions>
   </validation:UniqueKeyValidationBean>

@@ -120,6 +120,7 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
         txtNetAmount,
         txtDiscountAmount,
         Itemid,
+        txtPosted,
         SoSalesOrderView,
         InItemsView,
         SoSalesOrderImeiView,
@@ -245,6 +246,7 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
     public static final int TXTDISCOUNTAMOUNT = AttributesEnum.txtDiscountAmount.index();
     public static final int ITEMID = AttributesEnum.Itemid.index();
+    public static final int TXTPOSTED = AttributesEnum.txtPosted.index();
     public static final int SOSALESORDERVIEW = AttributesEnum.SoSalesOrderView.index();
     public static final int INITEMSVIEW = AttributesEnum.InItemsView.index();
     public static final int SOSALESORDERIMEIVIEW = AttributesEnum.SoSalesOrderImeiView.index();
@@ -1806,6 +1808,22 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
         
        
 //        pkg_deploy_standard.func_get_item_rate_by_loc_date
+    }
+
+    /**
+     * Gets the attribute value for TXT_POSTED using the alias name txtPosted.
+     * @return the TXT_POSTED
+     */
+    public String gettxtPosted() {
+        return (String) getAttributeInternal(TXTPOSTED);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_POSTED using the alias name txtPosted.
+     * @param value value to set the TXT_POSTED
+     */
+    public void settxtPosted(String value) {
+        setAttributeInternal(TXTPOSTED, value);
     }
 
     /**

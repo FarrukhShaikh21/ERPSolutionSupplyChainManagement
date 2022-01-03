@@ -655,6 +655,14 @@
     EntityAttrName="Itemid"
     EntityUsage="SoSalesOrderLines"
     AliasName="ITEMID"/>
+  <ViewAttribute
+    Name="txtPosted"
+    PrecisionRule="true"
+    EntityAttrName="txtPosted"
+    EntityUsage="SoSalesOrderLines"
+    AliasName="TXT_POSTED"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <ViewCriteria
     Name="SoSalesOrderLinesBySalesOrderIDVC"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesView"

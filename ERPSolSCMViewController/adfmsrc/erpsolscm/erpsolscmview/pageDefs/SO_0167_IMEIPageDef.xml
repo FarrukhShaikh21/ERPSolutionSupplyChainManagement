@@ -52,5 +52,10 @@
                   IsViewObjectMethod="true" DataControl="ERPSolSCMAppModuleDataControl"
                   InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesOrderImeiSCANCRUD"
                   ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doERPSolRemoveBox_ERPSolSCMAppModuleDataControl_SoSalesOrderImeiSCANCRUD_doERPSolRemoveBox_result"/>
+    <attributeValues IterBinding="SoSalesOrderLinesBySOIDROIterator" id="txtPosted">
+      <AttrNames>
+        <Item Value="txtPosted"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

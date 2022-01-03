@@ -37,15 +37,24 @@
           <af:gridRow marginTop="5px" height="auto" id="gr1">
             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
               <af:panelGroupLayout id="pgl2" layout="horizontal">
+                <af:inputText value="#{bindings.txtPosted.inputValue}" simple="true"
+                              required="#{bindings.txtPosted.hints.mandatory}"
+                              columns="#{bindings.txtPosted.hints.displayWidth}"
+                              maximumLength="#{bindings.txtPosted.hints.precision}"
+                              shortDesc="#{bindings.txtPosted.hints.tooltip}" id="it8" rendered="false">
+                  <f:validator binding="#{bindings.txtPosted.validator}"/>
+                </af:inputText>
                 <af:inputText label="Label 1" id="it1" simple="true" placeholder="Scan Box Here" autoSubmit="true"
-                              clientComponent="true">
+                              clientComponent="true"
+                              disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N' || bindings.txtPosted.inputValue=='Y'}">
                   <af:clientListener type="keyPress" method="handleEnterEventBox"/>
                   <af:serverListener type="EnterEventBox"
                                      method="#{pageFlowScope.ERPSolSCMPageFlowBean.handleEnterEventBox}"/>
                 </af:inputText>
                 <af:spacer width="10" height="10" id="s1"/>
                 <af:inputText id="it5" simple="true" placeholder="Scan IME Here" autoSubmit="true" label="dw"
-                              maximumLength="15">
+                              maximumLength="15"
+                              disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N' || bindings.txtPosted.inputValue=='Y'}">
                                             <af:clientListener method="handleEnterEvent" type="keyPress"/>
                             <af:serverListener type="EnterEvent"
                                                method="#{pageFlowScope.ERPSolSCMPageFlowBean.handleEnterEventIMEI}"/>
@@ -67,10 +76,10 @@
                     <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" id="b2" icon="#{resource['images:imgSave.png']}"
                                iconPosition="top"/>
                     <af:button actionListener="#{bindings.doERPSolRemoveBox.execute}" text="Delete Selected Box IMEI"
-                               disabled="#{!bindings.doERPSolRemoveBox.enabled}" id="b5"
+                               disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowDelete=='N' || bindings.txtPosted.inputValue=='Y'}" id="b5"
                                icon="#{resource['images:imgDelete.png']}"/>
                     <af:button actionListener="#{bindings.Delete.execute}" text="Delete Single IMEI"
-                               disabled="#{!bindings.Delete.enabled}" id="b1"
+                               disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowDelete=='N' || bindings.txtPosted.inputValue=='Y'}" id="b1"
                                icon="#{resource['images:imgDelete.png']}"/>
                   </af:toolbar>
                 </f:facet>
