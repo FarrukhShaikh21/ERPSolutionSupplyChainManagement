@@ -743,8 +743,17 @@ public class ERPSolSCMBean {
     }
   
     public void handleEnterEventBox(ClientEvent ce) {
-    String value = (String) ce.getParameters().get("fvalue");
-    System.out.println(value);
+    String value ;
+    try {
+           value = ce.getParameters().get("fvalue").toString().toUpperCase();
+        if (value.length()==0) {
+                return;
+           }
+       } catch (Exception e) {
+            // TODO: Add catch code
+            return ;
+        }
+    
 
         DCBindingContainer bc = (DCBindingContainer) ERPSolGlobalViewBean.doGetERPBindings();
         DCDataControl dc = bc.getDataControl();

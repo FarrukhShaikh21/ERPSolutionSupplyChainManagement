@@ -46,7 +46,8 @@
                 </af:inputText>
                 <af:inputText label="Label 1" id="it1" simple="true" placeholder="Scan Box Here" autoSubmit="true"
                               clientComponent="true"
-                              disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N' || bindings.txtPosted.inputValue=='Y'}">
+                              disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N' || bindings.txtPosted.inputValue=='Y'}"
+                              contentStyle="text-transform:uppercase">
                   <af:clientListener type="keyPress" method="handleEnterEventBox"/>
                   <af:serverListener type="EnterEventBox"
                                      method="#{pageFlowScope.ERPSolSCMPageFlowBean.handleEnterEventBox}"/>
