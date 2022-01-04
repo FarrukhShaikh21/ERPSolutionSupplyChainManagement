@@ -133,7 +133,7 @@
     <view id="SO_0161_SEARCH">
       <page>/SO_0161_SEARCH.jsf</page>
     </view>
-    <method-call id="ExecuteWithParams">
+    <method-call id="ExecuteWithParamsSCMMaster">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
         <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
@@ -146,6 +146,18 @@
       <method>#{bindings.Rollback.execute}</method>
       <outcome>
         <fixed-outcome>ACT-ERP-GOTO-MAIN-FROM-EXCEPTION</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParaSCMReverse">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExecuteWithParamsSCMReverse">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__6">
@@ -189,7 +201,7 @@
       <from-activity-id>doERPSolSCMSessionGlobals</from-activity-id>
       <control-flow-case id="__15">
         <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
-        <to-activity-id>ExecuteWithParams</to-activity-id>
+        <to-activity-id>ExecuteWithParamsSCMReverse</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__20">
@@ -320,10 +332,10 @@
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__46">
-      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <from-activity-id>ExecuteWithParamsSCMMaster</from-activity-id>
       <control-flow-case id="__47">
         <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
-        <to-activity-id>ExecuteWithParamsSCMReport</to-activity-id>
+        <to-activity-id>ExecuteWithParaSCMReverse</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__57">
@@ -338,6 +350,20 @@
       <control-flow-case id="__60">
         <from-outcome>ACT-ERP-GOTO-MAIN-FROM-EXCEPTION</from-outcome>
         <to-activity-id>ERPSolSCMMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__63">
+      <from-activity-id>ExecuteWithParaSCMReverse</from-activity-id>
+      <control-flow-case id="__64">
+        <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
+        <to-activity-id>ExecuteWithParamsSCMReport</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__61">
+      <from-activity-id>ExecuteWithParamsSCMReverse</from-activity-id>
+      <control-flow-case id="__62">
+        <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
+        <to-activity-id>ExecuteWithParamsSCMMaster</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

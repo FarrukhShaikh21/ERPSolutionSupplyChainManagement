@@ -27,10 +27,14 @@
     <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParamsSoLinesBySOID"
           usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111"/>
     <page path="/SO_0161_SEARCH.jsf" usageId="erpsolscm_erpsolscmview_SO_0161_SEARCHPageDef"/>
-    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParams"
-          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111"/>
     <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ERPSolBackFromSCMException"
           usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef111"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParaSCMReverse"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParams1PageDef1"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParamsSCMMaster"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExecuteWithParamsSCMReverse"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolscm_erpsolscmview_SO_0167PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0167PageDef"/>
@@ -66,6 +70,10 @@
           path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111"/>
     <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef111"
           path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_RollbackPageDef111"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParams1PageDef1"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParams1PageDef1"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolSCMAppModuleDataControl" Package="erpsolscm.erpsolscmmodel.erpsolscmam"

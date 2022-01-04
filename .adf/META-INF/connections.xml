@@ -1,22 +1,22 @@
 <References xmlns="http://xmlns.oracle.com/adf/jndi">
-  <Reference name="ERPSolTemplateConn" className="oracle.jdeveloper.db.adapter.DatabaseProvider"
-             credentialStoreKey="ERPSolTemplateConn" xmlns="">
+  <Reference name="ERPSolGlobalConn" className="oracle.jdeveloper.db.adapter.DatabaseProvider"
+             credentialStoreKey="ERPSolGlobalConn" xmlns="">
     <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
     <RefAddresses>
       <StringRefAddr addrType="sid">
-        <Contents>SHOPDB</Contents>
+        <Contents>orcl</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="subtype">
         <Contents>oraJDBC</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="user">
-        <Contents>QSHOP</Contents>
-      </StringRefAddr>
-      <StringRefAddr addrType="hostname">
-        <Contents>192.168.1.200</Contents>
+        <Contents>qshop</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="port">
         <Contents>1521</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="hostname">
+        <Contents>151.106.41.99</Contents>
       </StringRefAddr>
       <SecureRefAddr addrType="password"/>
       <StringRefAddr addrType="oraDriverType">
@@ -29,7 +29,7 @@
     <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
     <RefAddresses>
       <StringRefAddr addrType="sid">
-        <Contents>SHOPDB</Contents>
+        <Contents>orcl</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="subtype">
         <Contents>oraJDBC</Contents>
@@ -37,11 +37,11 @@
       <StringRefAddr addrType="user">
         <Contents>qshop</Contents>
       </StringRefAddr>
+      <StringRefAddr addrType="hostname">
+        <Contents>151.106.41.99</Contents>
+      </StringRefAddr>
       <StringRefAddr addrType="port">
         <Contents>1521</Contents>
-      </StringRefAddr>
-      <StringRefAddr addrType="hostname">
-        <Contents>192.168.1.200</Contents>
       </StringRefAddr>
       <SecureRefAddr addrType="password"/>
       <StringRefAddr addrType="oraDriverType">
@@ -49,24 +49,24 @@
       </StringRefAddr>
     </RefAddresses>
   </Reference>
-  <Reference name="ERPSolGlobalConn" className="oracle.jdeveloper.db.adapter.DatabaseProvider"
-             credentialStoreKey="ERPSolGlobalConn" xmlns="">
+  <Reference name="ERPSolTemplateConn" className="oracle.jdeveloper.db.adapter.DatabaseProvider"
+             credentialStoreKey="ERPSolTemplateConn" xmlns="">
     <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
     <RefAddresses>
       <StringRefAddr addrType="sid">
-        <Contents>shopdb</Contents>
+        <Contents>orcl</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="subtype">
         <Contents>oraJDBC</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="user">
-        <Contents>qshop</Contents>
-      </StringRefAddr>
-      <StringRefAddr addrType="hostname">
-        <Contents>192.168.1.200</Contents>
+        <Contents>QSHOP</Contents>
       </StringRefAddr>
       <StringRefAddr addrType="port">
         <Contents>1521</Contents>
+      </StringRefAddr>
+      <StringRefAddr addrType="hostname">
+        <Contents>151.106.41.99</Contents>
       </StringRefAddr>
       <SecureRefAddr addrType="password"/>
       <StringRefAddr addrType="oraDriverType">

@@ -319,6 +319,7 @@
             <hash>
                <list n="classPath">
                   <url path="../ERPSolSCMLIB/ERPSolTemplateView.jar" jar-entry=""/>
+                  <url path="../ERPSolSCMLib/ERPSolTemplateView.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
