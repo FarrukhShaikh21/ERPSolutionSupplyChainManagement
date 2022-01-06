@@ -1034,5 +1034,14 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
         return (RowSet) getAttributeInternal(ACCVWFUNCGETITEMDISCOUNTBYLOCATIONRETURN);
     }
 
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        // TODO Implement this method
+        if (getSoSalesReturnView().getAttribute("Posted").toString().equals("Y")) {
+            return false;
+       }
+        return super.isAttributeUpdateable(i);
+    }
+    
 }
 

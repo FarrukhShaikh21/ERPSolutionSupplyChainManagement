@@ -4,7 +4,7 @@
     <af:document title="SO_0161_SEARCH.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
-            <af:panelHeader text="panelHeader 1" id="ph2">
+            <af:panelHeader text="Sales Return Search" id="ph2">
                 <f:facet name="context"/>
                 <f:facet name="menuBar"/>
                 <f:facet name="toolbar">
@@ -16,15 +16,13 @@
                 <f:facet name="legend"/>
                 <f:facet name="info"/>
                 <af:panelGroupLayout layout="vertical" id="pgl1">
-                    <af:panelHeader text="SoSalesReturn" id="ph1">
-                        <af:query id="qryId1" headerText="Search" disclosed="true"
-                                  value="#{bindings.SoSalesReturnViewFindVCQuery.queryDescriptor}"
-                                  model="#{bindings.SoSalesReturnViewFindVCQuery.queryModel}"
-                                  queryListener="#{bindings.SoSalesReturnViewFindVCQuery.processQuery}"
-                                  queryOperationListener="#{bindings.SoSalesReturnViewFindVCQuery.processQueryOperation}"
-                                  resultComponentId="::resId1" saveQueryMode="hidden" modeChangeVisible="false"
-                                  maxColumns="2" rows="4"/>
-                    </af:panelHeader>
+                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                              value="#{bindings.SoSalesReturnViewFindVCQuery.queryDescriptor}"
+                              model="#{bindings.SoSalesReturnViewFindVCQuery.queryModel}"
+                              queryListener="#{bindings.SoSalesReturnViewFindVCQuery.processQuery}"
+                              queryOperationListener="#{bindings.SoSalesReturnViewFindVCQuery.processQueryOperation}"
+                              resultComponentId="::resId1" saveQueryMode="hidden" modeChangeVisible="false"
+                              maxColumns="2" rows="4"/>
                     <af:table value="#{bindings.SoSalesReturnCRUD.collectionModel}" var="row"
                               rows="#{bindings.SoSalesReturnCRUD.rangeSize}"
                               emptyText="#{bindings.SoSalesReturnCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"

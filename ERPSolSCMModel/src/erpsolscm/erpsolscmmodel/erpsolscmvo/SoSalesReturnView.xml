@@ -642,7 +642,7 @@
       <ViewCriteriaItem
         Name="ReturnDate"
         ViewAttribute="ReturnDate"
-        Operator="BEFORE"
+        Operator="BETWEEN"
         Conjunction="AND"
         Required="Optional"/>
       <ViewCriteriaItem

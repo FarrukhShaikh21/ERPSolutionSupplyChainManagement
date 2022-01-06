@@ -872,6 +872,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllLocationsSoSalesOrderLocationIdAssoc.AllLocations"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="AllCustomers"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllLocationsAllCustomerLocationIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllLocationsAllCustomerLocationIdAssoc.AllCustomers"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllLocationsAllCustomerLocationIdAssoc.AllLocations"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpkallLocations"
     PrimaryKey="true">
@@ -915,4 +922,8 @@
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllLocations.Companyid"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
 </Entity>

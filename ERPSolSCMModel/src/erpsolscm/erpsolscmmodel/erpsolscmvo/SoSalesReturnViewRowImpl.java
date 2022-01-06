@@ -1186,5 +1186,13 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
     public RowSet getAccVWYesNoQVO() {
         return (RowSet) getAttributeInternal(ACCVWYESNOQVO);
     }
+    @Override
+    public boolean isAttributeUpdateable(int i) {
+        // TODO Implement this method
+        if (getPosted().equals("Y")) {
+            return false;
+       }
+        return super.isAttributeUpdateable(i);
+    }
 }
 

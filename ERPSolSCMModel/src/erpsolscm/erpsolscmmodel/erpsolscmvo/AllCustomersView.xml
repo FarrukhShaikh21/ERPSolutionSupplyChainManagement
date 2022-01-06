@@ -21,6 +21,145 @@
     Name="P_ADF_USERID"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <ViewAccessor
+    Name="AccAllLocationsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllLocationsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllCustomerTypeView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomerTypeView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllCusBusinessSectorTypesView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCusBusinessSectorTypesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllCusProductTypesView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCusProductTypesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllCusSegmentTypesView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCusSegmentTypesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllCitiesView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCitiesView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_txtLocationName"
+    ListVOName="AccAllLocationsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtLocationName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="LocationDescription"/>
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LocationDescription"/>
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovCustypeid"
+    ListVOName="AccAllCustomerTypeView"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Custypeid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustTypeId"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovCusbsectortypeid"
+    ListVOName="AccAllCusBusinessSectorTypesView"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Cusbsectortypeid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Cusbsectortypeid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovCusproducttypeid"
+    ListVOName="AccAllCusProductTypesView"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Cusproducttypeid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Cusproducttypeid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovCussegmenttypeid"
+    ListVOName="AccAllCusSegmentTypesView"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Cussegmenttypeid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Cussegmenttypeid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovCityid"
+    ListVOName="AccAllCitiesView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Cityid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Cityid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CityName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="AllCustomers"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers"/>
@@ -57,28 +196,60 @@
     PrecisionRule="true"
     EntityAttrName="Cusproducttypeid"
     EntityUsage="AllCustomers"
-    AliasName="CUSPRODUCTTYPEID"/>
+    AliasName="CUSPRODUCTTYPEID"
+    LOVName="LovCusproducttypeid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Cussegmenttypeid"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Cussegmenttypeid"
     EntityUsage="AllCustomers"
-    AliasName="CUSSEGMENTTYPEID"/>
+    AliasName="CUSSEGMENTTYPEID"
+    LOVName="LovCussegmenttypeid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Custypeid"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Custypeid"
     EntityUsage="AllCustomers"
-    AliasName="CUSTYPEID"/>
+    AliasName="CUSTYPEID"
+    LOVName="LovCustypeid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Cusbsectortypeid"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Cusbsectortypeid"
     EntityUsage="AllCustomers"
-    AliasName="CUSBSECTORTYPEID"/>
+    AliasName="CUSBSECTORTYPEID"
+    LOVName="LovCusbsectortypeid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Technicalterritoryid"
     PrecisionRule="true"
@@ -355,7 +526,15 @@
     PrecisionRule="true"
     EntityAttrName="Cityid"
     EntityUsage="AllCustomers"
-    AliasName="CITYID"/>
+    AliasName="CITYID"
+    LOVName="LovCityid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RetQtyExempted"
     PrecisionRule="true"
@@ -552,6 +731,22 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="txtLocationName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtLocationName"
+    EntityUsage="AllCustomers"
+    AliasName="TXT_LOCATION_NAME"
+    LOVName="LOV_txtLocationName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="AllCustomersViewByLocationVC"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView"
@@ -725,6 +920,12 @@
     Name="SysUserCustomerView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCustomersSysUserCustomersCustomerIdLink"
     Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllLocationsView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllLocationsAllCustomerLocationIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
