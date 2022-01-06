@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AllCustomerType"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ALL_CUSTOMER_TYPE"
+  AliasName="AllCustomerType"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CustomerTypeSno"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="CUSTOMER_TYPE_SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="ALL_CUSTOMER_TYPE"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Customerid"
+    IsNotNull="true"
+    Precision="15"
+    ColumnName="CUSTOMERID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ALL_CUSTOMER_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CustTypeId"
+    IsNotNull="true"
+    Precision="15"
+    ColumnName="CUST_TYPE_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ALL_CUSTOMER_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EffectiveDate"
+    IsNotNull="true"
+    ColumnName="EFFECTIVE_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="ALL_CUSTOMER_TYPE"/>
+  <Attribute
+    Name="Auditt"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="AUDITT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ALL_CUSTOMER_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AuditDate"
+    ColumnName="AUDIT_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="ALL_CUSTOMER_TYPE"/>
+  <Attribute
+    Name="Submit"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="SUBMIT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ALL_CUSTOMER_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SubmitDate"
+    ColumnName="SUBMIT_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="ALL_CUSTOMER_TYPE"/>
+  <Attribute
+    Name="CreatedBy"
+    Precision="50"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ALL_CUSTOMER_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedDate"
+    ColumnName="CREATED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="ALL_CUSTOMER_TYPE"/>
+  <Attribute
+    Name="ModifiedBy"
+    Precision="50"
+    ColumnName="MODIFIED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ALL_CUSTOMER_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedDate"
+    ColumnName="MODIFIED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="ALL_CUSTOMER_TYPE"/>
+  <Key
+    Name="PkAllCustomerType"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_ALL_CUSTOMER_TYPE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomerType.CustomerTypeSno"/>
+    </AttrArray>
+  </Key>
+</Entity>
