@@ -113,7 +113,8 @@ public class AllCustomersImpl extends ERPSolGlobalsEntityImpl {
         SoRebate,
         SysUserCustomer,
         AllLocations,
-        AllCustomerSalesperson;
+        AllCustomerSalesperson,
+        AllCities;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -227,6 +228,7 @@ public class AllCustomersImpl extends ERPSolGlobalsEntityImpl {
     public static final int SYSUSERCUSTOMER = AttributesEnum.SysUserCustomer.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
     public static final int ALLCUSTOMERSALESPERSON = AttributesEnum.AllCustomerSalesperson.index();
+    public static final int ALLCITIES = AttributesEnum.AllCities.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1621,6 +1623,20 @@ public class AllCustomersImpl extends ERPSolGlobalsEntityImpl {
         return (RowIterator) getAttributeInternal(ALLCUSTOMERSALESPERSON);
     }
 
+
+    /**
+     * @return the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public EntityImpl getAllCities() {
+        return (EntityImpl) getAttributeInternal(ALLCITIES);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public void setAllCities(EntityImpl value) {
+        setAttributeInternal(ALLCITIES, value);
+    }
 
     /**
      * @param customerid key constituent

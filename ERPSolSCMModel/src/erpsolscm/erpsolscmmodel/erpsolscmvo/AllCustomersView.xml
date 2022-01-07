@@ -49,6 +49,10 @@
     Name="AccMarketingRegionView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.MarketingRegionView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllCusTypesView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCusTypesView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_txtLocationName"
     ListVOName="AccAllLocationsView"
@@ -75,7 +79,7 @@
   </ListBinding>
   <ListBinding
     Name="LovCustypeid"
-    ListVOName="AccAllCustomerTypeView"
+    ListVOName="AccAllCusTypesView"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0">
@@ -84,10 +88,10 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="CustTypeId"/>
+      <Item Value="Custypeid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="CustTypeId"/>
+      <Item Value="Description"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>

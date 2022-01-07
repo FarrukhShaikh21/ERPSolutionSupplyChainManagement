@@ -140,7 +140,8 @@
                                         required="#{bindings.CustomerName.hints.mandatory}"
                                         columns="#{bindings.CustomerName.hints.displayWidth}"
                                         maximumLength="#{bindings.CustomerName.hints.precision}"
-                                        shortDesc="#{bindings.CustomerName.hints.tooltip}" id="it4" simple="true">
+                                        shortDesc="#{bindings.CustomerName.hints.tooltip}" id="it4" simple="true"
+                                        contentStyle="width:100%">
                             <f:validator binding="#{bindings.CustomerName.validator}"/>
                           </af:inputText>
                         </af:gridCell>
@@ -159,6 +160,7 @@
                                                         shortDesc="#{bindings.txtLocationName.hints.tooltip}"
                                                         simple="true">
                             <f:validator binding="#{bindings.txtLocationName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
                           </af:inputComboboxListOfValues>
                           <af:spacer width="10" height="10" id="s3"/>
                           <af:outputText value="#{bindings.Locationid.inputValue}"
@@ -167,17 +169,17 @@
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr6">
                         <af:gridCell marginStart="5px" width="15%" id="gc12" valign="middle" halign="center">
-                          <af:outputLabel value="#{bindings.Custypeid.label}" id="ol1"/>
+                          <af:outputLabel id="ol1" value="#{bindings.Custypeid.label}"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc13" halign="stretch" valign="stretch">
                           <af:selectOneChoice value="#{bindings.Custypeid.inputValue}"
                                               label="#{bindings.Custypeid.label}"
                                               required="#{bindings.Custypeid.hints.mandatory}"
-                                              shortDesc="#{bindings.Custypeid.hints.tooltip}" id="soc3" simple="true">
+                                              shortDesc="#{bindings.Custypeid.hints.tooltip}" id="soc3" simple="true"
+                                              contentStyle="width:50%">
                             <f:selectItems value="#{bindings.Custypeid.items}" id="si4"/>
                             <f:validator binding="#{bindings.Custypeid.validator}"/>
                           </af:selectOneChoice>
-                          <af:spacer width="10" height="10" id="s2"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc14" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.ContactPerson.hints.label}" id="ol6"/>
@@ -189,7 +191,8 @@
                                         required="#{bindings.ContactPerson.hints.mandatory}"
                                         columns="#{bindings.ContactPerson.hints.displayWidth}"
                                         maximumLength="#{bindings.ContactPerson.hints.precision}"
-                                        shortDesc="#{bindings.ContactPerson.hints.tooltip}" id="it15" simple="true">
+                                        shortDesc="#{bindings.ContactPerson.hints.tooltip}" id="it15" simple="true"
+                                        contentStyle="width:50%">
                             <f:validator binding="#{bindings.ContactPerson.validator}"/>
                           </af:inputText>
                         </af:gridCell>
@@ -198,12 +201,12 @@
                         <af:gridCell marginStart="5px" width="15%" id="gc16" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.Cusbsectortypeid.label}" id="ol12"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" id="gc17" valign="middle">
+                        <af:gridCell marginStart="5px" width="35%" id="gc17" valign="middle" halign="stretch">
                           <af:selectOneChoice value="#{bindings.Cusbsectortypeid.inputValue}"
                                               label="#{bindings.Cusbsectortypeid.label}"
                                               required="#{bindings.Cusbsectortypeid.hints.mandatory}"
                                               shortDesc="#{bindings.Cusbsectortypeid.hints.tooltip}" id="soc4"
-                                              simple="true" contentStyle="width:100%">
+                                              simple="true" contentStyle="width:50%">
                             <f:selectItems value="#{bindings.Cusbsectortypeid.items}" id="si5"/>
                             <f:validator binding="#{bindings.Cusbsectortypeid.validator}"/>
                           </af:selectOneChoice>
@@ -211,12 +214,13 @@
                         <af:gridCell marginStart="5px" width="15%" id="gc18" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.Cussegmenttypeid.label}" id="ol8"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc19" valign="middle">
+                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc19" valign="middle"
+                                     halign="stretch">
                           <af:selectOneChoice value="#{bindings.Cussegmenttypeid.inputValue}"
                                               label="#{bindings.Cussegmenttypeid.label}"
                                               required="#{bindings.Cussegmenttypeid.hints.mandatory}"
                                               shortDesc="#{bindings.Cussegmenttypeid.hints.tooltip}" id="soc2"
-                                              simple="true" contentStyle="width:100%">
+                                              simple="true" contentStyle="width:50%">
                             <f:selectItems value="#{bindings.Cussegmenttypeid.items}" id="si3"/>
                             <f:validator binding="#{bindings.Cussegmenttypeid.validator}"/>
                           </af:selectOneChoice>
@@ -231,7 +235,7 @@
                                               label="#{bindings.Cusproducttypeid.label}"
                                               required="#{bindings.Cusproducttypeid.hints.mandatory}"
                                               shortDesc="#{bindings.Cusproducttypeid.hints.tooltip}" id="soc5"
-                                              simple="true" contentStyle="width:100%">
+                                              simple="true" contentStyle="width:50%">
                             <f:selectItems value="#{bindings.Cusproducttypeid.items}" id="si6"/>
                             <f:validator binding="#{bindings.Cusproducttypeid.validator}"/>
                           </af:selectOneChoice>
@@ -239,12 +243,14 @@
                         <af:gridCell marginStart="5px" width="15%" id="gc22" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.CnicNo.hints.label}" id="ol7"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc23" valign="middle">
+                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc23" valign="middle"
+                                     halign="stretch">
                           <af:inputText value="#{bindings.CnicNo.inputValue}" label="#{bindings.CnicNo.hints.label}"
                                         required="#{bindings.CnicNo.hints.mandatory}"
                                         columns="#{bindings.CnicNo.hints.displayWidth}"
                                         maximumLength="#{bindings.CnicNo.hints.precision}"
-                                        shortDesc="#{bindings.CnicNo.hints.tooltip}" id="it1" simple="true">
+                                        shortDesc="#{bindings.CnicNo.hints.tooltip}" id="it1" simple="true"
+                                        contentStyle="width:50%">
                             <f:validator binding="#{bindings.CnicNo.validator}"/>
                           </af:inputText>
                         </af:gridCell>
@@ -253,24 +259,26 @@
                         <af:gridCell id="gc32" width="15%" halign="center" valign="middle">
                           <af:outputLabel value="#{bindings.TelNo.hints.label}" id="ol9"/>
                         </af:gridCell>
-                        <af:gridCell id="gc33" width="35%">
+                        <af:gridCell id="gc33" width="35%" halign="stretch">
                           <af:inputText value="#{bindings.TelNo.inputValue}" label="#{bindings.TelNo.hints.label}"
                                         required="#{bindings.TelNo.hints.mandatory}"
                                         columns="#{bindings.TelNo.hints.displayWidth}"
                                         maximumLength="#{bindings.TelNo.hints.precision}"
-                                        shortDesc="#{bindings.TelNo.hints.tooltip}" id="it5" simple="true">
+                                        shortDesc="#{bindings.TelNo.hints.tooltip}" id="it5" simple="true"
+                                        contentStyle="width:50%">
                             <f:validator binding="#{bindings.TelNo.validator}"/>
                           </af:inputText>
                         </af:gridCell>
                         <af:gridCell id="gc34" width="15%" halign="center" valign="middle">
                           <af:outputLabel value="#{bindings.MobileNo.hints.label}" id="ol13"/>
                         </af:gridCell>
-                        <af:gridCell id="gc35" width="35%">
+                        <af:gridCell id="gc35" width="35%" halign="stretch">
                           <af:inputText value="#{bindings.MobileNo.inputValue}" label="#{bindings.MobileNo.hints.label}"
                                         required="#{bindings.MobileNo.hints.mandatory}"
                                         columns="#{bindings.MobileNo.hints.displayWidth}"
                                         maximumLength="#{bindings.MobileNo.hints.precision}"
-                                        shortDesc="#{bindings.MobileNo.hints.tooltip}" id="it16" simple="true">
+                                        shortDesc="#{bindings.MobileNo.hints.tooltip}" id="it16" simple="true"
+                                        contentStyle="width:50%">
                             <f:validator binding="#{bindings.MobileNo.validator}"/>
                           </af:inputText>
                         </af:gridCell>
@@ -279,24 +287,25 @@
                         <af:gridCell id="gc36" width="15%" halign="center" valign="middle">
                           <af:outputLabel value="#{bindings.FaxNo.hints.label}" id="ol14"/>
                         </af:gridCell>
-                        <af:gridCell id="gc37" width="35%">
+                        <af:gridCell id="gc37" width="35%" halign="stretch">
                           <af:inputText value="#{bindings.FaxNo.inputValue}" label="#{bindings.FaxNo.hints.label}"
                                         required="#{bindings.FaxNo.hints.mandatory}"
                                         columns="#{bindings.FaxNo.hints.displayWidth}"
                                         maximumLength="#{bindings.FaxNo.hints.precision}"
-                                        shortDesc="#{bindings.FaxNo.hints.tooltip}" id="it17" simple="true">
+                                        shortDesc="#{bindings.FaxNo.hints.tooltip}" id="it17" simple="true"
+                                        contentStyle="width:50%">
                             <f:validator binding="#{bindings.FaxNo.validator}"/>
                           </af:inputText>
                         </af:gridCell>
                         <af:gridCell id="gc38" width="15%" halign="center" valign="middle">
                           <af:outputLabel value="#{bindings.MktRegionid.label}" id="ol15"/>
                         </af:gridCell>
-                        <af:gridCell id="gc39" width="35%">
+                        <af:gridCell id="gc39" width="35%" halign="stretch">
                           <af:selectOneChoice value="#{bindings.MktRegionid.inputValue}"
                                               label="#{bindings.MktRegionid.label}"
                                               required="#{bindings.MktRegionid.hints.mandatory}"
                                               shortDesc="#{bindings.MktRegionid.hints.tooltip}" id="soc6" simple="true"
-                                              contentStyle="width:100%">
+                                              contentStyle="width:50%">
                             <f:selectItems value="#{bindings.MktRegionid.items}" id="si7"/>
                             <f:validator binding="#{bindings.MktRegionid.validator}"/>
                           </af:selectOneChoice>
@@ -306,21 +315,22 @@
                         <af:gridCell id="gc40" width="15%" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.Email.hints.label}" id="ol16"/>
                         </af:gridCell>
-                        <af:gridCell id="gc41" width="35%">
+                        <af:gridCell id="gc41" width="35%" halign="stretch">
                           <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
                                         required="#{bindings.Email.hints.mandatory}"
                                         columns="#{bindings.Email.hints.displayWidth}"
                                         maximumLength="#{bindings.Email.hints.precision}"
-                                        shortDesc="#{bindings.Email.hints.tooltip}" id="it18" simple="true">
+                                        shortDesc="#{bindings.Email.hints.tooltip}" id="it18" simple="true"
+                                        contentStyle="width:50%">
                             <f:validator binding="#{bindings.Email.validator}"/>
                           </af:inputText>
                         </af:gridCell>
                         <af:gridCell id="gc42" width="15%" halign="center" valign="middle">
                           <af:outputLabel value="#{bindings.Audited.hints.label}" id="ol17"/>
                         </af:gridCell>
-                        <af:gridCell id="gc43" width="35%">
+                        <af:gridCell id="gc43" width="35%" halign="stretch">
                           <af:selectOneChoice label="#{bindings.Audited.hints.label}" value="#{bindings.Audited.inputValue}" id="soc7"
-                                              simple="true" contentStyle="width:100%">
+                                              simple="true" contentStyle="width:50%">
                             <af:selectItem label="Yes" value="Y" id="si8"/>
                             <af:selectItem label="No" value="N" id="si9"/>
                           </af:selectOneChoice>
@@ -349,86 +359,93 @@
             </af:panelGridLayout>
             <af:panelGridLayout id="pgl1">
               <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
-                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc26">
-                  <af:table value="#{bindings.AllCustomerSalespersonDetCRUD.collectionModel}" var="row"
-                            rows="#{bindings.AllCustomerSalespersonDetCRUD.rangeSize}"
-                            emptyText="#{bindings.AllCustomerSalespersonDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
-                            rowBandingInterval="0"
-                            selectedRowKeys="#{bindings.AllCustomerSalespersonDetCRUD.collectionModel.selectedRow}"
-                            selectionListener="#{bindings.AllCustomerSalespersonDetCRUD.collectionModel.makeCurrent}"
-                            rowSelection="single" fetchSize="#{bindings.AllCustomerSalespersonDetCRUD.rangeSize}"
-                            id="t2">
-                    <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.label}"
-                               id="c2">
-                      <af:inputComboboxListOfValues id="txtSalesPersonNameId"
-                                                    popupTitle="Search and Select: #{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.label}"
-                                                    value="#{row.bindings.txtSalesPersonName.inputValue}"
-                                                    model="#{row.bindings.txtSalesPersonName.listOfValuesModel}"
-                                                    required="#{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.mandatory}"
-                                                    columns="#{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.displayWidth}"
-                                                    shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.tooltip}">
-                        <f:validator binding="#{row.bindings.txtSalesPersonName.validator}"/>
-                      </af:inputComboboxListOfValues>
-                    </af:column>
-                    <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.label}" id="c3">
-                      <af:inputText value="#{row.bindings.Salespersonid.inputValue}"
-                                    label="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.label}"
-                                    required="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.mandatory}"
-                                    columns="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.displayWidth}"
-                                    maximumLength="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.precision}"
-                                    shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.tooltip}"
-                                    id="it6">
-                        <f:validator binding="#{row.bindings.Salespersonid.validator}"/>
-                      </af:inputText>
-                    </af:column>
-                    <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.label}"
-                               id="c4">
-                      <af:inputText value="#{row.bindings.Salesterritoryid.inputValue}"
-                                    label="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.label}"
-                                    required="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.mandatory}"
-                                    columns="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.displayWidth}"
-                                    maximumLength="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.precision}"
-                                    shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.tooltip}"
-                                    id="it7">
-                        <f:validator binding="#{row.bindings.Salesterritoryid.validator}"/>
-                      </af:inputText>
-                    </af:column>
-                    <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.label}" id="c5">
-                      <af:inputText value="#{row.bindings.Id.inputValue}"
-                                    label="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.label}"
-                                    required="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.mandatory}"
-                                    columns="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.displayWidth}"
-                                    maximumLength="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.precision}"
-                                    shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.tooltip}" id="it9"
-                                    readOnly="true">
-                        <f:validator binding="#{row.bindings.Id.validator}"/>
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.format}"/>
-                      </af:inputText>
-                    </af:column>
-                    <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.Divid.label}" id="c6">
-                      <af:selectOneChoice value="#{row.bindings.Divid.inputValue}" label="#{row.bindings.Divid.label}"
-                                          required="#{bindings.AllCustomerSalespersonDetCRUD.hints.Divid.mandatory}"
-                                          shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.Divid.tooltip}"
-                                          id="soc8">
-                        <f:selectItems value="#{row.bindings.Divid.items}" id="si10"/>
-                        <f:validator binding="#{row.bindings.Divid.validator}"/>
-                      </af:selectOneChoice>
-                    </af:column>
-                    <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.DefaultPerson.label}" id="c7">
-                      <af:inputText value="#{row.bindings.DefaultPerson.inputValue}"
-                                    label="#{bindings.AllCustomerSalespersonDetCRUD.hints.DefaultPerson.label}"
-                                    required="#{bindings.AllCustomerSalespersonDetCRUD.hints.DefaultPerson.mandatory}"
-                                    columns="#{bindings.AllCustomerSalespersonDetCRUD.hints.DefaultPerson.displayWidth}"
-                                    maximumLength="#{bindings.AllCustomerSalespersonDetCRUD.hints.DefaultPerson.precision}"
-                                    shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.DefaultPerson.tooltip}"
-                                    id="it10">
-                        <f:validator binding="#{row.bindings.DefaultPerson.validator}"/>
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.AllCustomerSalespersonDetCRUD.hints.DefaultPerson.format}"/>
-                      </af:inputText>
-                    </af:column>
-                  </af:table>
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc26" halign="stretch">
+                  <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar">
+                      <af:toolbar id="t3">
+                        <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add New Sales Person"
+                                   disabled="#{!bindings.CreateInsert1.enabled}" id="b10"/>
+                        <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Sales Person"
+                                   disabled="#{!bindings.Delete1.enabled}" id="b11"/>
+                      </af:toolbar>
+                    </f:facet>
+                    <f:facet name="statusbar"/>
+                    <af:table value="#{bindings.AllCustomerSalespersonDetCRUD.collectionModel}" var="row"
+                              rows="#{bindings.AllCustomerSalespersonDetCRUD.rangeSize}"
+                              emptyText="#{bindings.AllCustomerSalespersonDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.AllCustomerSalespersonDetCRUD.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.AllCustomerSalespersonDetCRUD.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.AllCustomerSalespersonDetCRUD.rangeSize}"
+                              id="t2" partialTriggers="::b10 ::b11">
+                      <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.label}"
+                                 id="c2" width="200">
+                        <af:inputComboboxListOfValues id="txtSalesPersonNameId"
+                                                      popupTitle="Search and Select: #{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.label}"
+                                                      value="#{row.bindings.txtSalesPersonName.inputValue}"
+                                                      model="#{row.bindings.txtSalesPersonName.listOfValuesModel}"
+                                                      required="#{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.mandatory}"
+                                                      columns="#{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.displayWidth}"
+                                                      shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.tooltip}">
+                          <f:validator binding="#{row.bindings.txtSalesPersonName.validator}"/>
+                        </af:inputComboboxListOfValues>
+                      </af:column>
+                      <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.label}"
+                                 id="c3">
+                        <af:inputText value="#{row.bindings.Salespersonid.inputValue}"
+                                      label="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.label}"
+                                      required="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.mandatory}"
+                                      columns="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.displayWidth}"
+                                      maximumLength="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.precision}"
+                                      shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.tooltip}"
+                                      id="it6" partialTriggers="txtSalesPersonNameId">
+                          <f:validator binding="#{row.bindings.Salespersonid.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.label}"
+                                 id="c4">
+                        <af:inputText value="#{row.bindings.Salesterritoryid.inputValue}"
+                                      label="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.label}"
+                                      required="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.mandatory}"
+                                      columns="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.displayWidth}"
+                                      maximumLength="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.precision}"
+                                      shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.tooltip}"
+                                      id="it7" partialTriggers="txtSalesPersonNameId">
+                          <f:validator binding="#{row.bindings.Salesterritoryid.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.label}" id="c5">
+                        <af:inputText value="#{row.bindings.Id.inputValue}"
+                                      label="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.label}"
+                                      required="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.mandatory}"
+                                      columns="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.displayWidth}"
+                                      maximumLength="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.precision}"
+                                      shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.tooltip}" id="it9"
+                                      readOnly="true">
+                          <f:validator binding="#{row.bindings.Id.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.Divid.label}" id="c6">
+                        <af:selectOneChoice value="#{row.bindings.Divid.inputValue}" label="#{row.bindings.Divid.label}"
+                                            required="#{bindings.AllCustomerSalespersonDetCRUD.hints.Divid.mandatory}"
+                                            shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.Divid.tooltip}"
+                                            id="soc8">
+                          <f:selectItems value="#{row.bindings.Divid.items}" id="si10"/>
+                          <f:validator binding="#{row.bindings.Divid.validator}"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                      <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.DefaultPerson.label}"
+                                 id="c7">
+                        <af:selectOneChoice label="Label 1" id="soc9" value="#{row.bindings.DefaultPerson.inputValue}">
+                          <af:selectItem label="Yes" value="Y" id="si11"/>
+                          <af:selectItem label="No" value="N" id="si12"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                    </af:table>
+                  </af:panelCollection>
                 </af:gridCell>
               </af:gridRow>
             </af:panelGridLayout>

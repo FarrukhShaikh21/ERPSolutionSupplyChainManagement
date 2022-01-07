@@ -27,7 +27,6 @@
   <Attribute
     Name="Customerid"
     IsUnique="true"
-    IsNotNull="true"
     Precision="15"
     ColumnName="CUSTOMERID"
     SQLType="VARCHAR"
@@ -270,6 +269,8 @@
     Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="ALL_CUSTOMERS">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDate]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -1041,7 +1042,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMERS">
+    TableName="ALL_CUSTOMERS"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -1397,6 +1399,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersAllCustomerSalesPersonCustomerseqAssoc.AllCustomers"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="AllCities"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCityAllCustomerCityIDAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCityAllCustomerCityIDAssoc.AllCities"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCityAllCustomerCityIDAssoc.AllCustomers"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="ChkAllCustRestGift">
     <DesignTime>
@@ -1444,6 +1453,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers.Locationid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_AllCustomers1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C0015854"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_ALL_CUSTOMERS1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers.Cityid"/>
     </AttrArray>
   </Key>
   <ResourceBundle>

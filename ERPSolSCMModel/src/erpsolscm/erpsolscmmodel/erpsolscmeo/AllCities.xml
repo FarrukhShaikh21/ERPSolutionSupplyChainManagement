@@ -98,6 +98,13 @@
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
   </Attribute>
+  <AccessorAttribute
+    Name="AllCustomers"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCityAllCustomerCityIDAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCityAllCustomerCityIDAssoc.AllCustomers"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCityAllCustomerCityIDAssoc.AllCities"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="SysC0015854"
     PrimaryKey="true">
