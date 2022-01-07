@@ -9,13 +9,19 @@
   DBObjectType="table"
   DBObjectName="ALL_CUSTOMER_SALESPERSON"
   AliasName="AllCustomerSalesperson"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomerSalespersonImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="CustLineno"
     IsNotNull="true"
     ColumnName="CUST_LINENO"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="ALL_CUSTOMER_SALESPERSON"
     PrimaryKey="true"/>
@@ -104,7 +110,7 @@
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="ALL_CUSTOMER_SALESPERSON"/>
   <Attribute
@@ -123,7 +129,7 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="ALL_CUSTOMER_SALESPERSON"/>
   <Attribute
@@ -162,12 +168,26 @@
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="Customerseq"
+    ColumnName="CUSTOMERSEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="ALL_CUSTOMER_SALESPERSON"/>
   <AccessorAttribute
     Name="SoSalesPersons"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonAllCustomerSalesPersonSalespersonIdAsso"
     AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonAllCustomerSalesPersonSalespersonIdAsso.SoSalesPersons"
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonAllCustomerSalesPersonSalespersonIdAsso.AllCustomerSalesperson"
     Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AllCustomers"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersAllCustomerSalesPersonCustomerseqAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersAllCustomerSalesPersonCustomerseqAssoc.AllCustomers"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersAllCustomerSalesPersonCustomerseqAssoc.AllCustomerSalesperson"
+    Type="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomersImpl"
     IsUpdateable="true"/>
   <Key
     Name="SysC0016403"
