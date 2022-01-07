@@ -337,10 +337,26 @@
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
-                        <af:gridCell marginStart="5px" width="15%" id="gc24" halign="center" valign="middle">
+                        <af:gridCell id="gc28" width="15%" halign="center" valign="middle">
+                          <af:outputLabel value="#{bindings.txtCityName.hints.label}" id="ol18"/>
+                        </af:gridCell>
+                        <af:gridCell id="gc27" halign="stretch" width="35%">
+                          <af:inputComboboxListOfValues id="txtCityNameId"
+                                                        popupTitle="Search and Select: #{bindings.txtCityName.hints.label}"
+                                                        value="#{bindings.txtCityName.inputValue}"
+                                                        label="#{bindings.txtCityName.hints.label}"
+                                                        model="#{bindings.txtCityName.listOfValuesModel}"
+                                                        required="#{bindings.txtCityName.hints.mandatory}"
+                                                        columns="#{bindings.txtCityName.hints.displayWidth}"
+                                                        shortDesc="#{bindings.txtCityName.hints.tooltip}" simple="true"
+                                                        contentStyle="width:50%">
+                            <f:validator binding="#{bindings.txtCityName.validator}"/>
+                          </af:inputComboboxListOfValues>
+                        </af:gridCell>
+                        <af:gridCell width="15%" id="gc24" halign="center" valign="middle">
                           <af:outputLabel value="#{bindings.Address.hints.label}" id="ol2"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="75%" id="gc25" columnSpan="3" rowSpan="1"
+                        <af:gridCell width="35%" id="gc25" columnSpan="3" rowSpan="1"
                                      halign="stretch">
                           <af:inputText value="#{bindings.Address.inputValue}" label="#{bindings.Address.hints.label}"
                                         required="#{bindings.Address.hints.mandatory}"

@@ -109,5 +109,6 @@
             Action="createInsertRow"/>
     <action IterBinding="AllCustomerSalespersonDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <listOfValues IterBinding="AllCustomersCRUDIterator" StaticList="false" Uses="LovtxtCityName" id="txtCityName"/>
   </bindings>
 </pageDefinition>
