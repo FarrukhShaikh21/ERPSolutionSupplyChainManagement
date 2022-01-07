@@ -42,10 +42,6 @@
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCusSegmentTypesView"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="AccAllCitiesView"
-    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCitiesView"
-    RowLevelBinds="true"/>
-  <ViewAccessor
     Name="AccMarketingRegionView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.MarketingRegionView"
     RowLevelBinds="true"/>
