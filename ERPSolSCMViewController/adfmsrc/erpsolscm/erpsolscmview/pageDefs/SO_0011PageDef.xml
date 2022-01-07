@@ -96,5 +96,14 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action IterBinding="AllCustomersCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="AllCustomersCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="AllCustomersCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="AllCustomersCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

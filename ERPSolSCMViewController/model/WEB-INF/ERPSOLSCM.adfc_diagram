@@ -91,7 +91,7 @@
       <property
          name="fromOutcome">ERP-ACT-SO-0161</property>
       <property
-         name="sdm:polyPoints">B50,241.03516,426.20117,L50</property>
+         name="sdm:polyPoints">B44,237.53516,426.20117,L50</property>
    </ControlFlowCase>
    <View
       id="View9">
@@ -749,5 +749,65 @@
          name="fromOutcome">ACT-ERP-SOL-GOTO-SCM-MAIN</property>
       <property
          name="sdm:polyPoints">B50,-606.64844,-11.928223,-641.64844,-11.928223,T50</property>
+   </ControlFlowCase>
+   <View
+      id="View69">
+      <property
+         name="activityId">SO_0011</property>
+      <property
+         name="page">/SO_0011.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SO_0011&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">302.79883</property>
+      <property
+         name="x">709.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase71"
+      from="MethodCall4"
+      to="View69">
+      <property
+         name="fromOutcome">ERP-ACT-SO-0011</property>
+      <property
+         name="sdm:polyPoints">B56,244.53516,356.44824,709.5,356.44824,B50</property>
+   </ControlFlowCase>
+   <View
+      id="View72">
+      <property
+         name="activityId">SO_0011_SEARCH</property>
+      <property
+         name="page">/SO_0011_SEARCH.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SO_0011_SEARCH&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">302.79883</property>
+      <property
+         name="x">957.6953</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase73"
+      from="View69"
+      to="View72">
+      <property
+         name="fromOutcome">ERP-ACT-SO-0011-SEARCH</property>
+      <property
+         name="sdm:polyPoints">R50,833.59766,302.44824,833.59766,302.44824,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase74"
+      from="View72"
+      to="View69">
+      <property
+         name="fromOutcome">ERP-ACT-SO-0011-BACK-FROM-SEARCH</property>
+      <property
+         name="sdm:polyPoints">L54,833.59766,305.94824,833.59766,305.94824,R54</property>
    </ControlFlowCase>
 </SDM>

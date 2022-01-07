@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0011_SEARCHPageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AllCustomersCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="AllCustomersCRUDIterator"/>
+    <searchRegion Criteria="AllCustomersViewFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="AllCustomersCRUDIterator" id="AllCustomersViewFindVCQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AllCustomersCRUDIterator" id="AllCustomersCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView" Name="AllCustomersCRUD0">
+        <AttrNames>
+          <Item Value="Customerid"/>
+          <Item Value="AcOpeningDate"/>
+          <Item Value="CustomerName"/>
+          <Item Value="Locationid"/>
+          <Item Value="txtLocationName"/>
+          <Item Value="Custypeid"/>
+          <Item Value="CnicNo"/>
+          <Item Value="ContactPerson"/>
+          <Item Value="TelNo"/>
+          <Item Value="MobileNo"/>
+          <Item Value="Email"/>
+          <Item Value="FaxNo"/>
+          <Item Value="Audited"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

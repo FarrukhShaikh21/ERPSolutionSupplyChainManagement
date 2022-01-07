@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="SO_0011_SEARCH.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGroupLayout layout="vertical" id="pgl1">
+                <af:panelHeader text="AllCustomers" id="ph1">
+                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                              value="#{bindings.AllCustomersViewFindVCQuery.queryDescriptor}"
+                              model="#{bindings.AllCustomersViewFindVCQuery.queryModel}"
+                              queryListener="#{bindings.AllCustomersViewFindVCQuery.processQuery}"
+                              queryOperationListener="#{bindings.AllCustomersViewFindVCQuery.processQueryOperation}"
+                              resultComponentId="::resId1"/>
+                </af:panelHeader>
+                <af:table value="#{bindings.AllCustomersCRUD.collectionModel}" var="row"
+                          rows="#{bindings.AllCustomersCRUD.rangeSize}"
+                          emptyText="#{bindings.AllCustomersCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.AllCustomersCRUD.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.AllCustomersCRUD.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.AllCustomersCRUD.rangeSize}" id="resId1">
+                    <af:column headerText="#{bindings.AllCustomersCRUD.hints.Customerid.label}" id="resId1c1">
+                        <af:link text="#{row.Customerid}" id="l1" action="ERP-ACT-SO-0011-BACK-FROM-SEARCH"/>
+                        <af:outputText value="#{row.Customerid}"
+                                       shortDesc="#{bindings.AllCustomersCRUD.hints.Customerid.tooltip}" id="ot1"
+                                       rendered="false"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.AllCustomersCRUD.hints.AcOpeningDate.label}" id="resId1c2">
+                        <af:outputText value="#{row.AcOpeningDate}"
+                                       shortDesc="#{bindings.AllCustomersCRUD.hints.AcOpeningDate.tooltip}" id="ot2">
+                            <af:convertDateTime pattern="#{bindings.AllCustomersCRUD.hints.AcOpeningDate.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.AllCustomersCRUD.hints.CustomerName.label}" id="resId1c3">
+                        <af:outputText value="#{row.CustomerName}"
+                                       shortDesc="#{bindings.AllCustomersCRUD.hints.CustomerName.tooltip}" id="ot3"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.AllCustomersCRUD.hints.Locationid.label}" id="resId1c4">
+                        <af:outputText value="#{row.Locationid}"
+                                       shortDesc="#{bindings.AllCustomersCRUD.hints.Locationid.tooltip}" id="ot4"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.AllCustomersCRUD.hints.txtLocationName.label}" id="resId1c5">
+                        <af:outputText value="#{row.txtLocationName}"
+                                       shortDesc="#{bindings.AllCustomersCRUD.hints.txtLocationName.tooltip}" id="ot5"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.AllCustomersCRUD.hints.Custypeid.label}" id="resId1c6">
+                        <af:selectOneChoice value="#{row.bindings.Custypeid.inputValue}"
+                                            label="#{row.bindings.Custypeid.label}"
+                                            required="#{bindings.AllCustomersCRUD.hints.Custypeid.mandatory}"
+                                            shortDesc="#{bindings.AllCustomersCRUD.hints.Custypeid.tooltip}"
+                                            readOnly="true" id="soc1">
+                            <f:selectItems value="#{row.bindings.Custypeid.items}" id="si1"/>
+                            <f:validator binding="#{row.bindings.Custypeid.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column headerText="#{bindings.AllCustomersCRUD.hints.CnicNo.label}" id="resId1c7">
+                        <af:outputText value="#{row.CnicNo}"
+                                       shortDesc="#{bindings.AllCustomersCRUD.hints.CnicNo.tooltip}" id="ot6"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.AllCustomersCRUD.hints.ContactPerson.label}" id="resId1c8">
+                        <af:outputText value="#{row.ContactPerson}"
+                                       shortDesc="#{bindings.AllCustomersCRUD.hints.ContactPerson.tooltip}" id="ot7"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.AllCustomersCRUD.hints.TelNo.label}" id="resId1c9">
+                        <af:outputText value="#{row.TelNo}" shortDesc="#{bindings.AllCustomersCRUD.hints.TelNo.tooltip}"
+                                       id="ot8"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.AllCustomersCRUD.hints.MobileNo.label}" id="resId1c10">
+                        <af:outputText value="#{row.MobileNo}"
+                                       shortDesc="#{bindings.AllCustomersCRUD.hints.MobileNo.tooltip}" id="ot9"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.AllCustomersCRUD.hints.Email.label}" id="resId1c11">
+                        <af:outputText value="#{row.Email}" shortDesc="#{bindings.AllCustomersCRUD.hints.Email.tooltip}"
+                                       id="ot10"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.AllCustomersCRUD.hints.FaxNo.label}" id="resId1c12">
+                        <af:outputText value="#{row.FaxNo}" shortDesc="#{bindings.AllCustomersCRUD.hints.FaxNo.tooltip}"
+                                       id="ot11"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.AllCustomersCRUD.hints.Audited.label}" id="resId1c13">
+                        <af:outputText value="#{row.Audited}"
+                                       shortDesc="#{bindings.AllCustomersCRUD.hints.Audited.tooltip}" id="ot12"/>
+                    </af:column>
+                </af:table>
+            </af:panelGroupLayout>
+        </af:form>
+    </af:document>
+</f:view>

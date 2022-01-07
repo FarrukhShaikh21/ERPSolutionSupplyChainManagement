@@ -160,6 +160,12 @@
         <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SO_0011">
+      <page>/SO_0011.jsf</page>
+    </view>
+    <view id="SO_0011_SEARCH">
+      <page>/SO_0011_SEARCH.jsf</page>
+    </view>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -188,6 +194,10 @@
       <control-flow-case id="__45">
         <from-outcome>ERP-ACT-SO-1124</from-outcome>
         <to-activity-id>SO_1124</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__65">
+        <from-outcome>ERP-ACT-SO-0011</from-outcome>
+        <to-activity-id>SO_0011</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__11">
@@ -364,6 +374,20 @@
       <control-flow-case id="__62">
         <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
         <to-activity-id>ExecuteWithParamsSCMMaster</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__66">
+      <from-activity-id>SO_0011</from-activity-id>
+      <control-flow-case id="__67">
+        <from-outcome>ERP-ACT-SO-0011-SEARCH</from-outcome>
+        <to-activity-id>SO_0011_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__68">
+      <from-activity-id>SO_0011_SEARCH</from-activity-id>
+      <control-flow-case id="__69">
+        <from-outcome>ERP-ACT-SO-0011-BACK-FROM-SEARCH</from-outcome>
+        <to-activity-id>SO_0011</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
