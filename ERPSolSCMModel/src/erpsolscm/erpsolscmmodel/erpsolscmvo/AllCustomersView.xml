@@ -936,6 +936,12 @@
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCustomersAllCustomerSalesPersonCustomerseqLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllCitiesView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCityAllCustomerCityIDLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>

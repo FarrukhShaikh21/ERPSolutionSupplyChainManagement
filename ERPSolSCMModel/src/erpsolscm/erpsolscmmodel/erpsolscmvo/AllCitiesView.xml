@@ -65,4 +65,9 @@
     EntityAttrName="MktRegionid"
     EntityUsage="AllCities"
     AliasName="MKT_REGIONID"/>
+  <ViewLinkAccessor
+    Name="AllCustomersView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCityAllCustomerCityIDLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

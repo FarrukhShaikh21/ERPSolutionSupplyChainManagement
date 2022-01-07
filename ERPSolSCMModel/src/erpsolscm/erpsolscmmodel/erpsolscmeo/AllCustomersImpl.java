@@ -1638,6 +1638,7 @@ public class AllCustomersImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(ALLCITIES, value);
     }
 
+
     /**
      * @param customerid key constituent
 
