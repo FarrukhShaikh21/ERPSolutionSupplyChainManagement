@@ -1621,6 +1621,7 @@ public class AllCustomersImpl extends ERPSolGlobalsEntityImpl {
         return (RowIterator) getAttributeInternal(ALLCUSTOMERSALESPERSON);
     }
 
+
     /**
      * @param customerid key constituent
 

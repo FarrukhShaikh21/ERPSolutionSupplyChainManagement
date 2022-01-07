@@ -245,4 +245,10 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllCustomersView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCustomersAllCustomerSalesPersonCustomerseqLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

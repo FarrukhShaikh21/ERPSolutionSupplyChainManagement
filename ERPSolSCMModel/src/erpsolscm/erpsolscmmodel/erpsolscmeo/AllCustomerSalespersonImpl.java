@@ -380,6 +380,7 @@ public class AllCustomerSalespersonImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(ALLCUSTOMERS, value);
     }
 
+
     /**
      * @param custLineno key constituent
 

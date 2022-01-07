@@ -14,7 +14,8 @@
     Cardinality="1"
     Source="true"
     Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers"
-    LockLevel="NONE">
+    LockLevel="NONE"
+    DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="AllCustomers"/>
@@ -27,7 +28,8 @@
   <AssociationEnd
     Name="AllCustomerSalesperson"
     Cardinality="-1"
-    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomerSalesperson">
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomerSalesperson"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="AllCustomerSalesperson"/>
