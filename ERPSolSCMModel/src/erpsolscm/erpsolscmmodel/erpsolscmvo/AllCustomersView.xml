@@ -150,25 +150,6 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LovCityid"
-    ListVOName="AccAllCitiesView"
-    ListRangeSize="-1"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="Cityid"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Cityid"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="CityName"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
     Name="LovMktRegionid"
     ListVOName="AccMarketingRegionView"
     ListRangeSize="-1"
@@ -553,15 +534,7 @@
     PrecisionRule="true"
     EntityAttrName="Cityid"
     EntityUsage="AllCustomers"
-    AliasName="CITYID"
-    LOVName="LovCityid">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="CITYID"/>
   <ViewAttribute
     Name="RetQtyExempted"
     PrecisionRule="true"
