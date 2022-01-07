@@ -3,40 +3,38 @@
 <!---->
 <Association
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="SalesOrderSaleOrderLinesSalesOrderSeqAssoc"
+  Name="AllCustomersAllCustomerSalesPersonCustomerseqAssoc"
   Version="12.1.3.10.47"
   InheritPersonalization="merge">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <AssociationEnd
-    Name="SoSalesOrder"
+    Name="AllCustomers"
     Cardinality="1"
     Source="true"
-    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder"
-    LockLevel="NONE"
-    DeleteContainee="true">
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers"
+    LockLevel="NONE">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
-      <Attr Name="_finderName" Value="SoSalesOrder"/>
+      <Attr Name="_finderName" Value="AllCustomers"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.Salesorderseq"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers.Customerseq"/>
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
-    Name="SoSalesOrderLines"
+    Name="AllCustomerSalesperson"
     Cardinality="-1"
-    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines"
-    HasOwner="true">
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomerSalesperson">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
-      <Attr Name="_finderName" Value="SoSalesOrderLines"/>
+      <Attr Name="_finderName" Value="AllCustomerSalesperson"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.Salesorderseq"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomerSalesperson.Customerseq"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

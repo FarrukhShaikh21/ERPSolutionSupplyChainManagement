@@ -112,7 +112,8 @@ public class AllCustomersImpl extends ERPSolGlobalsEntityImpl {
         SoSalesReturn,
         SoRebate,
         SysUserCustomer,
-        AllLocations;
+        AllLocations,
+        AllCustomerSalesperson;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -225,6 +226,7 @@ public class AllCustomersImpl extends ERPSolGlobalsEntityImpl {
     public static final int SOREBATE = AttributesEnum.SoRebate.index();
     public static final int SYSUSERCUSTOMER = AttributesEnum.SysUserCustomer.index();
     public static final int ALLLOCATIONS = AttributesEnum.AllLocations.index();
+    public static final int ALLCUSTOMERSALESPERSON = AttributesEnum.AllCustomerSalesperson.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1611,6 +1613,13 @@ public class AllCustomersImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(ALLLOCATIONS, value);
     }
 
+
+    /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getAllCustomerSalesperson() {
+        return (RowIterator) getAttributeInternal(ALLCUSTOMERSALESPERSON);
+    }
 
     /**
      * @param customerid key constituent

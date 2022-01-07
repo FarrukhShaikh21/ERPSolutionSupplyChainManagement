@@ -1342,7 +1342,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMERS"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -1391,6 +1390,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllLocationsAllCustomerLocationIdAssoc.AllCustomers"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AllCustomerSalesperson"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersAllCustomerSalesPersonCustomerseqAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersAllCustomerSalesPersonCustomerseqAssoc.AllCustomerSalesperson"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersAllCustomerSalesPersonCustomerseqAssoc.AllCustomers"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="ChkAllCustRestGift">
     <DesignTime>

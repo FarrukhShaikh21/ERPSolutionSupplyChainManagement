@@ -19,7 +19,6 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="SoSalesOrderLines"/>
-      <Attr Name="_foreignKey" Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.PkSoSalesOrderLines"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
@@ -34,7 +33,6 @@
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="SoSalesOrderImei"/>
-      <Attr Name="_foreignKey" Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderImei.fk_SoSalesOrderImei"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">

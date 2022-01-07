@@ -63,5 +63,22 @@
         <Item Value="FaxNo"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="AllCustomersCRUDIterator" StaticList="false" Uses="LovMktRegionid" id="MktRegionid"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="Audited">
+      <AttrNames>
+        <Item Value="Audited"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

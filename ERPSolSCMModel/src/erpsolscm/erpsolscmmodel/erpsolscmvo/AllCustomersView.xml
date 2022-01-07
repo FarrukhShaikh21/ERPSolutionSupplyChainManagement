@@ -45,6 +45,10 @@
     Name="AccAllCitiesView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCitiesView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccMarketingRegionView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.MarketingRegionView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_txtLocationName"
     ListVOName="AccAllLocationsView"
@@ -157,6 +161,25 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="CityName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovMktRegionid"
+    ListVOName="AccMarketingRegionView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MktRegionid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="MktRegionid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Descript"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -693,7 +716,15 @@
     PrecisionRule="true"
     EntityAttrName="MktRegionid"
     EntityUsage="AllCustomers"
-    AliasName="MKT_REGIONID"/>
+    AliasName="MKT_REGIONID"
+    LOVName="LovMktRegionid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IsDistributor"
     PrecisionRule="true"
