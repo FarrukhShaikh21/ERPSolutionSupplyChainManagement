@@ -21,6 +21,37 @@
     Name="P_ADF_SALESPERSONID"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <ViewAccessor
+    Name="AccSoSalesPersonsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovtxtSalesPersonName"
+    ListVOName="AccSoSalesPersonsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSalesPersonName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Salespersonid"/>
+      <Item Value="Salesterritoryid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Name"/>
+      <Item Value="Salespersonid"/>
+      <Item Value="Salesterritoryid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+      <Item Value="Salespersonid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="SoSalesPersonsFindVc"/>
+  </ListBinding>
   <EntityUsage
     Name="AllCustomerSalesperson"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomerSalesperson"/>
@@ -121,6 +152,22 @@
     EntityAttrName="Customerseq"
     EntityUsage="AllCustomerSalesperson"
     AliasName="CUSTOMERSEQ"/>
+  <ViewAttribute
+    Name="txtSalesPersonName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtSalesPersonName"
+    EntityUsage="AllCustomerSalesperson"
+    AliasName="TXT_SALES_PERSON_NAME"
+    LOVName="LovtxtSalesPersonName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="AllCustomerSalespersonByCustomerVC"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomerSalespersonView"

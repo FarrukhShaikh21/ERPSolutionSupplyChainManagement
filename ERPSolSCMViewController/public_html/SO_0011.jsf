@@ -347,6 +347,11 @@
                 </af:gridCell>
               </af:gridRow>
             </af:panelGridLayout>
+            <af:panelGridLayout id="pgl1">
+              <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc26"/>
+              </af:gridRow>
+            </af:panelGridLayout>
           </af:panelHeader>
         </f:facet>
         <f:facet name="erptempleft"/>

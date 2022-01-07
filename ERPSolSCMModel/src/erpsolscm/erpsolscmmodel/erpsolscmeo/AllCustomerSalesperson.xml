@@ -175,6 +175,27 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="ALL_CUSTOMER_SALESPERSON"/>
+  <Attribute
+    Name="txtSalesPersonName"
+    Precision="80"
+    ColumnName="TXT_SALES_PERSON_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ALL_CUSTOMER_SALESPERSON"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SoSalesPersons?.Name]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomerSalesperson.txtSalesPersonName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SoSalesPersons"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonAllCustomerSalesPersonSalespersonIdAsso"
@@ -210,4 +231,8 @@
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomerSalesperson.Salespersonid"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
 </Entity>

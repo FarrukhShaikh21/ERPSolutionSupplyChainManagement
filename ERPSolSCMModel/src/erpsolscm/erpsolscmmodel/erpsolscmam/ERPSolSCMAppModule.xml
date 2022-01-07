@@ -80,6 +80,9 @@
   <ViewUsage
     Name="AllCustomersCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView"/>
+  <ViewUsage
+    Name="AllCustomerSalespersonDetCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomerSalespersonView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
@@ -121,5 +124,11 @@
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesOrderLineSaleOrderImeiSalesorderlineseqLink"
     SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderLinesBySOIDRO"
     DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderImeiSCANCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="AllCustomersAllCustomerSalesPersonCustomerseqLink1"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCustomersAllCustomerSalesPersonCustomerseqLink"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.AllCustomersCRUD"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.AllCustomerSalespersonDetCRUD"
     Reversed="false"/>
 </AppModule>

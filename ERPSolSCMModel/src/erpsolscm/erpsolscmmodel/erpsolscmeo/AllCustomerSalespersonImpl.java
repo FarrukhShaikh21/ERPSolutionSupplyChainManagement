@@ -36,6 +36,7 @@ public class AllCustomerSalespersonImpl extends ERPSolGlobalsEntityImpl {
         Divid,
         CustOldid,
         Customerseq,
+        txtSalesPersonName,
         SoSalesPersons,
         AllCustomers;
         private static AttributesEnum[] vals = null;
@@ -78,6 +79,7 @@ public class AllCustomerSalespersonImpl extends ERPSolGlobalsEntityImpl {
     public static final int DIVID = AttributesEnum.Divid.index();
     public static final int CUSTOLDID = AttributesEnum.CustOldid.index();
     public static final int CUSTOMERSEQ = AttributesEnum.Customerseq.index();
+    public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
     public static final int SOSALESPERSONS = AttributesEnum.SoSalesPersons.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
 
@@ -349,6 +351,22 @@ public class AllCustomerSalespersonImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setCustomerseq(Integer value) {
         setAttributeInternal(CUSTOMERSEQ, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSalesPersonName, using the alias name txtSalesPersonName.
+     * @return the value of txtSalesPersonName
+     */
+    public String gettxtSalesPersonName() {
+        return (String) getAttributeInternal(TXTSALESPERSONNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSalesPersonName.
+     * @param value value to set the txtSalesPersonName
+     */
+    public void settxtSalesPersonName(String value) {
+        setAttributeInternal(TXTSALESPERSONNAME, value);
     }
 
     /**
