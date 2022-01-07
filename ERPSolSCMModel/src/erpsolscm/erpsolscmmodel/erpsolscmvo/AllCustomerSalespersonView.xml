@@ -25,6 +25,10 @@
     Name="AccSoSalesPersonsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllDivisionsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllDivisionsView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtSalesPersonName"
     ListVOName="AccSoSalesPersonsView"
@@ -51,6 +55,25 @@
     </AttrArray>
     <DisplayCriteria
       Name="SoSalesPersonsFindVc"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovDivid"
+    ListVOName="AccAllDivisionsView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Divid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Divid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="AllCustomerSalesperson"
@@ -139,7 +162,15 @@
     PrecisionRule="true"
     EntityAttrName="Divid"
     EntityUsage="AllCustomerSalesperson"
-    AliasName="DIVID"/>
+    AliasName="DIVID"
+    LOVName="LovDivid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustOldid"
     PrecisionRule="true"

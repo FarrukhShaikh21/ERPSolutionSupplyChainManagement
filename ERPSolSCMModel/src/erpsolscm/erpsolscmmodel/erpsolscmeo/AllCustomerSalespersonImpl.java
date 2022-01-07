@@ -1,5 +1,6 @@
 package erpsolscm.erpsolscmmodel.erpsolscmeo;
 
+import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
 import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
 
 import java.math.BigDecimal;
@@ -413,6 +414,8 @@ public class AllCustomerSalespersonImpl extends ERPSolGlobalsEntityImpl {
      * @param attributeList list of attribute names/values to initialize the row
      */
     protected void create(AttributeList attributeList) {
+        setERPSolPKColumnName("cust_lineno");
+        setERPSolPKSeqName("all_customer_salesperson_seq");
         super.create(attributeList);
     }
 
@@ -436,6 +439,16 @@ public class AllCustomerSalespersonImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation==DML_INSERT) {
+            System.out.println("this is a-CUSTOMERSALESPERSON");
+           populateAttributeAsChanged(CUSTOMERID, getAllCustomers().getAttribute("Customerid").toString());
+           System.out.println("this is b");
+           String pkValue="FUNC_GET_MAX_ID('ALL_CUSTOMER_SALESPERSON WHERE CUSTOMERID=''"+getCustomerid()+"''','ID')";
+           System.out.println("this is c");
+           System.out.println(pkValue + "pk value--CUSTSP");
+           String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
+           populateAttributeAsChanged(ID, Integer.parseInt(result));
+        }
         super.doDML(operation, e);
     }
 }

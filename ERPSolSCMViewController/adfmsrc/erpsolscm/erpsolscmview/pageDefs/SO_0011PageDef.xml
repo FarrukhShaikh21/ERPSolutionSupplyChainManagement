@@ -6,6 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="AllCustomersCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="AllCustomersCRUDIterator"/>
+    <iterator Binds="AllCustomerSalespersonDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="AllCustomerSalespersonDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="AllCustomersCRUDIterator" id="Customerid">
@@ -80,5 +82,19 @@
         <Item Value="Address"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="AllCustomerSalespersonDetCRUDIterator" id="AllCustomerSalespersonDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomerSalespersonView"
+                      Name="AllCustomerSalespersonDetCRUD0">
+        <AttrNames>
+          <Item Value="Customerid"/>
+          <Item Value="txtSalesPersonName"/>
+          <Item Value="Salespersonid"/>
+          <Item Value="Salesterritoryid"/>
+          <Item Value="Id"/>
+          <Item Value="Divid"/>
+          <Item Value="DefaultPerson"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
