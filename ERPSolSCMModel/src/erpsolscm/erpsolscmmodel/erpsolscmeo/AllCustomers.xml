@@ -1357,6 +1357,27 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtCityName"
+    Precision="80"
+    ColumnName="TXT_CITY_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ALL_CUSTOMERS"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[AllCities?.CityName]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers.txtCityName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SoSalesOrder"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoSalesOrderCustomerIdAssoc"

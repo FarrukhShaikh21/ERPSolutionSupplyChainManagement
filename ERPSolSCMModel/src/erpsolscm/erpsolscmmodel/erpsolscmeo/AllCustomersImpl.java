@@ -108,6 +108,7 @@ public class AllCustomersImpl extends ERPSolGlobalsEntityImpl {
         IsDistributor,
         Status,
         txtLocationName,
+        txtCityName,
         SoSalesOrder,
         SoSalesReturn,
         SoRebate,
@@ -222,6 +223,7 @@ public class AllCustomersImpl extends ERPSolGlobalsEntityImpl {
     public static final int ISDISTRIBUTOR = AttributesEnum.IsDistributor.index();
     public static final int STATUS = AttributesEnum.Status.index();
     public static final int TXTLOCATIONNAME = AttributesEnum.txtLocationName.index();
+    public static final int TXTCITYNAME = AttributesEnum.txtCityName.index();
     public static final int SOSALESORDER = AttributesEnum.SoSalesOrder.index();
     public static final int SOSALESRETURN = AttributesEnum.SoSalesReturn.index();
     public static final int SOREBATE = AttributesEnum.SoRebate.index();
@@ -1570,6 +1572,22 @@ public class AllCustomersImpl extends ERPSolGlobalsEntityImpl {
      */
     public void settxtLocationName(String value) {
         setAttributeInternal(TXTLOCATIONNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCityName, using the alias name txtCityName.
+     * @return the value of txtCityName
+     */
+    public String gettxtCityName() {
+        return (String) getAttributeInternal(TXTCITYNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCityName.
+     * @param value value to set the txtCityName
+     */
+    public void settxtCityName(String value) {
+        setAttributeInternal(TXTCITYNAME, value);
     }
 
     /**
