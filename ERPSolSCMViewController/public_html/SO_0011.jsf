@@ -348,8 +348,7 @@
                                                         model="#{bindings.txtCityName.listOfValuesModel}"
                                                         required="#{bindings.txtCityName.hints.mandatory}"
                                                         columns="#{bindings.txtCityName.hints.displayWidth}"
-                                                        shortDesc="#{bindings.txtCityName.hints.tooltip}" simple="true"
-                                                        contentStyle="width:50%">
+                                                        shortDesc="#{bindings.txtCityName.hints.tooltip}" simple="true">
                             <f:validator binding="#{bindings.txtCityName.validator}"/>
                           </af:inputComboboxListOfValues>
                         </af:gridCell>
