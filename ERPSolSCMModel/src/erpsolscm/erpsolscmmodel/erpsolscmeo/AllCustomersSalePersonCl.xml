@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AllCustomersSalePersonCl"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ALL_CUSTOMERS_SALE_PERSON_CL"
+  AliasName="AllCustomersSalePersonCl"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="Sno"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="SNO"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="ALL_CUSTOMERS_SALE_PERSON_CL"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="CustLineno"
+    Precision="10"
+    Scale="0"
+    ColumnName="CUST_LINENO"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="ALL_CUSTOMERS_SALE_PERSON_CL"/>
+  <Attribute
+    Name="CreditLimit"
+    Precision="20"
+    Scale="6"
+    ColumnName="CREDIT_LIMIT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="ALL_CUSTOMERS_SALE_PERSON_CL"/>
+  <Attribute
+    Name="ApprovedBy"
+    Precision="50"
+    ColumnName="APPROVED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ALL_CUSTOMERS_SALE_PERSON_CL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ApprovedDate"
+    ColumnName="APPROVED_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="ALL_CUSTOMERS_SALE_PERSON_CL"/>
+  <Attribute
+    Name="EnterBy"
+    Precision="50"
+    ColumnName="ENTER_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ALL_CUSTOMERS_SALE_PERSON_CL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EnterDate"
+    ColumnName="ENTER_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="ALL_CUSTOMERS_SALE_PERSON_CL"/>
+  <Attribute
+    Name="SourceDocumentSno"
+    Precision="20"
+    ColumnName="SOURCE_DOCUMENT_SNO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ALL_CUSTOMERS_SALE_PERSON_CL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SourceDocumentType"
+    Precision="20"
+    ColumnName="SOURCE_DOCUMENT_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ALL_CUSTOMERS_SALE_PERSON_CL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SourceDocumentAmount"
+    Precision="16"
+    Scale="6"
+    ColumnName="SOURCE_DOCUMENT_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="ALL_CUSTOMERS_SALE_PERSON_CL"/>
+  <Attribute
+    Name="IsUnsubmit"
+    Precision="1"
+    ColumnName="IS_UNSUBMIT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ALL_CUSTOMERS_SALE_PERSON_CL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="AllCustomerSalesperson"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSPAllCustomerSPCreditLimitCustLineNoAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSPAllCustomerSPCreditLimitCustLineNoAssoc.AllCustomerSalesperson"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSPAllCustomerSPCreditLimitCustLineNoAssoc.AllCustomersSalePersonCl"
+    Type="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomerSalespersonImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="PkAllCustSalePersonCl"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PK_ALL_CUST_SALE_PERSON_CL"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomersSalePersonCl.Sno"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_AllCustomersSalePersonCl">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C0016403"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_ALL_CUSTOMERS_SALE_PERSON_C"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomersSalePersonCl.CustLineno"/>
+    </AttrArray>
+  </Key>
+</Entity>

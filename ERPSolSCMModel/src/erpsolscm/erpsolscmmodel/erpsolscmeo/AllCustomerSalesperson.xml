@@ -182,7 +182,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMER_SALESPERSON"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -210,6 +209,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersAllCustomerSalesPersonCustomerseqAssoc.AllCustomerSalesperson"
     Type="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomersImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="AllCustomersSalePersonCl"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSPAllCustomerSPCreditLimitCustLineNoAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSPAllCustomerSPCreditLimitCustLineNoAssoc.AllCustomersSalePersonCl"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSPAllCustomerSPCreditLimitCustLineNoAssoc.AllCustomerSalesperson"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="SysC0016403"
     PrimaryKey="true">

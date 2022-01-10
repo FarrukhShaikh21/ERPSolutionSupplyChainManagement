@@ -83,6 +83,9 @@
   <ViewUsage
     Name="AllCustomerSalespersonDetCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomerSalespersonView"/>
+  <ViewUsage
+    Name="AllCustomersSalePersonClDetCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersSalePersonClView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
@@ -130,5 +133,11 @@
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCustomersAllCustomerSalesPersonCustomerseqLink"
     SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.AllCustomersCRUD"
     DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.AllCustomerSalespersonDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="AllCustomersSPAllCustomerSPCreditLimitCustLineNoLink1"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCustomersSPAllCustomerSPCreditLimitCustLineNoLink"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.AllCustomerSalespersonDetCRUD"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.AllCustomersSalePersonClDetCRUD"
     Reversed="false"/>
 </AppModule>

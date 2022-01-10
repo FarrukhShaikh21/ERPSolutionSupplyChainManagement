@@ -40,7 +40,7 @@
           </af:panelGridLayout>
         </af:dialog>
       </af:popup>
-      <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+      <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt2">
         <f:facet name="erptempmain">
           <af:panelHeader text=" " id="ph1" partialTriggers="b4 b3 b2 b1 b6 b5 ::d2">
             <f:facet name="context"/>
@@ -84,8 +84,7 @@
                                    disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
                                    icon="#{resource['images:imgAdd.png']}"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
-                                   id="b6"
-                                   icon="#{resource['images:imgUndo.png']}">
+                                   id="b6" icon="#{resource['images:imgUndo.png']}">
                           <af:resetActionListener/>
                         </af:button>
                         <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b5"
@@ -329,8 +328,9 @@
                           <af:outputLabel value="#{bindings.Audited.hints.label}" id="ol17"/>
                         </af:gridCell>
                         <af:gridCell id="gc43" width="35%" halign="stretch">
-                          <af:selectOneChoice label="#{bindings.Audited.hints.label}" value="#{bindings.Audited.inputValue}" id="soc7"
-                                              simple="true" contentStyle="width:50%">
+                          <af:selectOneChoice label="#{bindings.Audited.hints.label}"
+                                              value="#{bindings.Audited.inputValue}" id="soc7" simple="true"
+                                              contentStyle="width:50%">
                             <af:selectItem label="Yes" value="Y" id="si8"/>
                             <af:selectItem label="No" value="N" id="si9"/>
                           </af:selectOneChoice>
@@ -355,8 +355,7 @@
                         <af:gridCell width="15%" id="gc24" halign="center" valign="middle">
                           <af:outputLabel value="#{bindings.Address.hints.label}" id="ol2"/>
                         </af:gridCell>
-                        <af:gridCell width="35%" id="gc25" columnSpan="3" rowSpan="1"
-                                     halign="stretch">
+                        <af:gridCell width="35%" id="gc25" columnSpan="3" rowSpan="1" halign="stretch">
                           <af:inputText value="#{bindings.Address.inputValue}" label="#{bindings.Address.hints.label}"
                                         required="#{bindings.Address.hints.mandatory}"
                                         columns="#{bindings.Address.hints.displayWidth}"
@@ -374,7 +373,7 @@
             </af:panelGridLayout>
             <af:panelGridLayout id="pgl1">
               <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
-                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc26" halign="stretch">
+                <af:gridCell marginStart="5px" width="40%" marginEnd="5px" id="gc26" halign="stretch">
                   <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                     <f:facet name="menus"/>
                     <f:facet name="toolbar">
@@ -393,7 +392,8 @@
                               selectedRowKeys="#{bindings.AllCustomerSalespersonDetCRUD.collectionModel.selectedRow}"
                               selectionListener="#{bindings.AllCustomerSalespersonDetCRUD.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.AllCustomerSalespersonDetCRUD.rangeSize}"
-                              id="t2" partialTriggers="::b10 ::b11">
+                              id="t2" partialTriggers="::b10 ::b11" scrollPolicy="page" autoHeightRows="5"
+                              styleClass="AFStretchWidth">
                       <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.label}"
                                  id="c2" width="200">
                         <af:inputComboboxListOfValues id="txtSalesPersonNameId"
@@ -414,7 +414,7 @@
                                       columns="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.displayWidth}"
                                       maximumLength="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.precision}"
                                       shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.tooltip}"
-                                      id="it6" partialTriggers="txtSalesPersonNameId">
+                                      id="it6" partialTriggers="txtSalesPersonNameId" readOnly="true">
                           <f:validator binding="#{row.bindings.Salespersonid.validator}"/>
                         </af:inputText>
                       </af:column>
@@ -426,11 +426,12 @@
                                       columns="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.displayWidth}"
                                       maximumLength="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.precision}"
                                       shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salesterritoryid.tooltip}"
-                                      id="it7" partialTriggers="txtSalesPersonNameId">
+                                      id="it7" partialTriggers="txtSalesPersonNameId" readOnly="true">
                           <f:validator binding="#{row.bindings.Salesterritoryid.validator}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.label}" id="c5">
+                      <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.label}" id="c5"
+                                 width="50" displayIndex="-1">
                         <af:inputText value="#{row.bindings.Id.inputValue}"
                                       label="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.label}"
                                       required="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.mandatory}"
@@ -458,6 +459,121 @@
                           <af:selectItem label="Yes" value="Y" id="si11"/>
                           <af:selectItem label="No" value="N" id="si12"/>
                         </af:selectOneChoice>
+                      </af:column>
+                    </af:table>
+                  </af:panelCollection>
+                </af:gridCell>
+                <af:gridCell id="gc44" width="60%">
+                  <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="statusbar"/>
+                    <af:table value="#{bindings.AllCustomersSalePersonClDetCRUD.collectionModel}" var="row"
+                              rows="#{bindings.AllCustomersSalePersonClDetCRUD.rangeSize}"
+                              emptyText="#{bindings.AllCustomersSalePersonClDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.AllCustomersSalePersonClDetCRUD.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.AllCustomersSalePersonClDetCRUD.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.AllCustomersSalePersonClDetCRUD.rangeSize}"
+                              id="t4" styleClass="AFStretchWidth">
+                      <af:column headerText="#{bindings.AllCustomersSalePersonClDetCRUD.hints.CreditLimit.label}"
+                                 id="c1">
+                        <af:inputText value="#{row.bindings.CreditLimit.inputValue}"
+                                      label="#{bindings.AllCustomersSalePersonClDetCRUD.hints.CreditLimit.label}"
+                                      required="#{bindings.AllCustomersSalePersonClDetCRUD.hints.CreditLimit.mandatory}"
+                                      columns="#{bindings.AllCustomersSalePersonClDetCRUD.hints.CreditLimit.displayWidth}"
+                                      maximumLength="#{bindings.AllCustomersSalePersonClDetCRUD.hints.CreditLimit.precision}"
+                                      shortDesc="#{bindings.AllCustomersSalePersonClDetCRUD.hints.CreditLimit.tooltip}"
+                                      id="it3">
+                          <f:validator binding="#{row.bindings.CreditLimit.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.AllCustomersSalePersonClDetCRUD.hints.CreditLimit.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedBy.label}"
+                                 id="c8">
+                        <af:inputText value="#{row.bindings.ApprovedBy.inputValue}"
+                                      label="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedBy.label}"
+                                      required="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedBy.mandatory}"
+                                      columns="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedBy.displayWidth}"
+                                      maximumLength="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedBy.precision}"
+                                      shortDesc="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedBy.tooltip}"
+                                      id="it10">
+                          <f:validator binding="#{row.bindings.ApprovedBy.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedDate.label}"
+                                 id="c9">
+                        <af:inputDate value="#{row.bindings.ApprovedDate.inputValue}"
+                                      label="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedDate.label}"
+                                      required="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedDate.mandatory}"
+                                      columns="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedDate.displayWidth}"
+                                      shortDesc="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedDate.tooltip}"
+                                      id="id2">
+                          <f:validator binding="#{row.bindings.ApprovedDate.validator}"/>
+                          <af:convertDateTime pattern="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedDate.format}"/>
+                        </af:inputDate>
+                      </af:column>
+                      <af:column headerText="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterBy.label}" id="c10">
+                        <af:inputText value="#{row.bindings.EnterBy.inputValue}"
+                                      label="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterBy.label}"
+                                      required="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterBy.mandatory}"
+                                      columns="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterBy.displayWidth}"
+                                      maximumLength="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterBy.precision}"
+                                      shortDesc="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterBy.tooltip}"
+                                      id="it11">
+                          <f:validator binding="#{row.bindings.EnterBy.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterDate.label}"
+                                 id="c11">
+                        <af:inputDate value="#{row.bindings.EnterDate.inputValue}"
+                                      label="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterDate.label}"
+                                      required="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterDate.mandatory}"
+                                      columns="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterDate.displayWidth}"
+                                      shortDesc="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterDate.tooltip}"
+                                      id="id3">
+                          <f:validator binding="#{row.bindings.EnterDate.validator}"/>
+                          <af:convertDateTime pattern="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterDate.format}"/>
+                        </af:inputDate>
+                      </af:column>
+                      <af:column headerText="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentSno.label}"
+                                 id="c12">
+                        <af:inputText value="#{row.bindings.SourceDocumentSno.inputValue}"
+                                      label="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentSno.label}"
+                                      required="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentSno.mandatory}"
+                                      columns="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentSno.displayWidth}"
+                                      maximumLength="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentSno.precision}"
+                                      shortDesc="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentSno.tooltip}"
+                                      id="it12">
+                          <f:validator binding="#{row.bindings.SourceDocumentSno.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentType.label}"
+                                 id="c13">
+                        <af:inputText value="#{row.bindings.SourceDocumentType.inputValue}"
+                                      label="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentType.label}"
+                                      required="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentType.mandatory}"
+                                      columns="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentType.displayWidth}"
+                                      maximumLength="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentType.precision}"
+                                      shortDesc="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentType.tooltip}"
+                                      id="it13">
+                          <f:validator binding="#{row.bindings.SourceDocumentType.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentAmount.label}"
+                                 id="c14">
+                        <af:inputText value="#{row.bindings.SourceDocumentAmount.inputValue}"
+                                      label="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentAmount.label}"
+                                      required="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentAmount.mandatory}"
+                                      columns="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentAmount.displayWidth}"
+                                      maximumLength="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentAmount.precision}"
+                                      shortDesc="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentAmount.tooltip}"
+                                      id="it19">
+                          <f:validator binding="#{row.bindings.SourceDocumentAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.AllCustomersSalePersonClDetCRUD.hints.SourceDocumentAmount.format}"/>
+                        </af:inputText>
                       </af:column>
                     </af:table>
                   </af:panelCollection>

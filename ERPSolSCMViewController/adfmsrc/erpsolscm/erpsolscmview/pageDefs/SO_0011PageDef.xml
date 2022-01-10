@@ -8,6 +8,9 @@
               id="AllCustomersCRUDIterator"/>
     <iterator Binds="AllCustomerSalespersonDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="AllCustomerSalespersonDetCRUDIterator"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="AllCustomersSalePersonClDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="AllCustomersSalePersonClDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="AllCustomersCRUDIterator" id="Customerid">
@@ -110,5 +113,20 @@
     <action IterBinding="AllCustomerSalespersonDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <listOfValues IterBinding="AllCustomersCRUDIterator" StaticList="false" Uses="LovtxtCityName" id="txtCityName"/>
+    <tree IterBinding="AllCustomersSalePersonClDetCRUDIterator" id="AllCustomersSalePersonClDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersSalePersonClView"
+                      Name="AllCustomersSalePersonClDetCRUD0">
+        <AttrNames>
+          <Item Value="CreditLimit"/>
+          <Item Value="ApprovedBy"/>
+          <Item Value="ApprovedDate"/>
+          <Item Value="EnterBy"/>
+          <Item Value="EnterDate"/>
+          <Item Value="SourceDocumentSno"/>
+          <Item Value="SourceDocumentType"/>
+          <Item Value="SourceDocumentAmount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

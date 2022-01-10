@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
+import oracle.jbo.RowIterator;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
@@ -39,7 +40,8 @@ public class AllCustomerSalespersonImpl extends ERPSolGlobalsEntityImpl {
         Customerseq,
         txtSalesPersonName,
         SoSalesPersons,
-        AllCustomers;
+        AllCustomers,
+        AllCustomersSalePersonCl;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -83,6 +85,7 @@ public class AllCustomerSalespersonImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
     public static final int SOSALESPERSONS = AttributesEnum.SoSalesPersons.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
+    public static final int ALLCUSTOMERSSALEPERSONCL = AttributesEnum.AllCustomersSalePersonCl.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -401,6 +404,14 @@ public class AllCustomerSalespersonImpl extends ERPSolGlobalsEntityImpl {
 
 
     /**
+     * @return the associated entity oracle.jbo.RowIterator.
+     */
+    public RowIterator getAllCustomersSalePersonCl() {
+        return (RowIterator) getAttributeInternal(ALLCUSTOMERSSALEPERSONCL);
+    }
+
+
+    /**
      * @param custLineno key constituent
 
      * @return a Key object based on given key constituents.
@@ -414,7 +425,7 @@ public class AllCustomerSalespersonImpl extends ERPSolGlobalsEntityImpl {
      * @param attributeList list of attribute names/values to initialize the row
      */
     protected void create(AttributeList attributeList) {
-        setERPSolPKColumnName("cust_lineno");
+        setERPSolPKColumnName("CustLineno");
         setERPSolPKSeqName("all_customer_salesperson_seq");
         super.create(attributeList);
     }
