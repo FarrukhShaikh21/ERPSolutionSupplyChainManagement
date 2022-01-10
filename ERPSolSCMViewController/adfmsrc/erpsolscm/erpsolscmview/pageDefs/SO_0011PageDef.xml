@@ -10,7 +10,11 @@
               id="AllCustomerSalespersonDetCRUDIterator"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="AllCustomersSalePersonClDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
-              id="AllCustomersSalePersonClDetCRUDIterator"/>
+              id="AllCustomersSalePersonClDetCRUDIterator">
+      <sortCriteria>
+        <sort attribute="Sno" ascending="false"/>
+      </sortCriteria>
+    </iterator>
   </executables>
   <bindings>
     <attributeValues IterBinding="AllCustomersCRUDIterator" id="Customerid">
@@ -128,5 +132,9 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="AllCustomersSalePersonClDetCRUDIterator" id="CreateInsert2" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="AllCustomersSalePersonClDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

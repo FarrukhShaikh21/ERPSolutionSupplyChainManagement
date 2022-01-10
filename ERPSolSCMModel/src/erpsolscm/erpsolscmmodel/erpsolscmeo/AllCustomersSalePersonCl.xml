@@ -9,7 +9,13 @@
   DBObjectType="table"
   DBObjectName="ALL_CUSTOMERS_SALE_PERSON_CL"
   AliasName="AllCustomersSalePersonCl"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomersSalePersonClImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+  </DesignTime>
   <Attribute
     Name="Sno"
     IsNotNull="true"
@@ -17,7 +23,7 @@
     Scale="0"
     ColumnName="SNO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="ALL_CUSTOMERS_SALE_PERSON_CL"
     PrimaryKey="true"/>
@@ -27,7 +33,7 @@
     Scale="0"
     ColumnName="CUST_LINENO"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="ALL_CUSTOMERS_SALE_PERSON_CL"/>
   <Attribute
@@ -38,7 +44,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="ALL_CUSTOMERS_SALE_PERSON_CL"/>
+    TableName="ALL_CUSTOMERS_SALE_PERSON_CL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomersSalePersonCl.CreditLimit_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ApprovedBy"
     Precision="50"
@@ -55,7 +70,7 @@
     Name="ApprovedDate"
     ColumnName="APPROVED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="ALL_CUSTOMERS_SALE_PERSON_CL"/>
   <Attribute
@@ -74,9 +89,12 @@
     Name="EnterDate"
     ColumnName="ENTER_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="ALL_CUSTOMERS_SALE_PERSON_CL"/>
+    TableName="ALL_CUSTOMERS_SALE_PERSON_CL">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </Attribute>
   <Attribute
     Name="SourceDocumentSno"
     Precision="20"
@@ -88,6 +106,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomersSalePersonCl.SourceDocumentSno_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="SourceDocumentType"
@@ -100,6 +126,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomersSalePersonCl.SourceDocumentType_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="SourceDocumentAmount"
@@ -109,7 +143,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="ALL_CUSTOMERS_SALE_PERSON_CL"/>
+    TableName="ALL_CUSTOMERS_SALE_PERSON_CL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomersSalePersonCl.SourceDocumentAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="IsUnsubmit"
     Precision="1"
@@ -150,4 +193,8 @@
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomersSalePersonCl.CustLineno"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
 </Entity>
