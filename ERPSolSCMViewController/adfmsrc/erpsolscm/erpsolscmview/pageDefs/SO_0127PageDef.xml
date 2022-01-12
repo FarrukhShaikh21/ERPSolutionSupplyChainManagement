@@ -6,6 +6,14 @@
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="InItemsRO" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl" id="InItemsROIterator"/>
+    <iterator Binds="SoProdLocPriceDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoProdLocPriceDetCRUDIterator">
+      <sortCriteria>
+        <sort attribute="Efrom" ascending="false"/>
+      </sortCriteria>
+    </iterator>
+    <searchRegion Binds="SoProdLocPriceDetCRUDIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SoProdLocPriceDetCRUDQuery"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="InItemsROIterator" id="Itemid">
@@ -30,5 +38,27 @@
     </attributeValues>
     <action IterBinding="InItemsROIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
     <action IterBinding="InItemsROIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <tree IterBinding="SoProdLocPriceDetCRUDIterator" id="SoProdLocPriceDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoProdLocPriceView" Name="SoProdLocPriceDetCRUD0">
+        <AttrNames>
+          <Item Value="Locationid"/>
+          <Item Value="DelearPrice"/>
+          <Item Value="RetailPrice"/>
+          <Item Value="Efrom"/>
+          <Item Value="Eto"/>
+          <Item Value="BrNetPrice"/>
+          <Item Value="HoNetPrice"/>
+          <Item Value="RPrice"/>
+          <Item Value="WsPrice"/>
+          <Item Value="Cost"/>
+          <Item Value="FlatDiscount"/>
+          <Item Value="IntraCompanyProductid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
   </bindings>
 </pageDefinition>

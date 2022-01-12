@@ -11,10 +11,19 @@
                         <f:facet name="menuBar"/>
                         <f:facet name="toolbar">
                             <af:panelGroupLayout layout="horizontal" id="pgl1">
-                                <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                                <af:link text="Search" id="l1" partialSubmit="true"
+                                         icon="#{resource['images:imgFind.png']}" iconPosition="top"/>
+                                <af:link text="Previous" id="l2" actionListener="#{bindings.Previous.execute}"
+                                         disabled="#{!bindings.Previous.enabled}"
+                                         icon="#{resource['images:imgPrevious.png']}" partialSubmit="true"/>
                                 <af:button actionListener="#{bindings.Next.execute}" text="Next"
                                            disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Undo"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b1">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Save"
+                                           disabled="#{!bindings.Commit.enabled}" id="b4"/>
                                 <f:facet name="separator">
                                     <af:spacer width="10" height="10" id="s1"/>
                                 </f:facet>
@@ -57,10 +66,188 @@
                         </af:panelFormLayout>
                         <af:panelTabbed position="above" id="pt2">
                             <af:showDetailItem id="tab1" text="Product Rate" disclosed="true">
-                                <af:panelCollection id="pc1">
+                                <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar"/>
                                     <f:facet name="statusbar"/>
+                                    <af:table value="#{bindings.SoProdLocPriceDetCRUD.collectionModel}" var="row"
+                                              rows="#{bindings.SoProdLocPriceDetCRUD.rangeSize}"
+                                              emptyText="#{bindings.SoProdLocPriceDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.SoProdLocPriceDetCRUD.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.SoProdLocPriceDetCRUD.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.SoProdLocPriceDetCRUD.rangeSize}"
+                                              filterModel="#{bindings.SoProdLocPriceDetCRUDQuery.queryDescriptor}"
+                                              queryListener="#{bindings.SoProdLocPriceDetCRUDQuery.processQuery}"
+                                              filterVisible="true" varStatus="vs" id="t1" styleClass="AFStretchWidth"
+                                              columnStretching="column:c1">
+                                        <af:column sortProperty="#{bindings.SoProdLocPriceDetCRUD.hints.Locationid.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SoProdLocPriceDetCRUD.hints.Locationid.label}"
+                                                   id="c1">
+                                            <af:selectOneChoice value="#{row.bindings.Locationid.inputValue}"
+                                                                label="#{row.bindings.Locationid.label}"
+                                                                required="#{bindings.SoProdLocPriceDetCRUD.hints.Locationid.mandatory}"
+                                                                shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.Locationid.tooltip}"
+                                                                id="soc1">
+                                                <f:selectItems value="#{row.bindings.Locationid.items}" id="si1"/>
+                                                <f:validator binding="#{row.bindings.Locationid.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SoProdLocPriceDetCRUD.hints.DelearPrice.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SoProdLocPriceDetCRUD.hints.DelearPrice.label}"
+                                                   id="c2" width="80" displayIndex="-1">
+                                            <af:inputText value="#{row.bindings.DelearPrice.inputValue}"
+                                                          label="#{bindings.SoProdLocPriceDetCRUD.hints.DelearPrice.label}"
+                                                          required="#{bindings.SoProdLocPriceDetCRUD.hints.DelearPrice.mandatory}"
+                                                          columns="#{bindings.SoProdLocPriceDetCRUD.hints.DelearPrice.displayWidth}"
+                                                          maximumLength="#{bindings.SoProdLocPriceDetCRUD.hints.DelearPrice.precision}"
+                                                          shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.DelearPrice.tooltip}"
+                                                          id="it5">
+                                                <f:validator binding="#{row.bindings.DelearPrice.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.SoProdLocPriceDetCRUD.hints.DelearPrice.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SoProdLocPriceDetCRUD.hints.RetailPrice.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SoProdLocPriceDetCRUD.hints.RetailPrice.label}"
+                                                   id="c3" width="80">
+                                            <af:inputText value="#{row.bindings.RetailPrice.inputValue}"
+                                                          label="#{bindings.SoProdLocPriceDetCRUD.hints.RetailPrice.label}"
+                                                          required="#{bindings.SoProdLocPriceDetCRUD.hints.RetailPrice.mandatory}"
+                                                          columns="#{bindings.SoProdLocPriceDetCRUD.hints.RetailPrice.displayWidth}"
+                                                          maximumLength="#{bindings.SoProdLocPriceDetCRUD.hints.RetailPrice.precision}"
+                                                          shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.RetailPrice.tooltip}"
+                                                          id="it6">
+                                                <f:validator binding="#{row.bindings.RetailPrice.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.SoProdLocPriceDetCRUD.hints.RetailPrice.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.label}"
+                                                   id="c4">
+                                            <f:facet name="filter">
+                                                <af:inputDate value="#{bindings.SoProdLocPriceDetCRUDQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Efrom.value}"
+                                                              id="id1">
+                                                    <af:convertDateTime pattern="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.format}"/>
+                                                </af:inputDate>
+                                            </f:facet>
+                                            <af:inputDate value="#{row.bindings.Efrom.inputValue}"
+                                                          label="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.label}"
+                                                          required="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.mandatory}"
+                                                          columns="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.displayWidth}"
+                                                          shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.tooltip}"
+                                                          id="id2">
+                                                <f:validator binding="#{row.bindings.Efrom.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.format}"/>
+                                            </af:inputDate>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.label}"
+                                                   id="c5">
+                                            <f:facet name="filter">
+                                                <af:inputDate value="#{bindings.SoProdLocPriceDetCRUDQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Eto.value}"
+                                                              id="id3">
+                                                    <af:convertDateTime pattern="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.format}"/>
+                                                </af:inputDate>
+                                            </f:facet>
+                                            <af:inputDate value="#{row.bindings.Eto.inputValue}"
+                                                          label="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.label}"
+                                                          required="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.mandatory}"
+                                                          columns="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.displayWidth}"
+                                                          shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.tooltip}"
+                                                          id="id4">
+                                                <f:validator binding="#{row.bindings.Eto.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.format}"/>
+                                            </af:inputDate>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SoProdLocPriceDetCRUD.hints.BrNetPrice.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SoProdLocPriceDetCRUD.hints.BrNetPrice.label}"
+                                                   id="c6" width="80">
+                                            <af:inputText value="#{row.bindings.BrNetPrice.inputValue}"
+                                                          label="#{bindings.SoProdLocPriceDetCRUD.hints.BrNetPrice.label}"
+                                                          required="#{bindings.SoProdLocPriceDetCRUD.hints.BrNetPrice.mandatory}"
+                                                          columns="#{bindings.SoProdLocPriceDetCRUD.hints.BrNetPrice.displayWidth}"
+                                                          maximumLength="#{bindings.SoProdLocPriceDetCRUD.hints.BrNetPrice.precision}"
+                                                          shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.BrNetPrice.tooltip}"
+                                                          id="it7">
+                                                <f:validator binding="#{row.bindings.BrNetPrice.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.SoProdLocPriceDetCRUD.hints.BrNetPrice.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SoProdLocPriceDetCRUD.hints.HoNetPrice.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SoProdLocPriceDetCRUD.hints.HoNetPrice.label}"
+                                                   id="c7" width="80">
+                                            <af:inputText value="#{row.bindings.HoNetPrice.inputValue}"
+                                                          label="#{bindings.SoProdLocPriceDetCRUD.hints.HoNetPrice.label}"
+                                                          required="#{bindings.SoProdLocPriceDetCRUD.hints.HoNetPrice.mandatory}"
+                                                          columns="#{bindings.SoProdLocPriceDetCRUD.hints.HoNetPrice.displayWidth}"
+                                                          maximumLength="#{bindings.SoProdLocPriceDetCRUD.hints.HoNetPrice.precision}"
+                                                          shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.HoNetPrice.tooltip}"
+                                                          id="it8">
+                                                <f:validator binding="#{row.bindings.HoNetPrice.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.SoProdLocPriceDetCRUD.hints.HoNetPrice.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SoProdLocPriceDetCRUD.hints.WsPrice.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SoProdLocPriceDetCRUD.hints.WsPrice.label}"
+                                                   id="c9">
+                                            <af:inputText value="#{row.bindings.WsPrice.inputValue}"
+                                                          label="#{bindings.SoProdLocPriceDetCRUD.hints.WsPrice.label}"
+                                                          required="#{bindings.SoProdLocPriceDetCRUD.hints.WsPrice.mandatory}"
+                                                          columns="#{bindings.SoProdLocPriceDetCRUD.hints.WsPrice.displayWidth}"
+                                                          maximumLength="#{bindings.SoProdLocPriceDetCRUD.hints.WsPrice.precision}"
+                                                          shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.WsPrice.tooltip}"
+                                                          id="it10">
+                                                <f:validator binding="#{row.bindings.WsPrice.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.SoProdLocPriceDetCRUD.hints.WsPrice.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SoProdLocPriceDetCRUD.hints.Cost.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SoProdLocPriceDetCRUD.hints.Cost.label}"
+                                                   id="c10" width="80" displayIndex="-1">
+                                            <af:inputText value="#{row.bindings.Cost.inputValue}"
+                                                          label="#{bindings.SoProdLocPriceDetCRUD.hints.Cost.label}"
+                                                          required="#{bindings.SoProdLocPriceDetCRUD.hints.Cost.mandatory}"
+                                                          columns="#{bindings.SoProdLocPriceDetCRUD.hints.Cost.displayWidth}"
+                                                          maximumLength="#{bindings.SoProdLocPriceDetCRUD.hints.Cost.precision}"
+                                                          shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.Cost.tooltip}"
+                                                          id="it11">
+                                                <f:validator binding="#{row.bindings.Cost.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.SoProdLocPriceDetCRUD.hints.Cost.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.SoProdLocPriceDetCRUD.hints.FlatDiscount.name}"
+                                                   filterable="true"
+                                                   headerText="#{bindings.SoProdLocPriceDetCRUD.hints.FlatDiscount.label}"
+                                                   id="c11">
+                                            <af:inputText value="#{row.bindings.FlatDiscount.inputValue}"
+                                                          label="#{bindings.SoProdLocPriceDetCRUD.hints.FlatDiscount.label}"
+                                                          required="#{bindings.SoProdLocPriceDetCRUD.hints.FlatDiscount.mandatory}"
+                                                          columns="#{bindings.SoProdLocPriceDetCRUD.hints.FlatDiscount.displayWidth}"
+                                                          maximumLength="#{bindings.SoProdLocPriceDetCRUD.hints.FlatDiscount.precision}"
+                                                          shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.FlatDiscount.tooltip}"
+                                                          id="it12">
+                                                <f:validator binding="#{row.bindings.FlatDiscount.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.SoProdLocPriceDetCRUD.hints.FlatDiscount.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                    </af:table>
                                 </af:panelCollection>
                             </af:showDetailItem>
                             <af:showDetailItem id="tab2" text="Product Discount"/>
