@@ -13,6 +13,28 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccAllLocationsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllLocationsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovLocationid"
+    ListVOName="AccAllLocationsView"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Locationid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LocationDescription"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SoProdLocPrice"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice"/>
@@ -36,7 +58,15 @@
     PrecisionRule="true"
     EntityAttrName="Locationid"
     EntityUsage="SoProdLocPrice"
-    AliasName="LOCATIONID"/>
+    AliasName="LOCATIONID"
+    LOVName="LovLocationid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DelearPrice"
     PrecisionRule="true"

@@ -2,9 +2,71 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="SO_0127.jsf" id="d1">
+        <af:messages id="m1"/>
         <af:form id="f1">
             <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
-                <f:facet name="erptempmain"/>
+                <f:facet name="erptempmain">
+                    <af:panelHeader text=" " id="ph1">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar">
+                            <af:panelGroupLayout layout="horizontal" id="pgl1">
+                                <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                           disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                                <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                                <f:facet name="separator">
+                                    <af:spacer width="10" height="10" id="s1"/>
+                                </f:facet>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:panelFormLayout id="pfl1">
+                            <af:inputText value="#{bindings.Itemid.inputValue}" label="#{bindings.Itemid.hints.label}"
+                                          required="#{bindings.Itemid.hints.mandatory}"
+                                          columns="#{bindings.Itemid.hints.displayWidth}"
+                                          maximumLength="#{bindings.Itemid.hints.precision}"
+                                          shortDesc="#{bindings.Itemid.hints.tooltip}" id="it1" disabled="true">
+                                <f:validator binding="#{bindings.Itemid.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.ItemRefId.inputValue}"
+                                          label="#{bindings.ItemRefId.hints.label}"
+                                          required="#{bindings.ItemRefId.hints.mandatory}"
+                                          columns="#{bindings.ItemRefId.hints.displayWidth}"
+                                          maximumLength="#{bindings.ItemRefId.hints.precision}"
+                                          shortDesc="#{bindings.ItemRefId.hints.tooltip}" id="it2" disabled="true">
+                                <f:validator binding="#{bindings.ItemRefId.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.Description.inputValue}"
+                                          label="#{bindings.Description.hints.label}"
+                                          required="#{bindings.Description.hints.mandatory}"
+                                          columns="#{bindings.Description.hints.displayWidth}"
+                                          maximumLength="#{bindings.Description.hints.precision}"
+                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it3" disabled="true">
+                                <f:validator binding="#{bindings.Description.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.ModelNo.inputValue}" label="#{bindings.ModelNo.hints.label}"
+                                          required="#{bindings.ModelNo.hints.mandatory}"
+                                          columns="#{bindings.ModelNo.hints.displayWidth}"
+                                          maximumLength="#{bindings.ModelNo.hints.precision}"
+                                          shortDesc="#{bindings.ModelNo.hints.tooltip}" id="it4" disabled="true">
+                                <f:validator binding="#{bindings.ModelNo.validator}"/>
+                            </af:inputText>
+                            <f:facet name="footer"/>
+                        </af:panelFormLayout>
+                        <af:panelTabbed position="above" id="pt2">
+                            <af:showDetailItem id="tab1" text="Product Rate" disclosed="true">
+                                <af:panelCollection id="pc1">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="statusbar"/>
+                                </af:panelCollection>
+                            </af:showDetailItem>
+                            <af:showDetailItem id="tab2" text="Product Discount"/>
+                        </af:panelTabbed>
+                    </af:panelHeader>
+                </f:facet>
                 <f:facet name="erptempleft"/>
             </af:pageTemplate>
         </af:form>

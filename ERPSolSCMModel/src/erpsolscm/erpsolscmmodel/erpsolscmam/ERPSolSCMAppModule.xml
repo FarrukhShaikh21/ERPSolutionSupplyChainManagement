@@ -86,6 +86,12 @@
   <ViewUsage
     Name="AllCustomersSalePersonClDetCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersSalePersonClView"/>
+  <ViewUsage
+    Name="InItemsRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"/>
+  <ViewUsage
+    Name="SoProdLocPriceDetCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoProdLocPriceView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
@@ -139,5 +145,11 @@
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.AllCustomersSPAllCustomerSPCreditLimitCustLineNoLink"
     SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.AllCustomerSalespersonDetCRUD"
     DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.AllCustomersSalePersonClDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="InItemsSoProdLocPriceProductIdLink1"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoProdLocPriceProductIdLink"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.InItemsRO"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoProdLocPriceDetCRUD"
     Reversed="false"/>
 </AppModule>

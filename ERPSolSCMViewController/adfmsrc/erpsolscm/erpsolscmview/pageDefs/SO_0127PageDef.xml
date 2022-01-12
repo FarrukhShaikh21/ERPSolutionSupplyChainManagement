@@ -5,6 +5,30 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="InItemsRO" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl" id="InItemsROIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="InItemsROIterator" id="Itemid">
+      <AttrNames>
+        <Item Value="Itemid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InItemsROIterator" id="ItemRefId">
+      <AttrNames>
+        <Item Value="ItemRefId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InItemsROIterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="InItemsROIterator" id="ModelNo">
+      <AttrNames>
+        <Item Value="ModelNo"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="InItemsROIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="InItemsROIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+  </bindings>
 </pageDefinition>
