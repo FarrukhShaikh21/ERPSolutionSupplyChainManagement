@@ -9,13 +9,19 @@
   DBObjectType="table"
   DBObjectName="SO_PROD_LOC_PRICE"
   AliasName="SoProdLocPrice"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPriceImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="Lineno"
     IsNotNull="true"
     ColumnName="LINENO"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_PROD_LOC_PRICE"
     PrimaryKey="true"/>
@@ -27,8 +33,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true">
+    TableName="SO_PROD_LOC_PRICE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -41,8 +46,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true">
+    TableName="SO_PROD_LOC_PRICE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -55,8 +59,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true"/>
+    TableName="SO_PROD_LOC_PRICE"/>
   <Attribute
     Name="RetailPrice"
     Precision="20"
@@ -65,25 +68,22 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true"/>
+    TableName="SO_PROD_LOC_PRICE"/>
   <Attribute
     Name="Efrom"
     IsNotNull="true"
     ColumnName="EFROM"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true"/>
+    TableName="SO_PROD_LOC_PRICE"/>
   <Attribute
     Name="Eto"
     ColumnName="ETO"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true"/>
+    TableName="SO_PROD_LOC_PRICE"/>
   <Attribute
     Name="Createdby"
     Precision="20"
@@ -91,8 +91,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true">
+    TableName="SO_PROD_LOC_PRICE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -101,10 +100,9 @@
     Name="CreatedDate"
     ColumnName="CREATED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true"/>
+    TableName="SO_PROD_LOC_PRICE"/>
   <Attribute
     Name="Modifiedby"
     Precision="20"
@@ -112,8 +110,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true">
+    TableName="SO_PROD_LOC_PRICE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -122,10 +119,9 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true"/>
+    TableName="SO_PROD_LOC_PRICE"/>
   <Attribute
     Name="BrNetPrice"
     Precision="20"
@@ -134,8 +130,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true"/>
+    TableName="SO_PROD_LOC_PRICE"/>
   <Attribute
     Name="HoNetPrice"
     Precision="20"
@@ -144,8 +139,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true"/>
+    TableName="SO_PROD_LOC_PRICE"/>
   <Attribute
     Name="RPrice"
     Precision="20"
@@ -154,8 +148,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true"/>
+    TableName="SO_PROD_LOC_PRICE"/>
   <Attribute
     Name="WsPrice"
     Precision="20"
@@ -164,8 +157,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true"/>
+    TableName="SO_PROD_LOC_PRICE"/>
   <Attribute
     Name="Cost"
     Precision="20"
@@ -174,8 +166,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true"/>
+    TableName="SO_PROD_LOC_PRICE"/>
   <Attribute
     Name="FlatDiscount"
     Precision="16"
@@ -184,8 +175,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true"/>
+    TableName="SO_PROD_LOC_PRICE"/>
   <Attribute
     Name="IntraCompanyProductid"
     Precision="15"
@@ -193,12 +183,18 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_PROD_LOC_PRICE"
-    PrimaryKey="true">
+    TableName="SO_PROD_LOC_PRICE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
   </Attribute>
+  <AccessorAttribute
+    Name="InItems"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoProdLocPriceProductIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoProdLocPriceProductIdAssoc.InItems"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoProdLocPriceProductIdAssoc.SoProdLocPrice"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="SoprodlocpricePrimaryKey"
     PrimaryKey="true">
@@ -207,23 +203,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.Lineno"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.Productid"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.Locationid"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.DelearPrice"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.RetailPrice"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.Efrom"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.Eto"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.Createdby"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.CreatedDate"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.Modifiedby"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.ModifiedDate"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.BrNetPrice"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.HoNetPrice"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.RPrice"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.WsPrice"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.Cost"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.FlatDiscount"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.IntraCompanyProductid"/>
     </AttrArray>
   </Key>
 </Entity>

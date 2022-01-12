@@ -128,4 +128,10 @@
     EntityAttrName="IntraCompanyProductid"
     EntityUsage="SoProdLocPrice"
     AliasName="INTRA_COMPANY_PRODUCTID"/>
+  <ViewLinkAccessor
+    Name="InItemsView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoProdLocPriceProductIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

@@ -841,4 +841,9 @@
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoSalesReturnLinesProductIdLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SoProdLocPriceView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoProdLocPriceProductIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
