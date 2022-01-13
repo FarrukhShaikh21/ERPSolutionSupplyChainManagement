@@ -144,7 +144,7 @@
                                         <af:column sortProperty="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.name}"
                                                    filterable="true"
                                                    headerText="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.label}"
-                                                   id="c4" width="120" minimumWidth="12">
+                                                   id="c4" width="100" minimumWidth="12" displayIndex="-1">
                                             <f:facet name="filter">
                                                 <af:inputDate value="#{bindings.SoProdLocPriceDetCRUDQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Efrom.value}"
                                                               id="id1">
@@ -156,7 +156,7 @@
                                                           required="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.mandatory}"
                                                           columns="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.displayWidth}"
                                                           shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.tooltip}"
-                                                          id="id2" contentStyle="width:50%">
+                                                          id="id2" contentStyle="width:60%">
                                                 <f:validator binding="#{row.bindings.Efrom.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.format}"/>
                                             </af:inputDate>
@@ -176,7 +176,7 @@
                                                           required="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.mandatory}"
                                                           columns="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.displayWidth}"
                                                           shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.tooltip}"
-                                                          id="id4" contentStyle="width:50%">
+                                                          id="id4" contentStyle="width:60%">
                                                 <f:validator binding="#{row.bindings.Eto.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.format}"/>
                                             </af:inputDate>

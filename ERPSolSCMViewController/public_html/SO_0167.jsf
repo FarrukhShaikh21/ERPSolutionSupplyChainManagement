@@ -227,7 +227,7 @@
                                         required="#{bindings.ConfirmDate.hints.mandatory}"
                                         columns="#{bindings.ConfirmDate.hints.displayWidth}"
                                         shortDesc="#{bindings.ConfirmDate.hints.tooltip}" id="id1" simple="true"
-                                        autoSubmit="true">
+                                        autoSubmit="true" readOnly="#{bindings.Salesorderid.inputValue!=null}">
                             <f:validator binding="#{bindings.ConfirmDate.validator}"/>
                             <af:convertDateTime pattern="#{bindings.ConfirmDate.format}"/>
                           </af:inputDate>

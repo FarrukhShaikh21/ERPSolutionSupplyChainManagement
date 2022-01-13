@@ -181,10 +181,12 @@
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
       <Item Value="Salespersonid"/>
+      <Item Value="Salesterritoryid"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="Name"/>
       <Item Value="Salespersonid"/>
+      <Item Value="Salesterritoryid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Name"/>
