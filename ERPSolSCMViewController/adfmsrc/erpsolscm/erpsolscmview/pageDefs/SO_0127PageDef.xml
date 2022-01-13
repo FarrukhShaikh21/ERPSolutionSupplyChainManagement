@@ -14,6 +14,8 @@
     </iterator>
     <searchRegion Binds="SoProdLocPriceDetCRUDIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SoProdLocPriceDetCRUDQuery"/>
+    <iterator Binds="SoProdDiscountDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoProdDiscountDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="InItemsROIterator" id="Itemid">
@@ -60,5 +62,23 @@
             DataControl="ERPSolSCMAppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSolSCMAppModuleDataControl"/>
+    <tree IterBinding="SoProdDiscountDetCRUDIterator" id="SoProdDiscountDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoProdDiscountView" Name="SoProdDiscountDetCRUD0">
+        <AttrNames>
+          <Item Value="Locationid"/>
+          <Item Value="BaseValue"/>
+          <Item Value="Efrom"/>
+          <Item Value="Eto"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SoProdDiscountDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SoProdDiscountDetCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SoProdLocPriceDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SoProdLocPriceDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

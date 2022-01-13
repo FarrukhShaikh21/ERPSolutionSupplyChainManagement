@@ -453,6 +453,8 @@ public class SoProdDiscountImpl extends ERPSolGlobalsEntityImpl {
      * @param attributeList list of attribute names/values to initialize the row
      */
     protected void create(AttributeList attributeList) {
+        setERPSolPKColumnName("Disclineno");
+        setERPSolPKSeqName("So_Prod_Discount_SEQ");
         super.create(attributeList);
     }
 

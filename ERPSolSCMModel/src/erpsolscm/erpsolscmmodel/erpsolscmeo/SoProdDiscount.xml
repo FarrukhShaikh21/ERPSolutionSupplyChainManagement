@@ -34,7 +34,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SO_PROD_DISCOUNT"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    DefaultValue="01">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -48,7 +49,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SO_PROD_DISCOUNT"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    DefaultValue="P">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
@@ -127,7 +129,8 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="SO_PROD_DISCOUNT"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    DefaultValue="U">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>

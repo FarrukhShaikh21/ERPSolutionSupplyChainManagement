@@ -31,7 +31,8 @@
                               selectionListener="#{bindings.InItemsRO.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.InItemsRO.rangeSize}" id="resId1">
                         <af:column headerText="#{bindings.InItemsRO.hints.Itemid.label}" id="resId1c1" width="150">
-                            <af:link text="#{row.Itemid}" id="l2" partialSubmit="true"/>
+                            <af:link text="#{row.Itemid}" id="l2" partialSubmit="true"
+                                     action="ERP-ACT-SO-0127-BACK-FROM-SEARCH"/>
                             <af:outputText value="#{row.Itemid}" shortDesc="#{bindings.InItemsRO.hints.Itemid.tooltip}"
                                            id="ot1" rendered="false"/>
                         </af:column>

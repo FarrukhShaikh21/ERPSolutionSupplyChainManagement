@@ -21,11 +21,9 @@
                                 <af:link text="Next" id="l3" actionListener="#{bindings.Next.execute}"
                                          disabled="#{!bindings.Next.enabled}" partialSubmit="true"
                                          icon="#{resource['images:imgNext.png']}" iconPosition="top"/>
-                                <af:link actionListener="#{bindings.Commit.execute}" text="Save"
-                                         disabled="#{!bindings.Commit.enabled}" id="l4" partialSubmit="true"
+                                <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l4" partialSubmit="true"
                                          icon="#{resource['images:imgSave.png']}" iconPosition="top"/>
-                                <af:link actionListener="#{bindings.Rollback.execute}" text="Undo"
-                                         disabled="#{!bindings.Rollback.enabled}" immediate="true" id="l5"
+                                <af:link actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true" id="l5"
                                          icon="#{resource['images:imgUndo.png']}" partialSubmit="true"
                                          iconPosition="top">
                                     <af:resetActionListener/>
@@ -74,7 +72,16 @@
                             <af:showDetailItem id="tab1" text="Product Rate" disclosed="true">
                                 <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                                     <f:facet name="menus"/>
-                                    <f:facet name="toolbar"/>
+                                    <f:facet name="toolbar">
+                                        <af:toolbar id="t4">
+                                            <af:button actionListener="#{bindings.CreateInsert1.execute}"
+                                                       text="Add Rate Line"
+                                                       disabled="#{!bindings.CreateInsert1.enabled}" id="b3"/>
+                                            <af:button actionListener="#{bindings.Delete1.execute}"
+                                                       text="Delete  Rate Line"
+                                                       disabled="#{!bindings.Delete1.enabled}" id="b4"/>
+                                        </af:toolbar>
+                                    </f:facet>
                                     <f:facet name="statusbar"/>
                                     <af:table value="#{bindings.SoProdLocPriceDetCRUD.collectionModel}" var="row"
                                               rows="#{bindings.SoProdLocPriceDetCRUD.rangeSize}"
@@ -87,7 +94,8 @@
                                               filterModel="#{bindings.SoProdLocPriceDetCRUDQuery.queryDescriptor}"
                                               queryListener="#{bindings.SoProdLocPriceDetCRUDQuery.processQuery}"
                                               filterVisible="true" varStatus="vs" id="t1" styleClass="AFStretchWidth"
-                                              columnStretching="column:c1">
+                                              columnStretching="column:c1" partialTriggers="::b3 ::b4"
+                                              displayRow="selected" scrollPolicy="page" autoHeightRows="5">
                                         <af:column sortProperty="#{bindings.SoProdLocPriceDetCRUD.hints.Locationid.name}"
                                                    filterable="true"
                                                    headerText="#{bindings.SoProdLocPriceDetCRUD.hints.Locationid.label}"
@@ -136,7 +144,7 @@
                                         <af:column sortProperty="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.name}"
                                                    filterable="true"
                                                    headerText="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.label}"
-                                                   id="c4">
+                                                   id="c4" width="120" minimumWidth="12">
                                             <f:facet name="filter">
                                                 <af:inputDate value="#{bindings.SoProdLocPriceDetCRUDQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Efrom.value}"
                                                               id="id1">
@@ -148,7 +156,7 @@
                                                           required="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.mandatory}"
                                                           columns="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.displayWidth}"
                                                           shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.tooltip}"
-                                                          id="id2">
+                                                          id="id2" contentStyle="width:50%">
                                                 <f:validator binding="#{row.bindings.Efrom.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.SoProdLocPriceDetCRUD.hints.Efrom.format}"/>
                                             </af:inputDate>
@@ -156,7 +164,7 @@
                                         <af:column sortProperty="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.name}"
                                                    filterable="true"
                                                    headerText="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.label}"
-                                                   id="c5">
+                                                   id="c5" width="120">
                                             <f:facet name="filter">
                                                 <af:inputDate value="#{bindings.SoProdLocPriceDetCRUDQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.Eto.value}"
                                                               id="id3">
@@ -168,7 +176,7 @@
                                                           required="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.mandatory}"
                                                           columns="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.displayWidth}"
                                                           shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.tooltip}"
-                                                          id="id4">
+                                                          id="id4" contentStyle="width:50%">
                                                 <f:validator binding="#{row.bindings.Eto.validator}"/>
                                                 <af:convertDateTime pattern="#{bindings.SoProdLocPriceDetCRUD.hints.Eto.format}"/>
                                             </af:inputDate>
@@ -256,7 +264,82 @@
                                     </af:table>
                                 </af:panelCollection>
                             </af:showDetailItem>
-                            <af:showDetailItem id="tab2" text="Product Discount"/>
+                            <af:showDetailItem id="tab2" text="Product Discount">
+                                <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar">
+                                        <af:toolbar id="t3">
+                                            <af:button actionListener="#{bindings.CreateInsert.execute}"
+                                                       text="Add Discount Line"
+                                                       disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
+                                            <af:button actionListener="#{bindings.Delete.execute}"
+                                                       text="Delete Discount Line"
+                                                       disabled="#{!bindings.Delete.enabled}" id="b2"/>
+                                        </af:toolbar>
+                                    </f:facet>
+                                    <f:facet name="statusbar"/>
+                                    <af:table value="#{bindings.SoProdDiscountDetCRUD.collectionModel}" var="row"
+                                              rows="#{bindings.SoProdDiscountDetCRUD.rangeSize}"
+                                              emptyText="#{bindings.SoProdDiscountDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.SoProdDiscountDetCRUD.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.SoProdDiscountDetCRUD.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.SoProdDiscountDetCRUD.rangeSize}" id="t2"
+                                              styleClass="AFStretchWidth" partialTriggers="::b1 ::b2"
+                                              displayRow="selected" autoHeightRows="5" scrollPolicy="page">
+                                        <af:column headerText="#{bindings.SoProdDiscountDetCRUD.hints.Locationid.label}"
+                                                   id="c8" width="200" displayIndex="-1">
+                                            <af:selectOneChoice value="#{row.bindings.Locationid.inputValue}"
+                                                                label="#{row.bindings.Locationid.label}"
+                                                                required="#{bindings.SoProdDiscountDetCRUD.hints.Locationid.mandatory}"
+                                                                shortDesc="#{bindings.SoProdDiscountDetCRUD.hints.Locationid.tooltip}"
+                                                                id="soc2">
+                                                <f:selectItems value="#{row.bindings.Locationid.items}" id="si2"/>
+                                                <f:validator binding="#{row.bindings.Locationid.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.SoProdDiscountDetCRUD.hints.BaseValue.label}"
+                                                   id="c12">
+                                            <af:inputText value="#{row.bindings.BaseValue.inputValue}"
+                                                          label="#{bindings.SoProdDiscountDetCRUD.hints.BaseValue.label}"
+                                                          required="#{bindings.SoProdDiscountDetCRUD.hints.BaseValue.mandatory}"
+                                                          columns="#{bindings.SoProdDiscountDetCRUD.hints.BaseValue.displayWidth}"
+                                                          maximumLength="#{bindings.SoProdDiscountDetCRUD.hints.BaseValue.precision}"
+                                                          shortDesc="#{bindings.SoProdDiscountDetCRUD.hints.BaseValue.tooltip}"
+                                                          id="it9">
+                                                <f:validator binding="#{row.bindings.BaseValue.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.SoProdDiscountDetCRUD.hints.BaseValue.format}"/>
+                                            </af:inputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.SoProdDiscountDetCRUD.hints.Efrom.label}"
+                                                   id="c13" width="120">
+                                            <af:inputDate value="#{row.bindings.Efrom.inputValue}"
+                                                          label="#{bindings.SoProdDiscountDetCRUD.hints.Efrom.label}"
+                                                          required="#{bindings.SoProdDiscountDetCRUD.hints.Efrom.mandatory}"
+                                                          columns="#{bindings.SoProdDiscountDetCRUD.hints.Efrom.displayWidth}"
+                                                          shortDesc="#{bindings.SoProdDiscountDetCRUD.hints.Efrom.tooltip}"
+                                                          id="id5">
+                                                <f:validator binding="#{row.bindings.Efrom.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.SoProdDiscountDetCRUD.hints.Efrom.format}"/>
+                                            </af:inputDate>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.SoProdDiscountDetCRUD.hints.Eto.label}"
+                                                   id="c14" width="120">
+                                            <af:inputDate value="#{row.bindings.Eto.inputValue}"
+                                                          label="#{bindings.SoProdDiscountDetCRUD.hints.Eto.label}"
+                                                          required="#{bindings.SoProdDiscountDetCRUD.hints.Eto.mandatory}"
+                                                          columns="#{bindings.SoProdDiscountDetCRUD.hints.Eto.displayWidth}"
+                                                          shortDesc="#{bindings.SoProdDiscountDetCRUD.hints.Eto.tooltip}"
+                                                          id="id6">
+                                                <f:validator binding="#{row.bindings.Eto.validator}"/>
+                                                <af:convertDateTime pattern="#{bindings.SoProdDiscountDetCRUD.hints.Eto.format}"/>
+                                            </af:inputDate>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
+                            </af:showDetailItem>
                         </af:panelTabbed>
                     </af:panelHeader>
                 </f:facet>
