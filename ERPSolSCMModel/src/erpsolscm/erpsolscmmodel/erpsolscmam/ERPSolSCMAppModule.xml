@@ -92,6 +92,9 @@
   <ViewUsage
     Name="SoProdLocPriceDetCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoProdLocPriceView"/>
+  <ViewUsage
+    Name="SoProdDiscountDetCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoProdDiscountView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
@@ -151,5 +154,11 @@
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoProdLocPriceProductIdLink"
     SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.InItemsRO"
     DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoProdLocPriceDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="InItemsSoProdDiscountProductIdLink1"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoProdDiscountProductIdLink"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.InItemsRO"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoProdDiscountDetCRUD"
     Reversed="false"/>
 </AppModule>

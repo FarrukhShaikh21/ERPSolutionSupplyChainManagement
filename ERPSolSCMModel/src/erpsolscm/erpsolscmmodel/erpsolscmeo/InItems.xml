@@ -1369,6 +1369,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoProdLocPriceProductIdAssoc.InItems"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SoProdDiscount"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoProdDiscountProductIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoProdDiscountProductIdAssoc.SoProdDiscount"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoProdDiscountProductIdAssoc.InItems"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="UPkModelNo">
     <DesignTime>
