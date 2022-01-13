@@ -22,7 +22,7 @@
                                   model="#{bindings.InItemsFindVCQuery.queryModel}"
                                   queryListener="#{bindings.InItemsFindVCQuery.processQuery}"
                                   queryOperationListener="#{bindings.InItemsFindVCQuery.processQueryOperation}"
-                                  resultComponentId="::resId1"/>
+                                  resultComponentId="::resId1" saveQueryMode="hidden"/>
                     </af:panelHeader>
                     <af:table value="#{bindings.InItemsRO.collectionModel}" var="row"
                               rows="#{bindings.InItemsRO.rangeSize}"
