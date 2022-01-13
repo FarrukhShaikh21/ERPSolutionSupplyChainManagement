@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0127_SEARCHPageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="InItemsRO" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl" id="InItemsROIterator"/>
+    <searchRegion Criteria="InItemsFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="InItemsROIterator" id="InItemsFindVCQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="InItemsROIterator" id="InItemsRO">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView" Name="InItemsRO0">
+        <AttrNames>
+          <Item Value="Itemid"/>
+          <Item Value="ItemRefId"/>
+          <Item Value="Description"/>
+          <Item Value="ModelNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

@@ -12,18 +12,24 @@
                         <f:facet name="toolbar">
                             <af:panelGroupLayout layout="horizontal" id="pgl1">
                                 <af:link text="Search" id="l1" partialSubmit="true"
-                                         icon="#{resource['images:imgFind.png']}" iconPosition="top"/>
+                                         icon="#{resource['images:imgFind.png']}" iconPosition="top"
+                                         action="ERP-ACT-SO-0127-SEARCH"/>
                                 <af:link text="Previous" id="l2" actionListener="#{bindings.Previous.execute}"
                                          disabled="#{!bindings.Previous.enabled}"
-                                         icon="#{resource['images:imgPrevious.png']}" partialSubmit="true"/>
-                                <af:button actionListener="#{bindings.Next.execute}" text="Next"
-                                           disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
-                                <af:button actionListener="#{bindings.Rollback.execute}" text="Undo"
-                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b1">
+                                         icon="#{resource['images:imgPrevious.png']}" partialSubmit="true"
+                                         iconPosition="top"/>
+                                <af:link text="Next" id="l3" actionListener="#{bindings.Next.execute}"
+                                         disabled="#{!bindings.Next.enabled}" partialSubmit="true"
+                                         icon="#{resource['images:imgNext.png']}" iconPosition="top"/>
+                                <af:link actionListener="#{bindings.Commit.execute}" text="Save"
+                                         disabled="#{!bindings.Commit.enabled}" id="l4" partialSubmit="true"
+                                         icon="#{resource['images:imgSave.png']}" iconPosition="top"/>
+                                <af:link actionListener="#{bindings.Rollback.execute}" text="Undo"
+                                         disabled="#{!bindings.Rollback.enabled}" immediate="true" id="l5"
+                                         icon="#{resource['images:imgUndo.png']}" partialSubmit="true"
+                                         iconPosition="top">
                                     <af:resetActionListener/>
-                                </af:button>
-                                <af:button actionListener="#{bindings.Commit.execute}" text="Save"
-                                           disabled="#{!bindings.Commit.enabled}" id="b4"/>
+                                </af:link>
                                 <f:facet name="separator">
                                     <af:spacer width="10" height="10" id="s1"/>
                                 </f:facet>

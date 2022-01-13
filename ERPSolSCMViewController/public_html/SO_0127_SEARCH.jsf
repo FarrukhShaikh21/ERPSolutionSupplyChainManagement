@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="SO_0127_SEARCH.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="panelHeader 1" id="ph2">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t1">
+                        <af:link text="Back From Search" id="l1" action="ERP-ACT-SO-0127-BACK-FROM-SEARCH"
+                                 icon="#{resource['images:imgExitForm.png']}"/>
+                    </af:toolbar>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelGroupLayout layout="vertical" id="pgl1">
+                    <af:panelHeader text="InItems" id="ph1">
+                        <af:query id="qryId1" headerText="Search" disclosed="true"
+                                  value="#{bindings.InItemsFindVCQuery.queryDescriptor}"
+                                  model="#{bindings.InItemsFindVCQuery.queryModel}"
+                                  queryListener="#{bindings.InItemsFindVCQuery.processQuery}"
+                                  queryOperationListener="#{bindings.InItemsFindVCQuery.processQueryOperation}"
+                                  resultComponentId="::resId1"/>
+                    </af:panelHeader>
+                    <af:table value="#{bindings.InItemsRO.collectionModel}" var="row"
+                              rows="#{bindings.InItemsRO.rangeSize}"
+                              emptyText="#{bindings.InItemsRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0" selectedRowKeys="#{bindings.InItemsRO.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.InItemsRO.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.InItemsRO.rangeSize}" id="resId1">
+                        <af:column headerText="#{bindings.InItemsRO.hints.Itemid.label}" id="resId1c1" width="150">
+                            <af:link text="#{row.Itemid}" id="l2" partialSubmit="true"/>
+                            <af:outputText value="#{row.Itemid}" shortDesc="#{bindings.InItemsRO.hints.Itemid.tooltip}"
+                                           id="ot1" rendered="false"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.InItemsRO.hints.ItemRefId.label}" id="resId1c2">
+                            <af:outputText value="#{row.ItemRefId}"
+                                           shortDesc="#{bindings.InItemsRO.hints.ItemRefId.tooltip}" id="ot2"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.InItemsRO.hints.Description.label}" id="resId1c3" width="200">
+                            <af:outputText value="#{row.Description}"
+                                           shortDesc="#{bindings.InItemsRO.hints.Description.tooltip}" id="ot3"/>
+                        </af:column>
+                        <af:column headerText="#{bindings.InItemsRO.hints.ModelNo.label}" id="resId1c4" width="200">
+                            <af:outputText value="#{row.ModelNo}"
+                                           shortDesc="#{bindings.InItemsRO.hints.ModelNo.tooltip}" id="ot4"/>
+                        </af:column>
+                    </af:table>
+                </af:panelGroupLayout>
+            </af:panelHeader>
+        </af:form>
+    </af:document>
+</f:view>

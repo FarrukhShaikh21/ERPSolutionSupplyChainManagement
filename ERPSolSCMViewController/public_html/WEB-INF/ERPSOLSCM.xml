@@ -166,6 +166,12 @@
     <view id="SO_0011_SEARCH">
       <page>/SO_0011_SEARCH.jsf</page>
     </view>
+    <view id="SO_0127">
+      <page>/SO_0127.jsf</page>
+    </view>
+    <view id="SO_0127_SEARCH">
+      <page>/SO_0127_SEARCH.jsf</page>
+    </view>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -198,6 +204,10 @@
       <control-flow-case id="__65">
         <from-outcome>ERP-ACT-SO-0011</from-outcome>
         <to-activity-id>SO_0011</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__70">
+        <from-outcome>ERP-ACT-SO-0127</from-outcome>
+        <to-activity-id>SO_0127</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__11">
@@ -388,6 +398,20 @@
       <control-flow-case id="__69">
         <from-outcome>ERP-ACT-SO-0011-BACK-FROM-SEARCH</from-outcome>
         <to-activity-id>SO_0011</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__72">
+      <from-activity-id>SO_0127</from-activity-id>
+      <control-flow-case id="__73">
+        <from-outcome>ERP-ACT-SO-0127-SEARCH</from-outcome>
+        <to-activity-id>SO_0127_SEARCH</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__74">
+      <from-activity-id>SO_0127_SEARCH</from-activity-id>
+      <control-flow-case id="__75">
+        <from-outcome>ERP-ACT-SO-0127-BACK-FROM-SEARCH</from-outcome>
+        <to-activity-id>SO_0127</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

@@ -56,9 +56,9 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
-            DataControl="ERPSolSCMAppModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
             DataControl="ERPSolSCMAppModuleDataControl"/>
   </bindings>
 </pageDefinition>
