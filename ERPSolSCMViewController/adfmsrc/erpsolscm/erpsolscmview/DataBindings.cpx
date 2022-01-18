@@ -40,6 +40,8 @@
     <page path="/SO_0127.jsf" usageId="erpsolscm_erpsolscmview_SO_0127PageDef"/>
     <page path="/SO_0092.jsf" usageId="erpsolscm_erpsolscmview_SO_0092PageDef"/>
     <page path="/SO_0127_SEARCH.jsf" usageId="erpsolscm_erpsolscmview_SO_0127_SEARCHPageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExeParaReportDetailSCM"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11111"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolscm_erpsolscmview_SO_0167PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0167PageDef"/>
@@ -86,6 +88,8 @@
     <page id="erpsolscm_erpsolscmview_SO_0092PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0092PageDef"/>
     <page id="erpsolscm_erpsolscmview_SO_0127_SEARCHPageDef"
           path="erpsolscm.erpsolscmview.pageDefs.SO_0127_SEARCHPageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11111"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11111"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolSCMAppModuleDataControl" Package="erpsolscm.erpsolscmmodel.erpsolscmam"

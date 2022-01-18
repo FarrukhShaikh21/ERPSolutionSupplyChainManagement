@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11111" Package="erpsolscm.erpsolscmview.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SysProgramDetRO" RangeSize="25" DataControl="ERPSolTempAppModuleDataControl"
+              id="SysProgramDetROIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SysProgramDetROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_PROJECTID" NDType="java.lang.String"/>
+      <NamedData NDName="P_ADF_LEVELID" NDType="java.lang.String"/>
+      <NamedData NDName="P_ADF_USERID" NDValue="#{pageFlowScope.ERPSolTempBean.LERPSolUserCode}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="P_ADF_MODULE_TYPE" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

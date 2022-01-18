@@ -509,11 +509,11 @@
       islink="true"
       id="ControlFlowCase45"
       from="MethodCall44"
-      to="MethodCall18">
+      to="MethodCall81">
       <property
          name="fromOutcome">ACT-ERP-SOL-GOTO-SCM-MAIN</property>
       <property
-         name="sdm:polyPoints">R50,-105.64844,63.097656,T50</property>
+         name="sdm:polyPoints">R50,-238.14844,63.097656,-238.14844,4.0976562,L50</property>
    </ControlFlowCase>
    <View
       id="View46">
@@ -858,7 +858,7 @@
       <property
          name="fromOutcome">ERP-ACT-SO-0127-SEARCH</property>
       <property
-         name="sdm:polyPoints">B50,821.5,553.94824,796.6953,553.94824,T50</property>
+         name="sdm:polyPoints">B44,818.0,553.94824,793.1953,553.94824,T44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -869,5 +869,28 @@
          name="fromOutcome">ERP-ACT-SO-0127-BACK-FROM-SEARCH</property>
       <property
          name="sdm:polyPoints">T56,800.1953,560.94824,825.0,560.94824,B56</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall81">
+      <property
+         name="activityId">ExeParaReportDetailSCM</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExeParaReportDetailSCM&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">4.448242</property>
+      <property
+         name="x">-146.64844</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase82"
+      from="MethodCall81"
+      to="MethodCall18">
+      <property
+         name="fromOutcome">ACT-ERP-SOL-GOTO-SCM-MAIN</property>
+      <property
+         name="sdm:polyPoints">B50,-146.64844,93.09766,-105.64844,93.09766,T50</property>
    </ControlFlowCase>
 </SDM>

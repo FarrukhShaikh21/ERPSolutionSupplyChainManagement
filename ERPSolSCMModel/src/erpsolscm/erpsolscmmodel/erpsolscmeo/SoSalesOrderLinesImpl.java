@@ -1874,13 +1874,8 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
         if (operation==DML_INSERT) {
             System.out.println("this is a");
            populateAttributeAsChanged(SALESORDERID, getSoSalesOrder().getAttribute("Salesorderid").toString());
-           System.out.println("this is b");
            String pkValue="FUNC_GET_MAX_ID('SO_SALES_ORDER_LINES WHERE SALESORDERID=''"+getSalesorderid()+"''','LINENO')";
-           System.out.println("this is c");
-           System.out.println(pkValue + "pk value");
-           System.out.println("this is d");
            String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
-           System.out.println("this is e");
            populateAttributeAsChanged(LINENO, Integer.parseInt(result));
         }
         if (operation!=DML_DELETE) {

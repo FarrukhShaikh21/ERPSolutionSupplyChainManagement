@@ -172,6 +172,12 @@
     <view id="SO_0127_SEARCH">
       <page>/SO_0127_SEARCH.jsf</page>
     </view>
+    <method-call id="ExeParaReportDetailSCM">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -320,7 +326,7 @@
       <from-activity-id>ExecuteWithParamsSCMReport</from-activity-id>
       <control-flow-case id="__44">
         <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
-        <to-activity-id>ExeSysModuleSoTransaction</to-activity-id>
+        <to-activity-id>ExeParaReportDetailSCM</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__49">
@@ -412,6 +418,13 @@
       <control-flow-case id="__75">
         <from-outcome>ERP-ACT-SO-0127-BACK-FROM-SEARCH</from-outcome>
         <to-activity-id>SO_0127</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__71">
+      <from-activity-id>ExeParaReportDetailSCM</from-activity-id>
+      <control-flow-case id="__76">
+        <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
+        <to-activity-id>ExeSysModuleSoTransaction</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
