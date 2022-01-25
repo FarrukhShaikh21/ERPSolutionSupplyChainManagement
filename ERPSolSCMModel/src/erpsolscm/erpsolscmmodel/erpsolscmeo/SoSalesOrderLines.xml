@@ -1006,11 +1006,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_ORDER_LINES"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression
-      trustMode="untrusted"><![CDATA[SoSalesOrder?.Posted]]></TransientExpression>
+    <TransientExpression><![CDATA[SoSalesOrder?.Posted]]></TransientExpression>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -1111,6 +1109,20 @@
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.Itemid"/>
     </AttrArray>
   </Key>
+  <validation:CompareValidationBean
+    Name="SoSalesOrderLinesRateBR"
+    ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines_Rule_3"
+    OnAttribute="ActUnitPriceOcurr"
+    OperandType="EXPR"
+    Inverse="false"
+    CompareType="GREATERTHAN">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="ActUnitPriceOcurr"/>
+    </validation:OnAttributes>
+    <validation:TransientExpression
+      trustMode="untrusted"><![CDATA[ActUnitPriceOcurr==null?0:0]]></validation:TransientExpression>
+  </validation:CompareValidationBean>
   <validation:UniqueKeyValidationBean
     Name="SoSalesOrderLinesDupProBR"
     ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines_Rule_2"

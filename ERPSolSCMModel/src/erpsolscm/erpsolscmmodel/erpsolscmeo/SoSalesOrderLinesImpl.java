@@ -1895,7 +1895,7 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
            
        }
         super.doDML(operation, e);
-        if (operation==DML_INSERT) {
+        if (operation!=DML_DELETE ) {
 //FUNC_INSERT_DISCOUNT(P_USERID VARCHAR2,P_SALESORDERID VARCHAR2,P_CONFIRM_DATE DATE,P_TYPE VARCHAR2,P_CUSTOMERID VARCHAR2,P_PRODUCTID VARCHAR2,P_QUANTITY NUMBER,P_RATE NUMBER,P_EXCHANGE_RATE NUMBER,P_GIFT VARCHAR2,P_LINENO NUMBER) RETURN NUMBER IS
             String ERPPlsql="DECLARE L_RESULT NUMBER; begin L_RESULT:=PKG_SALE_ORDER.FUNC_INSERT_DISCOUNT(?,?,to_Date(?,'yyyy-mm-dd'),?,?,?,?,?,?,?,?); END;";
             CallableStatement cs = getDBTransaction().createCallableStatement(ERPPlsql, getDBTransaction().DEFAULT);
