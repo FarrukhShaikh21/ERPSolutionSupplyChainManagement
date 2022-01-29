@@ -13,6 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_SALESRETURNLINSEQ"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <EntityUsage
     Name="Srimei"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei"/>
@@ -190,4 +194,40 @@
     EntityAttrName="Srimeiseq"
     EntityUsage="Srimei"
     AliasName="SRIMEISEQ"/>
+  <ViewCriteria
+    Name="SrimeiViewBySalesRetDetSeqVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SrimeiViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Salesreturnlinseq"
+        ViewAttribute="Salesreturnlinseq"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_SALESRETURNLINSEQ"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>
