@@ -349,6 +349,18 @@
     ColumnType="NUMBER"
     TableName="SRIMEI"
     PrimaryKey="true"/>
+  <Attribute
+    Name="TempBoxNo"
+    Precision="100"
+    ColumnName="TEMP_BOX_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRIMEI">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SoSalesReturn"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.SysC0017020Assoc"

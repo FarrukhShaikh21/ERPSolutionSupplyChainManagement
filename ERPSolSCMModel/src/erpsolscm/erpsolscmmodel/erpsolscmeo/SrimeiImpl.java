@@ -49,6 +49,7 @@ public class SrimeiImpl extends ERPSolGlobalsEntityImpl {
         Salesretseq,
         Salesreturnlinseq,
         Srimeiseq,
+        TempBoxNo,
         SoSalesReturn,
         SoSalesReturnLines;
         private static AttributesEnum[] vals = null;
@@ -73,6 +74,7 @@ public class SrimeiImpl extends ERPSolGlobalsEntityImpl {
             return vals;
         }
     }
+
     public static final int SRDETLID = AttributesEnum.Srdetlid.index();
     public static final int BOXNO = AttributesEnum.Boxno.index();
     public static final int IMEINO = AttributesEnum.ImeiNo.index();
@@ -102,6 +104,7 @@ public class SrimeiImpl extends ERPSolGlobalsEntityImpl {
     public static final int SALESRETSEQ = AttributesEnum.Salesretseq.index();
     public static final int SALESRETURNLINSEQ = AttributesEnum.Salesreturnlinseq.index();
     public static final int SRIMEISEQ = AttributesEnum.Srimeiseq.index();
+    public static final int TEMPBOXNO = AttributesEnum.TempBoxNo.index();
     public static final int SOSALESRETURN = AttributesEnum.SoSalesReturn.index();
     public static final int SOSALESRETURNLINES = AttributesEnum.SoSalesReturnLines.index();
 
@@ -109,6 +112,13 @@ public class SrimeiImpl extends ERPSolGlobalsEntityImpl {
      * This is the default constructor (do not remove).
      */
     public SrimeiImpl() {
+    }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei");
     }
 
     /**
@@ -576,6 +586,22 @@ public class SrimeiImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for TempBoxNo, using the alias name TempBoxNo.
+     * @return the value of TempBoxNo
+     */
+    public String getTempBoxNo() {
+        return (String) getAttributeInternal(TEMPBOXNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for TempBoxNo.
+     * @param value value to set the TempBoxNo
+     */
+    public void setTempBoxNo(String value) {
+        setAttributeInternal(TEMPBOXNO, value);
+    }
+
+    /**
      * @return the associated entity SoSalesReturnImpl.
      */
     public SoSalesReturnImpl getSoSalesReturn() {
@@ -603,6 +629,7 @@ public class SrimeiImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(SOSALESRETURNLINES, value);
     }
 
+
     /**
      * @param srimeiseq key constituent
 
@@ -610,13 +637,6 @@ public class SrimeiImpl extends ERPSolGlobalsEntityImpl {
      */
     public static Key createPrimaryKey(Integer srimeiseq) {
         return new Key(new Object[] { srimeiseq });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpsolscm.erpsolscmmodel.erpsolscmeo.Srimei");
     }
 
     /**

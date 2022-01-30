@@ -194,6 +194,12 @@
     EntityAttrName="Srimeiseq"
     EntityUsage="Srimei"
     AliasName="SRIMEISEQ"/>
+  <ViewAttribute
+    Name="TempBoxNo"
+    PrecisionRule="true"
+    EntityAttrName="TempBoxNo"
+    EntityUsage="Srimei"
+    AliasName="TEMP_BOX_NO"/>
   <ViewCriteria
     Name="SrimeiViewBySalesRetDetSeqVC"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiView"
