@@ -4,20 +4,39 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="SrimeiViewDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
-              id="SrimeiViewDetCRUDIterator"/>
-    <searchRegion Binds="SrimeiViewDetCRUDIterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SrimeiViewDetCRUDQuery"/>
+    <iterator Binds="SoSalesReturnCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesReturnCRUDIterator"/>
+    <iterator Binds="SrimeiViewBySrdetlinesseqCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SrimeiViewBySrdetlinesseqCRUDIterator"/>
+    <searchRegion Binds="SrimeiViewBySrdetlinesseqCRUDIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="SrimeiViewBySrdetlinesseqCRUDQuery"/>
   </executables>
   <bindings>
-    <tree IterBinding="SrimeiViewDetCRUDIterator" id="SrimeiViewDetCRUD">
-      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiView" Name="SrimeiViewDetCRUD0">
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SrimeiViewBySrdetlinesseqCRUDIterator" id="SrimeiViewBySrdetlinesseqCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiView" Name="SrimeiViewBySrdetlinesseqCRUD0">
         <AttrNames>
           <Item Value="Productid"/>
-          <Item Value="ImeiNo"/>
           <Item Value="TempBoxNo"/>
+          <Item Value="ImeiNo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="SrimeiViewBySrdetlinesseqCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="doERPSolRemoveSaleReturnBox" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doERPSolRemoveSaleReturnBox" IsViewObjectMethod="true"
+                  DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SrimeiViewBySrdetlinesseqCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doERPSolRemoveSaleReturnBox_ERPSolSCMAppModuleDataControl_SrimeiViewBySrdetlinesseqCRUD_doERPSolRemoveSaleReturnBox_result"/>
   </bindings>
 </pageDefinition>

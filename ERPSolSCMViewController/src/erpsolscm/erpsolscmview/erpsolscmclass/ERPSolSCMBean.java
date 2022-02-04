@@ -68,6 +68,8 @@ public class ERPSolSCMBean {
     RichInputText ERPSolRebateImeiBoxText;
     String ERPSolImeiString;
     String ERPSolReportName;
+    String ERPSolSaleretid;
+    
     public void doSetERPSolSCMSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
         if (getERPSolStrUserCode().length()==0) {
@@ -422,7 +424,7 @@ public class ERPSolSCMBean {
     }
 
     public String getERPSolImeiString() {
-        return ERPSolImeiString;
+        return null;
     }
     public String doGenerateSoRebateDetail() {
      
@@ -465,6 +467,68 @@ public class ERPSolSCMBean {
         
            
         return "ACT-BACK-FROM-REBATE-IMEI";
+    }
+    
+    public void erpSolSaleReturnBOX(ValueChangeEvent erpvce) {
+        if (erpvce.getNewValue()==null) {
+            return ;
+        }
+        doInserterpSolSaleReturnImeiBox(erpvce.getNewValue().toString(),"B");
+        System.out.println("5435");    
+    }
+  
+    public void erpSolSaleReturnIMEI(ValueChangeEvent erpvce) {
+        if (erpvce.getNewValue()==null) {
+            return ;
+        }
+        doInserterpSolSaleReturnImeiBox(erpvce.getNewValue().toString(),"I");
+    //        AdfFacesContext.getCurrentInstance().addPartialTarget(getERPSolImeiBoxText());
+        System.out.println("5435");    
+        
+    }  
+  
+    
+    public void doInserterpSolSaleReturnImeiBox(String pImeiBox, String pValueType) {
+        if (pImeiBox==null) {
+            return ;
+        }
+        DCBindingContainer bc = (DCBindingContainer) ERPSolGlobalViewBean.doGetERPBindings();
+        DCDataControl dc = bc.getDataControl();
+        String ERPSolPlsql="begin ?:=Pkg_Sale_Order.FUNC_SRET_IMEI_BOX_VALIDATION('"+getERPSolSaleretid()+"','"+pImeiBox+"','"+pValueType+"','"+getERPSolProductId()+"'); end;";
+        System.out.println(ERPSolPlsql);
+        DBTransaction erpsoldbt=(DBTransaction)dc.getApplicationModule().getTransaction();
+        CallableStatement cs = erpsoldbt.createCallableStatement(ERPSolPlsql, DBTransaction.DEFAULT);
+        try {
+                     System.out.println("6");
+                     cs.registerOutParameter(1, Types.VARCHAR);
+                     System.out.println("7");
+                     cs.executeUpdate();
+                     System.out.println("8");
+                     ERPSolPlsql=cs.getString(1);
+                     System.out.println("9");
+                    System.out.println(ERPSolPlsql);
+                     if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
+                     {  
+                         System.out.println("comong");
+                         erpsoldbt.commit();
+                     dc.getApplicationModule().findViewObject("SrimeiViewBySrdetlinesseqCRUD").executeQuery();
+    //                         dc.getApplicationModule().findViewObject("SoSalesOrderViewCRUD").getCurrentRow().setAttribute("txtIMEIAndBox", null);
+                     }
+                     else {
+                         FacesContext.getCurrentInstance().addMessage(null , new FacesMessage(ERPSolPlsql));
+                //                throw new JboException(ERPSolPlsql);
+                     }
+                 } catch (SQLException e) {
+                e.printStackTrace();
+                     
+                 }
+                 finally{
+                    try {
+                        cs.close();
+                    } catch (SQLException e) {
+                    }
+                }
+        
     }
     
     public String doERPSolExecuteReport() {
@@ -793,7 +857,16 @@ public class ERPSolSCMBean {
     //        ERPsolrow.setAttribute("ImeiNo", message);
     //        ERPSolvo.insertRow(ERPsolrow);
     }
-    
+
+
+    public void setERPSolSaleretid(String ERPSolSaleretid) {
+        this.ERPSolSaleretid = ERPSolSaleretid;
+    }
+
+    public String getERPSolSaleretid() {
+        return ERPSolSaleretid;
+    }
+
     public static void main(String[] args) {
         BigDecimal fcurr=new BigDecimal(2250);
        BigDecimal discount=new BigDecimal(7.5);

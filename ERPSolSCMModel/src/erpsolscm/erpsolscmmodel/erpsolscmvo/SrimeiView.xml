@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiViewImpl"
+  ComponentInterface="erpsolscm.erpsolscmmodel.erpsolscmvo.common.SrimeiView"
+  ClientProxyName="erpsolscm.erpsolscmmodel.erpsolscmvo.client.SrimeiViewClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+  </DesignTime>
   <Variable
     Name="P_ADF_SALESRETURNLINSEQ"
     Kind="viewcriteria"
@@ -236,4 +242,14 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doERPSolRemoveSaleReturnBox"
+      MethodName="doERPSolRemoveSaleReturnBox">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>

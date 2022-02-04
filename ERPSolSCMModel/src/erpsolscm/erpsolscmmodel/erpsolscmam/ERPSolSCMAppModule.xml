@@ -93,8 +93,12 @@
     Name="SoProdDiscountDetCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoProdDiscountView"/>
   <ViewUsage
-    Name="SrimeiViewDetCRUD"
-    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiView"/>
+    Name="SrimeiViewBySrdetlinesseqCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiView">
+    <ViewCriteriaUsage
+      Name="SrimeiViewBySalesRetDetSeqVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiView.SrimeiViewBySalesRetDetSeqVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
@@ -154,11 +158,5 @@
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoProdDiscountProductIdLink"
     SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.InItemsRO"
     DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoProdDiscountDetCRUD"
-    Reversed="false"/>
-  <ViewLinkUsage
-    Name="SysC0017022Link1"
-    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SysC0017022Link"
-    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesReturnLinesDetCRUD"
-    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SrimeiViewDetCRUD"
     Reversed="false"/>
 </AppModule>

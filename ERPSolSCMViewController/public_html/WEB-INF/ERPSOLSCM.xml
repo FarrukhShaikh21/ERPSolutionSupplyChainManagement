@@ -178,6 +178,21 @@
         <fixed-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SO_0161_IMEI">
+      <page>/SO_0161_IMEI.jsf</page>
+    </view>
+    <method-call id="ExeWithParaSRIMEISO_0161_IMEI">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-0161-IMEI</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeSetSCMReportDefaults">
+      <method>#{bindings.doSetERPSolSCMReportDefault.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SO-1124</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -205,7 +220,7 @@
       </control-flow-case>
       <control-flow-case id="__45">
         <from-outcome>ERP-ACT-SO-1124</from-outcome>
-        <to-activity-id>SO_1124</to-activity-id>
+        <to-activity-id>ExeSetSCMReportDefaults</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__65">
         <from-outcome>ERP-ACT-SO-0011</from-outcome>
@@ -349,6 +364,10 @@
         <from-outcome>ERP-ACT-0161-SEARCH</from-outcome>
         <to-activity-id>SO_0161_SEARCH</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__77">
+        <from-outcome>ERP-ACT-0161-IMEI</from-outcome>
+        <to-activity-id>ExeWithParaSRIMEISO_0161_IMEI</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__55">
       <from-activity-id>SO_0161_SEARCH</from-activity-id>
@@ -425,6 +444,27 @@
       <control-flow-case id="__76">
         <from-outcome>ACT-ERP-SOL-GOTO-SCM-MAIN</from-outcome>
         <to-activity-id>ExeSysModuleSoTransaction</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__78">
+      <from-activity-id>SO_0161_IMEI</from-activity-id>
+      <control-flow-case id="__79">
+        <from-outcome>ERP-ACT-0161-IMEI-BACK</from-outcome>
+        <to-activity-id>SO_0161</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__80">
+      <from-activity-id>ExeWithParaSRIMEISO_0161_IMEI</from-activity-id>
+      <control-flow-case id="__81">
+        <from-outcome>ERP-ACT-0161-IMEI</from-outcome>
+        <to-activity-id>SO_0161_IMEI</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__82">
+      <from-activity-id>ExeSetSCMReportDefaults</from-activity-id>
+      <control-flow-case id="__83">
+        <from-outcome>ERP-ACT-SO-1124</from-outcome>
+        <to-activity-id>SO_1124</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

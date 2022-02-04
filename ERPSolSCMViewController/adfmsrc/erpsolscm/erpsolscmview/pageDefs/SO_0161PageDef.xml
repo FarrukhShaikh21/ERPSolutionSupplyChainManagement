@@ -109,5 +109,15 @@
                   DataControl="ERPSolSCMAppModuleDataControl"
                   InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesReturnCRUD"
                   ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSuperviseSalesReturn_ERPSolSCMAppModuleDataControl_SoSalesReturnCRUD_doSuperviseSalesReturn_result"/>
+    <attributeValues IterBinding="SoSalesReturnLinesDetCRUDIterator" id="Productid">
+      <AttrNames>
+        <Item Value="Productid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnLinesDetCRUDIterator" id="Salesreturnlinseq">
+      <AttrNames>
+        <Item Value="Salesreturnlinseq"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

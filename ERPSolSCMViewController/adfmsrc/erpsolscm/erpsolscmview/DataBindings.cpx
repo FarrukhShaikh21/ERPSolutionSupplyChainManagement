@@ -43,6 +43,10 @@
     <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExeParaReportDetailSCM"
           usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11111"/>
     <page path="/SO_0161_IMEI.jsf" usageId="erpsolscm_erpsolscmview_SO_0161_IMEIPageDef"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExeWithParaSRIMEISO_0161_IMEI"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111111"/>
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExeSetSCMReportDefaults"
+          usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_doSetERPSolSCMReportDefaultPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="erpsolscm_erpsolscmview_SO_0167PageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0167PageDef"/>
@@ -92,6 +96,10 @@
     <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11111"
           path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef11111"/>
     <page id="erpsolscm_erpsolscmview_SO_0161_IMEIPageDef" path="erpsolscm.erpsolscmview.pageDefs.SO_0161_IMEIPageDef"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111111"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef1111111"/>
+    <page id="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_doSetERPSolSCMReportDefaultPageDef"
+          path="erpsolscm.erpsolscmview.pageDefs.ERPSOLSCM_ERPSOLSCMBTF_doSetERPSolSCMReportDefaultPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="ERPSolSCMAppModuleDataControl" Package="erpsolscm.erpsolscmmodel.erpsolscmam"

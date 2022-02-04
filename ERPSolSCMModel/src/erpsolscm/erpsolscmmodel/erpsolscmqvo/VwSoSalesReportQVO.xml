@@ -8,9 +8,13 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVOImpl"
+  ComponentInterface="erpsolscm.erpsolscmmodel.erpsolscmqvo.common.VwSoSalesReportQVO"
+  ClientProxyName="erpsolscm.erpsolscmmodel.erpsolscmqvo.client.VwSoSalesReportQVOClient">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
@@ -678,6 +682,16 @@
   <AttrArray Name="KeyAttributes">
     <Item Value="Pk"/>
   </AttrArray>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSetERPSolSCMReportDefault"
+      MethodName="doSetERPSolSCMReportDefault">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>

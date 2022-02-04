@@ -106,6 +106,16 @@
                           <af:outputLabel value="#{bindings.Salesretid.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
+                          <af:inputText value="#{bindings.Salesreturnlinseq.inputValue}"
+                                        label="#{bindings.Salesreturnlinseq.hints.label}"
+                                        required="#{bindings.Salesreturnlinseq.hints.mandatory}"
+                                        columns="#{bindings.Salesreturnlinseq.hints.displayWidth}"
+                                        maximumLength="#{bindings.Salesreturnlinseq.hints.precision}"
+                                        shortDesc="#{bindings.Salesreturnlinseq.hints.tooltip}" id="it14"
+                                        rendered="false">
+                            <f:validator binding="#{bindings.Salesreturnlinseq.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Salesreturnlinseq.format}"/>
+                          </af:inputText>
                           <af:inputText value="#{bindings.Salesretid.inputValue}"
                                         label="#{bindings.Salesretid.hints.label}"
                                         required="#{bindings.Salesretid.hints.mandatory}"
@@ -338,6 +348,14 @@
                               rowSelection="single" fetchSize="#{bindings.SoSalesReturnLinesDetCRUD.rangeSize}" id="t2"
                               scrollPolicy="page" autoHeightRows="5" styleClass="AFStretchWidth"
                               partialTriggers="::b10 ::b11">
+                      <af:column id="c10" width="80" displayIndex="-1">
+                        <af:button text="IMEI" id="b13" action="ERP-ACT-0161-IMEI">
+                          <af:setActionListener from="#{bindings.Salesretid.inputValue}"
+                                                to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolSaleretid}"/>
+                          <af:setActionListener from="#{row.bindings.Productid.inputValue}"
+                                                to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolProductId}"/>
+                        </af:button>
+                      </af:column>
                       <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.Rlineno.label}" id="c1"
                                  width="60" displayIndex="-1">
                         <af:inputText value="#{row.bindings.Rlineno.inputValue}"

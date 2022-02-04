@@ -371,7 +371,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_RETURN">
+    TableName="SO_SALES_RETURN"
+    DefaultValue="005">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
