@@ -86,31 +86,32 @@
                                                     </af:inputText>
                                                 </af:panelGroupLayout>
                                             </af:panelLabelAndMessage>
-                                            <af:panelLabelAndMessage label="#{bindings.txtModelNo.hints.label}"
-                                                                     id="plam4">
+                                            <af:panelLabelAndMessage
+                                                                     id="plam4"
+                                                                     label="#{bindings.txtModelNo.hints.label}">
                                                 <af:panelGroupLayout id="pgl5" layout="horizontal">
-                                                    <af:inputComboboxListOfValues id="productidId"
-                                                                                  popupTitle="Search and Select: #{bindings.Productid.hints.label}"
-                                                                                  value="#{bindings.Productid.inputValue}"
-                                                                                  label="#{bindings.Productid.hints.label}"
-                                                                                  model="#{bindings.Productid.listOfValuesModel}"
-                                                                                  required="#{bindings.Productid.hints.mandatory}"
-                                                                                  columns="#{bindings.Productid.hints.displayWidth}"
-                                                                                  shortDesc="#{bindings.Productid.hints.tooltip}"
-                                                                                  simple="true" autoSubmit="true"
-                                                                                  partialTriggers="soc3">
-                                                        <f:validator binding="#{bindings.Productid.validator}"/>
+                                                    <af:inputComboboxListOfValues id="txtModelNoId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtModelNo.hints.label}"
+                                                                                  value="#{bindings.txtModelNo.inputValue}"
+                                                                                  label="#{bindings.txtModelNo.hints.label}"
+                                                                                  model="#{bindings.txtModelNo.listOfValuesModel}"
+                                                                                  required="#{bindings.txtModelNo.hints.mandatory}"
+                                                                                  columns="#{bindings.txtModelNo.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtModelNo.hints.tooltip}"
+                                                                                  simple="true" autoSubmit="true">
+                                                        <f:validator binding="#{bindings.txtModelNo.validator}"/>
+                                                        <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedModelValues}"/>
                                                     </af:inputComboboxListOfValues>
                                                     <af:spacer width="10" height="10" id="s3"/>
-                                                    <af:inputText value="#{bindings.txtModelNo.inputValue}"
-                                                                  label="#{bindings.txtModelNo.hints.label}"
-                                                                  required="#{bindings.txtModelNo.hints.mandatory}"
-                                                                  columns="#{bindings.txtModelNo.hints.displayWidth}"
-                                                                  maximumLength="#{bindings.txtModelNo.hints.precision}"
-                                                                  shortDesc="#{bindings.txtModelNo.hints.tooltip}"
-                                                                  partialTriggers="productidId soc3" id="it10"
-                                                                  simple="true" readOnly="true">
-                                                        <f:validator binding="#{bindings.txtModelNo.validator}"/>
+                                                    <af:inputText value="#{bindings.Productid.inputValue}"
+                                                                  label="#{bindings.Productid.hints.label}"
+                                                                  required="#{bindings.Productid.hints.mandatory}"
+                                                                  columns="#{bindings.Productid.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.Productid.hints.precision}"
+                                                                  shortDesc="#{bindings.Productid.hints.tooltip}"
+                                                                  id="it4" simple="true" partialTriggers="txtModelNoId"
+                                                                  readOnly="true">
+                                                        <f:validator binding="#{bindings.Productid.validator}"/>
                                                     </af:inputText>
                                                 </af:panelGroupLayout>
                                             </af:panelLabelAndMessage>

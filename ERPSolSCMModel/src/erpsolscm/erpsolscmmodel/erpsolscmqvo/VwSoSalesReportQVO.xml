@@ -140,31 +140,6 @@
       Hint="showAndExecute"/>
   </ListBinding>
   <ListBinding
-    Name="LovProductid"
-    ListVOName="AccInItemsView"
-    ListRangeSize="-1"
-    ComboRowCountHint="10"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="Productid"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="txtModelNo"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Productid"/>
-      <Item Value="ModelNo"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Productid"/>
-      <Item Value="ModelNo"/>
-    </AttrArray>
-    <DisplayCriteria
-      Name="InItemsFindVC"/>
-  </ListBinding>
-  <ListBinding
     Name="LovtxtSalespersonName"
     ListVOName="AccSoSalesPersonsView"
     ListRangeSize="-1"
@@ -295,6 +270,31 @@
       <Item Value="Description"/>
     </AttrArray>
     <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtModelNo"
+    ListVOName="AccInItemsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtModelNo"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Productid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Productid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Productid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="InItemsFindVC"/>
   </ListBinding>
   <SQLQuery><![CDATA[select 1 as pk, null companyid,null regionid,null locationid,null storeid, null customerid, null salespersonid,null productgroup,null productid from dual]]></SQLQuery>
   <ViewAttribute
@@ -475,12 +475,9 @@
     ColumnType="VARCHAR2"
     AliasName="PRODUCTID"
     Expression="PRODUCTID"
-    SQLType="VARCHAR"
-    LOVName="LovProductid">
+    SQLType="VARCHAR">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
         <LABEL
           ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.Productid_LABEL"/>
         <DISPLAYWIDTH
@@ -561,20 +558,21 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LovtxtModelNo">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.txtModelNo_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
     <Dependencies>
       <Item
         Value="Productgroup"/>
-      <Item
-        Value="Productid"/>
     </Dependencies>
   </ViewAttribute>
   <ViewAttribute

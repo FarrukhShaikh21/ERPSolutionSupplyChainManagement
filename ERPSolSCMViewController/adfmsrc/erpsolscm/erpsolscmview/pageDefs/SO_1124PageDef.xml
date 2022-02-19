@@ -13,7 +13,6 @@
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SysProgramDetROQuery"/>
   </executables>
   <bindings>
-    <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovProductid" id="Productid"/>
     <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtCustomerName"
                   id="txtCustomerName"/>
     <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtSalespersonName"
@@ -39,11 +38,6 @@
     <attributeValues IterBinding="VwSoSalesReportROIterator" id="Salespersonid">
       <AttrNames>
         <Item Value="Salespersonid"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="VwSoSalesReportROIterator" id="txtModelNo">
-      <AttrNames>
-        <Item Value="txtModelNo"/>
       </AttrNames>
     </attributeValues>
     <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtLocationName"
@@ -73,5 +67,11 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtSalesTerritoryId"
           id="txtSalesTerritoryId" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtModelNo" id="txtModelNo"/>
+    <attributeValues IterBinding="VwSoSalesReportROIterator" id="Productid">
+      <AttrNames>
+        <Item Value="Productid"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
