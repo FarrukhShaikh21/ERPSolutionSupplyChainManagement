@@ -402,8 +402,10 @@
                                                       model="#{row.bindings.txtSalesPersonName.listOfValuesModel}"
                                                       required="#{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.mandatory}"
                                                       columns="#{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.displayWidth}"
-                                                      shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.tooltip}">
+                                                      shortDesc="#{bindings.AllCustomerSalespersonDetCRUD.hints.txtSalesPersonName.tooltip}"
+                                                      autoSubmit="true">
                           <f:validator binding="#{row.bindings.txtSalesPersonName.validator}"/>
+                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedSalesPersonByLoc}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
                       <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.Salespersonid.label}"

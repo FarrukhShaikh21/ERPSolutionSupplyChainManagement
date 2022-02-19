@@ -11,7 +11,13 @@
                               model="#{bindings.AllCustomersViewFindVCQuery.queryModel}"
                               queryListener="#{bindings.AllCustomersViewFindVCQuery.processQuery}"
                               queryOperationListener="#{bindings.AllCustomersViewFindVCQuery.processQueryOperation}"
-                              resultComponentId="::resId1"/>
+                              resultComponentId="::resId1" modeChangeVisible="false" saveQueryMode="hidden"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t1">
+                            <af:button text="Back From Search" id="b1" icon="#{resource['images:imgExitForm.png']}"
+                                       action="ERP-ACT-SO-0011-BACK-FROM-SEARCH"/>
+                        </af:toolbar>
+                    </f:facet>
                 </af:panelHeader>
                 <af:table value="#{bindings.AllCustomersCRUD.collectionModel}" var="row"
                           rows="#{bindings.AllCustomersCRUD.rangeSize}"

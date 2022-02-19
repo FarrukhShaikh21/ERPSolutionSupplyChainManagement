@@ -151,7 +151,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMER_SALESPERSON">
+    TableName="ALL_CUSTOMER_SALESPERSON"
+    DefaultValue="1">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
