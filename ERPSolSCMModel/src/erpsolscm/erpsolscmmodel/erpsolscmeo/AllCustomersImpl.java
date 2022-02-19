@@ -1658,12 +1658,12 @@ public class AllCustomersImpl extends ERPSolGlobalsEntityImpl {
 
 
     /**
-     * @param customerid key constituent
+     * @param customerseq key constituent
 
      * @return a Key object based on given key constituents.
      */
-    public static Key createPrimaryKey(String customerid) {
-        return new Key(new Object[] { customerid });
+    public static Key createPrimaryKey(Integer customerseq) {
+        return new Key(new Object[] { customerseq });
     }
 
     /**

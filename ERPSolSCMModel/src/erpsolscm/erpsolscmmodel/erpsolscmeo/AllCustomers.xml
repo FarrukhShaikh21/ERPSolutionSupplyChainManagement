@@ -18,12 +18,13 @@
   </DesignTime>
   <Attribute
     Name="Customerseq"
-    IsNotNull="true"
     ColumnName="CUSTOMERSEQ"
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="ALL_CUSTOMERS"/>
+    TableName="ALL_CUSTOMERS"
+    IsNotNull="true"
+    PrimaryKey="true"/>
   <Attribute
     Name="Customerid"
     IsUnique="true"
@@ -32,8 +33,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMERS"
-    PrimaryKey="true">
+    TableName="ALL_CUSTOMERS">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -86,7 +86,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMERS">
+    TableName="ALL_CUSTOMERS"
+    DefaultValue="1">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -107,7 +108,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMERS">
+    TableName="ALL_CUSTOMERS"
+    DefaultValue="1">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -128,7 +130,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMERS">
+    TableName="ALL_CUSTOMERS"
+    DefaultValue="REGULAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -149,7 +152,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMERS">
+    TableName="ALL_CUSTOMERS"
+    DefaultValue="1">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -1364,7 +1368,6 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMERS"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -1428,6 +1431,18 @@
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <Key
+    Name="AllCustomersCustomerseqCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ALL_CUSTOMERS_CUSTOMERSEQ_CHEC"/>
+      <Attr Name="_checkCondition" Value='"CUSTOMERSEQ" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers.Customerseq"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="ChkAllCustRestGift">
     <DesignTime>
       <Attr Name="_DBObjectName" Value="CHK_ALL_CUST_REST_GIFT"/>
@@ -1452,7 +1467,7 @@
       <Attr Name="_DBObjectName" Value="PK_ALL_CUSTOMERS"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers.Customerid"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.AllCustomers.Customerseq"/>
     </AttrArray>
   </Key>
   <Key
