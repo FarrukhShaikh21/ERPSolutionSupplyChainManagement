@@ -109,7 +109,10 @@
     <action IterBinding="AllCustomersCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
     <action IterBinding="AllCustomersCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action IterBinding="AllCustomersCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
+            Action="createWithParams" InstanceName="ERPSolSCMAppModuleDataControl.AllCustomersCRUD"
+            DataControl="ERPSolSCMAppModuleDataControl">
+      <NamedData NDName="Email" NDValue="#{''}" NDType="java.lang.String"/>
+    </action>
     <list IterBinding="AllCustomersCRUDIterator" StaticList="false" Uses="LovCustypeid" id="Custypeid"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <action IterBinding="AllCustomerSalespersonDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"

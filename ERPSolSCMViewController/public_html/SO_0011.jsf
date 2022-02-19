@@ -464,7 +464,7 @@
                   </af:panelCollection>
                 </af:gridCell>
                 <af:gridCell id="gc44" width="60%">
-                  <af:panelBox text="PanelBox1" id="pb2">
+                  <af:panelBox text="Credit Limit" id="pb2" showDisclosure="false">
                     <f:facet name="toolbar"/>
                     <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                       <f:facet name="menus"/>
