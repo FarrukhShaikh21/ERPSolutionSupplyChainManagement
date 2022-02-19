@@ -71,6 +71,9 @@
                                    action="ERP-ACT-0161-SEARCH"/>
                         <af:button text="Close Form" id="b7" icon="#{resource['images:imgExitForm.png']}"
                                    iconPosition="top" action="ACT-ERP-CLOSE-FORM-SCM"/>
+                        <af:button text="Preview" id="b14" icon="#{resource['images:imgPrintPreview.png']}"
+                                   iconPosition="top"
+                                   action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecuteSaleReturn}"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
                                    disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"
                                    icon="#{resource['images:imgPrevious.png']}"/>
@@ -115,6 +118,14 @@
                                         rendered="false">
                             <f:validator binding="#{bindings.Salesreturnlinseq.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.Salesreturnlinseq.format}"/>
+                          </af:inputText>
+                          <af:inputText value="#{bindings.Companyid.inputValue}"
+                                        label="#{bindings.Companyid.hints.label}"
+                                        required="#{bindings.Companyid.hints.mandatory}"
+                                        columns="#{bindings.Companyid.hints.displayWidth}"
+                                        maximumLength="#{bindings.Companyid.hints.precision}"
+                                        shortDesc="#{bindings.Companyid.hints.tooltip}" id="it15" rendered="false">
+                            <f:validator binding="#{bindings.Companyid.validator}"/>
                           </af:inputText>
                           <af:inputText value="#{bindings.Salesretid.inputValue}"
                                         label="#{bindings.Salesretid.hints.label}"

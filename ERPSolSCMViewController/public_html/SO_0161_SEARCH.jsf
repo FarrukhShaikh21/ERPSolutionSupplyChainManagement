@@ -10,7 +10,7 @@
                 <f:facet name="toolbar">
                     <af:toolbar id="t1">
                         <af:button text="Back To Sales Return" id="b1" icon="#{resource['images:imgExitForm.png']}"
-                                   iconPosition="top"/>
+                                   iconPosition="top" action="ERP-ACT-0161-SEARCH-BACK"/>
                     </af:toolbar>
                 </f:facet>
                 <f:facet name="legend"/>

@@ -119,5 +119,10 @@
         <Item Value="Salesreturnlinseq"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Companyid">
+      <AttrNames>
+        <Item Value="Companyid"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
