@@ -121,7 +121,19 @@ public class ERPSolSCMBean {
         return ERPSolStrUserStoreCode;
     }
     
-   
+    
+        
+    public List<SelectItem> doERPSolGetAutoSuggestedSalesPersonByLoc(String pStringValues) {
+        
+            List<SelectItem> ResultList=new ArrayList<SelectItem>();
+            BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+            AttributeBinding ERPLocationId =(AttributeBinding)ERPSolbc.getControlBinding("Locationid");
+            ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "SoSalesPersonsByLocAutoSuggestRO",
+                                                                "LOCATIONID ='"+ERPLocationId.getInputValue()+"'AND UPPER(CONCAT(Salespersonid,name))", "Name", "Salespersonid", 10,"ERPSolSCMAppModuleDataControl");
+            return ResultList;
+        
+    }
+    
     public List<SelectItem> doERPSolGetAutoSuggestedLocationValues(String pStringValues) {
     //public static List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
         //public List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
@@ -727,6 +739,52 @@ public class ERPSolSCMBean {
         return null;
     }
     
+    public String doERPSolExecuteSaleReturn() {
+        BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesReturnCRUDIterator");
+        ApplicationModule am=ib.getViewObject().getApplicationModule();
+        ViewObject vo=am.findViewObject("QVOSaleReturn");
+        if (vo!=null) {
+            vo.remove();
+       }
+        
+        vo=am.createViewObjectFromQueryStmt("QVOSaleReturn", "select PARAMETER_VALUE FROM so_sales_parameter a where a.Parameter_Id='REPORT_SERVER_URL'");
+        vo.executeQuery();
+        String pReportUrl=vo.first().getAttribute(0).toString();
+        vo.remove();
+        vo=am.createViewObjectFromQueryStmt("QVOSaleReturn", "select PATH PATH FROM SYSTEM a where a.PROJECTID='SO' ");
+        vo.executeQuery();
+        String pReportPath=vo.first().getAttribute(0).toString()+"REPORTS\\\\";
+        System.out.println(pReportPath);
+        pReportPath=pReportPath+"SALE_RETURN";
+        vo.executeQuery();    
+        
+        
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        System.out.println("b");
+        AttributeBinding ERPSalesretid       =(AttributeBinding)ERPSolbc.getControlBinding("Salesretid");
+        AttributeBinding ERPCompanyid       =(AttributeBinding)ERPSolbc.getControlBinding("Companyid");
+    //        System.out.println("select ISSUENO  FROM IN_ISSUED_ITEMS a where a.Issuedoctypeid='SO' and a.Source_Doc_Ref='"+ERPSalesorderid.getInputValue()+"'");
+    //        vo.remove();
+    //        vo=am.createViewObjectFromQueryStmt("QVOSaleInvoice", "select ISSUENO  FROM IN_ISSUED_ITEMS a where a.Issuedoctypeid='SO' and a.Source_Doc_Ref='"+ERPSalesorderid.getInputValue()+"'");
+        
+        vo.executeQuery();
+        
+        String reportParameter="";
+        
+        reportParameter="COMPANY="+ (ERPCompanyid.getInputValue()==null?"":ERPCompanyid.getInputValue());
+        reportParameter+="&P_SALESRETID="+ERPSalesretid.getInputValue();
+        reportParameter+="&USER="+ERPSolGlobClassModel.doGetUserCode();
+        pReportUrl=pReportUrl.replace("<P_REPORT_PATH>", pReportPath);
+        pReportUrl=pReportUrl.replace("<P_REPORT_PARAMETERS>", reportParameter);
+        
+        System.out.println(pReportPath);
+        System.out.println(reportParameter);
+        System.out.println(pReportUrl);
+        
+        doErpSolOpenReportTab(pReportUrl);
+        return null;
+    }
     public void setERPSolReportName(String ERPSolReportName) {
         this.ERPSolReportName = ERPSolReportName;
     }
