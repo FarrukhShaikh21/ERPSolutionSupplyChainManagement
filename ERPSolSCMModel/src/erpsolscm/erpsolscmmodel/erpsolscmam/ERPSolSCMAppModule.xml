@@ -99,6 +99,9 @@
       Name="SrimeiViewBySalesRetDetSeqVC"
       FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiView.SrimeiViewBySalesRetDetSeqVC"/>
   </ViewUsage>
+  <ViewUsage
+    Name="SoSalesPersonsByLocAutoSuggestRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
