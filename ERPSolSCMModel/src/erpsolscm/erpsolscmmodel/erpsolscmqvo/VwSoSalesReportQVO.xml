@@ -94,6 +94,10 @@
     Name="AccInStockItemGroupView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InStockItemGroupView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVWDocTypeForUnsubmitQVO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VWDocTypeForUnsubmitQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovCompanyid"
     ListVOName="AccAllCompanyView"
@@ -295,6 +299,25 @@
     </AttrArray>
     <DisplayCriteria
       Name="InItemsFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtDoctypeId"
+    ListVOName="AccVWDocTypeForUnsubmitQVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtDoctypeId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ModuleName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModuleName"/>
+    </AttrArray>
+    <DisplayCriteria/>
   </ListBinding>
   <SQLQuery><![CDATA[select 1 as pk, null companyid,null regionid,null locationid,null storeid, null customerid, null salespersonid,null productgroup,null productid from dual]]></SQLQuery>
   <ViewAttribute
@@ -674,6 +697,49 @@
           Value="20"/>
         <CONTROLTYPE
           Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtDoctypeId"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovtxtDoctypeId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.txtDoctypeId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="txtDocumentID"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.txtDocumentID_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
