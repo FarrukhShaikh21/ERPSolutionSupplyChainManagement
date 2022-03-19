@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="SO_0145.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="erptempmain">
+                    <af:panelFormLayout id="pfl1">
+                        <af:selectOneChoice value="#{bindings.txtDoctypeId.inputValue}"
+                                            label="#{bindings.txtDoctypeId.label}"
+                                            required="#{bindings.txtDoctypeId.hints.mandatory}"
+                                            shortDesc="#{bindings.txtDoctypeId.hints.tooltip}" id="soc1">
+                            <f:selectItems value="#{bindings.txtDoctypeId.items}" id="si1"/>
+                            <f:validator binding="#{bindings.txtDoctypeId.validator}"/>
+                        </af:selectOneChoice>
+                        <af:inputText value="#{bindings.txtDocumentID.inputValue}"
+                                      label="#{bindings.txtDocumentID.hints.label}"
+                                      required="#{bindings.txtDocumentID.hints.mandatory}"
+                                      columns="#{bindings.txtDocumentID.hints.displayWidth}"
+                                      maximumLength="#{bindings.txtDocumentID.hints.precision}"
+                                      shortDesc="#{bindings.txtDocumentID.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.txtDocumentID.validator}"/>
+                        </af:inputText>
+                        <af:button actionListener="#{bindings.doSetERPSolSODocumentUnsubmit.execute}"
+                                   text="Unsubmit Document"
+                                   disabled="#{!bindings.doSetERPSolSODocumentUnsubmit.enabled}" id="b1"/>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="erptempleft"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

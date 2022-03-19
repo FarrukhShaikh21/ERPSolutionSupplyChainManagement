@@ -40,7 +40,7 @@ public class VwSoSalesReportQVOImpl extends ViewObjectImpl implements VwSoSalesR
         vo.remove();
     }
     
-    public void doSetERPSolDocumentUnsubmit() {
+    public void doSetERPSolSODocumentUnsubmit() {
         CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=PKG_SALE_ORDER.FUNC_UNSUBMIT_SO_DOCUMENT('"+this.getCurrentRow().getAttribute("Regionid")+"','"+this.getCurrentRow().getAttribute("Locationid")+"','"+this.getCurrentRow().getAttribute("Companyid")+"',to_date('"+this.first().getAttribute("txtToDate")+"','yyyy-mm-dd')); END;", 1);
         try {
             cs.registerOutParameter(1, Types.VARCHAR);

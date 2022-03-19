@@ -974,4 +974,29 @@
       <property
          name="sdm:polyPoints">R50,-558.7295,373.39648,-558.7295,429.44824,L50</property>
    </ControlFlowCase>
+   <View
+      id="View91">
+      <property
+         name="activityId">SO_0145</property>
+      <property
+         name="page">/SO_0145.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SO_0145&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">141.79883</property>
+      <property
+         name="x">730.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase92"
+      from="MethodCall4"
+      to="View91">
+      <property
+         name="fromOutcome">ERP-ACT-SO-0145</property>
+      <property
+         name="sdm:polyPoints">L35,L42</property>
+   </ControlFlowCase>
 </SDM>

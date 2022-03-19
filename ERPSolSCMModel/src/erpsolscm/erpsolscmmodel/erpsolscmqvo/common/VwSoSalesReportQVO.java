@@ -7,5 +7,7 @@ import oracle.jbo.ViewObject;
 // ---------------------------------------------------------------------
 public interface VwSoSalesReportQVO extends ViewObject {
     void doSetERPSolSCMReportDefault();
+
+    void doSetERPSolSODocumentUnsubmit();
 }
 

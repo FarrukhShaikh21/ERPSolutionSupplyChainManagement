@@ -755,6 +755,13 @@
         Name="_return_type_"
         Type="void"/>
     </Method>
+    <Method
+      Name="doSetERPSolSODocumentUnsubmit"
+      MethodName="doSetERPSolSODocumentUnsubmit">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
   </ClientInterface>
   <ResourceBundle>
     <PropertiesBundle
