@@ -21,5 +21,7 @@
         <Item Value="Locationid"/>
       </AttrNames>
     </attributeValues>
+    <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtDocumentID"
+                  id="txtDocumentID"/>
   </bindings>
 </pageDefinition>
