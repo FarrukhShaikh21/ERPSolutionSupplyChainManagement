@@ -23,5 +23,10 @@
     </attributeValues>
     <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtDocumentID"
                   id="txtDocumentID"/>
+    <attributeValues IterBinding="VwSoSalesReportROIterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

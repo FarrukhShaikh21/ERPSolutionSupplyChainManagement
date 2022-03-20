@@ -112,7 +112,18 @@
   <ViewAccessor
     Name="AccVWDocumentIdForUnsubmitQVO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VWDocumentIdForUnsubmitQVO"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_DOCTYPEID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[txtDoctypeId==null?"0":txtDoctypeId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserLocationCode()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovCompanyid"
     ListVOName="AccAllCompanyView"
@@ -327,7 +338,7 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="ModuleName"/>
+      <Item Value="Doctypeid"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ModuleName"/>
@@ -345,8 +356,12 @@
       <Item Value="txtDocumentID"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="DocumentId"/>
+      <Item Value="Description"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="DocumentId"/>
@@ -777,6 +792,25 @@
           Value="20"/>
         <CONTROLTYPE
           Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Description"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.Description_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

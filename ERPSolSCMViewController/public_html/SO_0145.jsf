@@ -25,14 +25,25 @@
                                                       shortDesc="#{bindings.txtDocumentID.hints.tooltip}"
                                                       partialTriggers="soc1" autoSubmit="true">
                             <f:validator binding="#{bindings.txtDocumentID.validator}"/>
+                            <af:autoSuggestBehavior/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedSOUnsubmitDoc}"/>
                         </af:inputComboboxListOfValues>
                         <af:inputText value="#{bindings.Locationid.inputValue}"
                                       label="#{bindings.Locationid.hints.label}"
                                       required="#{bindings.Locationid.hints.mandatory}"
                                       columns="#{bindings.Locationid.hints.displayWidth}"
                                       maximumLength="#{bindings.Locationid.hints.precision}"
-                                      shortDesc="#{bindings.Locationid.hints.tooltip}" id="it1">
+                                      shortDesc="#{bindings.Locationid.hints.tooltip}" id="it1" rendered="false">
                             <f:validator binding="#{bindings.Locationid.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Description.inputValue}"
+                                      label="#{bindings.Description.hints.label}"
+                                      required="#{bindings.Description.hints.mandatory}"
+                                      columns="#{bindings.Description.hints.displayWidth}"
+                                      maximumLength="#{bindings.Description.hints.precision}"
+                                      shortDesc="#{bindings.Description.hints.tooltip}" id="it2" readOnly="true"
+                                      partialTriggers="txtDocumentIDId">
+                            <f:validator binding="#{bindings.Description.validator}"/>
                         </af:inputText>
                         <af:button actionListener="#{bindings.doSetERPSolSODocumentUnsubmit.execute}"
                                    text="Unsubmit Document"

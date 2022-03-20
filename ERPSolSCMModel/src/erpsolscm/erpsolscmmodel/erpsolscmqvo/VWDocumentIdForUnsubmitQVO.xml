@@ -21,20 +21,37 @@
   <Variable
     Name="P_ADF_LOCATIONID"
     Kind="where"
-    Type="java.lang.String"/>
+    Type="java.lang.String"
+    DefaultValue="DKHI">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <Variable
     Name="P_ADF_DOCTYPEID"
     Kind="where"
-    Type="java.lang.String"/>
-  <SQLQuery><![CDATA[SELECT  SO.SALESORDERID as DOCUMENT_ID,     
-        SO.CONFIRM_DATE,     
-        CUSTNAME(SO.CUSTOMERID) CUSTOMER_NAME,     
-        'SORD' DOC_TYPE_ID,     
-        SO.LOCATIONID     
-FROM    SO_SALES_ORDER SO     
-WHERE   SO.POSTED='Y'     
-AND     SO.LOCATIONID=:P_ADF_LOCATIONID   
-AND     :P_ADF_DOCTYPEID='SORD'  
+    Type="java.lang.String"
+    DefaultValue="SORD">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <SQLQuery><![CDATA[SELECT  SO.SALESORDERID as DOCUMENT_ID,        
+        SO.CONFIRM_DATE,        
+        CUSTNAME(SO.CUSTOMERID) CUSTOMER_NAME,        
+        'SORD' DOC_TYPE_ID,        
+        SO.LOCATIONID   ,   
+        CUSTNAME(SO.CUSTOMERID)||' '|| to_char(SO.CONFIRM_DATE,'dd/mm/rrrr') DESCRIPTION   
+FROM    SO_SALES_ORDER SO        
+WHERE   SO.POSTED='Y'        
+AND     SO.LOCATIONID=:P_ADF_LOCATIONID      
+AND     :P_ADF_DOCTYPEID='SORD'     
 ORDER BY SO.CONFIRM_DATE DESC,SO.SALESORDERID DESC]]></SQLQuery>
   <ViewAttribute
     Name="DocumentId"
@@ -92,6 +109,12 @@ ORDER BY SO.CONFIRM_DATE DESC,SO.SALESORDERID DESC]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="DocTypeId"
@@ -107,6 +130,14 @@ ORDER BY SO.CONFIRM_DATE DESC,SO.SALESORDERID DESC]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VWDocumentIdForUnsubmitQVO.DocTypeId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="Locationid"
@@ -121,6 +152,29 @@ ORDER BY SO.CONFIRM_DATE DESC,SO.SALESORDERID DESC]]></SQLQuery>
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VWDocumentIdForUnsubmitQVO.Locationid_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Description"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DESCRIPTION"
+    Expression="DESCRIPTION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">

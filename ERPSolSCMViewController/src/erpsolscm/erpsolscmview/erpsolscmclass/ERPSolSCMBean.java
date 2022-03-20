@@ -950,14 +950,14 @@ public class ERPSolSCMBean {
         System.out.println("b");
         String ERPLocid=ERPSolGlobClassModel.doGetUserLocationCode();
         AttributeBinding ERPDocType =(AttributeBinding)ERPSolbc.getControlBinding("txtDoctypeId");
-        ViewObject vo=ERPSolAM.findViewObject("VwARDocumentIdForUnsubmitAutoSuggestRO");
+        ViewObject vo=ERPSolAM.findViewObject("VWDocumentIdForUnsubmitAutoSuggestRO");
         vo.setNamedWhereClauseParam("P_ADF_DOCTYPEID", ERPDocType.getInputValue());
         vo.setNamedWhereClauseParam("P_ADF_LOCATIONID", ERPLocid);
         vo.executeQuery();
         System.out.println("d");
         System.out.println(ERPLocid);//ERPSolGlobalViewBean.
-        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "VwARDocumentIdForUnsubmitAutoSuggestRO",
-                                                            " UPPER(CONCAT(Receipt_No,Description))", "ReceiptNo", "Description", 10);
+        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "VWDocumentIdForUnsubmitAutoSuggestRO",
+                                                            " UPPER(CONCAT(DOCUMENT_ID,CUSTOMER_NAME))", "DocumentId", "Description", 10);
         return ResultList;
         
     }    
