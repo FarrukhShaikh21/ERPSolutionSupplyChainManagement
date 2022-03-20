@@ -939,5 +939,26 @@ public class ERPSolSCMBean {
        }
     return "ERPSOLBACK";
     }
+
     
+    public List<SelectItem> doERPSolGetAutoSuggestedSOUnsubmitDoc(String pStringValues) {
+        List<SelectItem> ResultList=new ArrayList<SelectItem>();
+        System.out.println("a");
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        DCIteratorBinding ERPSolIB=(DCIteratorBinding)ERPSolbc.get("VwSoSalesReportROIterator");
+        ApplicationModule ERPSolAM=ERPSolIB.getViewObject().getApplicationModule();
+        System.out.println("b");
+        String ERPLocid=ERPSolGlobClassModel.doGetUserLocationCode();
+        AttributeBinding ERPDocType =(AttributeBinding)ERPSolbc.getControlBinding("txtDoctypeId");
+        ViewObject vo=ERPSolAM.findViewObject("VwARDocumentIdForUnsubmitAutoSuggestRO");
+        vo.setNamedWhereClauseParam("P_ADF_DOCTYPEID", ERPDocType.getInputValue());
+        vo.setNamedWhereClauseParam("P_ADF_LOCATIONID", ERPLocid);
+        vo.executeQuery();
+        System.out.println("d");
+        System.out.println(ERPLocid);//ERPSolGlobalViewBean.
+        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "VwARDocumentIdForUnsubmitAutoSuggestRO",
+                                                            " UPPER(CONCAT(Receipt_No,Description))", "ReceiptNo", "Description", 10);
+        return ResultList;
+        
+    }    
 }

@@ -16,5 +16,10 @@
                   DataControl="ERPSolSCMAppModuleDataControl"
                   InstanceName="data.ERPSolSCMAppModuleDataControl.VwSoSalesReportRO"
                   ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSetERPSolSODocumentUnsubmit_ERPSolSCMAppModuleDataControl_VwSoSalesReportRO_doSetERPSolSODocumentUnsubmit_result"/>
+    <attributeValues IterBinding="VwSoSalesReportROIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
