@@ -42,17 +42,28 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
-  <SQLQuery><![CDATA[SELECT  SO.SALESORDERID as DOCUMENT_ID,        
-        SO.CONFIRM_DATE,        
-        CUSTNAME(SO.CUSTOMERID) CUSTOMER_NAME,        
-        'SORD' DOC_TYPE_ID,        
-        SO.LOCATIONID   ,   
-        CUSTNAME(SO.CUSTOMERID)||' '|| to_char(SO.CONFIRM_DATE,'dd/mm/rrrr') DESCRIPTION   
-FROM    SO_SALES_ORDER SO        
-WHERE   SO.POSTED='Y'        
-AND     SO.LOCATIONID=:P_ADF_LOCATIONID      
-AND     :P_ADF_DOCTYPEID='SORD'     
-ORDER BY SO.CONFIRM_DATE DESC,SO.SALESORDERID DESC]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT  SO.SALESORDERID as DOCUMENT_ID,          
+        SO.CONFIRM_DATE,          
+        CUSTNAME(SO.CUSTOMERID) CUSTOMER_NAME,          
+        'SORD' DOC_TYPE_ID,          
+        SO.LOCATIONID   ,     
+        CUSTNAME(SO.CUSTOMERID)||' '|| to_char(SO.CONFIRM_DATE,'dd/mm/rrrr') DESCRIPTION     
+FROM    SO_SALES_ORDER SO          
+WHERE   SO.POSTED='Y'          
+AND     SO.LOCATIONID=:P_ADF_LOCATIONID        
+AND     :P_ADF_DOCTYPEID='SORD'       
+UNION ALL  
+SELECT  SR.SALESRETID as DOCUMENT_ID,          
+        SR.RETURN_DATE,          
+        CUSTNAME(SR.CUSTOMERID) CUSTOMER_NAME,          
+        'SRET' DOC_TYPE_ID,          
+        SR.LOCATIONID   ,     
+        CUSTNAME(SR.CUSTOMERID)||' '|| to_char(SR.RETURN_DATE,'dd/mm/rrrr') DESCRIPTION     
+FROM    SO_SALES_RETURN SR          
+WHERE   SR.POSTED='Y'          
+AND     SR.LOCATIONID=:P_ADF_LOCATIONID        
+AND     :P_ADF_DOCTYPEID='SRET'       
+ORDER BY 2 DESC,1 DESC]]></SQLQuery>
   <ViewAttribute
     Name="DocumentId"
     IsUpdateable="false"

@@ -794,6 +794,10 @@
           Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="txtDoctypeId"/>
+    </Dependencies>
   </ViewAttribute>
   <ViewAttribute
     Name="Description"
@@ -813,6 +817,10 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <Dependencies>
+      <Item
+        Value="txtDoctypeId"/>
+    </Dependencies>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="Pk"/>
