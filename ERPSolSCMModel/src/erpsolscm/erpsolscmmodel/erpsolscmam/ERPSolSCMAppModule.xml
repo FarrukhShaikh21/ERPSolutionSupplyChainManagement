@@ -102,6 +102,9 @@
   <ViewUsage
     Name="SoSalesPersonsByLocAutoSuggestRO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"/>
+  <ViewUsage
+    Name="VWDocumentIdForUnsubmitAutoSuggestRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VWDocumentIdForUnsubmitQVO"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

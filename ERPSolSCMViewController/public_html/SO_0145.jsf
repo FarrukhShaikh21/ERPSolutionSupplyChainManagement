@@ -14,14 +14,6 @@
                             <f:selectItems value="#{bindings.txtDoctypeId.items}" id="si1"/>
                             <f:validator binding="#{bindings.txtDoctypeId.validator}"/>
                         </af:selectOneChoice>
-                        <af:inputText value="#{bindings.txtDocumentID.inputValue}"
-                                      label="#{bindings.txtDocumentID.hints.label}"
-                                      required="#{bindings.txtDocumentID.hints.mandatory}"
-                                      columns="#{bindings.txtDocumentID.hints.displayWidth}"
-                                      maximumLength="#{bindings.txtDocumentID.hints.precision}"
-                                      shortDesc="#{bindings.txtDocumentID.hints.tooltip}" id="it1">
-                            <f:validator binding="#{bindings.txtDocumentID.validator}"/>
-                        </af:inputText>
                         <af:button actionListener="#{bindings.doSetERPSolSODocumentUnsubmit.execute}"
                                    text="Unsubmit Document"
                                    disabled="#{!bindings.doSetERPSolSODocumentUnsubmit.enabled}" id="b1"/>

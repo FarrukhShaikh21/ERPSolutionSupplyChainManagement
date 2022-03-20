@@ -11,11 +11,6 @@
   <bindings>
     <list IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtDoctypeId" id="txtDoctypeId"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="VwSoSalesReportROIterator" id="txtDocumentID">
-      <AttrNames>
-        <Item Value="txtDocumentID"/>
-      </AttrNames>
-    </attributeValues>
     <methodAction id="doSetERPSolSODocumentUnsubmit" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="doSetERPSolSODocumentUnsubmit" IsViewObjectMethod="true"
                   DataControl="ERPSolSCMAppModuleDataControl"

@@ -97,6 +97,21 @@
   <ViewAccessor
     Name="AccVWDocTypeForUnsubmitQVO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VWDocTypeForUnsubmitQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_PROJECTID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA["SO"]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_USERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode()]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccVWDocumentIdForUnsubmitQVO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VWDocumentIdForUnsubmitQVO"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LovCompanyid"
@@ -316,6 +331,27 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ModuleName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtDocumentID"
+    ListVOName="AccVWDocumentIdForUnsubmitQVO"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtDocumentID"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DocumentId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DocumentId"/>
+      <Item Value="ConfirmDate"/>
+      <Item Value="CustomerName"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -702,7 +738,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="txtDoctypeId"
-    IsUpdateable="false"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
@@ -725,7 +760,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="txtDocumentID"
-    IsUpdateable="false"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
@@ -733,13 +767,16 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    LOVName="LovtxtDocumentID">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.txtDocumentID_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

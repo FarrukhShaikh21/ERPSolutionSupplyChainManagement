@@ -41,17 +41,18 @@ public class VwSoSalesReportQVOImpl extends ViewObjectImpl implements VwSoSalesR
     }
     
     public void doSetERPSolSODocumentUnsubmit() {
-        CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=PKG_SALE_ORDER.FUNC_UNSUBMIT_SO_DOCUMENT('"+this.getCurrentRow().getAttribute("Regionid")+"','"+this.getCurrentRow().getAttribute("Locationid")+"','"+this.getCurrentRow().getAttribute("Companyid")+"',to_date('"+this.first().getAttribute("txtToDate")+"','yyyy-mm-dd')); END;", 1);
+        CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=PKG_SALE_ORDER.FUNC_UNSUBMIT_SO_DOCUMENT('"+this.first().getAttribute("txtDoctypeId")+"','"+this.first().getAttribute("txtDocumentID")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;", 1);
+        System.out.println("begin ?:=PKG_SALE_ORDER.FUNC_UNSUBMIT_SO_DOCUMENT('"+this.first().getAttribute("txtDoctypeId")+"','"+this.first().getAttribute("txtDocumentID")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;");
         try {
             cs.registerOutParameter(1, Types.VARCHAR);
             cs.executeUpdate();
             
-            if (!cs.getString(1).equals("ERPSOLSUCCESS")) {
-        //               this.getCurrentRow().setAttribute("Submit", "N");
-               this.getDBTransaction().commit();
-                throw new JboException("Unable to supervise due to "+cs.getString(1));
-           }
-            this.getDBTransaction().commit();
+//            if (!cs.getString(1).equals("ERPSOLSUCCESS")) {
+                JboException jboex=new JboException(cs.getString(1));
+                jboex.setSeverity(JboException.SEVERITY_WARNING); 
+                throw new JboException(jboex);
+//           }
+//            this.getDBTransaction().commit();
         } catch (SQLException e) {
         //            this.getCurrentRow().setAttribute("Submit", "N");
             this.getDBTransaction().commit();
@@ -61,6 +62,7 @@ public class VwSoSalesReportQVOImpl extends ViewObjectImpl implements VwSoSalesR
         finally{
             try {
                 cs.close();
+                System.out.println("closing----");
             } catch (SQLException e) {
             }
         }
