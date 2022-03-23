@@ -29,7 +29,17 @@
   <ViewAccessor
     Name="AccInItemsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="InItemsViewByDivIDVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView.InItemsViewByDivIDVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_DIVID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[SoSalesOrderView?.Divid==null?"0":SoSalesOrderView?.Divid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccVwFuncCheckQuantityQVO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncCheckQuantityQVO"

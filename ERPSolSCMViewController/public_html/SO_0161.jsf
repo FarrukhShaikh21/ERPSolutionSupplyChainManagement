@@ -166,6 +166,13 @@
                           <af:outputLabel value="#{bindings.Locationid.hints.label}" id="ol4"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc9" halign="stretch" valign="middle">
+                          <af:inputText value="#{bindings.Divid.inputValue}" label="#{bindings.Divid.hints.label}"
+                                        required="#{bindings.Divid.hints.mandatory}"
+                                        columns="#{bindings.Divid.hints.displayWidth}"
+                                        maximumLength="#{bindings.Divid.hints.precision}"
+                                        shortDesc="#{bindings.Divid.hints.tooltip}" id="it16" rendered="false">
+                            <f:validator binding="#{bindings.Divid.validator}"/>
+                          </af:inputText>
                           <af:inputText value="#{bindings.Locationid.inputValue}"
                                         label="#{bindings.Locationid.hints.label}"
                                         required="#{bindings.Locationid.hints.mandatory}"
@@ -210,7 +217,9 @@
                                                         model="#{bindings.txtCustomerName.listOfValuesModel}"
                                                         required="#{bindings.txtCustomerName.hints.mandatory}"
                                                         columns="#{bindings.txtCustomerName.hints.displayWidth}"
-                                                        shortDesc="#{bindings.txtCustomerName.hints.tooltip}" simple="true" autoSubmit="true">
+                                                        shortDesc="#{bindings.txtCustomerName.hints.tooltip}" simple="true" autoSubmit="true"
+                                                        readOnly="#{bindings.SoSalesReturnLinesDetCRUDIterator.estimatedRowCount>0}"
+                                                        partialTriggers="pc1:b10 pc1:b11">
                             <f:validator binding="#{bindings.txtCustomerName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedCustomerValues}"/>
                           </af:inputComboboxListOfValues>
@@ -232,7 +241,8 @@
                                                         columns="#{bindings.txtSalesPersonName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtSalesPersonName.hints.tooltip}"
                                                         simple="true" autoSubmit="true"
-                                                        partialTriggers="txtCustomerNameId">
+                                                        partialTriggers="txtCustomerNameId pc1:b10 pc1:b11"
+                                                        readOnly="#{bindings.SoSalesReturnLinesDetCRUDIterator.estimatedRowCount>0}">
                             <f:validator binding="#{bindings.txtSalesPersonName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedSalesPersonValues}"/>
                           </af:inputComboboxListOfValues>
@@ -344,7 +354,7 @@
                     <f:facet name="toolbar">
                       <af:toolbar id="t3">
                         <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add Return Line"
-                                   disabled="#{!bindings.CreateInsert1.enabled}" id="b10"/>
+                                   disabled="#{!bindings.CreateInsert1.enabled||bindings.txtCustomerName.inputValue==null}" id="b10"/>
                         <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Return Line"
                                    disabled="#{!bindings.Delete1.enabled}" id="b11"/>
                       </af:toolbar>

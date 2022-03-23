@@ -45,12 +45,19 @@
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
     RowLevelBinds="true">
     <ViewCriteriaUsage
+      Name="InItemsViewByDivIDVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView.InItemsViewByDivIDVC"/>
+    <ViewCriteriaUsage
       Name="InItemsViewBySiGroupIdVC"
       FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView.InItemsViewBySiGroupIdVC"/>
     <ParameterMap>
       <PIMap Variable="P_aDF_SIGROUPID">
         <TransientExpression
           trustMode="untrusted"><![CDATA[Productgroup]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_DIVID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Divid]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -65,6 +72,10 @@
       <PIMap Variable="P_ADF_CUSTOMERID">
         <TransientExpression
           trustMode="untrusted"><![CDATA[Customerid==null?"0":Customerid]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_DIVID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Divid]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -124,6 +135,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccAllDivisionsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllDivisionsView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovCompanyid"
     ListVOName="AccAllCompanyView"
@@ -370,6 +385,25 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LovDivid"
+    ListVOName="AccAllDivisionsView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Divid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Divid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[select 1 as pk, null companyid,null regionid,null locationid,null storeid, null customerid, null salespersonid,null productgroup,null productid from dual]]></SQLQuery>
   <ViewAttribute
     Name="Pk"
@@ -513,6 +547,8 @@
       <Item
         Value="Customerid"/>
       <Item
+        Value="Divid"/>
+      <Item
         Value="Locationid"/>
       <Item
         Value="txtCustomerName"/>
@@ -615,6 +651,8 @@
     <Dependencies>
       <Item
         Value="Customerid"/>
+      <Item
+        Value="Divid"/>
       <Item
         Value="Locationid"/>
       <Item
@@ -821,6 +859,28 @@
       <Item
         Value="txtDoctypeId"/>
     </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Divid"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LovDivid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.Divid_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
     <Item Value="Pk"/>

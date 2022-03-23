@@ -609,6 +609,12 @@
     EntityAttrName="ManualRefNo"
     EntityUsage="SoSalesReturn"
     AliasName="MANUAL_REF_NO"/>
+  <ViewAttribute
+    Name="Divid"
+    PrecisionRule="true"
+    EntityAttrName="Divid"
+    EntityUsage="SoSalesReturn"
+    AliasName="DIVID"/>
   <ViewCriteria
     Name="SoSalesReturnViewFindVC"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnView"

@@ -189,5 +189,10 @@
         <Item Value="txtSumDiscount"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderViewCRUDIterator" id="Divid">
+      <AttrNames>
+        <Item Value="Divid"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

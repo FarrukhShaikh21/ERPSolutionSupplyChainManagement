@@ -79,6 +79,7 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
         txtSupplierName,
         txtStoreName,
         ManualRefNo,
+        Divid,
         SoSalesReturnLinesView,
         SrimeiView,
         AllCustomersView,
@@ -171,6 +172,7 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
     public static final int MANUALREFNO = AttributesEnum.ManualRefNo.index();
+    public static final int DIVID = AttributesEnum.Divid.index();
     public static final int SOSALESRETURNLINESVIEW = AttributesEnum.SoSalesReturnLinesView.index();
     public static final int SRIMEIVIEW = AttributesEnum.SrimeiView.index();
     public static final int ALLCUSTOMERSVIEW = AttributesEnum.AllCustomersView.index();
@@ -290,7 +292,7 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
         getAccAllCustomerSalespersonPid().setNamedWhereClauseParam("P_ADF_CUSTOMERID", getCustomerid());
         getAccAllCustomerSalespersonPid().setNamedWhereClauseParam("P_ADF_SALESPERSONID", value);
         getAccAllCustomerSalespersonPid().executeQuery();
-//        setPid((Integer)getAccAllCustomerSalespersonPid().first().getAttribute("Id"));        
+        setDivid(getAccAllCustomerSalespersonPid().first().getAttribute("Divid").toString());        
     }
 
     /**
@@ -1059,6 +1061,22 @@ public class SoSalesReturnViewRowImpl extends ViewRowImpl {
      */
     public void setManualRefNo(String value) {
         setAttributeInternal(MANUALREFNO, value);
+    }
+
+    /**
+     * Gets the attribute value for DIVID using the alias name Divid.
+     * @return the DIVID
+     */
+    public String getDivid() {
+        return (String) getAttributeInternal(DIVID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIVID using the alias name Divid.
+     * @param value value to set the DIVID
+     */
+    public void setDivid(String value) {
+        setAttributeInternal(DIVID, value);
     }
 
     /**

@@ -7,11 +7,29 @@
             <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
                 <f:facet name="erptempmain">
                     <af:panelFormLayout id="pfl1">
+                        <af:selectOneChoice value="#{bindings.Companyid.inputValue}" label="#{bindings.Companyid.label}"
+                                            required="#{bindings.Companyid.hints.mandatory}"
+                                            shortDesc="#{bindings.Companyid.hints.tooltip}" id="soc2"
+                                            contentStyle="width:220px" disabled="true">
+                            <f:selectItems value="#{bindings.Companyid.items}" id="si2"/>
+                            <f:validator binding="#{bindings.Companyid.validator}"/>
+                        </af:selectOneChoice>
+                        <af:inputComboboxListOfValues id="txtLocationNameId"
+                                                      popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
+                                                      value="#{bindings.txtLocationName.inputValue}"
+                                                      label="#{bindings.txtLocationName.hints.label}"
+                                                      model="#{bindings.txtLocationName.listOfValuesModel}"
+                                                      required="#{bindings.txtLocationName.hints.mandatory}"
+                                                      columns="#{bindings.txtLocationName.hints.displayWidth}"
+                                                      shortDesc="#{bindings.txtLocationName.hints.tooltip}"
+                                                      disabled="true" contentStyle="width:200px">
+                            <f:validator binding="#{bindings.txtLocationName.validator}"/>
+                        </af:inputComboboxListOfValues>
                         <af:selectOneChoice value="#{bindings.txtDoctypeId.inputValue}"
                                             label="#{bindings.txtDoctypeId.label}"
                                             required="#{bindings.txtDoctypeId.hints.mandatory}"
                                             shortDesc="#{bindings.txtDoctypeId.hints.tooltip}" id="soc1"
-                                            autoSubmit="true">
+                                            autoSubmit="true" contentStyle="width:220px">
                             <f:selectItems value="#{bindings.txtDoctypeId.items}" id="si1"/>
                             <f:validator binding="#{bindings.txtDoctypeId.validator}"/>
                         </af:selectOneChoice>
@@ -23,7 +41,8 @@
                                                       required="#{bindings.txtDocumentID.hints.mandatory}"
                                                       columns="#{bindings.txtDocumentID.hints.displayWidth}"
                                                       shortDesc="#{bindings.txtDocumentID.hints.tooltip}"
-                                                      partialTriggers="soc1" autoSubmit="true">
+                                                      partialTriggers="soc1" autoSubmit="true"
+                                                      contentStyle="width:200px">
                             <f:validator binding="#{bindings.txtDocumentID.validator}"/>
                             <af:autoSuggestBehavior/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedSOUnsubmitDoc}"/>

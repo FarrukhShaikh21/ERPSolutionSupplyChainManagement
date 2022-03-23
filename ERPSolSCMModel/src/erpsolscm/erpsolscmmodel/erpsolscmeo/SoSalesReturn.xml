@@ -701,6 +701,18 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="Divid"
+    Precision="5"
+    ColumnName="DIVID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SO_SALES_RETURN">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SoSalesReturnLines"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.RSrl328Assoc"

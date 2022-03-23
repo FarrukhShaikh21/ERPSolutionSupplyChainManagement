@@ -225,7 +225,25 @@ public class ERPSolSCMBean {
     //public static List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
         //public List<SelectItem> doERPSolGetAutoSuggestedValues(String pSearch,String pViewObjectName,String pWhereColumn,String pAttribute1,String pAttribute2,Integer pNoOfRecordsSuggest) {
         List<SelectItem> ResultList=new ArrayList<SelectItem>();
-        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "InItemsAutoSuggestRO"," UPPER(CONCAT(Productid,Model_No))", "ModelNo", "Productid", 10,"ERPSolSCMAppModuleDataControl");
+        BindingContainer ERPSolbc=ERPSolGlobalViewBean.doGetERPBindings();
+        AttributeBinding ERPDivision =null;
+        String StrERPDivision=null;
+        try {
+            ERPDivision = (AttributeBinding) ERPSolbc.getControlBinding("Divid");
+            StrERPDivision=""+(ERPDivision.getInputValue()==null?"":ERPDivision.getInputValue()) ;
+            
+        } catch (Exception e) {
+            // TODO: Add catch code
+            StrERPDivision="";
+        }
+        System.out.println(StrERPDivision);
+        System.out.println("ac");
+        String ERPSolDIVWhere="";
+        if (StrERPDivision.length()>0) {
+           System.out.println("ab");
+           ERPSolDIVWhere="DIVID= '"+StrERPDivision+"' AND ";
+       }
+        ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "InItemsAutoSuggestRO",ERPSolDIVWhere+" UPPER(CONCAT(Productid,Model_No))", "ModelNo", "Productid", 10,"ERPSolSCMAppModuleDataControl");
         return ResultList;
         
     }   
@@ -568,6 +586,7 @@ public class ERPSolSCMBean {
         AttributeBinding ERPCompanyid       =(AttributeBinding)ERPSolbc.getControlBinding("Companyid");
         AttributeBinding ERPRegionid        =(AttributeBinding)ERPSolbc.getControlBinding("Regionid");
         AttributeBinding ERPLocationid      =(AttributeBinding)ERPSolbc.getControlBinding("Locationid");
+        AttributeBinding ERPDivid           =(AttributeBinding)ERPSolbc.getControlBinding("Divid");
         AttributeBinding ERPStoreid         =(AttributeBinding)ERPSolbc.getControlBinding("Storeid");
         AttributeBinding ERPCustomerid      =(AttributeBinding)ERPSolbc.getControlBinding("Customerid");
         AttributeBinding ERPSalespersonid   =(AttributeBinding)ERPSolbc.getControlBinding("Salespersonid");
@@ -578,6 +597,7 @@ public class ERPSolSCMBean {
         String reportParameter="";
         reportParameter="COMPANY="+ (ERPCompanyid.getInputValue()==null?"":ERPCompanyid.getInputValue());
         reportParameter+="&P_REGID="+(ERPRegionid.getInputValue()==null?"":ERPRegionid.getInputValue());
+        reportParameter+="&P_DIVID="+(ERPDivid.getInputValue()==null?"":ERPDivid.getInputValue());
         reportParameter+="&P_LOCID="+(ERPLocationid.getInputValue()==null?"":ERPLocationid.getInputValue());
         reportParameter+="&P_STORE="+(ERPStoreid.getInputValue()==null?"":ERPStoreid.getInputValue());
         reportParameter+="&CUSTID="+(ERPCustomerid.getInputValue()==null?"":ERPCustomerid.getInputValue());

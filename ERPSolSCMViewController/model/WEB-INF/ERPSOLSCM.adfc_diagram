@@ -985,18 +985,41 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">170.09766</property>
+         name="y">131.39648</property>
       <property
-         name="x">895.5</property>
+         name="x">1006.5</property>
    </View>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase92"
       from="MethodCall4"
+      to="MethodCall93">
+      <property
+         name="fromOutcome">ERP-ACT-SO-0145</property>
+      <property
+         name="sdm:polyPoints">R54,758.041,254.35059,B50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall93">
+      <property
+         name="activityId">doSetERPSolSCMReportSO_0145</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>doSetERPSolSCMReportSO_0145&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">132.09766</property>
+      <property
+         name="x">758.041</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase94"
+      from="MethodCall93"
       to="View91">
       <property
          name="fromOutcome">ERP-ACT-SO-0145</property>
       <property
-         name="sdm:polyPoints">R54,568.2676,254.35059,568.2676,169.74707,L50</property>
+         name="sdm:polyPoints">R50,882.2705,131.74707,882.2705,131.0459,L50</property>
    </ControlFlowCase>
 </SDM>

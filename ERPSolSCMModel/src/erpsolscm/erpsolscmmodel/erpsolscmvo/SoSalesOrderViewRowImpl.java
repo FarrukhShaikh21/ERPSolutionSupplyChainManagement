@@ -427,6 +427,8 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
             getAccAllCustomerSalespersonPID().setNamedWhereClauseParam("P_ADF_SALESPERSONID", value);
             getAccAllCustomerSalespersonPID().executeQuery();
             setPid((Integer) getAccAllCustomerSalespersonPID().first().getAttribute("Id"));
+            setDivid(""+getAccAllCustomerSalespersonPID().first().getAttribute("Divid"));
+            
         } catch (Exception e) {
             // TODO: Add catch code
             e.printStackTrace();

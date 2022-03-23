@@ -124,5 +124,10 @@
         <Item Value="Companyid"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Divid">
+      <AttrNames>
+        <Item Value="Divid"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

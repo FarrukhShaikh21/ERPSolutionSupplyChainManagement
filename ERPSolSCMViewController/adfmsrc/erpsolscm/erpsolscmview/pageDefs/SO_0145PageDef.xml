@@ -28,5 +28,9 @@
         <Item Value="Description"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovCompanyid" id="Companyid"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtLocationName"
+                  id="txtLocationName"/>
   </bindings>
 </pageDefinition>

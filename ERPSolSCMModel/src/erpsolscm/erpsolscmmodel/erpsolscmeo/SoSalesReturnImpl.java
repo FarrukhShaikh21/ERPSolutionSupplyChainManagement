@@ -78,6 +78,7 @@ public class SoSalesReturnImpl extends ERPSolGlobalsEntityImpl {
         txtSupplierName,
         txtStoreName,
         ManualRefNo,
+        Divid,
         SoSalesReturnLines,
         Srimei,
         AllCustomers,
@@ -161,6 +162,7 @@ public class SoSalesReturnImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
     public static final int MANUALREFNO = AttributesEnum.ManualRefNo.index();
+    public static final int DIVID = AttributesEnum.Divid.index();
     public static final int SOSALESRETURNLINES = AttributesEnum.SoSalesReturnLines.index();
     public static final int SRIMEI = AttributesEnum.Srimei.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
@@ -1031,6 +1033,22 @@ public class SoSalesReturnImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for Divid, using the alias name Divid.
+     * @return the value of Divid
+     */
+    public String getDivid() {
+        return (String) getAttributeInternal(DIVID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Divid.
+     * @param value value to set the Divid
+     */
+    public void setDivid(String value) {
+        setAttributeInternal(DIVID, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSoSalesReturnLines() {
@@ -1048,14 +1066,14 @@ public class SoSalesReturnImpl extends ERPSolGlobalsEntityImpl {
     /**
      * @return the associated entity oracle.jbo.server.EntityImpl.
      */
-    public EntityImpl getAllCustomers() {
-        return (EntityImpl) getAttributeInternal(ALLCUSTOMERS);
+    public AllCustomersImpl getAllCustomers() {
+        return (AllCustomersImpl) getAttributeInternal(ALLCUSTOMERS);
     }
 
     /**
      * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
      */
-    public void setAllCustomers(EntityImpl value) {
+    public void setAllCustomers(AllCustomersImpl value) {
         setAttributeInternal(ALLCUSTOMERS, value);
     }
 
@@ -1063,14 +1081,14 @@ public class SoSalesReturnImpl extends ERPSolGlobalsEntityImpl {
     /**
      * @return the associated entity oracle.jbo.server.EntityImpl.
      */
-    public EntityImpl getSoSalesPersons() {
-        return (EntityImpl) getAttributeInternal(SOSALESPERSONS);
+    public SoSalesPersonsImpl getSoSalesPersons() {
+        return (SoSalesPersonsImpl) getAttributeInternal(SOSALESPERSONS);
     }
 
     /**
      * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
      */
-    public void setSoSalesPersons(EntityImpl value) {
+    public void setSoSalesPersons(SoSalesPersonsImpl value) {
         setAttributeInternal(SOSALESPERSONS, value);
     }
 

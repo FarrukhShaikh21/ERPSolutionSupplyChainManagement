@@ -245,6 +245,13 @@
                           <af:outputLabel value="#{bindings.Locationid.hints.label}" id="ol4"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc9" halign="stretch" valign="middle">
+                          <af:inputText value="#{bindings.Divid.inputValue}" simple="true"
+                                        required="#{bindings.Divid.hints.mandatory}"
+                                        columns="#{bindings.Divid.hints.displayWidth}"
+                                        maximumLength="#{bindings.Divid.hints.precision}"
+                                        shortDesc="#{bindings.Divid.hints.tooltip}" id="it25" rendered="false">
+                            <f:validator binding="#{bindings.Divid.validator}"/>
+                          </af:inputText>
                           <af:inputText value="#{bindings.Locationid.inputValue}"
                                         label="#{bindings.Locationid.hints.label}"
                                         required="#{bindings.Locationid.hints.mandatory}"
@@ -313,7 +320,8 @@
                                                         columns="#{bindings.txtSalesPersonName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtSalesPersonName.hints.tooltip}"
                                                         simple="true" autoSubmit="true" contentStyle="width:80%"
-                                                        partialTriggers="txtCustomerNameId">
+                                                        partialTriggers="txtCustomerNameId pc1:b8 pc1:b7"
+                                                        readOnly="#{bindings.SoSalesOrderLinesDetCRUDIterator.estimatedRowCount>0}">
                             <f:validator binding="#{bindings.txtSalesPersonName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedSalesPersonValues}"/>
                           </af:inputComboboxListOfValues>
@@ -450,7 +458,7 @@
                     <f:facet name="toolbar">
                       <af:toolbar id="t3">
                         <af:button actionListener="#{bindings.CreateInsert1.execute}" text="Add Order Line"
-                                   disabled="#{bindings.ReadyForIssue.inputValue=='Y'}" id="b7" accessKey="a"/>
+                                   disabled="#{bindings.ReadyForIssue.inputValue=='Y' || bindings.Salespersonid.inputValue==null}" id="b7" accessKey="a"/>
                         <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Order Line"
                                    disabled="#{bindings.ReadyForIssue.inputValue=='Y'}" id="b8"/>
                       </af:toolbar>

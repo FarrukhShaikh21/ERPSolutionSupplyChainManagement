@@ -73,5 +73,7 @@
         <Item Value="Productid"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovDivid" id="Divid" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
