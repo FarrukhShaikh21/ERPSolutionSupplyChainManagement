@@ -710,7 +710,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMERS">
+    TableName="ALL_CUSTOMERS"
+    DefaultValue="A20251000010">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -730,7 +731,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMERS">
+    TableName="ALL_CUSTOMERS"
+    DefaultValue="990100001">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -750,7 +752,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ALL_CUSTOMERS">
+    TableName="ALL_CUSTOMERS"
+    DefaultValue="A20251000010">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
