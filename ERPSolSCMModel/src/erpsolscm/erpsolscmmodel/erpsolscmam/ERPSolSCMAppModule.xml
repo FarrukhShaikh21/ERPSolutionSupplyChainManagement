@@ -105,6 +105,12 @@
   <ViewUsage
     Name="VWDocumentIdForUnsubmitAutoSuggestRO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VWDocumentIdForUnsubmitQVO"/>
+  <ViewUsage
+    Name="SoSalesReturnMemoCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnMemoView"/>
+  <ViewUsage
+    Name="SoSalesReturnLinesMemoDetCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnLinesMemoView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
@@ -164,5 +170,11 @@
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoProdDiscountProductIdLink"
     SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.InItemsRO"
     DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoProdDiscountDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="SoSalesRetMemoSoSalesRetLineMemoReturnMemoSeqLink1"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesRetMemoSoSalesRetLineMemoReturnMemoSeqLink"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesReturnMemoCRUD"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesReturnLinesMemoDetCRUD"
     Reversed="false"/>
 </AppModule>
