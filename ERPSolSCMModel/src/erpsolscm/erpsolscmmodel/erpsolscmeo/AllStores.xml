@@ -599,6 +599,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStoresSoRebateStoreIdAssoc.AllStores"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SoSalesReturnMemo"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStoresSoSalesReturnMemoStoreIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStoresSoSalesReturnMemoStoreIdAssoc.SoSalesReturnMemo"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStoresSoSalesReturnMemoStoreIdAssoc.AllStores"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpkallStores"
     PrimaryKey="true">

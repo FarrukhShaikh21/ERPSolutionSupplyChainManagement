@@ -331,4 +331,10 @@
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesRetMemoSoSalesRetLineMemoReturnMemoSeqLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AllStoresView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllStoresSoSalesReturnMemoStoreIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>
