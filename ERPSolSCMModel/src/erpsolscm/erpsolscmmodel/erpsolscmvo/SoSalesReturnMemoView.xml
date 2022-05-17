@@ -16,11 +16,59 @@
   <ViewAccessor
     Name="AccAllCustomersView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AllCustomersViewByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView.AllCustomersViewByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"0":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccAllStoresView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AllStoresViewByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView.AllStoresViewByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATION_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"0":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccPuSuppliersView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuSuppliersView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="PuSuppliersViewByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuSuppliersView.PuSuppliersViewByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"0":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSoSalesPersonsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SoSalesPersonsByCustomerVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView.SoSalesPersonsByCustomerVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_CUSTOMERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Customerid==null?"0":Customerid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovtxtCustomerName"
     ListVOName="AccAllCustomersView"
@@ -70,6 +118,55 @@
     </AttrArray>
     <DisplayCriteria
       Name="AllStoresViewFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSupplierName"
+    ListVOName="AccPuSuppliersView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSupplierName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SuppName"/>
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SuppName"/>
+      <Item Value="Supplierid"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovtxtSalesPersonName"
+    ListVOName="AccSoSalesPersonsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtSalesPersonName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Salespersonid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Name"/>
+      <Item Value="Salespersonid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+      <Item Value="Salespersonid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="SoSalesPersonsFindVc"/>
   </ListBinding>
   <EntityUsage
     Name="SoSalesReturnMemo"
@@ -407,7 +504,15 @@
     PrecisionRule="true"
     EntityAttrName="txtSalesPersonName"
     EntityUsage="SoSalesReturnMemo"
-    AliasName="TXT_SALES_PERSON_NAME"/>
+    AliasName="TXT_SALES_PERSON_NAME"
+    LOVName="LovtxtSalesPersonName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtStoreName"
     IsQueriable="false"
@@ -431,7 +536,15 @@
     PrecisionRule="true"
     EntityAttrName="txtSupplierName"
     EntityUsage="SoSalesReturnMemo"
-    AliasName="TXT_SUPPLIER_NAME"/>
+    AliasName="TXT_SUPPLIER_NAME"
+    LOVName="LovtxtSupplierName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="SoSalesReturnLinesMemoView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesRetMemoSoSalesRetLineMemoReturnMemoSeqLink"
