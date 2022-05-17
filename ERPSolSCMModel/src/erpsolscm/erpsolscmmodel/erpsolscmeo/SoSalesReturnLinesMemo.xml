@@ -209,7 +209,7 @@
     Scale="6"
     ColumnName="RET_QTY"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES_MEMO"/>
   <Attribute
@@ -218,7 +218,7 @@
     Scale="6"
     ColumnName="RET_DISCOUNT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES_MEMO"/>
   <Attribute
@@ -236,7 +236,7 @@
     Scale="6"
     ColumnName="RECEIVED_QTY"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES_MEMO"/>
   <Attribute
@@ -430,6 +430,72 @@
     Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES_MEMO"/>
+  <Attribute
+    Name="txtGrossAmount"
+    ColumnName="TXT_GROSS_AMOUNT"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(ActUnitPriceFcurr==null?0:ActUnitPriceFcurr) * (RetQty==null?0:RetQty)]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ActUnitPriceFcurr"/>
+      <Item
+        Value="RetQty"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtRetDiscountAmount"
+    ColumnName="TXT_RET_DISCOUNT_AMOUNT"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    TableName="SO_SALES_RETURN_LINES_MEMO"
+    IsPersistent="false"
+    IsQueriable="false">
+    <Dependencies>
+      <Item
+        Value="Productid"/>
+      <Item
+        Value="RetDiscountAmount"/>
+      <Item
+        Value="RetQty"/>
+    </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtNetAmount"
+    ColumnName="TXT_NET_AMOUNT"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[txtGrossAmount - txtRetDiscountAmount]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ActUnitPriceFcurr"/>
+      <Item
+        Value="Productid"/>
+      <Item
+        Value="RetQty"/>
+      <Item
+        Value="txtGrossAmount"/>
+      <Item
+        Value="txtRetDiscountAmount"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLinesMemo.txtNetAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SoSalesReturnMemo"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesRetMemoSoSalesRetLineMemoReturnMemoSeqAssoc"
@@ -458,4 +524,8 @@
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLinesMemo.Returnmemoseq"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
 </Entity>
