@@ -221,6 +221,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonSoRebateSalesPersonIdAssoc.SoSalesPersons"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SoSalesReturnMemo"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonsSoSalesReturnMemoSalesPersonIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonsSoSalesReturnMemoSalesPersonIdAssoc.SoSalesReturnMemo"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonsSoSalesReturnMemoSalesPersonIdAssoc.SoSalesPersons"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpksoSalesPersons"
     PrimaryKey="true">

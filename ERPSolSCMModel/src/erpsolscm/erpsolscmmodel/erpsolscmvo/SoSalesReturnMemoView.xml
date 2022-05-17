@@ -343,4 +343,10 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SoSalesPersonsView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesPersonsSoSalesReturnMemoSalesPersonIdLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>
