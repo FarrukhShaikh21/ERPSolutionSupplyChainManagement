@@ -324,6 +324,30 @@
     EntityAttrName="Returnmemoseq"
     EntityUsage="SoSalesReturnLinesMemo"
     AliasName="RETURNMEMOSEQ"/>
+  <ViewAttribute
+    Name="txtGrossAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtGrossAmount"
+    EntityUsage="SoSalesReturnLinesMemo"
+    AliasName="TXT_GROSS_AMOUNT"/>
+  <ViewAttribute
+    Name="txtNetAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtNetAmount"
+    EntityUsage="SoSalesReturnLinesMemo"
+    AliasName="TXT_NET_AMOUNT"/>
+  <ViewAttribute
+    Name="txtRetDiscountAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtRetDiscountAmount"
+    EntityUsage="SoSalesReturnLinesMemo"
+    AliasName="TXT_RET_DISCOUNT_AMOUNT"/>
   <ViewLinkAccessor
     Name="SoSalesReturnMemoView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesRetMemoSoSalesRetLineMemoReturnMemoSeqLink"
