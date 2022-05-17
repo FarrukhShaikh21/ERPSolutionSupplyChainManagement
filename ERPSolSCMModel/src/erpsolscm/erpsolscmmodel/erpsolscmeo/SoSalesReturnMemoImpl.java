@@ -73,6 +73,10 @@ public class SoSalesReturnMemoImpl extends ERPSolGlobalsEntityImpl {
         ManualRefNo,
         Divid,
         CompanyCode,
+        txtSupplierName,
+        txtSalesPersonName,
+        txtStoreName,
+        txtCustomerName,
         SoSalesReturnLinesMemo,
         AllStores,
         AllCustomers,
@@ -153,6 +157,10 @@ public class SoSalesReturnMemoImpl extends ERPSolGlobalsEntityImpl {
     public static final int MANUALREFNO = AttributesEnum.ManualRefNo.index();
     public static final int DIVID = AttributesEnum.Divid.index();
     public static final int COMPANYCODE = AttributesEnum.CompanyCode.index();
+    public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
+    public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
+    public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
+    public static final int TXTCUSTOMERNAME = AttributesEnum.txtCustomerName.index();
     public static final int SOSALESRETURNLINESMEMO = AttributesEnum.SoSalesReturnLinesMemo.index();
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
@@ -987,6 +995,70 @@ public class SoSalesReturnMemoImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setCompanyCode(String value) {
         setAttributeInternal(COMPANYCODE, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSupplierName, using the alias name txtSupplierName.
+     * @return the value of txtSupplierName
+     */
+    public String gettxtSupplierName() {
+        return (String) getAttributeInternal(TXTSUPPLIERNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSupplierName.
+     * @param value value to set the txtSupplierName
+     */
+    public void settxtSupplierName(String value) {
+        setAttributeInternal(TXTSUPPLIERNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtSalesPersonName, using the alias name txtSalesPersonName.
+     * @return the value of txtSalesPersonName
+     */
+    public String gettxtSalesPersonName() {
+        return (String) getAttributeInternal(TXTSALESPERSONNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtSalesPersonName.
+     * @param value value to set the txtSalesPersonName
+     */
+    public void settxtSalesPersonName(String value) {
+        setAttributeInternal(TXTSALESPERSONNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtStoreName, using the alias name txtStoreName.
+     * @return the value of txtStoreName
+     */
+    public String gettxtStoreName() {
+        return (String) getAttributeInternal(TXTSTORENAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtStoreName.
+     * @param value value to set the txtStoreName
+     */
+    public void settxtStoreName(String value) {
+        setAttributeInternal(TXTSTORENAME, value);
+    }
+
+    /**
+     * Gets the attribute value for txtCustomerName, using the alias name txtCustomerName.
+     * @return the value of txtCustomerName
+     */
+    public String gettxtCustomerName() {
+        return (String) getAttributeInternal(TXTCUSTOMERNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtCustomerName.
+     * @param value value to set the txtCustomerName
+     */
+    public void settxtCustomerName(String value) {
+        setAttributeInternal(TXTCUSTOMERNAME, value);
     }
 
     /**
