@@ -614,6 +614,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonsSoSalesReturnMemoSalesPersonIdAssoc.SoSalesReturnMemo"
     Type="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesPersonsImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="PuSuppliers"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuSupplierSoSalesReturnMemoSupplierIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuSupplierSoSalesReturnMemoSupplierIdAssoc.PuSuppliers"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.PuSupplierSoSalesReturnMemoSupplierIdAssoc.SoSalesReturnMemo"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkSoSalesReturnMemo"
     PrimaryKey="true">
@@ -666,6 +673,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnMemo.Salespersonid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SoSalesReturnMemo3">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKPU_SUPPLIERS"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SO_SALES_RETURN_MEMO3"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnMemo.Supplierid"/>
     </AttrArray>
   </Key>
 </Entity>

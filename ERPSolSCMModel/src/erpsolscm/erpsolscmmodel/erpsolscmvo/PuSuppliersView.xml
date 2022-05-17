@@ -430,6 +430,11 @@
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.PuSupplierSoRebateSupplierIdLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SoSalesReturnMemoView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.PuSupplierSoSalesReturnMemoSupplierIdLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>

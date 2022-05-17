@@ -76,7 +76,8 @@ public class SoSalesReturnMemoImpl extends ERPSolGlobalsEntityImpl {
         SoSalesReturnLinesMemo,
         AllStores,
         AllCustomers,
-        SoSalesPersons;
+        SoSalesPersons,
+        PuSuppliers;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -156,6 +157,7 @@ public class SoSalesReturnMemoImpl extends ERPSolGlobalsEntityImpl {
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
     public static final int SOSALESPERSONS = AttributesEnum.SoSalesPersons.index();
+    public static final int PUSUPPLIERS = AttributesEnum.PuSuppliers.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1036,6 +1038,21 @@ public class SoSalesReturnMemoImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setSoSalesPersons(SoSalesPersonsImpl value) {
         setAttributeInternal(SOSALESPERSONS, value);
+    }
+
+
+    /**
+     * @return the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public EntityImpl getPuSuppliers() {
+        return (EntityImpl) getAttributeInternal(PUSUPPLIERS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
+     */
+    public void setPuSuppliers(EntityImpl value) {
+        setAttributeInternal(PUSUPPLIERS, value);
     }
 
 
