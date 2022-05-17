@@ -1433,6 +1433,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCityAllCustomerCityIDAssoc.AllCustomers"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SoSalesReturnMemo"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoSalesReturnMemoCustomerIdAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoSalesReturnMemoCustomerIdAssoc.SoSalesReturnMemo"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllCustomersSoSalesReturnMemoCustomerIdAssoc.AllCustomers"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="AllCustomersCustomerseqCheck">
     <DesignTime>

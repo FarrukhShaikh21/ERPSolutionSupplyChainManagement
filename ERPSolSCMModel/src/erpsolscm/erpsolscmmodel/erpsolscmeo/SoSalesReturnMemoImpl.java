@@ -74,7 +74,8 @@ public class SoSalesReturnMemoImpl extends ERPSolGlobalsEntityImpl {
         Divid,
         CompanyCode,
         SoSalesReturnLinesMemo,
-        AllStores;
+        AllStores,
+        AllCustomers;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -152,6 +153,7 @@ public class SoSalesReturnMemoImpl extends ERPSolGlobalsEntityImpl {
     public static final int COMPANYCODE = AttributesEnum.CompanyCode.index();
     public static final int SOSALESRETURNLINESMEMO = AttributesEnum.SoSalesReturnLinesMemo.index();
     public static final int ALLSTORES = AttributesEnum.AllStores.index();
+    public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1002,6 +1004,21 @@ public class SoSalesReturnMemoImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setAllStores(EntityImpl value) {
         setAttributeInternal(ALLSTORES, value);
+    }
+
+
+    /**
+     * @return the associated entity AllCustomersImpl.
+     */
+    public AllCustomersImpl getAllCustomers() {
+        return (AllCustomersImpl) getAttributeInternal(ALLCUSTOMERS);
+    }
+
+    /**
+     * Sets <code>value</code> as the associated entity AllCustomersImpl.
+     */
+    public void setAllCustomers(AllCustomersImpl value) {
+        setAttributeInternal(ALLCUSTOMERS, value);
     }
 
 
