@@ -13,6 +13,34 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccInItemsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovModelNo"
+    ListVOName="AccInItemsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ModelNo"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Productid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Productid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Productid"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SoSalesReturnLinesMemo"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLinesMemo"/>
@@ -47,7 +75,15 @@
     PrecisionRule="true"
     EntityAttrName="ModelNo"
     EntityUsage="SoSalesReturnLinesMemo"
-    AliasName="MODEL_NO"/>
+    AliasName="MODEL_NO"
+    LOVName="LovModelNo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Quantity"
     PrecisionRule="true"

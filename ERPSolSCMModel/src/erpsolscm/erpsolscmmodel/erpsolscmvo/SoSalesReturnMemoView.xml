@@ -69,6 +69,39 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccAllCustomerSalespersonPid"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomerSalespersonView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AllCustomerSalespersonPIDVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomerSalespersonView.AllCustomerSalespersonPIDVC"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSoSalesPersonsDefView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SoSalesPersonsByCustomerVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView.SoSalesPersonsByCustomerVC"/>
+    <ViewCriteriaUsage
+      Name="SoSalesPersonsDefaultVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView.SoSalesPersonsDefaultVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_CUSTOMERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Customerid==null?"0":Customerid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AccSretCategoryView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SretCategoryView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVWYesNoQVO"
+    ViewObjectName="erpsolglob.erpsolglobmodel.erpsolglobqvo.VWYesNoQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtCustomerName"
     ListVOName="AccAllCustomersView"

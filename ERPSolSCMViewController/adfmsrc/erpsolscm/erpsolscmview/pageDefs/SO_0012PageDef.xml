@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0161PageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SoSalesReturnCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesReturnCRUDIterator"/>
+    <iterator Binds="SoSalesReturnLinesDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesReturnLinesDetCRUDIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Salesretid">
+      <AttrNames>
+        <Item Value="Salesretid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SoSalesReturnCRUDIterator" StaticList="false" Uses="LovtxtCustomerName"
+                  id="txtCustomerName"/>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Customerid">
+      <AttrNames>
+        <Item Value="Customerid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="ManualRefNo">
+      <AttrNames>
+        <Item Value="ManualRefNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SoSalesReturnCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <listOfValues IterBinding="SoSalesReturnCRUDIterator" StaticList="false" Uses="LovtxtStoreName" id="txtStoreName"/>
+    <list IterBinding="SoSalesReturnCRUDIterator" StaticList="false" Uses="LovCatid" id="Catid" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="ConsignmentNo">
+      <AttrNames>
+        <Item Value="ConsignmentNo"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SoSalesReturnCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="SoSalesReturnCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action IterBinding="SoSalesReturnCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Supplierid">
+      <AttrNames>
+        <Item Value="Supplierid"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SoSalesReturnCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Storeid">
+      <AttrNames>
+        <Item Value="Storeid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="ReturnDate">
+      <AttrNames>
+        <Item Value="ReturnDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Salespersonid">
+      <AttrNames>
+        <Item Value="Salespersonid"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SoSalesReturnCRUDIterator" StaticList="false" Uses="LovtxtSalesPersonName"
+                  id="txtSalesPersonName"/>
+    <tree IterBinding="SoSalesReturnLinesDetCRUDIterator" id="SoSalesReturnLinesDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnLinesView"
+                      Name="SoSalesReturnLinesDetCRUD0">
+        <AttrNames>
+          <Item Value="Rlineno"/>
+          <Item Value="Productid"/>
+          <Item Value="ModelNo"/>
+          <Item Value="ActUnitPriceFcurr"/>
+          <Item Value="RetQty"/>
+          <Item Value="txtGrossAmount"/>
+          <Item Value="RetDiscountAmount"/>
+          <Item Value="txtRetDiscountAmount"/>
+          <Item Value="txtNetAmount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SoSalesReturnLinesDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SoSalesReturnLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="doSuperviseSalesReturn" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSalesReturn" IsViewObjectMethod="true"
+                  DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesReturnCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSuperviseSalesReturn_ERPSolSCMAppModuleDataControl_SoSalesReturnCRUD_doSuperviseSalesReturn_result"/>
+    <attributeValues IterBinding="SoSalesReturnLinesDetCRUDIterator" id="Productid">
+      <AttrNames>
+        <Item Value="Productid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnLinesDetCRUDIterator" id="Salesreturnlinseq">
+      <AttrNames>
+        <Item Value="Salesreturnlinseq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Companyid">
+      <AttrNames>
+        <Item Value="Companyid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Divid">
+      <AttrNames>
+        <Item Value="Divid"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
