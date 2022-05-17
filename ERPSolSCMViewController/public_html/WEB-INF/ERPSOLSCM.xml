@@ -202,6 +202,12 @@
         <fixed-outcome>ERP-ACT-SO-0145</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SO_0012">
+      <page>/SO_0012.jsf</page>
+    </view>
+    <view id="SO_0012_IMEI">
+      <page>/SO_0012_IMEI.jsf</page>
+    </view>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -242,6 +248,10 @@
       <control-flow-case id="__84">
         <from-outcome>ERP-ACT-SO-0145</from-outcome>
         <to-activity-id>doSetERPSolSCMReportSO_0145</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__89">
+        <from-outcome>ERP-ACT-SO-0012</from-outcome>
+        <to-activity-id>SO_0012</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__11">
@@ -485,6 +495,20 @@
       <control-flow-case id="__86">
         <from-outcome>ERP-ACT-SO-0145</from-outcome>
         <to-activity-id>SO_0145</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__90">
+      <from-activity-id>SO_0012</from-activity-id>
+      <control-flow-case id="__91">
+        <from-outcome>ERP-ACT-SO-0012-SEARCH</from-outcome>
+        <to-activity-id>SO_0012_IMEI</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__92">
+      <from-activity-id>SO_0012_IMEI</from-activity-id>
+      <control-flow-case id="__93">
+        <from-outcome>ERP-ACT-SO-0012-SEARCH-BACK</from-outcome>
+        <to-activity-id>SO_0012</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
