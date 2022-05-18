@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiMemoViewImpl"
+  ComponentInterface="erpsolscm.erpsolscmmodel.erpsolscmvo.common.SrimeiMemoView"
+  ClientProxyName="erpsolscm.erpsolscmmodel.erpsolscmvo.client.SrimeiMemoViewClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+  </DesignTime>
   <Variable
     Name="P_ADF_RETURN_MEMO_LINE_SEQ"
     Kind="viewcriteria"
@@ -243,4 +249,14 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doERPSolRemoveSaleReturnBox"
+      MethodName="doERPSolRemoveSaleReturnBox">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>
