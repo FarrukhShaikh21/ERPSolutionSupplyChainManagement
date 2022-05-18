@@ -114,6 +114,9 @@
   <ViewUsage
     Name="SrimeiMemoDetCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiMemoView"/>
+  <ViewUsage
+    Name="SrimeiMemoByReturnmemolineseqCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiMemoView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

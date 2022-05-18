@@ -268,7 +268,16 @@ public class ERPSolSCMBean {
             }
         }
     }
-    
+    public void doERPSolDialogSaleReturnMemoConfirm(DialogEvent erpsolde) {
+        if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
+            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("doSuperviseSalesReturnMemo");
+            binding.execute();
+            List ERPSolerrors = binding.getErrors();
+            if (ERPSolerrors.isEmpty()) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( "Transaction Is Supervised." ));
+            }
+        }
+    }   
 
     public void doERPSoRebatelDialogConfirm(DialogEvent erpsolde) {
         if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {

@@ -52,7 +52,7 @@
           usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_doSetERPSolSCMReportDefaultPageDef1"/>
     <page path="/SO_0012.jsf" usageId="erpsolscm_erpsolscmview_SO_0012PageDef"/>
     <page path="/SO_0012_IMEI.jsf" usageId="erpsolscm_erpsolscmview_SO_0012_IMEIPageDef"/>
-    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExeSrImeiMemo"
+    <page path="/WEB-INF/ERPSOLSCM.xml#ERPSOLSCMBTF@ExeImeiMemo"
           usageId="erpsolscm_erpsolscmview_ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111111"/>
   </pageMap>
   <pageDefinitionUsages>

@@ -465,6 +465,10 @@
     ColumnType="INTEGER"
     IsPersistent="false"
     IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(RetDiscountAmount==null?0:RetDiscountAmount) * (RetQty==null?0:RetQty)]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Dependencies>
       <Item
         Value="Productid"/>

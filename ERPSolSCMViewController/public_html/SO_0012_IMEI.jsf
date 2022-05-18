@@ -9,7 +9,7 @@
                 <f:facet name="menuBar"/>
                 <f:facet name="toolbar">
                     <af:toolbar id="t3">
-                        <af:button text="Back To Sales Return" id="b3" action="ERP-ACT-0161-IMEI-BACK"
+                        <af:button text="Back To Sales Return" id="b3" action="ERP-ACT-SO-0012-IMEI-BACK"
                                    icon="#{resource['images:imgExitForm.png']}"/>
                     </af:toolbar>
                 </f:facet>
@@ -71,41 +71,32 @@
                                     </af:toolbar>
                                 </f:facet>
                                 <f:facet name="statusbar"/>
-                                <af:table value="#{bindings.SrimeiViewBySrdetlinesseqCRUD.collectionModel}" var="row"
-                                          rows="#{bindings.SrimeiViewBySrdetlinesseqCRUD.rangeSize}"
-                                          emptyText="#{bindings.SrimeiViewBySrdetlinesseqCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                <af:table value="#{bindings.SrimeiMemoByReturnmemolineseqCRUD.collectionModel}"
+                                          var="row" rows="#{bindings.SrimeiMemoByReturnmemolineseqCRUD.rangeSize}"
+                                          emptyText="#{bindings.SrimeiMemoByReturnmemolineseqCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
                                           rowBandingInterval="0"
-                                          selectedRowKeys="#{bindings.SrimeiViewBySrdetlinesseqCRUD.collectionModel.selectedRow}"
-                                          selectionListener="#{bindings.SrimeiViewBySrdetlinesseqCRUD.collectionModel.makeCurrent}"
+                                          selectedRowKeys="#{bindings.SrimeiMemoByReturnmemolineseqCRUD.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.SrimeiMemoByReturnmemolineseqCRUD.collectionModel.makeCurrent}"
                                           rowSelection="single"
-                                          fetchSize="#{bindings.SrimeiViewBySrdetlinesseqCRUD.rangeSize}"
-                                          filterModel="#{bindings.SrimeiViewBySrdetlinesseqCRUDQuery.queryDescriptor}"
-                                          queryListener="#{bindings.SrimeiViewBySrdetlinesseqCRUDQuery.processQuery}"
-                                          filterVisible="true" varStatus="vs" id="t1" partialTriggers="::b2"
-                                          autoHeightRows="20" scrollPolicy="page">
-                                    <af:column sortProperty="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.Productid.name}"
-                                               filterable="true"
-                                               headerText="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.Productid.label}"
-                                               id="c1">
+                                          fetchSize="#{bindings.SrimeiMemoByReturnmemolineseqCRUD.rangeSize}" id="t4"
+                                          partialTriggers="::b2 :::it1 :::it2" scrollPolicy="page" autoHeightRows="15">
+                                    <af:column headerText="#{bindings.SrimeiMemoByReturnmemolineseqCRUD.hints.Productid.label}"
+                                               id="c4">
                                         <af:outputText value="#{row.Productid}"
-                                                       shortDesc="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.Productid.tooltip}"
-                                                       id="ot1"/>
+                                                       shortDesc="#{bindings.SrimeiMemoByReturnmemolineseqCRUD.hints.Productid.tooltip}"
+                                                       id="ot4"/>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.TempBoxNo.name}"
-                                               filterable="true"
-                                               headerText="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.TempBoxNo.label}"
-                                               id="c2" width="200" displayIndex="-1">
+                                    <af:column headerText="#{bindings.SrimeiMemoByReturnmemolineseqCRUD.hints.TempBoxNo.label}"
+                                               id="c5" width="200" displayIndex="-1">
                                         <af:outputText value="#{row.TempBoxNo}"
-                                                       shortDesc="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.TempBoxNo.tooltip}"
-                                                       id="ot2"/>
+                                                       shortDesc="#{bindings.SrimeiMemoByReturnmemolineseqCRUD.hints.TempBoxNo.tooltip}"
+                                                       id="ot5"/>
                                     </af:column>
-                                    <af:column sortProperty="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.ImeiNo.name}"
-                                               filterable="true"
-                                               headerText="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.ImeiNo.label}"
-                                               id="c3" width="200" displayIndex="-1">
+                                    <af:column headerText="#{bindings.SrimeiMemoByReturnmemolineseqCRUD.hints.ImeiNo.label}"
+                                               id="c6" width="200" displayIndex="-1">
                                         <af:outputText value="#{row.ImeiNo}"
-                                                       shortDesc="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.ImeiNo.tooltip}"
-                                                       id="ot3"/>
+                                                       shortDesc="#{bindings.SrimeiMemoByReturnmemolineseqCRUD.hints.ImeiNo.tooltip}"
+                                                       id="ot6"/>
                                     </af:column>
                                 </af:table>
                             </af:panelCollection>

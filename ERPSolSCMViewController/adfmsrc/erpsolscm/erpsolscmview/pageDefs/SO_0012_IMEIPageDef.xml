@@ -6,11 +6,8 @@
     <variableIterator id="variables"/>
     <iterator Binds="SoSalesReturnMemoCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="SoSalesReturnCRUDIterator"/>
-    <iterator Binds="SrimeiMemoDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+    <iterator Binds="SrimeiMemoByReturnmemolineseqCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="SrimeiViewBySrdetlinesseqCRUDIterator"/>
-    <searchRegion Binds="SrimeiViewBySrdetlinesseqCRUDIterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  id="SrimeiViewBySrdetlinesseqCRUDQuery"/>
   </executables>
   <bindings>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
@@ -22,15 +19,6 @@
         <Item Value="Posted"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="SrimeiViewBySrdetlinesseqCRUDIterator" id="SrimeiViewBySrdetlinesseqCRUD">
-      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiView" Name="SrimeiViewBySrdetlinesseqCRUD0">
-        <AttrNames>
-          <Item Value="Productid"/>
-          <Item Value="TempBoxNo"/>
-          <Item Value="ImeiNo"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <action IterBinding="SrimeiViewBySrdetlinesseqCRUDIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <methodAction id="doERPSolRemoveSaleReturnBox" RequiresUpdateModel="true" Action="invokeMethod"
@@ -38,5 +26,15 @@
                   DataControl="ERPSolSCMAppModuleDataControl"
                   InstanceName="data.ERPSolSCMAppModuleDataControl.SrimeiViewBySrdetlinesseqCRUD"
                   ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doERPSolRemoveSaleReturnBox_ERPSolSCMAppModuleDataControl_SrimeiViewBySrdetlinesseqCRUD_doERPSolRemoveSaleReturnBox_result"/>
+    <tree IterBinding="SrimeiViewBySrdetlinesseqCRUDIterator" id="SrimeiMemoByReturnmemolineseqCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiMemoView"
+                      Name="SrimeiMemoByReturnmemolineseqCRUD0">
+        <AttrNames>
+          <Item Value="Productid"/>
+          <Item Value="TempBoxNo"/>
+          <Item Value="ImeiNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

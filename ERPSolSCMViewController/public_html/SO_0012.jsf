@@ -6,7 +6,7 @@
     <af:form id="f1">
       <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
         <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.Salesretid.inputValue})"
-                   dialogListener="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolDialogSaleReturnConfirm}" type="yesNo">
+                   dialogListener="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolDialogSaleReturnMemoConfirm}" type="yesNo">
           <f:facet name="buttonBar"/>
         </af:dialog>
       </af:popup>
@@ -75,16 +75,16 @@
                                    iconPosition="top"
                                    action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecuteSaleReturn}"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"
+                                   disabled="#{!bindings.Previous.enabled || bindings.Salesretid.inputValue==null}" partialSubmit="true" id="b4"
                                    icon="#{resource['images:imgPrevious.png']}"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
-                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                   disabled="#{!bindings.Next.enabled || bindings.Salesretid.inputValue==null}" partialSubmit="true" id="b3"
                                    icon="#{resource['images:imgNext.png']}"/>
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Return"
                                    disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"
                                    icon="#{resource['images:imgDelete.png']}"/>
                         <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Return"
-                                   disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
+                                   disabled="#{bindings.Salesretid.inputValue==null || pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
                                    icon="#{resource['images:imgAdd.png']}"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
                                    id="b6"
@@ -109,6 +109,10 @@
                           <af:outputLabel value="#{bindings.Salesretid.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
+                          <af:button actionListener="#{bindings.doSuperviseSalesReturnMemo.execute}"
+                                     text="doSuperviseSalesReturnMemo"
+                                     disabled="#{!bindings.doSuperviseSalesReturnMemo.enabled}" id="b12"
+                                     rendered="false"/>
                           <af:inputText value="#{bindings.Returnmemolineseq.inputValue}"
                                         label="#{bindings.Returnmemolineseq.hints.label}"
                                         required="#{bindings.Returnmemolineseq.hints.mandatory}"
@@ -143,9 +147,6 @@
                                         shortDesc="#{bindings.Posted.hints.tooltip}" id="it21" rendered="false">
                             <f:validator binding="#{bindings.Posted.validator}"/>
                           </af:inputText>
-                          <af:button actionListener="#{bindings.doSuperviseSalesReturn.execute}"
-                                     text="doSuperviseSalesReturn"
-                                     disabled="#{!bindings.doSuperviseSalesReturn.enabled}" id="b12" rendered="false"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc6" halign="center" valign="middle">
                           <af:outputLabel value="#{bindings.ReturnDate.hints.label}" id="ol10"/>
@@ -367,9 +368,14 @@
                               selectedRowKeys="#{bindings.SoSalesReturnLinesMemoDetCRUD.collectionModel.selectedRow}"
                               selectionListener="#{bindings.SoSalesReturnLinesMemoDetCRUD.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.SoSalesReturnLinesMemoDetCRUD.rangeSize}"
-                              id="t2" partialTriggers="::b10 ::b11">
+                              id="t2" partialTriggers="::b10 ::b11" scrollPolicy="page" autoHeightRows="5">
                       <af:column id="c9" width="80">
-                        <af:button text="IMEI" id="b13"/>
+                        <af:button text="IMEI" id="b13" action="ERP-ACT-SO-0012-IMEI">
+                          <af:setActionListener from="#{bindings.Salesretid.inputValue}"
+                                                to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolSaleretid}"/>
+                          <af:setActionListener from="#{row.bindings.Productid.inputValue}"
+                                                to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolProductId}"/>                        
+                        </af:button>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.Rlineno.label}" id="c1"
                                  width="60">

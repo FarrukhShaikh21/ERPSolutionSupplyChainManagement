@@ -208,7 +208,7 @@
     <view id="SO_0012_IMEI">
       <page>/SO_0012_IMEI.jsf</page>
     </view>
-    <method-call id="ExeSrImeiMemo">
+    <method-call id="ExeImeiMemo">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
         <fixed-outcome>ERP-ACT-SO-0012-IMEI</fixed-outcome>
@@ -507,7 +507,7 @@
       <from-activity-id>SO_0012</from-activity-id>
       <control-flow-case id="__91">
         <from-outcome>ERP-ACT-SO-0012-IMEI</from-outcome>
-        <to-activity-id>ExeSrImeiMemo</to-activity-id>
+        <to-activity-id>ExeImeiMemo</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__92">
@@ -518,7 +518,7 @@
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__87">
-      <from-activity-id>ExeSrImeiMemo</from-activity-id>
+      <from-activity-id>ExeImeiMemo</from-activity-id>
       <control-flow-case id="__88">
         <from-outcome>ERP-ACT-SO-0012-IMEI</from-outcome>
         <to-activity-id>SO_0012_IMEI</to-activity-id>

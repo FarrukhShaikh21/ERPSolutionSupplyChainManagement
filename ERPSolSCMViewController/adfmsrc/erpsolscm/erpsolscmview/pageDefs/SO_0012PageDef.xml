@@ -88,11 +88,6 @@
             Action="createInsertRow"/>
     <action IterBinding="SoSalesReturnLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <methodAction id="doSuperviseSalesReturn" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="doSuperviseSalesReturn" IsViewObjectMethod="true"
-                  DataControl="ERPSolSCMAppModuleDataControl"
-                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesReturnCRUD"
-                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSuperviseSalesReturn_ERPSolSCMAppModuleDataControl_SoSalesReturnCRUD_doSuperviseSalesReturn_result"/>
     <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Companyid">
       <AttrNames>
         <Item Value="Companyid"/>
@@ -123,5 +118,10 @@
         <Item Value="Returnmemolineseq"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="doSuperviseSalesReturnMemo" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSalesReturnMemo" IsViewObjectMethod="true"
+                  DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesReturnMemoCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSuperviseSalesReturnMemo_ERPSolSCMAppModuleDataControl_SoSalesReturnMemoCRUD_doSuperviseSalesReturnMemo_result"/>
   </bindings>
 </pageDefinition>

@@ -12,10 +12,23 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnLinesMemoViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccInItemsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwFuncGetItemDiscountByLocationReturn"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemDiscountByLocationReturnQVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwFuncGetItemRateByLocDate"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemRateByLocDateQVO"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LovModelNo"
