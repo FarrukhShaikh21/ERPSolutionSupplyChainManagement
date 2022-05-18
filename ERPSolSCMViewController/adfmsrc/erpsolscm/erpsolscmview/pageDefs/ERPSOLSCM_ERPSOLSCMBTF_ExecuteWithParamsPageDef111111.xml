@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47"
+                id="ERPSOLSCM_ERPSOLSCMBTF_ExecuteWithParamsPageDef111111" Package="erpsolscm.erpsolscmview.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="SrimeiMemoByReturnmemolineseqCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SrimeiMemoByReturnmemolineseqCRUDIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="SrimeiMemoByReturnmemolineseqCRUDIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_RETURN_MEMO_LINE_SEQ"
+                 NDValue="#{data.erpsolscm_erpsolscmview_SO_0012PageDef.Returnmemolineseq.inputValue}"
+                 NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

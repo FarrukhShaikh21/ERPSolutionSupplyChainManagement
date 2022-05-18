@@ -602,7 +602,7 @@ public class ERPSolSCMBean {
                      {  
                          System.out.println("comong");
                          erpsoldbt.commit();
-                     dc.getApplicationModule().findViewObject("SrimeiViewBySrdetlinesseqCRUD").executeQuery();
+                     dc.getApplicationModule().findViewObject("SrimeiMemoByReturnmemolineseqCRUD").executeQuery();
     //                         dc.getApplicationModule().findViewObject("SoSalesOrderViewCRUD").getCurrentRow().setAttribute("txtIMEIAndBox", null);
                      }
                      else {
