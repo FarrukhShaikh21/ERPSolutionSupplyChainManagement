@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SoSaleReturnLinMemoSrImeiMemoReturnMemoLineSeqAssoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="SoSalesReturnLinesMemo"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLinesMemo"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SoSalesReturnLinesMemo"/>
+      <Attr Name="_foreignKey"
+        Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLinesMemo.SosalesreturnlinesmemoPrimaryKey"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLinesMemo.Returnmemolineseq"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="SrimeiMemo"
+    Cardinality="-1"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SrimeiMemo">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SrimeiMemo"/>
+      <Attr Name="_foreignKey" Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SrimeiMemo.fk_SrimeiMemo"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SrimeiMemo.Returnmemolineseq"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

@@ -9,10 +9,15 @@
   DBObjectType="table"
   DBObjectName="SO_SALES_RETURN_LINES_MEMO"
   AliasName="SoSalesReturnLinesMemo"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLinesMemoImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_superClass" Value="erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="Salesretid"
-    IsNotNull="true"
     Precision="20"
     ColumnName="SALESRETID"
     SQLType="VARCHAR"
@@ -25,7 +30,6 @@
   </Attribute>
   <Attribute
     Name="Rlineno"
-    IsNotNull="true"
     Precision="4"
     Scale="0"
     ColumnName="RLINENO"
@@ -453,7 +457,6 @@
     SQLType="INTEGER"
     Type="java.lang.Integer"
     ColumnType="INTEGER"
-    TableName="SO_SALES_RETURN_LINES_MEMO"
     IsPersistent="false"
     IsQueriable="false">
     <Dependencies>
@@ -503,6 +506,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesRetMemoSoSalesRetLineMemoReturnMemoSeqAssoc.SoSalesReturnLinesMemo"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="SrimeiMemo"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSaleReturnLinMemoSrImeiMemoReturnMemoLineSeqAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSaleReturnLinMemoSrImeiMemoReturnMemoLineSeqAssoc.SrimeiMemo"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSaleReturnLinMemoSrImeiMemoReturnMemoLineSeqAssoc.SoSalesReturnLinesMemo"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="SosalesreturnlinesmemoPrimaryKey"
     PrimaryKey="true">

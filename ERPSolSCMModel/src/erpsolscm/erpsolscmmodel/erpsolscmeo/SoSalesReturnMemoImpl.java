@@ -1,5 +1,6 @@
 package erpsolscm.erpsolscmmodel.erpsolscmeo;
 
+import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel;
 import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
 
 import java.math.BigDecimal;
@@ -1144,6 +1145,9 @@ public class SoSalesReturnMemoImpl extends ERPSolGlobalsEntityImpl {
     protected void create(AttributeList attributeList) {
         setERPSolPKColumnName("Returnmemoseq");
         setERPSolPKSeqName("So_Sales_Return_Memo_Seq");
+        setLocationid(ERPSolGlobClassModel.doGetUserLocationCode());
+        setStoreid(ERPSolGlobClassModel.doGetUserStoreCode());
+        setCompanyid(ERPSolGlobClassModel.doGetUserCompanyCode());        
         super.create(attributeList);
     }
 
@@ -1167,6 +1171,16 @@ public class SoSalesReturnMemoImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
+        if (operation==DML_INSERT) {
+            String pkValue=" salesreturnmemo_id('"+ERPSolGlobClassModel.doGetUserCompanyCode()+"','"+ERPSolGlobClassModel.doGetUserLocationCode()+"','"+getDeptid()+"',TO_DATE('"+getReturnDate()+"','YYYY-MM-DD'))";
+            String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
+            populateAttributeAsChanged(SALESRETID, result);
+        }
+        else if (operation==DML_UPDATE) {
+            if (getSubmit().equals("Y")) {
+                populateAttributeAsChanged(POSTEDBY, ERPSolGlobClassModel.doGetUserCode());
+           }
+        }  
         super.doDML(operation, e);
     }
 }

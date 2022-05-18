@@ -5,9 +5,9 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
-    <iterator Binds="SoSalesReturnCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+    <iterator Binds="SoSalesReturnMemoCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="SoSalesReturnCRUDIterator"/>
-    <iterator Binds="SoSalesReturnLinesDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+    <iterator Binds="SoSalesReturnLinesMemoDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="SoSalesReturnLinesDetCRUDIterator"/>
   </executables>
   <bindings>
@@ -88,15 +88,7 @@
       <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnLinesView"
                       Name="SoSalesReturnLinesDetCRUD0">
         <AttrNames>
-          <Item Value="Rlineno"/>
-          <Item Value="Productid"/>
-          <Item Value="ModelNo"/>
-          <Item Value="ActUnitPriceFcurr"/>
-          <Item Value="RetQty"/>
-          <Item Value="txtGrossAmount"/>
-          <Item Value="RetDiscountAmount"/>
-          <Item Value="txtRetDiscountAmount"/>
-          <Item Value="txtNetAmount"/>
+          <Item Value="Salesretid"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -109,16 +101,6 @@
                   DataControl="ERPSolSCMAppModuleDataControl"
                   InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesReturnCRUD"
                   ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSuperviseSalesReturn_ERPSolSCMAppModuleDataControl_SoSalesReturnCRUD_doSuperviseSalesReturn_result"/>
-    <attributeValues IterBinding="SoSalesReturnLinesDetCRUDIterator" id="Productid">
-      <AttrNames>
-        <Item Value="Productid"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="SoSalesReturnLinesDetCRUDIterator" id="Salesreturnlinseq">
-      <AttrNames>
-        <Item Value="Salesreturnlinseq"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Companyid">
       <AttrNames>
         <Item Value="Companyid"/>

@@ -18,7 +18,6 @@
   </DesignTime>
   <Attribute
     Name="Salesretid"
-    IsNotNull="true"
     Precision="20"
     ColumnName="SALESRETID"
     SQLType="VARCHAR"
@@ -40,7 +39,6 @@
     TableName="SO_SALES_RETURN_MEMO"/>
   <Attribute
     Name="Customerid"
-    IsNotNull="true"
     Precision="15"
     ColumnName="CUSTOMERID"
     SQLType="VARCHAR"
@@ -53,7 +51,6 @@
   </Attribute>
   <Attribute
     Name="Locationid"
-    IsNotNull="true"
     Precision="15"
     ColumnName="LOCATIONID"
     SQLType="VARCHAR"

@@ -354,4 +354,9 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SrimeiMemoView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSaleReturnLinMemoSrImeiMemoReturnMemoLineSeqLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
