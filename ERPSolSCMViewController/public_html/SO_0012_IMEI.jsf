@@ -1,7 +1,118 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="SO_0012_IMEI.jsf" id="d1">
-        <af:form id="f1"></af:form>
+    <af:document title="SO_0012.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelHeader text="Sale Return IMEI" id="ph1">
+                <f:facet name="context"/>
+                <f:facet name="menuBar"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t3">
+                        <af:button text="Back To Sales Return" id="b3" action="ERP-ACT-0161-IMEI-BACK"
+                                   icon="#{resource['images:imgExitForm.png']}"/>
+                    </af:toolbar>
+                </f:facet>
+                <f:facet name="legend"/>
+                <f:facet name="info"/>
+                <af:panelGridLayout id="pgl1">
+                    <af:gridRow marginTop="5px" height="auto" id="gr1">
+                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+                            <af:panelFormLayout id="pfl1" maxColumns="2" rows="1">
+                                <f:facet name="footer"/>
+                                <af:inputText value="#{bindings.Posted.inputValue}"
+                                              label="#{bindings.Posted.hints.label}"
+                                              required="#{bindings.Posted.hints.mandatory}"
+                                              columns="#{bindings.Posted.hints.displayWidth}"
+                                              maximumLength="#{bindings.Posted.hints.precision}"
+                                              shortDesc="#{bindings.Posted.hints.tooltip}" id="it3" rendered="false">
+                                    <f:validator binding="#{bindings.Posted.validator}"/>
+                                </af:inputText>
+                                <af:inputText label="Scan Box No" id="it2" placeholder="Scan Box No"
+                                              partialTriggers="it2" autoSubmit="true"
+                                              value="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolImeiString}"
+                                              valueChangeListener="#{pageFlowScope.ERPSolSCMPageFlowBean.erpSolSaleReturnMemoBOX}"
+                                              disabled="#{bindings.Posted.inputValue=='Y'}"/>
+                                <af:inputText label="Scan IMEI Here" id="it1" placeholder="Scan IMEI Here"
+                                              autoSubmit="true" partialTriggers="it1"
+                                              value="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolImeiString}"
+                                              valueChangeListener="#{pageFlowScope.ERPSolSCMPageFlowBean.erpSolSaleReturnMemoIMEI}"
+                                              disabled="#{bindings.Posted.inputValue=='Y'}" maximumLength="15"/>
+                            </af:panelFormLayout>
+                        </af:gridCell>
+                    </af:gridRow>
+                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
+                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" columnSpan="1" rowSpan="1">
+                            <af:panelCollection id="pc1" styleClass="AFStretchWidth" featuresOff="detach">
+                                <f:facet name="menus"/>
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t2">
+                                        <af:button text="Export To Excel" id="b1"
+                                                   disabled="#{bindings.Posted.inputValue=='Y'}">
+                                            <af:exportCollectionActionListener type="excelHTML" exportedId="t1"
+                                                                               filename="STNIMEI.xls" title="STN IMEI"/>
+                                        </af:button>
+                                        <af:button actionListener="#{bindings.doERPSolRemoveSaleReturnBox.execute}"
+                                                   text="Delete Selected Box"
+                                                   disabled="#{!bindings.doERPSolRemoveSaleReturnBox.enabled}" id="b6"
+                                                   icon="#{resource['images:imgDelete.png']}"/>
+                                        <af:button actionListener="#{bindings.Delete.execute}"
+                                                   text="Delete Selected IMEI"
+                                                   disabled="#{!bindings.Delete.enabled}" id="b2"
+                                                   icon="#{resource['images:imgDelete.png']}"/>
+                                        <af:button actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true" id="b5"
+                                                   icon="#{resource['images:imgUndo.png']}"
+                                                   disabled="#{bindings.Posted.inputValue=='Y'}">
+                                            <af:resetActionListener/>
+                                        </af:button>
+                                        <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b4"
+                                                   icon="#{resource['images:imgSave.png']}"
+                                                   disabled="#{bindings.Posted.inputValue=='Y'}"/>
+                                    </af:toolbar>
+                                </f:facet>
+                                <f:facet name="statusbar"/>
+                                <af:table value="#{bindings.SrimeiViewBySrdetlinesseqCRUD.collectionModel}" var="row"
+                                          rows="#{bindings.SrimeiViewBySrdetlinesseqCRUD.rangeSize}"
+                                          emptyText="#{bindings.SrimeiViewBySrdetlinesseqCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.SrimeiViewBySrdetlinesseqCRUD.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.SrimeiViewBySrdetlinesseqCRUD.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.SrimeiViewBySrdetlinesseqCRUD.rangeSize}"
+                                          filterModel="#{bindings.SrimeiViewBySrdetlinesseqCRUDQuery.queryDescriptor}"
+                                          queryListener="#{bindings.SrimeiViewBySrdetlinesseqCRUDQuery.processQuery}"
+                                          filterVisible="true" varStatus="vs" id="t1" partialTriggers="::b2"
+                                          autoHeightRows="20" scrollPolicy="page">
+                                    <af:column sortProperty="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.Productid.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.Productid.label}"
+                                               id="c1">
+                                        <af:outputText value="#{row.Productid}"
+                                                       shortDesc="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.Productid.tooltip}"
+                                                       id="ot1"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.TempBoxNo.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.TempBoxNo.label}"
+                                               id="c2" width="200" displayIndex="-1">
+                                        <af:outputText value="#{row.TempBoxNo}"
+                                                       shortDesc="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.TempBoxNo.tooltip}"
+                                                       id="ot2"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.ImeiNo.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.ImeiNo.label}"
+                                               id="c3" width="200" displayIndex="-1">
+                                        <af:outputText value="#{row.ImeiNo}"
+                                                       shortDesc="#{bindings.SrimeiViewBySrdetlinesseqCRUD.hints.ImeiNo.tooltip}"
+                                                       id="ot3"/>
+                                    </af:column>
+                                </af:table>
+                            </af:panelCollection>
+                        </af:gridCell>
+                    </af:gridRow>
+                </af:panelGridLayout>
+            </af:panelHeader>
+        </af:form>
     </af:document>
 </f:view>

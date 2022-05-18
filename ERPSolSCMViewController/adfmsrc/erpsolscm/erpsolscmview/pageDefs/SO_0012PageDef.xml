@@ -84,14 +84,6 @@
     </attributeValues>
     <listOfValues IterBinding="SoSalesReturnCRUDIterator" StaticList="false" Uses="LovtxtSalesPersonName"
                   id="txtSalesPersonName"/>
-    <tree IterBinding="SoSalesReturnLinesDetCRUDIterator" id="SoSalesReturnLinesDetCRUD">
-      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnLinesView"
-                      Name="SoSalesReturnLinesDetCRUD0">
-        <AttrNames>
-          <Item Value="Salesretid"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <action IterBinding="SoSalesReturnLinesDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
             Action="createInsertRow"/>
     <action IterBinding="SoSalesReturnLinesDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
@@ -111,5 +103,20 @@
         <Item Value="Divid"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="SoSalesReturnLinesDetCRUDIterator" id="SoSalesReturnLinesMemoDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnLinesMemoView"
+                      Name="SoSalesReturnLinesMemoDetCRUD0">
+        <AttrNames>
+          <Item Value="Rlineno"/>
+          <Item Value="ModelNo"/>
+          <Item Value="Productid"/>
+          <Item Value="ActUnitPriceFcurr"/>
+          <Item Value="RetQty"/>
+          <Item Value="txtGrossAmount"/>
+          <Item Value="txtRetDiscountAmount"/>
+          <Item Value="txtNetAmount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

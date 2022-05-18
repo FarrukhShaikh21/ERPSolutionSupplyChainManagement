@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0161_IMEIPageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SoSalesReturnMemoCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesReturnCRUDIterator"/>
+    <iterator Binds="SrimeiMemoDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SrimeiViewBySrdetlinesseqCRUDIterator"/>
+    <searchRegion Binds="SrimeiViewBySrdetlinesseqCRUDIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="SrimeiViewBySrdetlinesseqCRUDQuery"/>
+  </executables>
+  <bindings>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <attributeValues IterBinding="SoSalesReturnCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SrimeiViewBySrdetlinesseqCRUDIterator" id="SrimeiViewBySrdetlinesseqCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiView" Name="SrimeiViewBySrdetlinesseqCRUD0">
+        <AttrNames>
+          <Item Value="Productid"/>
+          <Item Value="TempBoxNo"/>
+          <Item Value="ImeiNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SrimeiViewBySrdetlinesseqCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="doERPSolRemoveSaleReturnBox" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doERPSolRemoveSaleReturnBox" IsViewObjectMethod="true"
+                  DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SrimeiViewBySrdetlinesseqCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doERPSolRemoveSaleReturnBox_ERPSolSCMAppModuleDataControl_SrimeiViewBySrdetlinesseqCRUD_doERPSolRemoveSaleReturnBox_result"/>
+  </bindings>
+</pageDefinition>

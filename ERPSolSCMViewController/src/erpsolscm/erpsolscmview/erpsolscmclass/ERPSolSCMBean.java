@@ -506,7 +506,15 @@ public class ERPSolSCMBean {
         doInserterpSolSaleReturnImeiBox(erpvce.getNewValue().toString(),"B");
         System.out.println("5435");    
     }
-  
+
+    public void erpSolSaleReturnMemoBOX(ValueChangeEvent erpvce) {
+        if (erpvce.getNewValue()==null) {
+            return ;
+        }
+        doInserterpSolSaleReturnMemoImeiBox(erpvce.getNewValue().toString(),"B");
+        System.out.println("5435");    
+    }
+    
     public void erpSolSaleReturnIMEI(ValueChangeEvent erpvce) {
         if (erpvce.getNewValue()==null) {
             return ;
@@ -516,7 +524,16 @@ public class ERPSolSCMBean {
         System.out.println("5435");    
         
     }  
-  
+
+    public void erpSolSaleReturnMemoIMEI(ValueChangeEvent erpvce) {
+        if (erpvce.getNewValue()==null) {
+            return ;
+        }
+        doInserterpSolSaleReturnMemoImeiBox(erpvce.getNewValue().toString(),"I");
+    //        AdfFacesContext.getCurrentInstance().addPartialTarget(getERPSolImeiBoxText());
+        System.out.println("5435");    
+        
+    }    
     
     public void doInserterpSolSaleReturnImeiBox(String pImeiBox, String pValueType) {
         if (pImeiBox==null) {
@@ -529,13 +546,9 @@ public class ERPSolSCMBean {
         DBTransaction erpsoldbt=(DBTransaction)dc.getApplicationModule().getTransaction();
         CallableStatement cs = erpsoldbt.createCallableStatement(ERPSolPlsql, DBTransaction.DEFAULT);
         try {
-                     System.out.println("6");
                      cs.registerOutParameter(1, Types.VARCHAR);
-                     System.out.println("7");
                      cs.executeUpdate();
-                     System.out.println("8");
                      ERPSolPlsql=cs.getString(1);
-                     System.out.println("9");
                     System.out.println(ERPSolPlsql);
                      if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
                      {  
@@ -561,6 +574,44 @@ public class ERPSolSCMBean {
         
     }
     
+    public void doInserterpSolSaleReturnMemoImeiBox(String pImeiBox, String pValueType) {
+        if (pImeiBox==null) {
+            return ;
+        }
+        DCBindingContainer bc = (DCBindingContainer) ERPSolGlobalViewBean.doGetERPBindings();
+        DCDataControl dc = bc.getDataControl();
+        String ERPSolPlsql="begin ?:=Pkg_Sale_Order.FUNC_SRME_IMEI_BOX_VALIDATION('"+getERPSolSaleretid()+"','"+pImeiBox+"','"+pValueType+"','"+getERPSolProductId()+"'); end;";
+        System.out.println(ERPSolPlsql);
+        DBTransaction erpsoldbt=(DBTransaction)dc.getApplicationModule().getTransaction();
+        CallableStatement cs = erpsoldbt.createCallableStatement(ERPSolPlsql, DBTransaction.DEFAULT);
+        try {
+                     cs.registerOutParameter(1, Types.VARCHAR);
+                     cs.executeUpdate();
+                     ERPSolPlsql=cs.getString(1);
+                    System.out.println(ERPSolPlsql);
+                     if (ERPSolPlsql.equals("ERPSOLSUCCESS"))
+                     {  
+                         System.out.println("comong");
+                         erpsoldbt.commit();
+                     dc.getApplicationModule().findViewObject("SrimeiViewBySrdetlinesseqCRUD").executeQuery();
+    //                         dc.getApplicationModule().findViewObject("SoSalesOrderViewCRUD").getCurrentRow().setAttribute("txtIMEIAndBox", null);
+                     }
+                     else {
+                         FacesContext.getCurrentInstance().addMessage(null , new FacesMessage(ERPSolPlsql));
+                //                throw new JboException(ERPSolPlsql);
+                     }
+                 } catch (SQLException e) {
+                e.printStackTrace();
+                     
+                 }
+                 finally{
+                    try {
+                        cs.close();
+                    } catch (SQLException e) {
+                    }
+                }
+        
+    }    
     public String doERPSolExecuteReport() {
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
         DCIteratorBinding ib=(DCIteratorBinding)bc.get("SysProgramDetROIterator");

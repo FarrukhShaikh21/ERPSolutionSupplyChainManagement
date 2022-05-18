@@ -405,7 +405,8 @@
                           <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedModelValues}"/>
                         </af:inputComboboxListOfValues>
                       </af:column>
-                      <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.label}" id="c2">
+                      <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.label}" id="c2"
+                                 width="100">
                         <af:inputText value="#{row.bindings.Productid.inputValue}"
                                       label="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.label}"
                                       required="#{bindings.SoSalesReturnLinesDetCRUD.hints.Productid.mandatory}"

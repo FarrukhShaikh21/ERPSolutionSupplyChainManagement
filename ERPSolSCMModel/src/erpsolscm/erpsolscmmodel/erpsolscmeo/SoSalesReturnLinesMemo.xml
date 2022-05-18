@@ -450,6 +450,12 @@
       <Item
         Value="RetQty"/>
     </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLinesMemo.txtGrossAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="txtRetDiscountAmount"
@@ -467,6 +473,12 @@
       <Item
         Value="RetQty"/>
     </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLinesMemo.txtRetDiscountAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="txtNetAmount"

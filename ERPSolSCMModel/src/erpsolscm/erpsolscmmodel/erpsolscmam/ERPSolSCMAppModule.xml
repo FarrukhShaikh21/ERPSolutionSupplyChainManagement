@@ -111,6 +111,9 @@
   <ViewUsage
     Name="SoSalesReturnLinesMemoDetCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnLinesMemoView"/>
+  <ViewUsage
+    Name="SrimeiMemoDetCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiMemoView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
@@ -176,5 +179,11 @@
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesRetMemoSoSalesRetLineMemoReturnMemoSeqLink"
     SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesReturnMemoCRUD"
     DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesReturnLinesMemoDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="SoSaleReturnLinMemoSrImeiMemoReturnMemoLineSeqLink1"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSaleReturnLinMemoSrImeiMemoReturnMemoLineSeqLink"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesReturnLinesMemoDetCRUD"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SrimeiMemoDetCRUD"
     Reversed="false"/>
 </AppModule>

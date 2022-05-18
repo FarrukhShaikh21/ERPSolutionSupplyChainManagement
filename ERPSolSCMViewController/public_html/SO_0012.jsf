@@ -350,24 +350,123 @@
                       </af:toolbar>
                     </f:facet>
                     <f:facet name="statusbar"/>
-                    <af:table value="#{bindings.SoSalesReturnLinesDetCRUD.collectionModel}" var="row"
-                              rows="#{bindings.SoSalesReturnLinesDetCRUD.rangeSize}"
-                              emptyText="#{bindings.SoSalesReturnLinesDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    <af:table value="#{bindings.SoSalesReturnLinesMemoDetCRUD.collectionModel}" var="row"
+                              rows="#{bindings.SoSalesReturnLinesMemoDetCRUD.rangeSize}"
+                              emptyText="#{bindings.SoSalesReturnLinesMemoDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
                               rowBandingInterval="0"
-                              selectedRowKeys="#{bindings.SoSalesReturnLinesDetCRUD.collectionModel.selectedRow}"
-                              selectionListener="#{bindings.SoSalesReturnLinesDetCRUD.collectionModel.makeCurrent}"
-                              rowSelection="single" fetchSize="#{bindings.SoSalesReturnLinesDetCRUD.rangeSize}" id="t2"
-                              scrollPolicy="page" autoHeightRows="5" styleClass="AFStretchWidth"
-                              partialTriggers="::b10 ::b11">
-                      <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.Salesretid.label}" id="c1">
-                        <af:inputText value="#{row.bindings.Salesretid.inputValue}"
-                                      label="#{bindings.SoSalesReturnLinesDetCRUD.hints.Salesretid.label}"
-                                      required="#{bindings.SoSalesReturnLinesDetCRUD.hints.Salesretid.mandatory}"
-                                      columns="#{bindings.SoSalesReturnLinesDetCRUD.hints.Salesretid.displayWidth}"
-                                      maximumLength="#{bindings.SoSalesReturnLinesDetCRUD.hints.Salesretid.precision}"
-                                      shortDesc="#{bindings.SoSalesReturnLinesDetCRUD.hints.Salesretid.tooltip}"
-                                      id="it3">
-                          <f:validator binding="#{row.bindings.Salesretid.validator}"/>
+                              selectedRowKeys="#{bindings.SoSalesReturnLinesMemoDetCRUD.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.SoSalesReturnLinesMemoDetCRUD.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.SoSalesReturnLinesMemoDetCRUD.rangeSize}"
+                              id="t2" partialTriggers="::b10 ::b11">
+                      <af:column id="c9" width="80">
+                        <af:button text="IMEI" id="b13"/>
+                      </af:column>
+                      <af:column headerText="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.Rlineno.label}" id="c1"
+                                 width="60">
+                        <af:inputText value="#{row.bindings.Rlineno.inputValue}"
+                                      label="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.Rlineno.label}"
+                                      required="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.Rlineno.mandatory}"
+                                      columns="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.Rlineno.displayWidth}"
+                                      maximumLength="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.Rlineno.precision}"
+                                      shortDesc="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.Rlineno.tooltip}"
+                                      id="it3" readOnly="true">
+                          <f:validator binding="#{row.bindings.Rlineno.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.Rlineno.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.ModelNo.label}" id="c2"
+                                 width="200">
+                        <af:inputComboboxListOfValues id="modelNoId"
+                                                      popupTitle="Search and Select: #{bindings.SoSalesReturnLinesMemoDetCRUD.hints.ModelNo.label}"
+                                                      value="#{row.bindings.ModelNo.inputValue}"
+                                                      model="#{row.bindings.ModelNo.listOfValuesModel}"
+                                                      required="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.ModelNo.mandatory}"
+                                                      columns="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.ModelNo.displayWidth}"
+                                                      shortDesc="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.ModelNo.tooltip}"
+                                                      autoSubmit="true">
+                          <f:validator binding="#{row.bindings.ModelNo.validator}"/>
+                          <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedModelValues}"/>
+                        </af:inputComboboxListOfValues>
+                      </af:column>
+                      <af:column headerText="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.Productid.label}" id="c3">
+                        <af:inputText value="#{row.bindings.Productid.inputValue}"
+                                      label="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.Productid.label}"
+                                      required="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.Productid.mandatory}"
+                                      columns="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.Productid.displayWidth}"
+                                      maximumLength="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.Productid.precision}"
+                                      shortDesc="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.Productid.tooltip}"
+                                      id="it6" readOnly="true" partialTriggers="modelNoId">
+                          <f:validator binding="#{row.bindings.Productid.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.ActUnitPriceFcurr.label}"
+                                 id="c4">
+                        <af:inputText value="#{row.bindings.ActUnitPriceFcurr.inputValue}"
+                                      label="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.ActUnitPriceFcurr.label}"
+                                      required="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.ActUnitPriceFcurr.mandatory}"
+                                      columns="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.ActUnitPriceFcurr.displayWidth}"
+                                      maximumLength="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.ActUnitPriceFcurr.precision}"
+                                      shortDesc="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.ActUnitPriceFcurr.tooltip}"
+                                      id="it7" readOnly="true" partialTriggers="modelNoId">
+                          <f:validator binding="#{row.bindings.ActUnitPriceFcurr.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.ActUnitPriceFcurr.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.RetQty.label}" id="c5">
+                        <af:inputText value="#{row.bindings.RetQty.inputValue}"
+                                      label="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.RetQty.label}"
+                                      required="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.RetQty.mandatory}"
+                                      columns="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.RetQty.displayWidth}"
+                                      maximumLength="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.RetQty.precision}"
+                                      shortDesc="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.RetQty.tooltip}"
+                                      id="it9" autoSubmit="true">
+                          <f:validator binding="#{row.bindings.RetQty.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.RetQty.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtGrossAmount.label}"
+                                 id="c6">
+                        <af:inputText value="#{row.bindings.txtGrossAmount.inputValue}"
+                                      label="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtGrossAmount.label}"
+                                      required="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtGrossAmount.mandatory}"
+                                      columns="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtGrossAmount.displayWidth}"
+                                      maximumLength="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtGrossAmount.precision}"
+                                      shortDesc="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtGrossAmount.tooltip}"
+                                      id="it10" readOnly="true" partialTriggers="it9">
+                          <f:validator binding="#{row.bindings.txtGrossAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtGrossAmount.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtRetDiscountAmount.label}"
+                                 id="c7">
+                        <af:inputText value="#{row.bindings.txtRetDiscountAmount.inputValue}"
+                                      label="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtRetDiscountAmount.label}"
+                                      required="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtRetDiscountAmount.mandatory}"
+                                      columns="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtRetDiscountAmount.displayWidth}"
+                                      maximumLength="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtRetDiscountAmount.precision}"
+                                      shortDesc="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtRetDiscountAmount.tooltip}"
+                                      id="it11" readOnly="true" partialTriggers="it9">
+                          <f:validator binding="#{row.bindings.txtRetDiscountAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtRetDiscountAmount.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtNetAmount.label}"
+                                 id="c8">
+                        <af:inputText value="#{row.bindings.txtNetAmount.inputValue}"
+                                      label="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtNetAmount.label}"
+                                      required="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtNetAmount.mandatory}"
+                                      columns="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtNetAmount.displayWidth}"
+                                      maximumLength="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtNetAmount.precision}"
+                                      shortDesc="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtNetAmount.tooltip}"
+                                      id="it12" readOnly="true" partialTriggers="it9">
+                          <f:validator binding="#{row.bindings.txtNetAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SoSalesReturnLinesMemoDetCRUD.hints.txtNetAmount.format}"/>
                         </af:inputText>
                       </af:column>
                     </af:table>
