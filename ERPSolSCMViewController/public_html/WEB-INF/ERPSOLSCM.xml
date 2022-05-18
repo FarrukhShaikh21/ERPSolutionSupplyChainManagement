@@ -208,6 +208,12 @@
     <view id="SO_0012_IMEI">
       <page>/SO_0012_IMEI.jsf</page>
     </view>
+    <method-call id="ExeSrImeiMemo">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SO-0012-IMEI</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -500,15 +506,22 @@
     <control-flow-rule id="__90">
       <from-activity-id>SO_0012</from-activity-id>
       <control-flow-case id="__91">
-        <from-outcome>ERP-ACT-SO-0012-SEARCH</from-outcome>
-        <to-activity-id>SO_0012_IMEI</to-activity-id>
+        <from-outcome>ERP-ACT-SO-0012-IMEI</from-outcome>
+        <to-activity-id>ExeSrImeiMemo</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__92">
       <from-activity-id>SO_0012_IMEI</from-activity-id>
       <control-flow-case id="__93">
-        <from-outcome>ERP-ACT-SO-0012-SEARCH-BACK</from-outcome>
+        <from-outcome>ERP-ACT-SO-0012-IMEI-BACK</from-outcome>
         <to-activity-id>SO_0012</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__87">
+      <from-activity-id>ExeSrImeiMemo</from-activity-id>
+      <control-flow-case id="__88">
+        <from-outcome>ERP-ACT-SO-0012-IMEI</from-outcome>
+        <to-activity-id>SO_0012_IMEI</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

@@ -13,6 +13,10 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="P_ADF_RETURN_MEMO_LINE_SEQ"
+    Kind="viewcriteria"
+    Type="java.lang.Integer"/>
   <EntityUsage
     Name="SrimeiMemo"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SrimeiMemo"/>
@@ -197,6 +201,42 @@
     EntityAttrName="TempBoxNo"
     EntityUsage="SrimeiMemo"
     AliasName="TEMP_BOX_NO"/>
+  <ViewCriteria
+    Name="SrimeiMemoViewBySrDetMemoLinSeqVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiMemoView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SrimeiMemoViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Returnmemolineseq"
+        ViewAttribute="Returnmemolineseq"
+        Operator="="
+        Conjunction="AND"
+        Value=":P_ADF_RETURN_MEMO_LINE_SEQ"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SoSalesReturnLinesMemoView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSaleReturnLinMemoSrImeiMemoReturnMemoLineSeqLink"
