@@ -97,7 +97,7 @@
     Scale="4"
     ColumnName="ACT_UNIT_PRICE_BCURR"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES_MEMO"/>
   <Attribute
@@ -106,7 +106,7 @@
     Scale="4"
     ColumnName="ACT_UNIT_PRICE_FCURR"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES_MEMO"/>
   <Attribute
@@ -144,7 +144,7 @@
     Name="ModifiedDate"
     ColumnName="MODIFIED_DATE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     TableName="SO_SALES_RETURN_LINES_MEMO"/>
   <Attribute
@@ -195,7 +195,7 @@
     Scale="6"
     ColumnName="DISCOUNT_AMOUNT_BC"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES_MEMO"/>
   <Attribute
@@ -331,7 +331,7 @@
     Name="SalesQty"
     ColumnName="SALES_QTY"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES_MEMO"/>
   <Attribute
@@ -349,7 +349,7 @@
     Scale="6"
     ColumnName="DEFAULT_DISCOUNT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES_MEMO"/>
   <Attribute
@@ -358,7 +358,7 @@
     Scale="6"
     ColumnName="FCURR_RET_DISCOUNT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES_MEMO"/>
   <Attribute
@@ -367,7 +367,7 @@
     Scale="6"
     ColumnName="FCURR_ADD_DISCOUNT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES_MEMO"/>
   <Attribute
@@ -376,7 +376,7 @@
     Scale="6"
     ColumnName="FCURR_DEFAULT_DISCOUNT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SO_SALES_RETURN_LINES_MEMO"/>
   <Attribute

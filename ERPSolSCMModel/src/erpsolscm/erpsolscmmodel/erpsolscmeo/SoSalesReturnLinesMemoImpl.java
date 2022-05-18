@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
+import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.TransactionEvent;
 // ---------------------------------------------------------------------
@@ -278,15 +279,15 @@ public class SoSalesReturnLinesMemoImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for ActUnitPriceBcurr, using the alias name ActUnitPriceBcurr.
      * @return the value of ActUnitPriceBcurr
      */
-    public BigDecimal getActUnitPriceBcurr() {
-        return (BigDecimal) getAttributeInternal(ACTUNITPRICEBCURR);
+    public Integer getActUnitPriceBcurr() {
+        return (Integer) getAttributeInternal(ACTUNITPRICEBCURR);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ActUnitPriceBcurr.
      * @param value value to set the ActUnitPriceBcurr
      */
-    public void setActUnitPriceBcurr(BigDecimal value) {
+    public void setActUnitPriceBcurr(Integer value) {
         setAttributeInternal(ACTUNITPRICEBCURR, value);
     }
 
@@ -294,15 +295,15 @@ public class SoSalesReturnLinesMemoImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for ActUnitPriceFcurr, using the alias name ActUnitPriceFcurr.
      * @return the value of ActUnitPriceFcurr
      */
-    public BigDecimal getActUnitPriceFcurr() {
-        return (BigDecimal) getAttributeInternal(ACTUNITPRICEFCURR);
+    public Integer getActUnitPriceFcurr() {
+        return (Integer) getAttributeInternal(ACTUNITPRICEFCURR);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ActUnitPriceFcurr.
      * @param value value to set the ActUnitPriceFcurr
      */
-    public void setActUnitPriceFcurr(BigDecimal value) {
+    public void setActUnitPriceFcurr(Integer value) {
         setAttributeInternal(ACTUNITPRICEFCURR, value);
     }
 
@@ -358,15 +359,15 @@ public class SoSalesReturnLinesMemoImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for ModifiedDate, using the alias name ModifiedDate.
      * @return the value of ModifiedDate
      */
-    public Timestamp getModifiedDate() {
-        return (Timestamp) getAttributeInternal(MODIFIEDDATE);
+    public Date getModifiedDate() {
+        return (Date) getAttributeInternal(MODIFIEDDATE);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ModifiedDate.
      * @param value value to set the ModifiedDate
      */
-    public void setModifiedDate(Timestamp value) {
+    public void setModifiedDate(Date value) {
         setAttributeInternal(MODIFIEDDATE, value);
     }
 
@@ -438,15 +439,15 @@ public class SoSalesReturnLinesMemoImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for DiscountAmountBc, using the alias name DiscountAmountBc.
      * @return the value of DiscountAmountBc
      */
-    public BigDecimal getDiscountAmountBc() {
-        return (BigDecimal) getAttributeInternal(DISCOUNTAMOUNTBC);
+    public Integer getDiscountAmountBc() {
+        return (Integer) getAttributeInternal(DISCOUNTAMOUNTBC);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for DiscountAmountBc.
      * @param value value to set the DiscountAmountBc
      */
-    public void setDiscountAmountBc(BigDecimal value) {
+    public void setDiscountAmountBc(Integer value) {
         setAttributeInternal(DISCOUNTAMOUNTBC, value);
     }
 
@@ -678,15 +679,15 @@ public class SoSalesReturnLinesMemoImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for SalesQty, using the alias name SalesQty.
      * @return the value of SalesQty
      */
-    public BigDecimal getSalesQty() {
-        return (BigDecimal) getAttributeInternal(SALESQTY);
+    public Integer getSalesQty() {
+        return (Integer) getAttributeInternal(SALESQTY);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for SalesQty.
      * @param value value to set the SalesQty
      */
-    public void setSalesQty(BigDecimal value) {
+    public void setSalesQty(Integer value) {
         setAttributeInternal(SALESQTY, value);
     }
 
@@ -710,15 +711,15 @@ public class SoSalesReturnLinesMemoImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for DefaultDiscountAmount, using the alias name DefaultDiscountAmount.
      * @return the value of DefaultDiscountAmount
      */
-    public BigDecimal getDefaultDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(DEFAULTDISCOUNTAMOUNT);
+    public Integer getDefaultDiscountAmount() {
+        return (Integer) getAttributeInternal(DEFAULTDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for DefaultDiscountAmount.
      * @param value value to set the DefaultDiscountAmount
      */
-    public void setDefaultDiscountAmount(BigDecimal value) {
+    public void setDefaultDiscountAmount(Integer value) {
         setAttributeInternal(DEFAULTDISCOUNTAMOUNT, value);
     }
 
@@ -726,15 +727,15 @@ public class SoSalesReturnLinesMemoImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for FcurrRetDiscountAmount, using the alias name FcurrRetDiscountAmount.
      * @return the value of FcurrRetDiscountAmount
      */
-    public BigDecimal getFcurrRetDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(FCURRRETDISCOUNTAMOUNT);
+    public Integer getFcurrRetDiscountAmount() {
+        return (Integer) getAttributeInternal(FCURRRETDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for FcurrRetDiscountAmount.
      * @param value value to set the FcurrRetDiscountAmount
      */
-    public void setFcurrRetDiscountAmount(BigDecimal value) {
+    public void setFcurrRetDiscountAmount(Integer value) {
         setAttributeInternal(FCURRRETDISCOUNTAMOUNT, value);
     }
 
@@ -742,15 +743,15 @@ public class SoSalesReturnLinesMemoImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for FcurrAddDiscountAmount, using the alias name FcurrAddDiscountAmount.
      * @return the value of FcurrAddDiscountAmount
      */
-    public BigDecimal getFcurrAddDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(FCURRADDDISCOUNTAMOUNT);
+    public Integer getFcurrAddDiscountAmount() {
+        return (Integer) getAttributeInternal(FCURRADDDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for FcurrAddDiscountAmount.
      * @param value value to set the FcurrAddDiscountAmount
      */
-    public void setFcurrAddDiscountAmount(BigDecimal value) {
+    public void setFcurrAddDiscountAmount(Integer value) {
         setAttributeInternal(FCURRADDDISCOUNTAMOUNT, value);
     }
 
@@ -758,15 +759,15 @@ public class SoSalesReturnLinesMemoImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for FcurrDefaultDiscountAmount, using the alias name FcurrDefaultDiscountAmount.
      * @return the value of FcurrDefaultDiscountAmount
      */
-    public BigDecimal getFcurrDefaultDiscountAmount() {
-        return (BigDecimal) getAttributeInternal(FCURRDEFAULTDISCOUNTAMOUNT);
+    public Integer getFcurrDefaultDiscountAmount() {
+        return (Integer) getAttributeInternal(FCURRDEFAULTDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for FcurrDefaultDiscountAmount.
      * @param value value to set the FcurrDefaultDiscountAmount
      */
-    public void setFcurrDefaultDiscountAmount(BigDecimal value) {
+    public void setFcurrDefaultDiscountAmount(Integer value) {
         setAttributeInternal(FCURRDEFAULTDISCOUNTAMOUNT, value);
     }
 
@@ -991,16 +992,27 @@ public class SoSalesReturnLinesMemoImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
-        populateAttributeAsChanged(SALESRETID, getSoSalesReturnMemo().getAttribute("Salesretid"));
-        /////////
-        String pkValue="FUNC_GET_MAX_ID('SO_SALES_RETURN_LINES_MEMO WHERE SALESRETID=''"+getSalesretid()+"''','RLINENO')";
-        System.out.println("this is c");
-        System.out.println(pkValue + "pk value");
-        System.out.println("this is d");
-        String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
-        System.out.println("this is e");
-        populateAttributeAsChanged(RLINENO, Integer.parseInt(result));
-        populateAttributeAsChanged(SRDETLID, getSalesretid()+"-"+getRlineno());        
+        if (operation==DML_INSERT) {
+            populateAttributeAsChanged(SALESRETID, getSoSalesReturnMemo().getAttribute("Salesretid"));
+            /////////
+            String pkValue =
+                "FUNC_GET_MAX_ID('SO_SALES_RETURN_LINES_MEMO WHERE SALESRETID=''" + getSalesretid() + "''','RLINENO')";
+            System.out.println("this is c");
+            System.out.println(pkValue + "pk value");
+            System.out.println("this is d");
+            String result =
+                ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
+            System.out.println("this is e");
+            populateAttributeAsChanged(RLINENO, Integer.parseInt(result));
+            populateAttributeAsChanged(SRDETLID, getSalesretid() + "-" + getRlineno());
+        }      
+        if (operation!=DML_DELETE) {
+           populateAttributeAsChanged(DEFAULTDISCOUNTAMOUNT, getRetDiscountAmount());
+           populateAttributeAsChanged(FCURRDEFAULTDISCOUNTAMOUNT, getRetDiscountAmount());
+           populateAttributeAsChanged(ACTUNITPRICEBCURR, getActUnitPriceFcurr());
+           populateAttributeAsChanged(RECEIVEDQTY, getRetQty());
+           populateAttributeAsChanged(QUANTITY, getRetQty());
+        }  
         super.doDML(operation, e);
     }
 }
