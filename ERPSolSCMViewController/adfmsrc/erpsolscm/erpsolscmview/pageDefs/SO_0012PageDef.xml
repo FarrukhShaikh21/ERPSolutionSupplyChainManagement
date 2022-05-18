@@ -118,5 +118,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="SoSalesReturnLinesDetCRUDIterator" id="Returnmemolineseq">
+      <AttrNames>
+        <Item Value="Returnmemolineseq"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -109,6 +109,16 @@
                           <af:outputLabel value="#{bindings.Salesretid.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
+                          <af:inputText value="#{bindings.Returnmemolineseq.inputValue}"
+                                        label="#{bindings.Returnmemolineseq.hints.label}"
+                                        required="#{bindings.Returnmemolineseq.hints.mandatory}"
+                                        columns="#{bindings.Returnmemolineseq.hints.displayWidth}"
+                                        maximumLength="#{bindings.Returnmemolineseq.hints.precision}"
+                                        shortDesc="#{bindings.Returnmemolineseq.hints.tooltip}" id="it13"
+                                        rendered="false">
+                            <f:validator binding="#{bindings.Returnmemolineseq.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.Returnmemolineseq.format}"/>
+                          </af:inputText>
                           <af:inputText value="#{bindings.Companyid.inputValue}"
                                         label="#{bindings.Companyid.hints.label}"
                                         required="#{bindings.Companyid.hints.mandatory}"
