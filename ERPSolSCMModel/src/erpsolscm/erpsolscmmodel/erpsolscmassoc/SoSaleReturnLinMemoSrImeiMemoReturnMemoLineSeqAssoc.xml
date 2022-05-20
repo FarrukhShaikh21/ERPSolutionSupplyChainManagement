@@ -14,7 +14,8 @@
     Cardinality="1"
     Source="true"
     Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLinesMemo"
-    LockLevel="NONE">
+    LockLevel="NONE"
+    DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="SoSalesReturnLinesMemo"/>
@@ -29,7 +30,8 @@
   <AssociationEnd
     Name="SrimeiMemo"
     Cardinality="-1"
-    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SrimeiMemo">
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SrimeiMemo"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="SrimeiMemo"/>
