@@ -52,10 +52,10 @@
                                             <af:exportCollectionActionListener type="excelHTML" exportedId="t1"
                                                                                filename="STNIMEI.xls" title="STN IMEI"/>
                                         </af:button>
-                                        <af:button actionListener="#{bindings.doERPSolRemoveSaleReturnBox.execute}"
+                                        <af:button actionListener="#{bindings.doERPSolRemoveSaleReturnBox1.execute}"
                                                    text="Delete Selected Box"
-                                                   disabled="#{!bindings.doERPSolRemoveSaleReturnBox.enabled}" id="b6"
-                                                   icon="#{resource['images:imgDelete.png']}"/>
+                                                   disabled="#{!bindings.doERPSolRemoveSaleReturnBox1.enabled}"
+                                                   id="b7" icon="#{resource['images:imgDelete.png']}"/>
                                         <af:button actionListener="#{bindings.Delete.execute}"
                                                    text="Delete Selected IMEI"
                                                    disabled="#{!bindings.Delete.enabled}" id="b2"

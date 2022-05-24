@@ -21,11 +21,6 @@
     </attributeValues>
     <action IterBinding="SrimeiViewBySrdetlinesseqCRUDIterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <methodAction id="doERPSolRemoveSaleReturnBox" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="doERPSolRemoveSaleReturnBox" IsViewObjectMethod="true"
-                  DataControl="ERPSolSCMAppModuleDataControl"
-                  InstanceName="data.ERPSolSCMAppModuleDataControl.SrimeiViewBySrdetlinesseqCRUD"
-                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doERPSolRemoveSaleReturnBox_ERPSolSCMAppModuleDataControl_SrimeiViewBySrdetlinesseqCRUD_doERPSolRemoveSaleReturnBox_result"/>
     <tree IterBinding="SrimeiViewBySrdetlinesseqCRUDIterator" id="SrimeiMemoByReturnmemolineseqCRUD">
       <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SrimeiMemoView"
                       Name="SrimeiMemoByReturnmemolineseqCRUD0">
@@ -36,5 +31,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <methodAction id="doERPSolRemoveSaleReturnBox1" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doERPSolRemoveSaleReturnBox" IsViewObjectMethod="true"
+                  DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SrimeiMemoByReturnmemolineseqCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doERPSolRemoveSaleReturnBox_ERPSolSCMAppModuleDataControl_SrimeiMemoByReturnmemolineseqCRUD_doERPSolRemoveSaleReturnBox_result"/>
   </bindings>
 </pageDefinition>
