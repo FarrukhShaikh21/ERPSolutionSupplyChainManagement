@@ -155,7 +155,7 @@
                                         required="#{bindings.ReturnDate.hints.mandatory}"
                                         columns="#{bindings.ReturnDate.hints.displayWidth}"
                                         shortDesc="#{bindings.ReturnDate.hints.tooltip}" id="id2" simple="true"
-                                        readOnly="#{bindings.Salesretid.inputValue!=null}">
+                                        readOnly="#{bindings.Salesretid.inputValue!=null}" autoSubmit="true">
                             <f:validator binding="#{bindings.ReturnDate.validator}"/>
                             <af:convertDateTime pattern="#{bindings.ReturnDate.format}"/>
                           </af:inputDate>
