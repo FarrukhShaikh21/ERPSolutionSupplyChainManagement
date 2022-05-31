@@ -164,4 +164,10 @@
     EntityAttrName="RestrictReasonId"
     EntityUsage="SoImeiDetail"
     AliasName="RESTRICT_REASON_ID"/>
+  <ViewLinkAccessor
+    Name="SoImeiMasterView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoImeiMasterSoImeiDetailIimeiMasterSnoLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

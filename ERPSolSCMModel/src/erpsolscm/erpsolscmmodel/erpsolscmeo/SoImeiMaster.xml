@@ -163,6 +163,13 @@
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
+  <AccessorAttribute
+    Name="SoImeiDetail"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoImeiMasterSoImeiDetailIimeiMasterSnoAssoc"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoImeiMasterSoImeiDetailIimeiMasterSnoAssoc.SoImeiDetail"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoImeiMasterSoImeiDetailIimeiMasterSnoAssoc.SoImeiMaster"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkSoImeiMaster"
     PrimaryKey="true">

@@ -102,4 +102,9 @@
     EntityAttrName="AuditStatus"
     EntityUsage="SoImeiMaster"
     AliasName="AUDIT_STATUS"/>
+  <ViewLinkAccessor
+    Name="SoImeiDetailView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoImeiMasterSoImeiDetailIimeiMasterSnoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
