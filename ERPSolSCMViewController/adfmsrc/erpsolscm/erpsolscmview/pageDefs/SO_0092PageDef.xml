@@ -5,6 +5,36 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SoImeiMasterCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoImeiMasterCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="SoImeiMasterCRUDIterator" id="Submit">
+      <AttrNames>
+        <Item Value="Submit"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoImeiMasterCRUDIterator" id="ImeiMasterSno">
+      <AttrNames>
+        <Item Value="ImeiMasterSno"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoImeiMasterCRUDIterator" id="Dated">
+      <AttrNames>
+        <Item Value="Dated"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoImeiMasterCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="SoImeiMasterCRUDIterator" StaticList="false" Uses="LovStoreid" id="Storeid"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="SoImeiMasterCRUDIterator" id="Reason">
+      <AttrNames>
+        <Item Value="Reason"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>

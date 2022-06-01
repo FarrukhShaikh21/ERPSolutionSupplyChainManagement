@@ -13,6 +13,29 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccAllStoresView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovStoreid"
+    ListVOName="AccAllStoresView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Storeid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Storeid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StoreName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SoImeiMaster"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoImeiMaster"/>
@@ -76,7 +99,15 @@
     PrecisionRule="true"
     EntityAttrName="Storeid"
     EntityUsage="SoImeiMaster"
-    AliasName="STOREID"/>
+    AliasName="STOREID"
+    LOVName="LovStoreid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Pending"
     IsNotNull="true"
