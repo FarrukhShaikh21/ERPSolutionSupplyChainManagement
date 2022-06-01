@@ -13,6 +13,29 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccInItemsView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovPreviousItemid"
+    ListVOName="AccInItemsView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PreviousItemid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Itemid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModelNo"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SoImeiDetail"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoImeiDetail"/>
@@ -115,7 +138,15 @@
     PrecisionRule="true"
     EntityAttrName="PreviousItemid"
     EntityUsage="SoImeiDetail"
-    AliasName="PREVIOUS_ITEMID"/>
+    AliasName="PREVIOUS_ITEMID"
+    LOVName="LovPreviousItemid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Reason"
     PrecisionRule="true"
