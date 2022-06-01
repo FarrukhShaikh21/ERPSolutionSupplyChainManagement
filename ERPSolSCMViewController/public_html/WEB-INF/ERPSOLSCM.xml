@@ -214,6 +214,9 @@
         <fixed-outcome>ERP-ACT-SO-0012-IMEI</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SO_0092">
+      <page>/SO_0092.jsf</page>
+    </view>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -258,6 +261,10 @@
       <control-flow-case id="__89">
         <from-outcome>ERP-ACT-SO-0012</from-outcome>
         <to-activity-id>SO_0012</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__94">
+        <from-outcome>ERP-ACT-SO-0092</from-outcome>
+        <to-activity-id>SO_0092</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__11">

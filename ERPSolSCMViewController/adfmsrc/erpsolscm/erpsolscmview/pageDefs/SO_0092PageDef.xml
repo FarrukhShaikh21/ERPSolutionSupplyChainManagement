@@ -62,5 +62,10 @@
             Action="createInsertRow"/>
     <action IterBinding="SoImeiDetailDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <methodAction id="doSuperviseImeiEntry" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseImeiEntry" IsViewObjectMethod="true"
+                  DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoImeiMasterCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSuperviseImeiEntry_ERPSolSCMAppModuleDataControl_SoImeiMasterCRUD_doSuperviseImeiEntry_result"/>
   </bindings>
 </pageDefinition>

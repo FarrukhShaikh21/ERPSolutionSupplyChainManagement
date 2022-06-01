@@ -5,39 +5,9 @@
     <af:messages id="m1"/>
     <af:form id="f1">
       <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
-        <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.Salesretid.inputValue})"
-                   dialogListener="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolDialogSaleReturnMemoConfirm}" type="yesNo">
+        <af:dialog id="d2" title="Do you want to Supervise this transaction? (#{bindings.ImeiMasterSno.inputValue})"
+                   dialogListener="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolDialogImeiEntryConfirm}" type="yesNo">
           <f:facet name="buttonBar"/>
-        </af:dialog>
-      </af:popup>
-      <af:popup childCreation="deferred" autoCancel="disabled" id="p2" contentDelivery="lazyUncached"
-                binding="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolImeiPopup}" eventContext="launcher">
-        <af:dialog id="d3" type="none" contentWidth="800" closeIconVisible="false" modal="false">
-          <f:facet name="buttonBar"/>
-          <af:panelGridLayout id="pgl6">
-            <af:gridRow marginTop="5px" id="gr13">
-              <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc29" halign="stretch">
-                <af:selectOneChoice label="Scan Type"
-                                    value="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolScanType}" id="soc1"
-                                    autoSubmit="true">
-                  <af:selectItem label="Box" value="B" id="si1"/>
-                  <af:selectItem label="IMEI" value="I" id="si2"/>
-                </af:selectOneChoice>
-              </af:gridCell>
-            </af:gridRow>
-            <af:gridRow id="gr15">
-              <af:gridCell id="gc31" width="100%" halign="stretch" valign="stretch">
-                <af:panelGroupLayout id="pgl7" layout="horizontal">
-                  <af:inputText label="Label 1" id="it2"
-                                valueChangeListener="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolImeiBoxText}"
-                                simple="true" autoSubmit="true"/>
-                </af:panelGroupLayout>
-              </af:gridCell>
-            </af:gridRow>
-            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr14">
-              <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc30" halign="stretch"/>
-            </af:gridRow>
-          </af:panelGridLayout>
         </af:dialog>
       </af:popup>
       <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
@@ -67,6 +37,8 @@
                                inlineStyle="border-color:#b8d6f3; outline-width:thin; border-width:thin thin thin thin;">
                     <f:facet name="toolbar">
                       <af:toolbar id="t1">
+                        <af:button actionListener="#{bindings.doSuperviseImeiEntry.execute}" text="doSuperviseImeiEntry"
+                                   disabled="#{!bindings.doSuperviseImeiEntry.enabled}" id="b12" rendered="false"/>
                         <af:button text="Search" id="b8" icon="#{resource['images:imgFind.png']}" iconPosition="top"
                                    action="ERP-ACT-0161-SEARCH"/>
                         <af:button text="Close Form" id="b7" icon="#{resource['images:imgExitForm.png']}"
@@ -83,7 +55,7 @@
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Return"
                                    disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"
                                    icon="#{resource['images:imgDelete.png']}"/>
-                        <af:button text="CreateInsert"
+                        <af:button text="New Entry"
                                    disabled="#{!bindings.CreateInsert.enabled}" id="b1"
                                    icon="#{resource['images:imgAdd.png']}"
                                    actionListener="#{bindings.CreateInsert.execute}"/>

@@ -12,7 +12,13 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoImeiMasterViewImpl"
+  ComponentInterface="erpsolscm.erpsolscmmodel.erpsolscmvo.common.SoImeiMasterView"
+  ClientProxyName="erpsolscm.erpsolscmmodel.erpsolscmvo.client.SoImeiMasterViewClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccAllStoresView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
@@ -138,4 +144,14 @@
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoImeiMasterSoImeiDetailIimeiMasterSnoLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="doSuperviseImeiEntry"
+      MethodName="doSuperviseImeiEntry">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
 </ViewObject>
