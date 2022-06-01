@@ -7,6 +7,8 @@
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="SoImeiMasterCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="SoImeiMasterCRUDIterator"/>
+    <iterator Binds="SoImeiDetailDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoImeiDetailDetCRUDIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="SoImeiMasterCRUDIterator" id="Submit">
@@ -36,5 +38,29 @@
         <Item Value="Reason"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="SoImeiDetailDetCRUDIterator" id="SoImeiDetailDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoImeiDetailView" Name="SoImeiDetailDetCRUD0">
+        <AttrNames>
+          <Item Value="Imei"/>
+          <Item Value="IsAvailable"/>
+          <Item Value="PreviousItemid"/>
+          <Item Value="Reason"/>
+          <Item Value="txtModelNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SoImeiMasterCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SoImeiMasterCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="SoImeiMasterCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="SoImeiMasterCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action IterBinding="SoImeiDetailDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SoImeiDetailDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

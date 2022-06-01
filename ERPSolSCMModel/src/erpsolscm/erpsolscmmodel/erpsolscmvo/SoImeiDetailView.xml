@@ -36,6 +36,31 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LovtxtModelNo"
+    ListVOName="AccInItemsView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="txtModelNo"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Itemid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Itemid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModelNo"/>
+      <Item Value="Productid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="InItemsFindVC"/>
+  </ListBinding>
   <EntityUsage
     Name="SoImeiDetail"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SoImeiDetail"/>
@@ -195,6 +220,20 @@
     EntityAttrName="RestrictReasonId"
     EntityUsage="SoImeiDetail"
     AliasName="RESTRICT_REASON_ID"/>
+  <ViewAttribute
+    Name="txtModelNo"
+    PrecisionRule="true"
+    EntityAttrName="txtModelNo"
+    EntityUsage="SoImeiDetail"
+    AliasName="TXT_MODEL_NO"
+    LOVName="LovtxtModelNo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="SoImeiMasterView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SoImeiMasterSoImeiDetailIimeiMasterSnoLink"

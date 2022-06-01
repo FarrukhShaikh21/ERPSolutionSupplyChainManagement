@@ -47,6 +47,7 @@ public class SoImeiDetailImpl extends ERPSolGlobalsEntityImpl {
         AllowInc,
         RestrictReason,
         RestrictReasonId,
+        txtModelNo,
         SoImeiMaster,
         InItems;
         private static AttributesEnum[] vals = null;
@@ -96,6 +97,7 @@ public class SoImeiDetailImpl extends ERPSolGlobalsEntityImpl {
     public static final int ALLOWINC = AttributesEnum.AllowInc.index();
     public static final int RESTRICTREASON = AttributesEnum.RestrictReason.index();
     public static final int RESTRICTREASONID = AttributesEnum.RestrictReasonId.index();
+    public static final int TXTMODELNO = AttributesEnum.txtModelNo.index();
     public static final int SOIMEIMASTER = AttributesEnum.SoImeiMaster.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
 
@@ -479,6 +481,22 @@ public class SoImeiDetailImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setRestrictReasonId(BigDecimal value) {
         setAttributeInternal(RESTRICTREASONID, value);
+    }
+
+    /**
+     * Gets the attribute value for txtModelNo, using the alias name txtModelNo.
+     * @return the value of txtModelNo
+     */
+    public String gettxtModelNo() {
+        return (String) getAttributeInternal(TXTMODELNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtModelNo.
+     * @param value value to set the txtModelNo
+     */
+    public void settxtModelNo(String value) {
+        setAttributeInternal(TXTMODELNO, value);
     }
 
     /**

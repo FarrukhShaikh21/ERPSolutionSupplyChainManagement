@@ -83,9 +83,10 @@
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Return"
                                    disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"
                                    icon="#{resource['images:imgDelete.png']}"/>
-                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Return"
-                                   disabled="#{bindings.Salesretid.inputValue==null || pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
-                                   icon="#{resource['images:imgAdd.png']}"/>
+                        <af:button text="CreateInsert"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b1"
+                                   icon="#{resource['images:imgAdd.png']}"
+                                   actionListener="#{bindings.CreateInsert.execute}"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
                                    id="b6"
                                    icon="#{resource['images:imgUndo.png']}">
@@ -204,7 +205,80 @@
                 </af:gridCell>
               </af:gridRow>
               <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr11">
-                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc27" halign="stretch"/>
+                <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc27" halign="stretch">
+                  <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar">
+                      <af:toolbar id="t3">
+                        <af:button text="Add Line" disabled="#{!bindings.CreateInsert1.enabled}" id="b10"
+                                   actionListener="#{bindings.CreateInsert1.execute}"/>
+                        <af:button actionListener="#{bindings.Delete1.execute}" text="Delete Line"
+                                   disabled="#{!bindings.Delete1.enabled}" id="b11"/>
+                      </af:toolbar>
+                    </f:facet>
+                    <f:facet name="statusbar"/>
+                    <af:table value="#{bindings.SoImeiDetailDetCRUD.collectionModel}" var="row"
+                              rows="#{bindings.SoImeiDetailDetCRUD.rangeSize}"
+                              emptyText="#{bindings.SoImeiDetailDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.SoImeiDetailDetCRUD.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.SoImeiDetailDetCRUD.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.SoImeiDetailDetCRUD.rangeSize}" id="t2"
+                              columnStretching="last" autoHeightRows="5" styleClass="AFStretchWidth"
+                              partialTriggers="::b10 ::b11">
+                      <af:column headerText="#{bindings.SoImeiDetailDetCRUD.hints.Imei.label}" id="c1" width="150">
+                        <af:inputText value="#{row.bindings.Imei.inputValue}"
+                                      label="#{bindings.SoImeiDetailDetCRUD.hints.Imei.label}"
+                                      required="#{bindings.SoImeiDetailDetCRUD.hints.Imei.mandatory}"
+                                      columns="#{bindings.SoImeiDetailDetCRUD.hints.Imei.displayWidth}"
+                                      maximumLength="#{bindings.SoImeiDetailDetCRUD.hints.Imei.precision}"
+                                      shortDesc="#{bindings.SoImeiDetailDetCRUD.hints.Imei.tooltip}" id="it5">
+                          <f:validator binding="#{row.bindings.Imei.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SoImeiDetailDetCRUD.hints.IsAvailable.label}" id="c2">
+                        <af:selectOneChoice label="Label 1" value="#{row.bindings.IsAvailable.inputValue}" id="soc4">
+                          <af:selectItem label="Yes" value="Y" id="si5"/>
+                          <af:selectItem label="No" value="N" id="si6"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                      <af:column headerText="#{bindings.SoImeiDetailDetCRUD.hints.PreviousItemid.label}" id="c3"
+                                 width="200">
+                        <af:selectOneChoice value="#{row.bindings.PreviousItemid.inputValue}"
+                                            label="#{row.bindings.PreviousItemid.label}"
+                                            required="#{bindings.SoImeiDetailDetCRUD.hints.PreviousItemid.mandatory}"
+                                            shortDesc="#{bindings.SoImeiDetailDetCRUD.hints.PreviousItemid.tooltip}"
+                                            id="soc2" readOnly="true">
+                          <f:selectItems value="#{row.bindings.PreviousItemid.items}" id="si3"/>
+                          <f:validator binding="#{row.bindings.PreviousItemid.validator}"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                      <af:column headerText="#{bindings.SoImeiDetailDetCRUD.hints.Reason.label}" id="c4" width="200"
+                                 displayIndex="-1">
+                        <af:inputText value="#{row.bindings.Reason.inputValue}"
+                                      label="#{bindings.SoImeiDetailDetCRUD.hints.Reason.label}"
+                                      required="#{bindings.SoImeiDetailDetCRUD.hints.Reason.mandatory}"
+                                      columns="#{bindings.SoImeiDetailDetCRUD.hints.Reason.displayWidth}"
+                                      maximumLength="#{bindings.SoImeiDetailDetCRUD.hints.Reason.precision}"
+                                      shortDesc="#{bindings.SoImeiDetailDetCRUD.hints.Reason.tooltip}" id="it8">
+                          <f:validator binding="#{row.bindings.Reason.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.label}" id="c5" width="200"
+                                 displayIndex="-1">
+                        <af:inputComboboxListOfValues id="txtModelNoId"
+                                                      popupTitle="Search and Select: #{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.label}"
+                                                      value="#{row.bindings.txtModelNo.inputValue}"
+                                                      model="#{row.bindings.txtModelNo.listOfValuesModel}"
+                                                      required="#{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.mandatory}"
+                                                      columns="#{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.displayWidth}"
+                                                      shortDesc="#{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.tooltip}">
+                          <f:validator binding="#{row.bindings.txtModelNo.validator}"/>
+                        </af:inputComboboxListOfValues>
+                      </af:column>
+                    </af:table>
+                  </af:panelCollection>
+                </af:gridCell>
               </af:gridRow>
             </af:panelGridLayout>
           </af:panelHeader>
