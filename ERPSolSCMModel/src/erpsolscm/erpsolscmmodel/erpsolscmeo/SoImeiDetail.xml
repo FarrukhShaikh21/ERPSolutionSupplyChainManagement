@@ -37,7 +37,6 @@
     TableName="SO_IMEI_DETAIL"/>
   <Attribute
     Name="Itemid"
-    IsNotNull="true"
     Precision="15"
     ColumnName="ITEMID"
     SQLType="VARCHAR"
@@ -299,7 +298,9 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_IMEI_DETAIL">
+    TableName="SO_IMEI_DETAIL"
+    IsPersistent="false"
+    IsQueriable="false">
     <TransientExpression
       trustMode="untrusted"><![CDATA[InItems?.ModelNo]]></TransientExpression>
     <Dependencies>

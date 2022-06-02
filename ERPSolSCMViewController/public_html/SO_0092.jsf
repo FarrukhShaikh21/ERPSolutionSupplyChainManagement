@@ -197,19 +197,21 @@
                               selectionListener="#{bindings.SoImeiDetailDetCRUD.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.SoImeiDetailDetCRUD.rangeSize}" id="t2"
                               columnStretching="last" autoHeightRows="5" styleClass="AFStretchWidth"
-                              partialTriggers="::b10 ::b11">
+                              partialTriggers="::b10 ::b11" scrollPolicy="page">
                       <af:column headerText="#{bindings.SoImeiDetailDetCRUD.hints.Imei.label}" id="c1" width="150">
                         <af:inputText value="#{row.bindings.Imei.inputValue}"
                                       label="#{bindings.SoImeiDetailDetCRUD.hints.Imei.label}"
                                       required="#{bindings.SoImeiDetailDetCRUD.hints.Imei.mandatory}"
                                       columns="#{bindings.SoImeiDetailDetCRUD.hints.Imei.displayWidth}"
                                       maximumLength="#{bindings.SoImeiDetailDetCRUD.hints.Imei.precision}"
-                                      shortDesc="#{bindings.SoImeiDetailDetCRUD.hints.Imei.tooltip}" id="it5">
+                                      shortDesc="#{bindings.SoImeiDetailDetCRUD.hints.Imei.tooltip}" id="it5"
+                                      autoSubmit="true">
                           <f:validator binding="#{row.bindings.Imei.validator}"/>
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.SoImeiDetailDetCRUD.hints.IsAvailable.label}" id="c2">
-                        <af:selectOneChoice label="Label 1" value="#{row.bindings.IsAvailable.inputValue}" id="soc4">
+                        <af:selectOneChoice label="Label 1" value="#{row.bindings.IsAvailable.inputValue}" id="soc4"
+                                            partialTriggers="it5">
                           <af:selectItem label="Yes" value="Y" id="si5"/>
                           <af:selectItem label="No" value="N" id="si6"/>
                         </af:selectOneChoice>
@@ -225,6 +227,19 @@
                           <f:validator binding="#{row.bindings.PreviousItemid.validator}"/>
                         </af:selectOneChoice>
                       </af:column>
+                      <af:column headerText="#{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.label}" id="c5" width="200"
+                                 displayIndex="-1">
+                        <af:inputComboboxListOfValues id="txtModelNoId"
+                                                      popupTitle="Search and Select: #{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.label}"
+                                                      value="#{row.bindings.txtModelNo.inputValue}"
+                                                      model="#{row.bindings.txtModelNo.listOfValuesModel}"
+                                                      required="#{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.mandatory}"
+                                                      columns="#{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.displayWidth}"
+                                                      shortDesc="#{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.tooltip}"
+                                                      partialTriggers="it5" contentStyle="width:90%">
+                          <f:validator binding="#{row.bindings.txtModelNo.validator}"/>
+                        </af:inputComboboxListOfValues>
+                      </af:column>
                       <af:column headerText="#{bindings.SoImeiDetailDetCRUD.hints.Reason.label}" id="c4" width="200"
                                  displayIndex="-1">
                         <af:inputText value="#{row.bindings.Reason.inputValue}"
@@ -235,18 +250,6 @@
                                       shortDesc="#{bindings.SoImeiDetailDetCRUD.hints.Reason.tooltip}" id="it8">
                           <f:validator binding="#{row.bindings.Reason.validator}"/>
                         </af:inputText>
-                      </af:column>
-                      <af:column headerText="#{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.label}" id="c5" width="200"
-                                 displayIndex="-1">
-                        <af:inputComboboxListOfValues id="txtModelNoId"
-                                                      popupTitle="Search and Select: #{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.label}"
-                                                      value="#{row.bindings.txtModelNo.inputValue}"
-                                                      model="#{row.bindings.txtModelNo.listOfValuesModel}"
-                                                      required="#{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.mandatory}"
-                                                      columns="#{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.displayWidth}"
-                                                      shortDesc="#{bindings.SoImeiDetailDetCRUD.hints.txtModelNo.tooltip}">
-                          <f:validator binding="#{row.bindings.txtModelNo.validator}"/>
-                        </af:inputComboboxListOfValues>
                       </af:column>
                     </af:table>
                   </af:panelCollection>

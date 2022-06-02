@@ -12,11 +12,27 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoImeiDetailViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccInItemsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwGetItemInfoByIMEIQVO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwGetItemInfoByIMEIQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_IMEI">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Imei==null?"0":Imei]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovPreviousItemid"
     ListVOName="AccInItemsView"
@@ -226,7 +242,9 @@
     EntityAttrName="txtModelNo"
     EntityUsage="SoImeiDetail"
     AliasName="TXT_MODEL_NO"
-    LOVName="LovtxtModelNo">
+    LOVName="LovtxtModelNo"
+    IsQueriable="false"
+    IsPersistent="false">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
