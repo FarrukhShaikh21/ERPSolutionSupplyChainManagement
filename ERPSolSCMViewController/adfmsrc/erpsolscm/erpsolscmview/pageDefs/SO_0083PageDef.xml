@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0083PageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="VwSaleReturnForRateChangeRO" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="VwSaleReturnForRateChangeROIterator"/>
+    <searchRegion Criteria="VwSaleReturnForRateChangeFindVC"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="VwSaleReturnForRateChangeROIterator" id="VwSaleReturnForRateChangeFindVCQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="VwSaleReturnForRateChangeROIterator" id="VwSaleReturnForRateChangeRO">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO"
+                      Name="VwSaleReturnForRateChangeRO0">
+        <AttrNames>
+          <Item Value="Salesretid"/>
+          <Item Value="Customerid"/>
+          <Item Value="CustomerName"/>
+          <Item Value="ReturnDate"/>
+          <Item Value="Productid"/>
+          <Item Value="ProductName"/>
+          <Item Value="ActUnitPriceBcurr"/>
+          <Item Value="FcurrDefaultDiscountAmount"/>
+          <Item Value="DiscountPercentage"/>
+          <Item Value="txtNewRate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

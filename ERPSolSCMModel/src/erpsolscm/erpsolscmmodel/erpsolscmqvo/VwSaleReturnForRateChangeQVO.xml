@@ -113,7 +113,7 @@ order by return_date]]></SQLQuery>
     ColumnType="TYPE"
     AliasName="ACT_UNIT_PRICE_BCURR"
     Expression="ACT_UNIT_PRICE_BCURR"
-    SQLType="BFILE"/>
+    SQLType="NUMERIC"/>
   <ViewAttribute
     Name="FcurrDefaultDiscountAmount"
     IsUpdateable="false"
@@ -134,6 +134,70 @@ order by return_date]]></SQLQuery>
     AliasName="DISCOUNT_PERCENTAGE"
     Expression="DISCOUNT_PERCENTAGE"
     SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="txtNewRate"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO.txtNewRate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="VwSaleReturnForRateChangeFindVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="VwSaleReturnForRateChangeQVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Salesretid"
+        ViewAttribute="Salesretid"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Productid"
+        ViewAttribute="Productid"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ProductName"
+        ViewAttribute="ProductName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="Salesretid"/>
     <Item Value="Productid"/>

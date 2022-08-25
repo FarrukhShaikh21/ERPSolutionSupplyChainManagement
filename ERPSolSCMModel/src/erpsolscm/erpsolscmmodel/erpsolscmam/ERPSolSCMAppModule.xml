@@ -123,6 +123,9 @@
   <ViewUsage
     Name="SoImeiDetailDetCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoImeiDetailView"/>
+  <ViewUsage
+    Name="VwSaleReturnForRateChangeRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
