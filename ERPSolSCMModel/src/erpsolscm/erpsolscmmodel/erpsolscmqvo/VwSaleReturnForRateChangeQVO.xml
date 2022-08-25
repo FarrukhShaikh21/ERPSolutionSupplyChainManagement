@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="VwSaleReturnForRateChangeQVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT SR.SALESRETID, CUSTOMERID,CUSTNAME(CUSTOMERID) CUSTOMER_NAME ,        
+TO_CHAR(RETURN_DATE,'DD/MM/RRRR') return_date,srl.productid,productname(srl.productid) product_name,Act_Unit_Price_Bcurr,fcurr_default_discount_amount, 
+round(ret_discount_amount/Act_Unit_Price_fcurr*100) discount_percentage 
+from so_Sales_Return sr, so_Sales_return_lines srl      
+where sr.salesretid=srl.salesretid      
+order by return_date]]></SQLQuery>
+  <ViewAttribute
+    Name="Salesretid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SALESRETID"
+    Expression="SALESRETID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Customerid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="15"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUSTOMERID"
+    Expression="CUSTOMERID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustomerName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUSTOMER_NAME"
+    Expression="CUSTOMER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ReturnDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="10"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="RETURN_DATE"
+    Expression="RETURN_DATE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Productid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Domain="erpsolscm.erpsolscmmodel.erpsolscmqvo.Type"
+    Type="erpsolscm.erpsolscmmodel.erpsolscmqvo.common.Type"
+    ColumnType="TYPE"
+    AliasName="PRODUCTID"
+    Expression="PRODUCTID"
+    SQLType="STRUCT"/>
+  <ViewAttribute
+    Name="ProductName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Domain="erpsolscm.erpsolscmmodel.erpsolscmqvo.Type"
+    Type="erpsolscm.erpsolscmmodel.erpsolscmqvo.common.Type"
+    ColumnType="TYPE"
+    AliasName="PRODUCT_NAME"
+    Expression="PRODUCT_NAME"
+    SQLType="STRUCT"/>
+  <ViewAttribute
+    Name="ActUnitPriceBcurr"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Domain="erpsolscm.erpsolscmmodel.erpsolscmqvo.Type"
+    Type="erpsolscm.erpsolscmmodel.erpsolscmqvo.common.Type"
+    ColumnType="TYPE"
+    AliasName="ACT_UNIT_PRICE_BCURR"
+    Expression="ACT_UNIT_PRICE_BCURR"
+    SQLType="STRUCT"/>
+  <ViewAttribute
+    Name="FcurrDefaultDiscountAmount"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Domain="erpsolscm.erpsolscmmodel.erpsolscmqvo.Type"
+    Type="erpsolscm.erpsolscmmodel.erpsolscmqvo.common.Type"
+    ColumnType="TYPE"
+    AliasName="FCURR_DEFAULT_DISCOUNT_AMOUNT"
+    Expression="FCURR_DEFAULT_DISCOUNT_AMOUNT"
+    SQLType="STRUCT"/>
+  <ViewAttribute
+    Name="DiscountPercentage"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Domain="erpsolscm.erpsolscmmodel.erpsolscmqvo.Type"
+    Type="erpsolscm.erpsolscmmodel.erpsolscmqvo.common.Type"
+    ColumnType="TYPE"
+    AliasName="DISCOUNT_PERCENTAGE"
+    Expression="DISCOUNT_PERCENTAGE"
+    SQLType="STRUCT"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Salesretid"/>
+    <Item Value="Productid"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
