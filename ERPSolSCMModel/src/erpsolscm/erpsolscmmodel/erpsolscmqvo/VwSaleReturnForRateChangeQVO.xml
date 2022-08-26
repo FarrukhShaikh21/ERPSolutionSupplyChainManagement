@@ -8,9 +8,12 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVORowImpl">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
@@ -38,6 +41,14 @@ order by return_date]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO.Salesretid_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="Customerid"
@@ -53,6 +64,14 @@ order by return_date]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO.Customerid_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="CustomerName"
@@ -68,6 +87,14 @@ order by return_date]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO.CustomerName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="ReturnDate"
@@ -83,6 +110,14 @@ order by return_date]]></SQLQuery>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO.ReturnDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="Productid"
@@ -93,7 +128,16 @@ order by return_date]]></SQLQuery>
     ColumnType="TYPE"
     AliasName="PRODUCTID"
     Expression="PRODUCTID"
-    SQLType="VARCHAR"/>
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO.Productid_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ProductName"
     IsUpdateable="false"
@@ -103,7 +147,16 @@ order by return_date]]></SQLQuery>
     ColumnType="TYPE"
     AliasName="PRODUCT_NAME"
     Expression="PRODUCT_NAME"
-    SQLType="VARCHAR"/>
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO.ProductName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ActUnitPriceBcurr"
     IsUpdateable="false"
@@ -113,7 +166,16 @@ order by return_date]]></SQLQuery>
     ColumnType="TYPE"
     AliasName="ACT_UNIT_PRICE_BCURR"
     Expression="ACT_UNIT_PRICE_BCURR"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO.ActUnitPriceBcurr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FcurrDefaultDiscountAmount"
     IsUpdateable="false"
@@ -123,7 +185,16 @@ order by return_date]]></SQLQuery>
     ColumnType="TYPE"
     AliasName="FCURR_DEFAULT_DISCOUNT_AMOUNT"
     Expression="FCURR_DEFAULT_DISCOUNT_AMOUNT"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO.FcurrDefaultDiscountAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DiscountPercentage"
     IsUpdateable="false"
@@ -133,7 +204,16 @@ order by return_date]]></SQLQuery>
     ColumnType="TYPE"
     AliasName="DISCOUNT_PERCENTAGE"
     Expression="DISCOUNT_PERCENTAGE"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO.DiscountPercentage_LABEL"/>
+        <DISPLAYHEIGHT
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="txtNewRate"
     IsSelected="false"

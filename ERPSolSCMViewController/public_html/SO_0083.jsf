@@ -6,141 +6,147 @@
     <af:form id="f1">
       <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
         <f:facet name="erptempmain">
-          <af:panelSplitter id="ps1" orientation="vertical">
-            <f:facet name="first">
-              <af:panelGroupLayout layout="vertical" id="pgl1">
-                <af:panelHeader text="VwSaleReturnForRateChangeRO" id="ph1">
-                  <af:query id="qryId1" headerText="Search" disclosed="true"
-                            value="#{bindings.VwSaleReturnForRateChangeFindVCQuery.queryDescriptor}"
-                            model="#{bindings.VwSaleReturnForRateChangeFindVCQuery.queryModel}"
-                            queryListener="#{bindings.VwSaleReturnForRateChangeFindVCQuery.processQuery}"
-                            queryOperationListener="#{bindings.VwSaleReturnForRateChangeFindVCQuery.processQueryOperation}"/>
-                </af:panelHeader>
-              </af:panelGroupLayout>
-            </f:facet>
-            <f:facet name="second">
-              <af:table value="#{bindings.VwSaleReturnForRateChangeRO.collectionModel}" var="row"
-                        rows="#{bindings.VwSaleReturnForRateChangeRO.rangeSize}"
-                        emptyText="#{bindings.VwSaleReturnForRateChangeRO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                        rowBandingInterval="0"
-                        selectedRowKeys="#{bindings.VwSaleReturnForRateChangeRO.collectionModel.selectedRow}"
-                        selectionListener="#{bindings.VwSaleReturnForRateChangeRO.collectionModel.makeCurrent}"
-                        rowSelection="single" fetchSize="#{bindings.VwSaleReturnForRateChangeRO.rangeSize}" id="t1">
-                <af:column headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.Salesretid.label}" id="c1">
-                  <af:inputText value="#{row.bindings.Salesretid.inputValue}"
-                                label="#{bindings.VwSaleReturnForRateChangeRO.hints.Salesretid.label}"
-                                required="#{bindings.VwSaleReturnForRateChangeRO.hints.Salesretid.mandatory}"
-                                columns="#{bindings.VwSaleReturnForRateChangeRO.hints.Salesretid.displayWidth}"
-                                maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.Salesretid.precision}"
-                                shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.Salesretid.tooltip}" id="it1">
-                    <f:validator binding="#{row.bindings.Salesretid.validator}"/>
-                  </af:inputText>
-                </af:column>
-                <af:column headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.Customerid.label}" id="c2">
-                  <af:inputText value="#{row.bindings.Customerid.inputValue}"
-                                label="#{bindings.VwSaleReturnForRateChangeRO.hints.Customerid.label}"
-                                required="#{bindings.VwSaleReturnForRateChangeRO.hints.Customerid.mandatory}"
-                                columns="#{bindings.VwSaleReturnForRateChangeRO.hints.Customerid.displayWidth}"
-                                maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.Customerid.precision}"
-                                shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.Customerid.tooltip}" id="it2">
-                    <f:validator binding="#{row.bindings.Customerid.validator}"/>
-                  </af:inputText>
-                </af:column>
-                <af:column headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.CustomerName.label}" id="c3">
-                  <af:inputText value="#{row.bindings.CustomerName.inputValue}"
-                                label="#{bindings.VwSaleReturnForRateChangeRO.hints.CustomerName.label}"
-                                required="#{bindings.VwSaleReturnForRateChangeRO.hints.CustomerName.mandatory}"
-                                columns="#{bindings.VwSaleReturnForRateChangeRO.hints.CustomerName.displayWidth}"
-                                maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.CustomerName.precision}"
-                                shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.CustomerName.tooltip}" id="it3">
-                    <f:validator binding="#{row.bindings.CustomerName.validator}"/>
-                  </af:inputText>
-                </af:column>
-                <af:column headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.ReturnDate.label}" id="c4">
-                  <af:inputText value="#{row.bindings.ReturnDate.inputValue}"
-                                label="#{bindings.VwSaleReturnForRateChangeRO.hints.ReturnDate.label}"
-                                required="#{bindings.VwSaleReturnForRateChangeRO.hints.ReturnDate.mandatory}"
-                                columns="#{bindings.VwSaleReturnForRateChangeRO.hints.ReturnDate.displayWidth}"
-                                maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.ReturnDate.precision}"
-                                shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.ReturnDate.tooltip}" id="it4">
-                    <f:validator binding="#{row.bindings.ReturnDate.validator}"/>
-                  </af:inputText>
-                </af:column>
-                <af:column headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.Productid.label}" id="c5">
-                  <af:inputText value="#{row.bindings.Productid.inputValue}"
-                                label="#{bindings.VwSaleReturnForRateChangeRO.hints.Productid.label}"
-                                required="#{bindings.VwSaleReturnForRateChangeRO.hints.Productid.mandatory}"
-                                columns="#{bindings.VwSaleReturnForRateChangeRO.hints.Productid.displayWidth}"
-                                maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.Productid.precision}"
-                                shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.Productid.tooltip}" id="it5">
-                    <f:validator binding="#{row.bindings.Productid.validator}"/>
-                  </af:inputText>
-                </af:column>
-                <af:column headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.ProductName.label}" id="c6">
-                  <af:inputText value="#{row.bindings.ProductName.inputValue}"
-                                label="#{bindings.VwSaleReturnForRateChangeRO.hints.ProductName.label}"
-                                required="#{bindings.VwSaleReturnForRateChangeRO.hints.ProductName.mandatory}"
-                                columns="#{bindings.VwSaleReturnForRateChangeRO.hints.ProductName.displayWidth}"
-                                maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.ProductName.precision}"
-                                shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.ProductName.tooltip}" id="it6">
-                    <f:validator binding="#{row.bindings.ProductName.validator}"/>
-                  </af:inputText>
-                </af:column>
-                <af:column headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.label}" id="c7">
-                  <af:inputText value="#{row.bindings.ActUnitPriceBcurr.inputValue}"
-                                label="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.label}"
-                                required="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.mandatory}"
-                                columns="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.displayWidth}"
-                                maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.precision}"
-                                shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.tooltip}"
-                                id="it7">
-                    <f:validator binding="#{row.bindings.ActUnitPriceBcurr.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.format}"/>
-                  </af:inputText>
-                </af:column>
-                <af:column headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.label}"
-                           id="c8">
-                  <af:inputText value="#{row.bindings.FcurrDefaultDiscountAmount.inputValue}"
-                                label="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.label}"
-                                required="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.mandatory}"
-                                columns="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.displayWidth}"
-                                maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.precision}"
-                                shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.tooltip}"
-                                id="it8">
-                    <f:validator binding="#{row.bindings.FcurrDefaultDiscountAmount.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.format}"/>
-                  </af:inputText>
-                </af:column>
-                <af:column headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.label}" id="c9">
-                  <af:inputText value="#{row.bindings.DiscountPercentage.inputValue}"
-                                label="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.label}"
-                                required="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.mandatory}"
-                                columns="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.displayWidth}"
-                                maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.precision}"
-                                shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.tooltip}"
-                                id="it9">
-                    <f:validator binding="#{row.bindings.DiscountPercentage.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.format}"/>
-                  </af:inputText>
-                </af:column>
-                <af:column headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.label}" id="c10">
-                  <af:inputText value="#{row.bindings.txtNewRate.inputValue}"
-                                label="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.label}"
-                                required="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.mandatory}"
-                                columns="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.displayWidth}"
-                                maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.precision}"
-                                shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.tooltip}" id="it10">
-                    <f:validator binding="#{row.bindings.txtNewRate.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.format}"/>
-                  </af:inputText>
-                </af:column>
-              </af:table>
-            </f:facet>
-          </af:panelSplitter>
+          <af:table value="#{bindings.VwSaleReturnForRateChangeRO.collectionModel}" var="row"
+                    rows="#{bindings.VwSaleReturnForRateChangeRO.rangeSize}"
+                    emptyText="#{bindings.VwSaleReturnForRateChangeRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.VwSaleReturnForRateChangeRO.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.VwSaleReturnForRateChangeRO.collectionModel.makeCurrent}"
+                    rowSelection="single" fetchSize="#{bindings.VwSaleReturnForRateChangeRO.rangeSize}"
+                    filterModel="#{bindings.VwSaleReturnForRateChangeROQuery.queryDescriptor}"
+                    queryListener="#{bindings.VwSaleReturnForRateChangeROQuery.processQuery}" filterVisible="true"
+                    varStatus="vs" id="t1">
+            <af:column sortProperty="#{bindings.VwSaleReturnForRateChangeRO.hints.Salesretid.name}" filterable="true"
+                       headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.Salesretid.label}" id="c1">
+              <af:inputText value="#{row.bindings.Salesretid.inputValue}"
+                            label="#{bindings.VwSaleReturnForRateChangeRO.hints.Salesretid.label}"
+                            required="#{bindings.VwSaleReturnForRateChangeRO.hints.Salesretid.mandatory}"
+                            columns="#{bindings.VwSaleReturnForRateChangeRO.hints.Salesretid.displayWidth}"
+                            maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.Salesretid.precision}"
+                            shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.Salesretid.tooltip}" id="it1">
+                <f:validator binding="#{row.bindings.Salesretid.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.VwSaleReturnForRateChangeRO.hints.ReturnDate.name}" filterable="true"
+                       headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.ReturnDate.label}" id="c4" width="80">
+              <af:inputText value="#{row.bindings.ReturnDate.inputValue}"
+                            label="#{bindings.VwSaleReturnForRateChangeRO.hints.ReturnDate.label}"
+                            required="#{bindings.VwSaleReturnForRateChangeRO.hints.ReturnDate.mandatory}"
+                            columns="#{bindings.VwSaleReturnForRateChangeRO.hints.ReturnDate.displayWidth}"
+                            maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.ReturnDate.precision}"
+                            shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.ReturnDate.tooltip}" id="it4">
+                <f:validator binding="#{row.bindings.ReturnDate.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.VwSaleReturnForRateChangeRO.hints.Customerid.name}" filterable="true"
+                       headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.Customerid.label}" id="c2">
+              <af:inputText value="#{row.bindings.Customerid.inputValue}"
+                            label="#{bindings.VwSaleReturnForRateChangeRO.hints.Customerid.label}"
+                            required="#{bindings.VwSaleReturnForRateChangeRO.hints.Customerid.mandatory}"
+                            columns="#{bindings.VwSaleReturnForRateChangeRO.hints.Customerid.displayWidth}"
+                            maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.Customerid.precision}"
+                            shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.Customerid.tooltip}" id="it2">
+                <f:validator binding="#{row.bindings.Customerid.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.VwSaleReturnForRateChangeRO.hints.CustomerName.name}" filterable="true"
+                       headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.CustomerName.label}" id="c3">
+              <af:inputText value="#{row.bindings.CustomerName.inputValue}"
+                            label="#{bindings.VwSaleReturnForRateChangeRO.hints.CustomerName.label}"
+                            required="#{bindings.VwSaleReturnForRateChangeRO.hints.CustomerName.mandatory}"
+                            columns="#{bindings.VwSaleReturnForRateChangeRO.hints.CustomerName.displayWidth}"
+                            maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.CustomerName.precision}"
+                            shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.CustomerName.tooltip}" id="it3">
+                <f:validator binding="#{row.bindings.CustomerName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.VwSaleReturnForRateChangeRO.hints.Productid.name}" filterable="true"
+                       headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.Productid.label}" id="c5">
+              <af:inputText value="#{row.bindings.Productid.inputValue}"
+                            label="#{bindings.VwSaleReturnForRateChangeRO.hints.Productid.label}"
+                            required="#{bindings.VwSaleReturnForRateChangeRO.hints.Productid.mandatory}"
+                            columns="#{bindings.VwSaleReturnForRateChangeRO.hints.Productid.displayWidth}"
+                            maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.Productid.precision}"
+                            shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.Productid.tooltip}" id="it5">
+                <f:validator binding="#{row.bindings.Productid.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.VwSaleReturnForRateChangeRO.hints.ProductName.name}" filterable="true"
+                       headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.ProductName.label}" id="c6">
+              <af:inputText value="#{row.bindings.ProductName.inputValue}"
+                            label="#{bindings.VwSaleReturnForRateChangeRO.hints.ProductName.label}"
+                            required="#{bindings.VwSaleReturnForRateChangeRO.hints.ProductName.mandatory}"
+                            columns="#{bindings.VwSaleReturnForRateChangeRO.hints.ProductName.displayWidth}"
+                            maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.ProductName.precision}"
+                            shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.ProductName.tooltip}" id="it6">
+                <f:validator binding="#{row.bindings.ProductName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.name}"
+                       filterable="true"
+                       headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.label}" id="c7"
+                       width="80">
+              <af:inputText value="#{row.bindings.ActUnitPriceBcurr.inputValue}"
+                            label="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.label}"
+                            required="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.mandatory}"
+                            columns="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.displayWidth}"
+                            maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.precision}"
+                            shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.tooltip}"
+                            id="it7">
+                <f:validator binding="#{row.bindings.ActUnitPriceBcurr.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.VwSaleReturnForRateChangeRO.hints.ActUnitPriceBcurr.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.name}" filterable="true"
+                       headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.label}" id="c10">
+              <af:inputText value="#{row.bindings.txtNewRate.inputValue}"
+                            label="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.label}"
+                            required="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.mandatory}"
+                            columns="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.displayWidth}"
+                            maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.precision}"
+                            shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.tooltip}" id="it10">
+                <f:validator binding="#{row.bindings.txtNewRate.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.VwSaleReturnForRateChangeRO.hints.txtNewRate.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.name}"
+                       filterable="true"
+                       headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.label}" id="c9"
+                       width="50" displayIndex="-1">
+              <af:inputText value="#{row.bindings.DiscountPercentage.inputValue}"
+                            label="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.label}"
+                            required="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.mandatory}"
+                            columns="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.displayWidth}"
+                            maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.precision}"
+                            shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.tooltip}"
+                            id="it9">
+                <f:validator binding="#{row.bindings.DiscountPercentage.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.VwSaleReturnForRateChangeRO.hints.DiscountPercentage.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.name}"
+                       filterable="true"
+                       headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.label}"
+                       id="c8" width="60">
+              <af:inputText value="#{row.bindings.FcurrDefaultDiscountAmount.inputValue}"
+                            label="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.label}"
+                            required="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.mandatory}"
+                            columns="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.displayWidth}"
+                            maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.precision}"
+                            shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.tooltip}"
+                            id="it8">
+                <f:validator binding="#{row.bindings.FcurrDefaultDiscountAmount.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column id="c11">
+              <af:button text="Update" id="b1"/>
+            </af:column>
+          </af:table>
         </f:facet>
         <f:facet name="erptempleft"/>
       </af:pageTemplate>

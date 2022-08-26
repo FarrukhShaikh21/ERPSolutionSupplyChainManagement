@@ -7,9 +7,9 @@
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
     <iterator Binds="VwSaleReturnForRateChangeRO" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
               id="VwSaleReturnForRateChangeROIterator"/>
-    <searchRegion Criteria="VwSaleReturnForRateChangeFindVC"
+    <searchRegion Binds="VwSaleReturnForRateChangeROIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="VwSaleReturnForRateChangeROIterator" id="VwSaleReturnForRateChangeFindVCQuery"/>
+                  id="VwSaleReturnForRateChangeROQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="VwSaleReturnForRateChangeROIterator" id="VwSaleReturnForRateChangeRO">
