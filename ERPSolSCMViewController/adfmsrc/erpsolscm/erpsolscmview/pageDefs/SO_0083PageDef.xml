@@ -29,5 +29,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <methodAction IterBinding="VwSaleReturnForRateChangeROIterator" id="doUpdateSaleReturnProductRate"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="doUpdateSaleReturnProductRate"
+                  IsViewObjectMethod="false" DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="bindings.VwSaleReturnForRateChangeROIterator.currentRow" IsLocalObjectReference="true"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doUpdateSaleReturnProductRate_doUpdateSaleReturnProductRate_doUpdateSaleReturnProductRate_result"/>
   </bindings>
 </pageDefinition>

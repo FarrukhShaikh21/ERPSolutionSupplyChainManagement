@@ -1,5 +1,7 @@
 package erpsolscm.erpsolscmmodel.erpsolscmqvo;
 
+import erpsolscm.erpsolscmmodel.erpsolscmqvo.common.VwSaleReturnForRateChangeQVORow;
+
 import java.math.BigDecimal;
 
 import java.sql.CallableStatement;
@@ -13,7 +15,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class VwSaleReturnForRateChangeQVORowImpl extends ViewRowImpl {
+public class VwSaleReturnForRateChangeQVORowImpl extends ViewRowImpl implements VwSaleReturnForRateChangeQVORow {
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
@@ -50,6 +52,8 @@ public class VwSaleReturnForRateChangeQVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int SALESRETID = AttributesEnum.Salesretid.index();
     public static final int CUSTOMERID = AttributesEnum.Customerid.index();
     public static final int CUSTOMERNAME = AttributesEnum.CustomerName.index();
@@ -132,6 +136,14 @@ public class VwSaleReturnForRateChangeQVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute FcurrDefaultDiscountAmount.
+     * @param value value to set the  FcurrDefaultDiscountAmount
+     */
+    public void setFcurrDefaultDiscountAmount(BigDecimal value) {
+        setAttributeInternal(FCURRDEFAULTDISCOUNTAMOUNT, value);
+    }
+
+    /**
      * Gets the attribute value for the calculated attribute DiscountPercentage.
      * @return the DiscountPercentage
      */
@@ -153,16 +165,20 @@ public class VwSaleReturnForRateChangeQVORowImpl extends ViewRowImpl {
      */
     public void settxtNewRate(BigDecimal value) {
         setAttributeInternal(TXTNEWRATE, value);
-    }
+        Integer val=value.multiply(getDiscountPercentage()).divide(new BigDecimal(100)).intValue();
+        setFcurrDefaultDiscountAmount(new BigDecimal(val) );  
+        }
     public void doUpdateSaleReturnProductRate() {
+        
         String plsql="BEGIN UPDATE SO_SALES_RETURN_LINES sol set ";
         plsql+="DEFAULT_DISCOUNT_AMOUNT="+getFcurrDefaultDiscountAmount()+",";
         plsql+="FCURR_DEFAULT_DISCOUNT_AMOUNT="+getFcurrDefaultDiscountAmount()+",";
+        plsql+="RET_DISCOUNT_AMOUNT="+getFcurrDefaultDiscountAmount()+",";
         plsql+="ACT_UNIT_PRICE_FCURR="+gettxtNewRate()+",";
         plsql+="ACT_UNIT_PRICE_BCURR="+gettxtNewRate();
-        plsql+=" WHERE Productid='"+getProductid()+"' AND SALESRETID='"+getSalesretid()+"'; COMMIT; END;";
+        plsql+=" WHERE Productid='"+getProductid()+"' AND SALESRETID='"+getSalesretid()+"' and 2=1; COMMIT; END;";
         
-        
+        System.out.println(plsql);
         CallableStatement erpcs=getDBTransaction().createCallableStatement(plsql, 1);
         try {
             erpcs.executeUpdate();

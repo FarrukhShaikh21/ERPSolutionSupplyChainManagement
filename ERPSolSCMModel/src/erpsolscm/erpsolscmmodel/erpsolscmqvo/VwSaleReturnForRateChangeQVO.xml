@@ -9,7 +9,9 @@
   BindingStyle="OracleName"
   CustomQuery="true"
   PageIterMode="Full"
-  RowClass="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVORowImpl">
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVORowImpl"
+  RowInterface="erpsolscm.erpsolscmmodel.erpsolscmqvo.common.VwSaleReturnForRateChangeQVORow"
+  ClientRowProxyName="erpsolscm.erpsolscmmodel.erpsolscmqvo.client.VwSaleReturnForRateChangeQVORowClient">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
     <Attr Name="_codeGenFlag2" Value="Access"/>
@@ -21,11 +23,11 @@
         ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT SR.SALESRETID, CUSTOMERID,CUSTNAME(CUSTOMERID) CUSTOMER_NAME ,        
-TO_CHAR(RETURN_DATE,'DD/MM/RRRR') return_date,srl.productid,productname(srl.productid) product_name,Act_Unit_Price_Bcurr,fcurr_default_discount_amount, 
-round(ret_discount_amount/Act_Unit_Price_fcurr*100) discount_percentage 
-from so_Sales_Return sr, so_Sales_return_lines srl      
-where sr.salesretid=srl.salesretid      
+  <SQLQuery><![CDATA[SELECT SR.SALESRETID, CUSTOMERID,CUSTNAME(CUSTOMERID) CUSTOMER_NAME ,            
+TO_CHAR(RETURN_DATE,'DD/MM/RRRR')||' '||sr.POSTED return_date,srl.productid,productname(srl.productid) product_name,Act_Unit_Price_Bcurr,fcurr_default_discount_amount,     
+nvl(round(ret_discount_amount/decode(Act_Unit_Price_fcurr,0,null,Act_Unit_Price_fcurr)*100),0) discount_percentage     
+from so_Sales_Return sr, so_Sales_return_lines srl          
+where sr.salesretid=srl.salesretid          
 order by return_date]]></SQLQuery>
   <ViewAttribute
     Name="Salesretid"
@@ -178,7 +180,6 @@ order by return_date]]></SQLQuery>
   </ViewAttribute>
   <ViewAttribute
     Name="FcurrDefaultDiscountAmount"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.math.BigDecimal"
@@ -282,6 +283,16 @@ order by return_date]]></SQLQuery>
     <Item Value="Salesretid"/>
     <Item Value="Productid"/>
   </AttrArray>
+  <ClientRowInterface
+    Name="__rowClientInterface">
+    <Method
+      Name="doUpdateSaleReturnProductRate"
+      MethodName="doUpdateSaleReturnProductRate">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientRowInterface>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
