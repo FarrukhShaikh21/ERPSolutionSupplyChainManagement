@@ -176,9 +176,7 @@ public class VwSaleReturnForRateChangeQVORowImpl extends ViewRowImpl implements 
         plsql+="RET_DISCOUNT_AMOUNT="+getFcurrDefaultDiscountAmount()+",";
         plsql+="ACT_UNIT_PRICE_FCURR="+gettxtNewRate()+",";
         plsql+="ACT_UNIT_PRICE_BCURR="+gettxtNewRate();
-        plsql+=" WHERE Productid='"+getProductid()+"' AND SALESRETID='"+getSalesretid()+"' and 2=1; COMMIT; END;";
-        
-        System.out.println(plsql);
+        plsql+=" WHERE Productid='"+getProductid()+"' AND SALESRETID='"+getSalesretid()+"' ; COMMIT; END;";
         CallableStatement erpcs=getDBTransaction().createCallableStatement(plsql, 1);
         try {
             erpcs.executeUpdate();
