@@ -165,8 +165,8 @@ public class VwSaleReturnForRateChangeQVORowImpl extends ViewRowImpl implements 
      */
     public void settxtNewRate(BigDecimal value) {
         setAttributeInternal(TXTNEWRATE, value);
-        Integer val=value.multiply(getDiscountPercentage()).divide(new BigDecimal(100)).intValue();
-        setFcurrDefaultDiscountAmount(new BigDecimal(val) );  
+        BigDecimal val=value.multiply(getDiscountPercentage()).divide(new BigDecimal(100));
+        setFcurrDefaultDiscountAmount(val);  
         }
     public void doUpdateSaleReturnProductRate() {
         
