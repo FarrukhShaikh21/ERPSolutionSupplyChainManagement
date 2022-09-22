@@ -46,11 +46,11 @@
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Type="java.lang.Integer"
+    Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     AliasName="DISCOUNT"
     Expression="DISCOUNT"
-    SQLType="INTEGER"/>
+    SQLType="BFILE"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="Pk"/>
   </AttrArray>

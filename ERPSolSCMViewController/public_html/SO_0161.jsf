@@ -75,10 +75,10 @@
                                    iconPosition="top"
                                    action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecuteSaleReturn}"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b4"
+                                   disabled="#{!bindings.Previous.enabled || bindings.Salesretid.inputValue==null}" partialSubmit="true" id="b4"
                                    icon="#{resource['images:imgPrevious.png']}"/>
                         <af:button actionListener="#{bindings.Next.execute}" text="Next"
-                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"
+                                   disabled="#{!bindings.Next.enabled || bindings.Salesretid.inputValue==null}" partialSubmit="true" id="b3"
                                    icon="#{resource['images:imgNext.png']}"/>
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Return"
                                    disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"
@@ -92,7 +92,6 @@
                           <af:resetActionListener/>
                         </af:button>
                         <af:button actionListener="#{bindings.Commit.execute}" text="Save Transaction" id="b5"
-                                   disabled="#{bindings.Posted.inputValue=='Y'}"
                                    icon="#{resource['images:imgSave.png']}"/>
                         <af:spacer width="50" height="10" id="s6"/>
                         <af:button text="Supervise Transaction" id="b9"

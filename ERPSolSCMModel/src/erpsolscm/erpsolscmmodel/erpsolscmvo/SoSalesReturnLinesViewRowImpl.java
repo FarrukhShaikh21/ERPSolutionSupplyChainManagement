@@ -261,10 +261,10 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
                 System.out.println("e");
             getAccVwFuncGetItemDiscountByLocationReturn().executeQuery();
                 System.out.println("f");
-            Integer erpsoldiscount= ((Integer)getAccVwFuncGetItemDiscountByLocationReturn().first().getAttribute("Discount")) ;
+            BigDecimal erpsoldiscount= ((BigDecimal)getAccVwFuncGetItemDiscountByLocationReturn().first().getAttribute("Discount")) ;
                
-            erpsoldiscount= Math.round( (getActUnitPriceFcurr()*(erpsoldiscount))/100);
-            setRetDiscountAmount(erpsoldiscount);
+            erpsoldiscount=  (new BigDecimal(getActUnitPriceFcurr()).multiply(erpsoldiscount)).divide(new BigDecimal(100)); ;
+            setRetDiscountAmount(erpsoldiscount.intValue());
 //                erpsoldiscount=getActUnitPriceFcurr().multiply(erpsoldiscount);
             }
             catch(Exception exc) {
