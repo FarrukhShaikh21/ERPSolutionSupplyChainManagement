@@ -83,8 +83,9 @@
                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete Return"
                                    disabled="#{bindings.Posted.inputValue=='Y'}" id="b2"
                                    icon="#{resource['images:imgDelete.png']}"/>
-                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Return"
-                                   disabled="#{bindings.Salesretid.inputValue==null || pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
+                        <af:button actionListener="#{bindings.CreateInsert.execute}"
+                                   text="New Return"
+                                   disabled="#{(bindings.SoSalesReturnCRUDIterator.estimatedRowCount>0 &amp;&amp;  bindings.Salesretid.inputValue==null) || pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b1"
                                    icon="#{resource['images:imgAdd.png']}"/>
                         <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true"
                                    id="b6"
@@ -97,7 +98,7 @@
                         <af:spacer width="50" height="10" id="s6"/>
                         <af:button text="Supervise Transaction" id="b9"
                                    visible="#{pageFlowScope.ERPSolTempBean.LERPSolAllowSubmit=='Y'}"
-                                   disabled="#{bindings.Posted.inputValue=='Y'}"
+                                   disabled="#{(bindings.Salesretid.inputValue==null &amp;&amp; bindings.SoSalesReturnCRUDIterator.estimatedRowCount>0)||bindings.SoSalesReturnCRUDIterator.estimatedRowCount==0 || bindings.Posted.inputValue=='Y'}"
                                    icon="#{resource['images:imgSupervise.png']}">
                           <af:showPopupBehavior popupId="::p1" triggerType="action"/>
                         </af:button>
