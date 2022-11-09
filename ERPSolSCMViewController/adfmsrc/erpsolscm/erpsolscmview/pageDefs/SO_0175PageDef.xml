@@ -3,8 +3,40 @@
                 Package="erpsolscm.erpsolscmview.pageDefs">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
+    <variableIterator id="variables">
+      <variableUsage DataControl="ERPSolSCMAppModuleDataControl"
+                     Binds="VwImeiTransactionHistoryRO.variablesMap.P_ADF_IMEI_NO"
+                     Name="ExecuteWithParams_P_ADF_IMEI_NO" IsQueriable="false"/>
+    </variableIterator>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="VwImeiTransactionHistoryRO" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="VwImeiTransactionHistoryROIterator"/>
+    <searchRegion Binds="VwImeiTransactionHistoryROIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="VwImeiTransactionHistoryROQuery"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <action IterBinding="VwImeiTransactionHistoryROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_IMEI_NO" NDType="java.lang.String"
+                 NDValue="${bindings.ExecuteWithParams_P_ADF_IMEI_NO}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="P_ADF_IMEI_NO">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_P_ADF_IMEI_NO"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="VwImeiTransactionHistoryROIterator" id="VwImeiTransactionHistoryRO">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwImeiTransactionHistoryQVO"
+                      Name="VwImeiTransactionHistoryRO0">
+        <AttrNames>
+          <Item Value="TransactionNo"/>
+          <Item Value="TransactionType"/>
+          <Item Value="TranDate"/>
+          <Item Value="ImeiNo"/>
+          <Item Value="BoxNo"/>
+          <Item Value="Customerid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
 </pageDefinition>

@@ -2,9 +2,107 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
   <af:document title="SO_0175.jsf" id="d1">
+    <af:messages id="m1"/>
     <af:form id="f1">
       <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
-        <f:facet name="erptempmain"/>
+        <f:facet name="erptempmain">
+          <af:panelHeader text="Search IMEI" id="ph1">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t3">
+                <af:link id="l1" partialSubmit="true" action="ACT-ERP-CLOSE-FORM-SCM"
+                         icon="#{resource['images:imgExitForm.png']}" text="Close Form" iconPosition="top"/>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="127">
+              <f:facet name="first">
+                <af:panelFormLayout id="pfl1">
+                  <af:inputText value="#{bindings.P_ADF_IMEI_NO.inputValue}" label="Enter IMEI No"
+                                required="#{bindings.P_ADF_IMEI_NO.hints.mandatory}"
+                                columns="#{bindings.P_ADF_IMEI_NO.hints.displayWidth}"
+                                maximumLength="#{bindings.P_ADF_IMEI_NO.hints.precision}"
+                                shortDesc="#{bindings.P_ADF_IMEI_NO.hints.tooltip}" id="it1" autoSubmit="true">
+                    <f:validator binding="#{bindings.P_ADF_IMEI_NO.validator}"/>
+                  </af:inputText>
+                  <af:button actionListener="#{bindings.ExecuteWithParams.execute}" text="Search IMEI"
+                             disabled="#{!bindings.ExecuteWithParams.enabled}" id="b1"/>
+                </af:panelFormLayout>
+              </f:facet>
+              <f:facet name="second">
+                <af:panelCollection id="pc1">
+                  <f:facet name="menus"/>
+                  <f:facet name="toolbar">
+                    <af:toolbar id="t2">
+                      <af:button text="Export To Excel" id="b2">
+                        <af:exportCollectionActionListener type="excelHTML" exportedId="t1"/>
+                      </af:button>
+                    </af:toolbar>
+                  </f:facet>
+                  <f:facet name="statusbar"/>
+                  <af:table value="#{bindings.VwImeiTransactionHistoryRO.collectionModel}" var="row"
+                            rows="#{bindings.VwImeiTransactionHistoryRO.rangeSize}"
+                            emptyText="#{bindings.VwImeiTransactionHistoryRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.VwImeiTransactionHistoryRO.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.VwImeiTransactionHistoryRO.collectionModel.makeCurrent}"
+                            rowSelection="single" fetchSize="#{bindings.VwImeiTransactionHistoryRO.rangeSize}"
+                            filterModel="#{bindings.VwImeiTransactionHistoryROQuery.queryDescriptor}"
+                            queryListener="#{bindings.VwImeiTransactionHistoryROQuery.processQuery}"
+                            filterVisible="true" varStatus="vs" id="t1" partialTriggers=":::b1">
+                    <af:column sortProperty="#{bindings.VwImeiTransactionHistoryRO.hints.TransactionNo.name}"
+                               filterable="true"
+                               headerText="#{bindings.VwImeiTransactionHistoryRO.hints.TransactionNo.label}" id="c1">
+                      <af:outputText value="#{row.TransactionNo}"
+                                     shortDesc="#{bindings.VwImeiTransactionHistoryRO.hints.TransactionNo.tooltip}"
+                                     id="ot1"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.VwImeiTransactionHistoryRO.hints.TransactionType.name}"
+                               filterable="true"
+                               headerText="#{bindings.VwImeiTransactionHistoryRO.hints.TransactionType.label}" id="c2">
+                      <af:outputText value="#{row.TransactionType}"
+                                     shortDesc="#{bindings.VwImeiTransactionHistoryRO.hints.TransactionType.tooltip}"
+                                     id="ot2"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.VwImeiTransactionHistoryRO.hints.TranDate.name}"
+                               filterable="true"
+                               headerText="#{bindings.VwImeiTransactionHistoryRO.hints.TranDate.label}" id="c3">
+                      <f:facet name="filter">
+                        <af:inputDate value="#{bindings.VwImeiTransactionHistoryROQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.TranDate.value}"
+                                      id="id1">
+                          <af:convertDateTime pattern="#{bindings.VwImeiTransactionHistoryRO.hints.TranDate.format}"/>
+                        </af:inputDate>
+                      </f:facet>
+                      <af:outputText value="#{row.TranDate}"
+                                     shortDesc="#{bindings.VwImeiTransactionHistoryRO.hints.TranDate.tooltip}" id="ot3">
+                        <af:convertDateTime pattern="#{bindings.VwImeiTransactionHistoryRO.hints.TranDate.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.VwImeiTransactionHistoryRO.hints.ImeiNo.name}" filterable="true"
+                               headerText="#{bindings.VwImeiTransactionHistoryRO.hints.ImeiNo.label}" id="c4">
+                      <af:outputText value="#{row.ImeiNo}"
+                                     shortDesc="#{bindings.VwImeiTransactionHistoryRO.hints.ImeiNo.tooltip}" id="ot4"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.VwImeiTransactionHistoryRO.hints.BoxNo.name}" filterable="true"
+                               headerText="#{bindings.VwImeiTransactionHistoryRO.hints.BoxNo.label}" id="c5">
+                      <af:outputText value="#{row.BoxNo}"
+                                     shortDesc="#{bindings.VwImeiTransactionHistoryRO.hints.BoxNo.tooltip}" id="ot5"/>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.VwImeiTransactionHistoryRO.hints.Customerid.name}"
+                               filterable="true"
+                               headerText="#{bindings.VwImeiTransactionHistoryRO.hints.Customerid.label}" id="c6">
+                      <af:outputText value="#{row.Customerid}"
+                                     shortDesc="#{bindings.VwImeiTransactionHistoryRO.hints.Customerid.tooltip}"
+                                     id="ot6"/>
+                    </af:column>
+                  </af:table>
+                </af:panelCollection>
+              </f:facet>
+            </af:panelSplitter>
+          </af:panelHeader>
+        </f:facet>
         <f:facet name="erptempleft"/>
       </af:pageTemplate>
     </af:form>

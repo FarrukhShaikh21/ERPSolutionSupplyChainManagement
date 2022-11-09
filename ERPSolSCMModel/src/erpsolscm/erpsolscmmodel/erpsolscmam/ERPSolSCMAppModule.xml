@@ -126,6 +126,9 @@
   <ViewUsage
     Name="VwSaleReturnForRateChangeRO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO"/>
+  <ViewUsage
+    Name="VwImeiTransactionHistoryRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwImeiTransactionHistoryQVO"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

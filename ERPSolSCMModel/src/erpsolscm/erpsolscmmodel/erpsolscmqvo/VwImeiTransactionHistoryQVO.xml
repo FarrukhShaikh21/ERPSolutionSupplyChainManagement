@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="VwImeiTransactionHistoryQVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  ComponentClass="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwImeiTransactionHistoryQVOImpl">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwImeiTransactionHistoryQVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="P_ADF_IMEI_NO"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[select transaction_type AS transaction_type,transaction_no,tran_date,imei_no,BOX_NO,customerid    
+from Vw_Imei_Transaction_History   
+where   imei_no=:P_ADF_IMEI_NO]]></SQLQuery>
+  <ViewAttribute
+    Name="TransactionType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="25"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TRANSACTION_TYPE"
+    Expression="TRANSACTION_TYPE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwImeiTransactionHistoryQVO.TransactionType_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TransactionNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TRANSACTION_NO"
+    Expression="TRANSACTION_NO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwImeiTransactionHistoryQVO.TransactionNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TranDate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    AliasName="TRAN_DATE"
+    Expression="TRAN_DATE"
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwImeiTransactionHistoryQVO.TranDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImeiNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="IMEI_NO"
+    Expression="IMEI_NO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwImeiTransactionHistoryQVO.ImeiNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BoxNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BOX_NO"
+    Expression="BOX_NO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwImeiTransactionHistoryQVO.BoxNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Customerid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="15"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUSTOMERID"
+    Expression="CUSTOMERID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwImeiTransactionHistoryQVO.Customerid_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="TransactionType"/>
+    <Item Value="TransactionNo"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
