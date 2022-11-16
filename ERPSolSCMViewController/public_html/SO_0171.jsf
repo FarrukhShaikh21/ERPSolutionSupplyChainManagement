@@ -360,6 +360,28 @@
                                           pattern="#{bindings.SoRebateDetailCRUD.hints.CurrentRate.format}"/>
                       </af:inputText>
                     </af:column>
+                    <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.ErrorDesc.label}" id="c6" width="200">
+                      <af:inputText value="#{row.bindings.ErrorDesc.inputValue}"
+                                    label="#{bindings.SoRebateDetailCRUD.hints.ErrorDesc.label}"
+                                    required="#{bindings.SoRebateDetailCRUD.hints.ErrorDesc.mandatory}"
+                                    columns="#{bindings.SoRebateDetailCRUD.hints.ErrorDesc.displayWidth}"
+                                    maximumLength="#{bindings.SoRebateDetailCRUD.hints.ErrorDesc.precision}"
+                                    shortDesc="#{bindings.SoRebateDetailCRUD.hints.ErrorDesc.tooltip}" id="it12"
+                                    readOnly="true">
+                        <f:validator binding="#{row.bindings.ErrorDesc.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.IsError.label}" id="c7">
+                      <af:inputText value="#{row.bindings.IsError.inputValue}"
+                                    label="#{bindings.SoRebateDetailCRUD.hints.IsError.label}"
+                                    required="#{bindings.SoRebateDetailCRUD.hints.IsError.mandatory}"
+                                    columns="#{bindings.SoRebateDetailCRUD.hints.IsError.displayWidth}"
+                                    maximumLength="#{bindings.SoRebateDetailCRUD.hints.IsError.precision}"
+                                    shortDesc="#{bindings.SoRebateDetailCRUD.hints.IsError.tooltip}" id="it13"
+                                    readOnly="true">
+                        <f:validator binding="#{row.bindings.IsError.validator}"/>
+                      </af:inputText>
+                    </af:column>
                   </af:table>
                 </af:gridCell>
               </af:gridRow>

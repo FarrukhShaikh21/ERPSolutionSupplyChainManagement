@@ -94,6 +94,8 @@
           <Item Value="RebateQty"/>
           <Item Value="PreviousRate"/>
           <Item Value="CurrentRate"/>
+          <Item Value="ErrorDesc"/>
+          <Item Value="IsError"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -30,8 +30,9 @@
                                           partialTriggers="it8">
                                 <f:validator binding="#{bindings.txtRebateImei.validator}"/>
                             </af:inputText>
-                            <af:inputText label="Label 1" id="it1"
-                                          value="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolSalesOrderId}"/>
+                            <af:inputText label="Rebate ID" id="it1"
+                                          value="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolSalesOrderId}"
+                                          readOnly="true"/>
                         </af:gridCell>
                     </af:gridRow>
                     <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2">
