@@ -52,7 +52,17 @@
   <ViewAccessor
     Name="AccAllStoresView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AllStoresViewByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView.AllStoresViewByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATION_ID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccPuSuppliersView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.PuSuppliersView"
