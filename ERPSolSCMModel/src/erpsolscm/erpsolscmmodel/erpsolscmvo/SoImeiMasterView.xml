@@ -69,7 +69,11 @@
     PrecisionRule="true"
     EntityAttrName="Request"
     EntityUsage="SoImeiMaster"
-    AliasName="REQUEST"/>
+    AliasName="REQUEST">
+    <Properties>
+      <SchemaBasedProperties/>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Submit"
     PrecisionRule="true"
@@ -154,4 +158,8 @@
         Type="void"/>
     </Method>
   </ClientInterface>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
 </ViewObject>
