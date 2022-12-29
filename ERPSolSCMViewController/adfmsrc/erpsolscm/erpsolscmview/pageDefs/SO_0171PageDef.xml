@@ -96,6 +96,7 @@
           <Item Value="CurrentRate"/>
           <Item Value="ErrorDesc"/>
           <Item Value="IsError"/>
+          <Item Value="Itemid"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

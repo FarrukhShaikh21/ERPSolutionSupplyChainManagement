@@ -42,6 +42,9 @@
                                    id="b7" rendered="false"/>
                         <af:button text="Close Form" id="b11" action="ACT-ERP-CLOSE-FORM-SCM"
                                    icon="#{resource['images:imgExitForm.png']}" iconPosition="top"/>
+                        <af:button text="Preview" id="b14" icon="#{resource['images:imgPrintPreview.png']}"
+                                   iconPosition="top"
+                                   action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecuteSaleRebate}"/>
                         <af:button text="Search" id="b10" action="ACT-SEARCH-S0-0171"
                                    icon="#{resource['images:imgFind.png']}"/>
                         <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
@@ -297,7 +300,7 @@
                             selectedRowKeys="#{bindings.SoRebateDetailCRUD.collectionModel.selectedRow}"
                             selectionListener="#{bindings.SoRebateDetailCRUD.collectionModel.makeCurrent}"
                             rowSelection="single" fetchSize="#{bindings.SoRebateDetailCRUD.rangeSize}" id="t2">
-                    <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.Productid.label}" id="c1" width="200">
+                    <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.Productid.label}" id="c1" width="100">
                       <af:inputText value="#{row.bindings.Productid.inputValue}"
                                     label="#{bindings.SoRebateDetailCRUD.hints.Productid.label}"
                                     required="#{bindings.SoRebateDetailCRUD.hints.Productid.mandatory}"
@@ -307,6 +310,15 @@
                                     readOnly="true">
                         <f:validator binding="#{row.bindings.Productid.validator}"/>
                       </af:inputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.Itemid.label}" id="c8" width="200">
+                      <af:selectOneChoice value="#{row.bindings.Itemid.inputValue}" label="#{row.bindings.Itemid.label}"
+                                          required="#{bindings.SoRebateDetailCRUD.hints.Itemid.mandatory}"
+                                          shortDesc="#{bindings.SoRebateDetailCRUD.hints.Itemid.tooltip}" id="soc1"
+                                          readOnly="true">
+                        <f:selectItems value="#{row.bindings.Itemid.items}" id="si1"/>
+                        <f:validator binding="#{row.bindings.Itemid.validator}"/>
+                      </af:selectOneChoice>
                     </af:column>
                     <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.Discount.label}" id="c2">
                       <af:inputText value="#{row.bindings.Discount.inputValue}"

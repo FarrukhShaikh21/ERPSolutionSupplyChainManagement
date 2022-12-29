@@ -13,7 +13,9 @@
     Name="SoRebate"
     Cardinality="1"
     Source="true"
-    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate">
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebate"
+    LockLevel="NONE"
+    DeleteContainee="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="SoRebate"/>
@@ -27,7 +29,8 @@
   <AssociationEnd
     Name="SoRebateImei"
     Cardinality="-1"
-    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebateImei">
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebateImei"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="SoRebateImei"/>
