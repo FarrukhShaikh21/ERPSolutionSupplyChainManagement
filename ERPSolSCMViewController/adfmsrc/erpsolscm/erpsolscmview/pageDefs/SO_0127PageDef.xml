@@ -69,6 +69,7 @@
           <Item Value="BaseValue"/>
           <Item Value="Efrom"/>
           <Item Value="Eto"/>
+          <Item Value="DiscountBasis"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

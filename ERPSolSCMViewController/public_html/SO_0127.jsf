@@ -299,6 +299,15 @@
                                                 <f:validator binding="#{row.bindings.Locationid.validator}"/>
                                             </af:selectOneChoice>
                                         </af:column>
+                                        <af:column headerText="#{bindings.SoProdDiscountDetCRUD.hints.DiscountBasis.label}"
+                                                   id="c15">
+                                            <af:selectOneChoice label="Label 1" id="soc3"
+                                                                value="#{row.bindings.DiscountBasis.inputValue}"
+                                                                autoSubmit="true">
+                                                <af:selectItem label="Amount" value="A" id="si3"/>
+                                                <af:selectItem label="Percent" value="P" id="si4"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
                                         <af:column headerText="#{bindings.SoProdDiscountDetCRUD.hints.BaseValue.label}"
                                                    id="c12">
                                             <af:inputText value="#{row.bindings.BaseValue.inputValue}"
