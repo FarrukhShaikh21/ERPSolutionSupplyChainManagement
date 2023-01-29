@@ -97,6 +97,7 @@
           <Item Value="RetDiscountAmount"/>
           <Item Value="txtRetDiscountAmount"/>
           <Item Value="txtNetAmount"/>
+          <Item Value="txtAddDiscountAmount"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

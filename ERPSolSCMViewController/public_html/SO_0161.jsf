@@ -470,6 +470,20 @@
                                             pattern="#{bindings.SoSalesReturnLinesDetCRUD.hints.RetDiscountAmount.format}"/>
                         </af:inputText>
                       </af:column>
+                      <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtAddDiscountAmount.label}"
+                                 id="c11">
+                        <af:inputText value="#{row.bindings.txtAddDiscountAmount.inputValue}"
+                                      label="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtAddDiscountAmount.label}"
+                                      required="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtAddDiscountAmount.mandatory}"
+                                      columns="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtAddDiscountAmount.displayWidth}"
+                                      maximumLength="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtAddDiscountAmount.precision}"
+                                      shortDesc="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtAddDiscountAmount.tooltip}"
+                                      id="it17" readOnly="true">
+                          <f:validator binding="#{row.bindings.txtAddDiscountAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtAddDiscountAmount.format}"/>
+                        </af:inputText>
+                      </af:column>
                       <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtRetDiscountAmount.label}"
                                  id="c8">
                         <af:inputText value="#{row.bindings.txtRetDiscountAmount.inputValue}"

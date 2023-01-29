@@ -72,12 +72,14 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
         txtGrossAmount,
         txtNetAmount,
         txtRetDiscountAmount,
+        txtAddDiscountAmount,
         SrimeiView,
         InItemsView,
         SoSalesReturnView,
         AccInItemsView,
         AccVwFuncGetItemRateByLocDate,
-        AccVwFuncGetItemDiscountByLocationReturn;
+        AccVwFuncGetItemDiscountByLocationReturn,
+        AccVwFuncGetItemAdditionalDiscount;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -151,6 +153,7 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
     public static final int TXTGROSSAMOUNT = AttributesEnum.txtGrossAmount.index();
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
     public static final int TXTRETDISCOUNTAMOUNT = AttributesEnum.txtRetDiscountAmount.index();
+    public static final int TXTADDDISCOUNTAMOUNT = AttributesEnum.txtAddDiscountAmount.index();
     public static final int SRIMEIVIEW = AttributesEnum.SrimeiView.index();
     public static final int INITEMSVIEW = AttributesEnum.InItemsView.index();
     public static final int SOSALESRETURNVIEW = AttributesEnum.SoSalesReturnView.index();
@@ -158,6 +161,8 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
     public static final int ACCVWFUNCGETITEMRATEBYLOCDATE = AttributesEnum.AccVwFuncGetItemRateByLocDate.index();
     public static final int ACCVWFUNCGETITEMDISCOUNTBYLOCATIONRETURN =
         AttributesEnum.AccVwFuncGetItemDiscountByLocationReturn.index();
+    public static final int ACCVWFUNCGETITEMADDITIONALDISCOUNT =
+        AttributesEnum.AccVwFuncGetItemAdditionalDiscount.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -270,6 +275,26 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
             catch(Exception exc) {
             setActUnitPriceBcurr(0 );
             setActUnitPriceFcurr(0);
+            exc.printStackTrace();
+            }         
+        
+        try{
+            System.out.println("a");
+            getAccVwFuncGetItemAdditionalDiscount().setNamedWhereClauseParam("P_ADF_DATE", getSoSalesReturnView().getAttribute("ReturnDate"));
+                System.out.println("b");
+            getAccVwFuncGetItemAdditionalDiscount().setNamedWhereClauseParam("P_ADF_ITEMID", value);
+                System.out.println("d");
+            getAccVwFuncGetItemAdditionalDiscount().setNamedWhereClauseParam("P_ADF_LOCATIONID", getSoSalesReturnView().getAttribute("Locationid"));
+                System.out.println("e");
+            getAccVwFuncGetItemAdditionalDiscount().executeQuery();
+                System.out.println("f");
+            setAddDiscountAmount(Integer.parseInt(getAccVwFuncGetItemAdditionalDiscount().first().getAttribute("AdditionalDisAmount").toString()));
+            setFcurrAddDiscountAmount(getAddDiscountAmount());
+        //                erpsoldiscount=getActUnitPriceFcurr().multiply(erpsoldiscount);
+            }
+            catch(Exception exc) {
+            setAddDiscountAmount(0 );
+            setFcurrAddDiscountAmount(0);
             exc.printStackTrace();
             }         
     }
@@ -979,6 +1004,22 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for TXT_ADD_DISCOUNT_AMOUNT using the alias name txtAddDiscountAmount.
+     * @return the TXT_ADD_DISCOUNT_AMOUNT
+     */
+    public Integer gettxtAddDiscountAmount() {
+        return (Integer) getAttributeInternal(TXTADDDISCOUNTAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_ADD_DISCOUNT_AMOUNT using the alias name txtAddDiscountAmount.
+     * @param value value to set the TXT_ADD_DISCOUNT_AMOUNT
+     */
+    public void settxtAddDiscountAmount(Integer value) {
+        setAttributeInternal(TXTADDDISCOUNTAMOUNT, value);
+    }
+
+    /**
      * Gets the associated <code>RowIterator</code> using master-detail link SrimeiView.
      */
     public RowIterator getSrimeiView() {
@@ -1032,6 +1073,13 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      */
     public RowSet getAccVwFuncGetItemDiscountByLocationReturn() {
         return (RowSet) getAttributeInternal(ACCVWFUNCGETITEMDISCOUNTBYLOCATIONRETURN);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncGetItemAdditionalDiscount.
+     */
+    public RowSet getAccVwFuncGetItemAdditionalDiscount() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCGETITEMADDITIONALDISCOUNT);
     }
 
     @Override

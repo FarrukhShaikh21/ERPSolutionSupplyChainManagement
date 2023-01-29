@@ -43,6 +43,10 @@
     Name="AccVwFuncGetItemDiscountByLocationReturn"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemDiscountByLocationReturnQVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwFuncGetItemAdditionalDiscount"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemAdditionalDiscountQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovModelNo"
     ListVOName="AccInItemsView"
@@ -388,6 +392,14 @@
     EntityAttrName="txtRetDiscountAmount"
     EntityUsage="SoSalesReturnLines"
     AliasName="TXT_RET_DISCOUNT_AMOUNT"/>
+  <ViewAttribute
+    Name="txtAddDiscountAmount"
+    PrecisionRule="true"
+    EntityAttrName="txtAddDiscountAmount"
+    EntityUsage="SoSalesReturnLines"
+    AliasName="TXT_ADD_DISCOUNT_AMOUNT"
+    IsQueriable="false"
+    IsPersistent="false"/>
   <ViewLinkAccessor
     Name="SrimeiView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.SysC0017022Link"
