@@ -5,6 +5,8 @@ import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
 
 import java.math.BigDecimal;
 
+import java.math.BigInteger;
+
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -13,6 +15,8 @@ import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
+import oracle.jbo.domain.BFileDomain;
+import oracle.jbo.domain.BlobDomain;
 import oracle.jbo.domain.DBSequence;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.EntityDefImpl;
@@ -123,6 +127,7 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
         Itemid,
         txtPosted,
         txtAddDiscountTotal,
+        txtDefaultDiscountAmount,
         SoSalesOrder,
         InItems,
         InItems1,
@@ -248,6 +253,7 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int ITEMID = AttributesEnum.Itemid.index();
     public static final int TXTPOSTED = AttributesEnum.txtPosted.index();
     public static final int TXTADDDISCOUNTTOTAL = AttributesEnum.txtAddDiscountTotal.index();
+    public static final int TXTDEFAULTDISCOUNTAMOUNT = AttributesEnum.txtDefaultDiscountAmount.index();
     public static final int SOSALESORDER = AttributesEnum.SoSalesOrder.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
     public static final int INITEMS1 = AttributesEnum.InItems1.index();
@@ -1684,15 +1690,15 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for txtGrossAmount, using the alias name txtGrossAmount.
      * @return the value of txtGrossAmount
      */
-    public Integer gettxtGrossAmount() {
-        return (Integer) getAttributeInternal(TXTGROSSAMOUNT);
+    public BigDecimal gettxtGrossAmount() {
+        return (BigDecimal) getAttributeInternal(TXTGROSSAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for txtGrossAmount.
      * @param value value to set the txtGrossAmount
      */
-    public void settxtGrossAmount(Integer value) {
+    public void settxtGrossAmount(BigDecimal value) {
         setAttributeInternal(TXTGROSSAMOUNT, value);
     }
 
@@ -1716,15 +1722,15 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for txtDiscountAmount, using the alias name txtDiscountAmount.
      * @return the value of txtDiscountAmount
      */
-    public Integer gettxtDiscountAmount() {
-        return (Integer) getAttributeInternal(TXTDISCOUNTAMOUNT);
+    public BigDecimal gettxtDiscountAmount() {
+        return (BigDecimal) getAttributeInternal(TXTDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for txtDiscountAmount.
      * @param value value to set the txtDiscountAmount
      */
-    public void settxtDiscountAmount(Integer value) {
+    public void settxtDiscountAmount(BigDecimal value) {
         setAttributeInternal(TXTDISCOUNTAMOUNT, value);
     }
 
@@ -1774,6 +1780,22 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public void settxtAddDiscountTotal(BigDecimal value) {
         setAttributeInternal(TXTADDDISCOUNTTOTAL, value);
+    }
+
+    /**
+     * Gets the attribute value for txtDefaultDiscountAmount, using the alias name txtDefaultDiscountAmount.
+     * @return the value of txtDefaultDiscountAmount
+     */
+    public BigDecimal gettxtDefaultDiscountAmount() {
+        return (BigDecimal) getAttributeInternal(TXTDEFAULTDISCOUNTAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtDefaultDiscountAmount.
+     * @param value value to set the txtDefaultDiscountAmount
+     */
+    public void settxtDefaultDiscountAmount(BigDecimal value) {
+        setAttributeInternal(TXTDEFAULTDISCOUNTAMOUNT, value);
     }
 
     /**
@@ -1898,12 +1920,13 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
         }
         if (operation!=DML_DELETE) {
            System.out.println("this is f");
-            populateAttributeAsChanged(ACTLINEGRAMBCURR, new BigDecimal(gettxtGrossAmount()==null?0:gettxtGrossAmount() ));
+            populateAttributeAsChanged(ACTLINEGRAMBCURR, (gettxtGrossAmount()==null?0:gettxtGrossAmount() ));
            System.out.println("this is g");
-           populateAttributeAsChanged(ACTLINEGRAMTOCURR, new BigDecimal(gettxtGrossAmount()==null?0:gettxtGrossAmount() ));
+           populateAttributeAsChanged(ACTLINEGRAMTOCURR, (gettxtGrossAmount()==null?0:gettxtGrossAmount() ));
            System.out.println("this is h");
 //           populateAttributeAsChanged(DISCOUNTAMOUNTOC, new BigDecimal(gettxtDiscountAmount()==null?0:gettxtDiscountAmount() ));
            populateAttributeAsChanged(DISCOUNTAMOUNTBC, getDiscountAmountOc());
+           populateAttributeAsChanged(DEFAULTDISCAMOUNT, gettxtDefaultDiscountAmount());
            System.out.println("this is i");
            populateAttributeAsChanged(LINENETAMTBCURR, new BigDecimal(gettxtNetAmount()==null?0:gettxtNetAmount() ));
            System.out.println("this is j");

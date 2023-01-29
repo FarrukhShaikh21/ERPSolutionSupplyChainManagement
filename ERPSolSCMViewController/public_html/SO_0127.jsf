@@ -261,6 +261,20 @@
                                                                   pattern="#{bindings.SoProdLocPriceDetCRUD.hints.FlatDiscount.format}"/>
                                             </af:inputText>
                                         </af:column>
+                                        <af:column headerText="#{bindings.SoProdLocPriceDetCRUD.hints.LpDiscount.label}"
+                                                   id="c16">
+                                            <af:inputText value="#{row.bindings.LpDiscount.inputValue}"
+                                                          label="#{bindings.SoProdLocPriceDetCRUD.hints.LpDiscount.label}"
+                                                          required="#{bindings.SoProdLocPriceDetCRUD.hints.LpDiscount.mandatory}"
+                                                          columns="#{bindings.SoProdLocPriceDetCRUD.hints.LpDiscount.displayWidth}"
+                                                          maximumLength="#{bindings.SoProdLocPriceDetCRUD.hints.LpDiscount.precision}"
+                                                          shortDesc="#{bindings.SoProdLocPriceDetCRUD.hints.LpDiscount.tooltip}"
+                                                          id="it13">
+                                                <f:validator binding="#{row.bindings.LpDiscount.validator}"/>
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.SoProdLocPriceDetCRUD.hints.LpDiscount.format}"/>
+                                            </af:inputText>
+                                        </af:column>
                                     </af:table>
                                 </af:panelCollection>
                             </af:showDetailItem>

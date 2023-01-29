@@ -55,6 +55,7 @@
           <Item Value="Cost"/>
           <Item Value="FlatDiscount"/>
           <Item Value="IntraCompanyProductid"/>
+          <Item Value="LpDiscount"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -8,9 +8,13 @@ import erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLinesImpl;
 
 import java.math.BigDecimal;
 
+import java.math.BigInteger;
+
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
 import oracle.jbo.RowSet;
+import oracle.jbo.domain.BFileDomain;
+import oracle.jbo.domain.BlobDomain;
 import oracle.jbo.domain.Date;
 import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
@@ -122,6 +126,7 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
         Itemid,
         txtPosted,
         txtAddDiscountTotal,
+        txtDefaultDiscountAmount,
         SoSalesOrderView,
         InItemsView,
         SoSalesOrderImeiView,
@@ -250,6 +255,7 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
     public static final int ITEMID = AttributesEnum.Itemid.index();
     public static final int TXTPOSTED = AttributesEnum.txtPosted.index();
     public static final int TXTADDDISCOUNTTOTAL = AttributesEnum.txtAddDiscountTotal.index();
+    public static final int TXTDEFAULTDISCOUNTAMOUNT = AttributesEnum.txtDefaultDiscountAmount.index();
     public static final int SOSALESORDERVIEW = AttributesEnum.SoSalesOrderView.index();
     public static final int INITEMSVIEW = AttributesEnum.InItemsView.index();
     public static final int SOSALESORDERIMEIVIEW = AttributesEnum.SoSalesOrderImeiView.index();
@@ -431,13 +437,15 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
             getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_GIFT", getSoSalesOrderView().getAttribute("Gift"));
             getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_LINENO", "");
             getAccVwFuncGetItemDiscountByLocDate().executeQuery();
+            System.out.println("this is dda");
+        System.out.println(getAccVwFuncGetItemDiscountByLocDate().first().getAttribute("DiscountAmount"));
             setDiscountAmountOc((BigDecimal)getAccVwFuncGetItemDiscountByLocDate().first().getAttribute("DiscountAmount"));
-            setDefaultDiscAmount(getDiscountAmountOc());
+//            setDefaultDiscAmount(getDiscountAmountOc());
         }
         catch(Exception exc) {
             setDiscountPercent(new BigDecimal(0));
             setDiscountAmountOc(new BigDecimal(0));
-            setDefaultDiscAmount(new BigDecimal(0));
+//            setDefaultDiscAmount(new BigDecimal(0));
         exc.printStackTrace();
         }
         try{
@@ -1723,15 +1731,15 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for TXT_GROSS_AMOUNT using the alias name txtGrossAmount.
      * @return the TXT_GROSS_AMOUNT
      */
-    public Integer gettxtGrossAmount() {
-        return (Integer) getAttributeInternal(TXTGROSSAMOUNT);
+    public BigDecimal gettxtGrossAmount() {
+        return (BigDecimal) getAttributeInternal(TXTGROSSAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as attribute value for TXT_GROSS_AMOUNT using the alias name txtGrossAmount.
      * @param value value to set the TXT_GROSS_AMOUNT
      */
-    public void settxtGrossAmount(Integer value) {
+    public void settxtGrossAmount(BigDecimal value) {
         setAttributeInternal(TXTGROSSAMOUNT, value);
     }
 
@@ -1755,15 +1763,15 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for TXT_DISCOUNT_AMOUNT using the alias name txtDiscountAmount.
      * @return the TXT_DISCOUNT_AMOUNT
      */
-    public Integer gettxtDiscountAmount() {
-        return (Integer) getAttributeInternal(TXTDISCOUNTAMOUNT);
+    public BigDecimal gettxtDiscountAmount() {
+        return (BigDecimal) getAttributeInternal(TXTDISCOUNTAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as attribute value for TXT_DISCOUNT_AMOUNT using the alias name txtDiscountAmount.
      * @param value value to set the TXT_DISCOUNT_AMOUNT
      */
-    public void settxtDiscountAmount(Integer value) {
+    public void settxtDiscountAmount(BigDecimal value) {
         setAttributeInternal(TXTDISCOUNTAMOUNT, value);
     }
 
@@ -1860,6 +1868,22 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      */
     public void settxtAddDiscountTotal(BigDecimal value) {
         setAttributeInternal(TXTADDDISCOUNTTOTAL, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_DEFAULT_DISCOUNT_AMOUNT using the alias name txtDefaultDiscountAmount.
+     * @return the TXT_DEFAULT_DISCOUNT_AMOUNT
+     */
+    public BigDecimal gettxtDefaultDiscountAmount() {
+        return (BigDecimal) getAttributeInternal(TXTDEFAULTDISCOUNTAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_DEFAULT_DISCOUNT_AMOUNT using the alias name txtDefaultDiscountAmount.
+     * @param value value to set the TXT_DEFAULT_DISCOUNT_AMOUNT
+     */
+    public void settxtDefaultDiscountAmount(BigDecimal value) {
+        setAttributeInternal(TXTDEFAULTDISCOUNTAMOUNT, value);
     }
 
     /**

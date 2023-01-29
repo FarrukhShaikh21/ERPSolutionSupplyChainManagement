@@ -685,6 +685,14 @@
     AliasName="TXT_ADD_DISCOUNT_TOTAL"
     IsQueriable="false"
     IsPersistent="false"/>
+  <ViewAttribute
+    Name="txtDefaultDiscountAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtDefaultDiscountAmount"
+    EntityUsage="SoSalesOrderLines"
+    AliasName="TXT_DEFAULT_DISCOUNT_AMOUNT"/>
   <ViewCriteria
     Name="SoSalesOrderLinesBySalesOrderIDVC"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesView"

@@ -904,7 +904,7 @@
     Name="txtGrossAmount"
     ColumnName="TXT_GROSS_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.lang.Integer"
+    Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
@@ -967,11 +967,11 @@
     Name="txtDiscountAmount"
     ColumnName="TXT_DISCOUNT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.lang.Integer"
+    Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression><![CDATA[return (DiscountAmountOc==null?0:DiscountAmountOc)+txtAddDiscountTotal;]]></TransientExpression>
+    <TransientExpression><![CDATA[return (DiscountAmountOc==null?0:DiscountAmountOc)]]></TransientExpression>
     <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
@@ -1051,6 +1051,33 @@
       <Item
         Value="Quantity"/>
     </Dependencies>
+  </Attribute>
+  <Attribute
+    Name="txtDefaultDiscountAmount"
+    ColumnName="TXT_DEFAULT_DISCOUNT_AMOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(DiscountAmountOc==null?0:DiscountAmountOc) - ((txtAddDiscountTotal==null?0:txtAddDiscountTotal) *(Quantity==null?0:Quantity))]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Dependencies>
+      <Item
+        Value="Productid"/>
+      <Item
+        Value="Quantity"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.txtDefaultDiscountAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <AccessorAttribute
     Name="SoSalesOrder"

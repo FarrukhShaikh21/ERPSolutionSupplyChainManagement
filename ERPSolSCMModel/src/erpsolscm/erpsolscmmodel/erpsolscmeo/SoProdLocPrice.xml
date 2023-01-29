@@ -259,7 +259,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="SO_PROD_LOC_PRICE"/>
+    TableName="SO_PROD_LOC_PRICE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoProdLocPrice.LpDiscount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="InItems"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoProdLocPriceProductIdAssoc"

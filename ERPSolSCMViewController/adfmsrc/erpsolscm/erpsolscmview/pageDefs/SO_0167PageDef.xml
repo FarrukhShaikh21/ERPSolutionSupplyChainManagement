@@ -110,6 +110,7 @@
           <Item Value="txtDiscountAmount"/>
           <Item Value="txtAddDiscountTotal"/>
           <Item Value="DefaultDiscAmount"/>
+          <Item Value="txtDefaultDiscountAmount"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
