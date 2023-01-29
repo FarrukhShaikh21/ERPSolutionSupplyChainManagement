@@ -121,6 +121,7 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
         txtDiscountAmount,
         Itemid,
         txtPosted,
+        txtAddDiscountTotal,
         SoSalesOrderView,
         InItemsView,
         SoSalesOrderImeiView,
@@ -128,7 +129,8 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
         AccVwFuncCheckQuantityQVO,
         AccVWItemOpeningQVO,
         AccVwFuncGetItemRateByLocDate,
-        AccVwFuncGetItemDiscountByLocDate;
+        AccVwFuncGetItemDiscountByLocDate,
+        AccVwFuncGetItemAdditionalDiscountQVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -247,6 +249,7 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
     public static final int TXTDISCOUNTAMOUNT = AttributesEnum.txtDiscountAmount.index();
     public static final int ITEMID = AttributesEnum.Itemid.index();
     public static final int TXTPOSTED = AttributesEnum.txtPosted.index();
+    public static final int TXTADDDISCOUNTTOTAL = AttributesEnum.txtAddDiscountTotal.index();
     public static final int SOSALESORDERVIEW = AttributesEnum.SoSalesOrderView.index();
     public static final int INITEMSVIEW = AttributesEnum.InItemsView.index();
     public static final int SOSALESORDERIMEIVIEW = AttributesEnum.SoSalesOrderImeiView.index();
@@ -256,6 +259,8 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
     public static final int ACCVWFUNCGETITEMRATEBYLOCDATE = AttributesEnum.AccVwFuncGetItemRateByLocDate.index();
     public static final int ACCVWFUNCGETITEMDISCOUNTBYLOCDATE =
         AttributesEnum.AccVwFuncGetItemDiscountByLocDate.index();
+    public static final int ACCVWFUNCGETITEMADDITIONALDISCOUNTQVO =
+        AttributesEnum.AccVwFuncGetItemAdditionalDiscountQVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -427,12 +432,27 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
             getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_LINENO", "");
             getAccVwFuncGetItemDiscountByLocDate().executeQuery();
             setDiscountAmountOc((BigDecimal)getAccVwFuncGetItemDiscountByLocDate().first().getAttribute("DiscountAmount"));
+            setDefaultDiscAmount(getDiscountAmountOc());
         }
         catch(Exception exc) {
             setDiscountPercent(new BigDecimal(0));
-            
+            setDiscountAmountOc(new BigDecimal(0));
+            setDefaultDiscAmount(new BigDecimal(0));
         exc.printStackTrace();
-        }                
+        }
+        try{
+            getAccVwFuncGetItemAdditionalDiscountQVO().setNamedWhereClauseParam("P_ADF_LOCATIONID", getSoSalesOrderView().getAttribute("Locationid"));
+            getAccVwFuncGetItemAdditionalDiscountQVO().setNamedWhereClauseParam("P_ADF_DATE", getSoSalesOrderView().getAttribute("ConfirmDate"));
+            getAccVwFuncGetItemAdditionalDiscountQVO().setNamedWhereClauseParam("P_ADF_ITEMID", getProductid());
+            getAccVwFuncGetItemAdditionalDiscountQVO().executeQuery();
+            setAddDiscountUnit((BigDecimal)getAccVwFuncGetItemAdditionalDiscountQVO().first().getAttribute("AdditionalDisAmount"));
+        }
+        catch(Exception exc) {
+            setDiscountPercent(new BigDecimal(0));
+            setDiscountAmountOc(new BigDecimal(0));
+            setDefaultDiscAmount(new BigDecimal(0));
+        exc.printStackTrace();
+        }
     }
 
     /**
@@ -1827,6 +1847,22 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for TXT_ADD_DISCOUNT_TOTAL using the alias name txtAddDiscountTotal.
+     * @return the TXT_ADD_DISCOUNT_TOTAL
+     */
+    public BigDecimal gettxtAddDiscountTotal() {
+        return (BigDecimal) getAttributeInternal(TXTADDDISCOUNTTOTAL);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_ADD_DISCOUNT_TOTAL using the alias name txtAddDiscountTotal.
+     * @param value value to set the TXT_ADD_DISCOUNT_TOTAL
+     */
+    public void settxtAddDiscountTotal(BigDecimal value) {
+        setAttributeInternal(TXTADDDISCOUNTTOTAL, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link SoSalesOrderView.
      */
     public Row getSoSalesOrderView() {
@@ -1895,6 +1931,14 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
     public RowSet getAccVwFuncGetItemDiscountByLocDate() {
         return (RowSet) getAttributeInternal(ACCVWFUNCGETITEMDISCOUNTBYLOCDATE);
     }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncGetItemAdditionalDiscountQVO.
+     */
+    public RowSet getAccVwFuncGetItemAdditionalDiscountQVO() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCGETITEMADDITIONALDISCOUNTQVO);
+    }
+
     @Override
     public boolean isAttributeUpdateable(int i) {
         

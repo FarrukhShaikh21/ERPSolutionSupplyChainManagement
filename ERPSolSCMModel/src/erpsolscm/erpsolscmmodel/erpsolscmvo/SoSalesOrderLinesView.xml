@@ -56,6 +56,10 @@
     Name="AccVwFuncGetItemDiscountByLocDate"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemDiscountByLocDateQVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwFuncGetItemAdditionalDiscountQVO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemAdditionalDiscountQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtModelNo"
     ListVOName="AccInItemsView"
@@ -671,6 +675,14 @@
     EntityAttrName="txtPosted"
     EntityUsage="SoSalesOrderLines"
     AliasName="TXT_POSTED"
+    IsQueriable="false"
+    IsPersistent="false"/>
+  <ViewAttribute
+    Name="txtAddDiscountTotal"
+    PrecisionRule="true"
+    EntityAttrName="txtAddDiscountTotal"
+    EntityUsage="SoSalesOrderLines"
+    AliasName="TXT_ADD_DISCOUNT_TOTAL"
     IsQueriable="false"
     IsPersistent="false"/>
   <ViewCriteria

@@ -122,6 +122,7 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
         txtDiscountAmount,
         Itemid,
         txtPosted,
+        txtAddDiscountTotal,
         SoSalesOrder,
         InItems,
         InItems1,
@@ -246,6 +247,7 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTDISCOUNTAMOUNT = AttributesEnum.txtDiscountAmount.index();
     public static final int ITEMID = AttributesEnum.Itemid.index();
     public static final int TXTPOSTED = AttributesEnum.txtPosted.index();
+    public static final int TXTADDDISCOUNTTOTAL = AttributesEnum.txtAddDiscountTotal.index();
     public static final int SOSALESORDER = AttributesEnum.SoSalesOrder.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
     public static final int INITEMS1 = AttributesEnum.InItems1.index();
@@ -1756,6 +1758,22 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
      */
     public void settxtPosted(String value) {
         setAttributeInternal(TXTPOSTED, value);
+    }
+
+    /**
+     * Gets the attribute value for txtAddDiscountTotal, using the alias name txtAddDiscountTotal.
+     * @return the value of txtAddDiscountTotal
+     */
+    public BigDecimal gettxtAddDiscountTotal() {
+        return (BigDecimal) getAttributeInternal(TXTADDDISCOUNTTOTAL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for txtAddDiscountTotal.
+     * @param value value to set the txtAddDiscountTotal
+     */
+    public void settxtAddDiscountTotal(BigDecimal value) {
+        setAttributeInternal(TXTADDDISCOUNTTOTAL, value);
     }
 
     /**

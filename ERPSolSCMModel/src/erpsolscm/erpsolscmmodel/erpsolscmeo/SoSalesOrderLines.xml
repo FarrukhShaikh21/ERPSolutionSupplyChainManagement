@@ -971,7 +971,7 @@
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression><![CDATA[return DiscountAmountOc==null?0:DiscountAmountOc;]]></TransientExpression>
+    <TransientExpression><![CDATA[return (DiscountAmountOc==null?0:DiscountAmountOc)+txtAddDiscountTotal;]]></TransientExpression>
     <RecalcCondition><![CDATA[true]]></RecalcCondition>
     <Properties>
       <SchemaBasedProperties>
@@ -1026,6 +1026,31 @@
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtAddDiscountTotal"
+    ColumnName="TXT_ADD_DISCOUNT_TOTAL"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[return (AddDiscountUnit==null?0:AddDiscountUnit)*(Quantity==null?0:Quantity)]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrderLines.txtAddDiscountTotal_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <Dependencies>
+      <Item
+        Value="AddDiscountUnit"/>
+      <Item
+        Value="Quantity"/>
+    </Dependencies>
   </Attribute>
   <AccessorAttribute
     Name="SoSalesOrder"

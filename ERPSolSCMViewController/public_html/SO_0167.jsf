@@ -604,6 +604,34 @@
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.DiscountPercent.format}"/>
                         </af:inputText>
                       </af:column>
+                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.DefaultDiscAmount.label}"
+                                 id="c17">
+                        <af:inputText value="#{row.bindings.DefaultDiscAmount.inputValue}"
+                                      label="#{bindings.SoSalesOrderLinesDetCRUD.hints.DefaultDiscAmount.label}"
+                                      required="#{bindings.SoSalesOrderLinesDetCRUD.hints.DefaultDiscAmount.mandatory}"
+                                      columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.DefaultDiscAmount.displayWidth}"
+                                      maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.DefaultDiscAmount.precision}"
+                                      shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.DefaultDiscAmount.tooltip}"
+                                      id="it27">
+                          <f:validator binding="#{row.bindings.DefaultDiscAmount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.DefaultDiscAmount.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtAddDiscountTotal.label}"
+                                 id="c16">
+                        <af:inputText value="#{row.bindings.txtAddDiscountTotal.inputValue}"
+                                      label="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtAddDiscountTotal.label}"
+                                      required="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtAddDiscountTotal.mandatory}"
+                                      columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtAddDiscountTotal.displayWidth}"
+                                      maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtAddDiscountTotal.precision}"
+                                      shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtAddDiscountTotal.tooltip}"
+                                      id="it26">
+                          <f:validator binding="#{row.bindings.txtAddDiscountTotal.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtAddDiscountTotal.format}"/>
+                        </af:inputText>
+                      </af:column>
                       <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.txtDiscountAmount.label}"
                                  id="c11">
                         <af:inputText value="#{row.bindings.txtDiscountAmount.inputValue}"

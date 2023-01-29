@@ -108,6 +108,8 @@
           <Item Value="LineNetAmtOcurr"/>
           <Item Value="txtNetAmount"/>
           <Item Value="txtDiscountAmount"/>
+          <Item Value="txtAddDiscountTotal"/>
+          <Item Value="DefaultDiscAmount"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
