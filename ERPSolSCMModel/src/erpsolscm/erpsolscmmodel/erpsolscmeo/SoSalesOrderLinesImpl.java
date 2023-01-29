@@ -1909,7 +1909,7 @@ public class SoSalesOrderLinesImpl extends ERPSolGlobalsEntityImpl {
            System.out.println("this is j");
            populateAttributeAsChanged(LINENETAMTOCURR, gettxtNetAmount());
            System.out.println("this is k");
-          
+           populateAttributeAsChanged(ADDDISCOUNTTOTAL, gettxtAddDiscountTotal());
            
        }
         super.doDML(operation, e);
