@@ -158,6 +158,12 @@
     EntityAttrName="IntraCompanyProductid"
     EntityUsage="SoProdLocPrice"
     AliasName="INTRA_COMPANY_PRODUCTID"/>
+  <ViewAttribute
+    Name="LpDiscount"
+    PrecisionRule="true"
+    EntityAttrName="LpDiscount"
+    EntityUsage="SoProdLocPrice"
+    AliasName="LP_DISCOUNT"/>
   <ViewLinkAccessor
     Name="InItemsView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.InItemsSoProdLocPriceProductIdLink"

@@ -41,6 +41,7 @@ public class SoProdLocPriceImpl extends ERPSolGlobalsEntityImpl {
         Cost,
         FlatDiscount,
         IntraCompanyProductid,
+        LpDiscount,
         InItems;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -84,6 +85,7 @@ public class SoProdLocPriceImpl extends ERPSolGlobalsEntityImpl {
     public static final int COST = AttributesEnum.Cost.index();
     public static final int FLATDISCOUNT = AttributesEnum.FlatDiscount.index();
     public static final int INTRACOMPANYPRODUCTID = AttributesEnum.IntraCompanyProductid.index();
+    public static final int LPDISCOUNT = AttributesEnum.LpDiscount.index();
     public static final int INITEMS = AttributesEnum.InItems.index();
 
     /**
@@ -386,6 +388,22 @@ public class SoProdLocPriceImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setIntraCompanyProductid(String value) {
         setAttributeInternal(INTRACOMPANYPRODUCTID, value);
+    }
+
+    /**
+     * Gets the attribute value for LpDiscount, using the alias name LpDiscount.
+     * @return the value of LpDiscount
+     */
+    public BigDecimal getLpDiscount() {
+        return (BigDecimal) getAttributeInternal(LPDISCOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for LpDiscount.
+     * @param value value to set the LpDiscount
+     */
+    public void setLpDiscount(BigDecimal value) {
+        setAttributeInternal(LPDISCOUNT, value);
     }
 
     /**

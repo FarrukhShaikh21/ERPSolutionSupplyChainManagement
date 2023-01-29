@@ -251,6 +251,15 @@
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="LpDiscount"
+    Precision="16"
+    Scale="6"
+    ColumnName="LP_DISCOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SO_PROD_LOC_PRICE"/>
   <AccessorAttribute
     Name="InItems"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.InItemsSoProdLocPriceProductIdAssoc"
