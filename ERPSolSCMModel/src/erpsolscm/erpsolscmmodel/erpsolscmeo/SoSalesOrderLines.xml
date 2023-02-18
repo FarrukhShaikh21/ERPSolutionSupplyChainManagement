@@ -1061,7 +1061,7 @@
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[(DiscountAmountOc==null?0:DiscountAmountOc) - ((txtAddDiscountTotal==null?0:txtAddDiscountTotal) *(Quantity==null?0:Quantity))]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[(DiscountAmountOc==null?0:DiscountAmountOc) - ((txtAddDiscountTotal==null?0:txtAddDiscountTotal))]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Dependencies>
