@@ -549,46 +549,50 @@
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.format}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotSchemeSale.label}" id="c20">
+                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotSchemeSale.label}" id="c20"
+                                 width="80" displayIndex="-1">
                         <af:inputText value="#{row.bindings.TotSchemeSale.inputValue}"
                                       label="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotSchemeSale.label}"
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotSchemeSale.mandatory}"
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotSchemeSale.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotSchemeSale.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotSchemeSale.tooltip}"
-                                      id="it30">
+                                      id="it30" readOnly="true">
                           <f:validator binding="#{row.bindings.TotSchemeSale.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotSchemeSale.format}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotalGift.label}" id="c21">
+                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotalGift.label}" id="c21"
+                                 width="80">
                         <af:inputText value="#{row.bindings.TotalGift.inputValue}"
                                       label="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotalGift.label}"
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotalGift.mandatory}"
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotalGift.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotalGift.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotalGift.tooltip}"
-                                      id="it31">
+                                      id="it31" readOnly="true">
                           <f:validator binding="#{row.bindings.TotalGift.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotalGift.format}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftDelivered.label}" id="c22">
+                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftDelivered.label}" id="c22"
+                                 width="60" displayIndex="-1">
                         <af:inputText value="#{row.bindings.GiftDelivered.inputValue}"
                                       label="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftDelivered.label}"
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftDelivered.mandatory}"
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftDelivered.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftDelivered.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftDelivered.tooltip}"
-                                      id="it32">
+                                      id="it32" readOnly="true">
                           <f:validator binding="#{row.bindings.GiftDelivered.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftDelivered.format}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftRemaining.label}" id="c23">
+                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftRemaining.label}" id="c23"
+                                 width="60" displayIndex="-1">
                         <af:inputText value="#{row.bindings.GiftRemaining.inputValue}"
                                       label="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftRemaining.label}"
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftRemaining.mandatory}"
@@ -621,7 +625,7 @@
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.tooltip}"
-                                      id="it29">
+                                      id="it29" readOnly="true">
                           <f:validator binding="#{row.bindings.GiftQuantity.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.format}"/>
