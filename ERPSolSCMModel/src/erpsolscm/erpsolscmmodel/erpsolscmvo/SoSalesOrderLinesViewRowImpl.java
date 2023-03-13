@@ -135,7 +135,8 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
         AccVWItemOpeningQVO,
         AccVwFuncGetItemRateByLocDate,
         AccVwFuncGetItemDiscountByLocDate,
-        AccVwFuncGetItemAdditionalDiscountQVO;
+        AccVwFuncGetItemAdditionalDiscountQVO,
+        AccVwFuncGetSaleSchemeGiftsQVO;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -267,6 +268,7 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
         AttributesEnum.AccVwFuncGetItemDiscountByLocDate.index();
     public static final int ACCVWFUNCGETITEMADDITIONALDISCOUNTQVO =
         AttributesEnum.AccVwFuncGetItemAdditionalDiscountQVO.index();
+    public static final int ACCVWFUNCGETSALESCHEMEGIFTSQVO = AttributesEnum.AccVwFuncGetSaleSchemeGiftsQVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1961,6 +1963,13 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      */
     public RowSet getAccVwFuncGetItemAdditionalDiscountQVO() {
         return (RowSet) getAttributeInternal(ACCVWFUNCGETITEMADDITIONALDISCOUNTQVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncGetSaleSchemeGiftsQVO.
+     */
+    public RowSet getAccVwFuncGetSaleSchemeGiftsQVO() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCGETSALESCHEMEGIFTSQVO);
     }
 
     @Override

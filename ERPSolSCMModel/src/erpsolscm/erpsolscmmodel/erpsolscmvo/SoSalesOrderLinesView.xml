@@ -60,6 +60,10 @@
     Name="AccVwFuncGetItemAdditionalDiscountQVO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetItemAdditionalDiscountQVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwFuncGetSaleSchemeGiftsQVO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncGetSaleSchemeGiftsQVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovtxtModelNo"
     ListVOName="AccInItemsView"

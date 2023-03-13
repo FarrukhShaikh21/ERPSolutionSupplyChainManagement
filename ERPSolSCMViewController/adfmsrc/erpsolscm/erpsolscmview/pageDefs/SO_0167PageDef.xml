@@ -111,6 +111,12 @@
           <Item Value="txtAddDiscountTotal"/>
           <Item Value="DefaultDiscAmount"/>
           <Item Value="txtDefaultDiscountAmount"/>
+          <Item Value="SoQuantity"/>
+          <Item Value="GiftQuantity"/>
+          <Item Value="TotSchemeSale"/>
+          <Item Value="TotalGift"/>
+          <Item Value="GiftDelivered"/>
+          <Item Value="GiftRemaining"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
