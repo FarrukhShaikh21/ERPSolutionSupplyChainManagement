@@ -1231,6 +1231,22 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      */
     public void setGiftQuantity(BigDecimal value) {
         setAttributeInternal(GIFTQUANTITY, value);
+        try {
+            value = value.multiply(new BigDecimal(1));
+        } catch (Exception e) {
+            // TODO: Add catch code
+            value=new BigDecimal(0);
+        }
+        BigDecimal bd=new BigDecimal(0);
+        try {
+            bd=getSoQuantity().multiply(new BigDecimal(1));
+       } catch (Exception e) {
+            // TODO: Add catch code
+            bd=new BigDecimal(0);
+        }
+        
+        setQuantity(bd.add(value));     
+     
     }
 
     /**
@@ -1247,6 +1263,7 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      */
     public void setSoQuantity(BigDecimal value) {
         setAttributeInternal(SOQUANTITY, value);
+        setGiftQuantity(new BigDecimal(0));
     }
 
     /**
