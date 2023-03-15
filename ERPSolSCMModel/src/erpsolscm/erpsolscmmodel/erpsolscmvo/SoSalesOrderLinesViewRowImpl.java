@@ -1264,6 +1264,17 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
     public void setSoQuantity(BigDecimal value) {
         setAttributeInternal(SOQUANTITY, value);
         setGiftQuantity(new BigDecimal(0));
+        getAccVwFuncGetSaleSchemeGiftsQVO().setNamedWhereClauseParam("P_ADF_CONFIRM_DATE", getSoSalesOrderView().getAttribute("ConfirmDate"));
+        getAccVwFuncGetSaleSchemeGiftsQVO().setNamedWhereClauseParam("P_ADF_CUSTOMERID", getSoSalesOrderView().getAttribute("Customerid"));
+        getAccVwFuncGetSaleSchemeGiftsQVO().setNamedWhereClauseParam("P_ADF_PRODUCTID", getProductid());
+        getAccVwFuncGetSaleSchemeGiftsQVO().setNamedWhereClauseParam("P_ADF_QUANTITY", value);
+        getAccVwFuncGetSaleSchemeGiftsQVO().executeQuery();
+        setTotSchemeSale(new BigDecimal( getAccVwFuncGetSaleSchemeGiftsQVO().first().getAttribute("TotalSchemeSales").toString()));
+        setTotalGift(new BigDecimal( getAccVwFuncGetSaleSchemeGiftsQVO().first().getAttribute("TotalGifts").toString()));
+        setGiftDelivered(new BigDecimal( getAccVwFuncGetSaleSchemeGiftsQVO().first().getAttribute("DeliveredGifts").toString()));
+        setGiftRemaining(new BigDecimal( getAccVwFuncGetSaleSchemeGiftsQVO().first().getAttribute("RemainingGifts").toString()));
+        
+        
     }
 
     /**

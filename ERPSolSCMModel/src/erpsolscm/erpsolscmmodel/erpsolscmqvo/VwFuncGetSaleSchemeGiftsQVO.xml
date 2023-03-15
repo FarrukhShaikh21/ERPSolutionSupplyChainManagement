@@ -23,10 +23,6 @@
     Kind="where"
     Type="oracle.jbo.domain.Date"/>
   <Variable
-    Name="P_ADF_LOCATIONID"
-    Kind="where"
-    Type="java.lang.String"/>
-  <Variable
     Name="P_ADF_PRODUCTID"
     Kind="where"
     Type="java.lang.String"/>
@@ -34,12 +30,16 @@
     Name="P_ADF_QUANTITY"
     Kind="where"
     Type="java.lang.Integer"/>
-  <SQLQuery><![CDATA[SELECT 1 AS PK, SUBSTR(GIFT_STR,1,INSTR(GIFT_STR,',',1)-1) TOTAL_SCHEME_SALES, 
-       SUBSTR(GIFT_STR,INSTR2(GIFT_STR,',',1)+1,INSTR2(GIFT_STR,',',2)-1) TOTAL_GIFTS, 
-       SUBSTR(GIFT_STR,INSTR2(GIFT_STR,',',1,2)+1,INSTR2(GIFT_STR,',',1,3)-INSTR2(GIFT_STR,',',1,2)-1) DELIVERED_GIFTS, 
-       SUBSTR(GIFT_STR,INSTR2(GIFT_STR,',',1,3)+1) REMAINING_GIFTS 
- FROM ( 
-select PKG_SALE_ORDER.FUNC_GET_SALE_ORDER_GIFT(:P_ADF_CONFIRM_DATE,:P_ADF_LOCATIONID,:P_ADF_PRODUCTID,:P_ADF_QUANTITY) GIFT_STR 
+  <Variable
+    Name="P_ADF_CUSTOMERID"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery><![CDATA[SELECT 1 AS PK, SUBSTR(GIFT_STR,1,INSTR(GIFT_STR,',',1)-1) TOTAL_SCHEME_SALES,   
+       SUBSTR(GIFT_STR,INSTR2(GIFT_STR,',',1)+1,INSTR2(GIFT_STR,',',2)-1) TOTAL_GIFTS,   
+       SUBSTR(GIFT_STR,INSTR2(GIFT_STR,',',1,2)+1,INSTR2(GIFT_STR,',',1,3)-INSTR2(GIFT_STR,',',1,2)-1) DELIVERED_GIFTS,   
+       SUBSTR(GIFT_STR,INSTR2(GIFT_STR,',',1,3)+1) REMAINING_GIFTS   
+ FROM (   
+select PKG_SALE_ORDER.FUNC_GET_SALE_ORDER_GIFT(:P_ADF_CONFIRM_DATE,:P_ADF_CUSTOMERID,:P_ADF_PRODUCTID,:P_ADF_QUANTITY) GIFT_STR   
 from dual)]]></SQLQuery>
   <ViewAttribute
     Name="Pk"
@@ -50,7 +50,7 @@ from dual)]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="PK"
     Expression="PK"
-    SQLType="NUMERIC">
+    SQLType="INTEGER">
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
