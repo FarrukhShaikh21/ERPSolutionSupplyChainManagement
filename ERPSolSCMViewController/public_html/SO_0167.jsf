@@ -549,7 +549,8 @@
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.CurrQty.format}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.SoQuantity.label}" id="c18">
+                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.SoQuantity.label}" id="c18"
+                                 rendered="false">
                         <af:inputText value="#{row.bindings.SoQuantity.inputValue}"
                                       label="#{bindings.SoSalesOrderLinesDetCRUD.hints.SoQuantity.label}"
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.SoQuantity.mandatory}"
@@ -563,7 +564,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotSchemeSale.label}" id="c20"
-                                 width="80" displayIndex="-1">
+                                 width="80" displayIndex="-1" rendered="false">
                         <af:inputText value="#{row.bindings.TotSchemeSale.inputValue}"
                                       label="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotSchemeSale.label}"
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotSchemeSale.mandatory}"
@@ -577,7 +578,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotalGift.label}" id="c21"
-                                 width="80">
+                                 width="80" rendered="false">
                         <af:inputText value="#{row.bindings.TotalGift.inputValue}"
                                       label="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotalGift.label}"
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.TotalGift.mandatory}"
@@ -591,7 +592,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftDelivered.label}" id="c22"
-                                 width="60" displayIndex="-1">
+                                 width="60" displayIndex="-1" rendered="false">
                         <af:inputText value="#{row.bindings.GiftDelivered.inputValue}"
                                       label="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftDelivered.label}"
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftDelivered.mandatory}"
@@ -605,7 +606,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftRemaining.label}" id="c23"
-                                 width="60" displayIndex="-1">
+                                 width="60" displayIndex="-1" rendered="false">
                         <af:inputText value="#{row.bindings.GiftRemaining.inputValue}"
                                       label="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftRemaining.label}"
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftRemaining.mandatory}"
@@ -618,7 +619,8 @@
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftRemaining.format}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.label}" id="c19">
+                      <af:column headerText="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.label}" id="c19"
+                                 rendered="false">
                         <af:inputText value="#{row.bindings.GiftQuantity.inputValue}"
                                       label="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.label}"
                                       required="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.mandatory}"
@@ -640,7 +642,7 @@
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.tooltip}" id="it11"
-                                      autoSubmit="true" partialTriggers="it28 it29" readOnly="true">
+                                      autoSubmit="true" partialTriggers="it28 it29">
                           <f:validator binding="#{row.bindings.Quantity.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.Quantity.format}"/>

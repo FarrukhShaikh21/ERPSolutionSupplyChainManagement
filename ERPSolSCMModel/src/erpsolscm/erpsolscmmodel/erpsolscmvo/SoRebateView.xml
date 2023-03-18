@@ -28,10 +28,17 @@
     <ViewCriteriaUsage
       Name="AllCustomersViewByLocationVC"
       FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView.AllCustomersViewByLocationVC"/>
+    <ViewCriteriaUsage
+      Name="AllCustomersViewByUserVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView.AllCustomersViewByUserVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_LOCATIONID">
         <TransientExpression
           trustMode="untrusted"><![CDATA[Locationid==null?"-1":Locationid]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_USERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetUserCode()]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>

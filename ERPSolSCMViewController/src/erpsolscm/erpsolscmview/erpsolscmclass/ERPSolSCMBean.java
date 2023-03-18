@@ -179,7 +179,7 @@ public class ERPSolSCMBean {
         System.out.println(ERPLocid);//ERPSolGlobalViewBean.
         System.out.println("myname");
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "AllCustomersAutoSuggestRO",
-                                                            "LOCATIONID='"+ERPLocid.getInputValue()+"' AND UPPER(CONCAT(CUSTOMERID,CUSTOMER_NAME))", "CustomerName", "Customerid", 10,"ERPSolSCMAppModuleDataControl");
+                                                            "LOCATIONID='"+ERPLocid.getInputValue()+"' AND EXISTS(SELECT NULL FROM SYS_USER_CUSTOMER SUC WHERE SUC.CUSTOMERID=AllCustomers.CUSTOMERID  AND SUC.USERID='"+ERPSolGlobClassModel.doGetUserCode()+"')  AND UPPER(CONCAT(CUSTOMERID,CUSTOMER_NAME))", "CustomerName", "Customerid", 10,"ERPSolSCMAppModuleDataControl");
         return ResultList;
         
     }   
