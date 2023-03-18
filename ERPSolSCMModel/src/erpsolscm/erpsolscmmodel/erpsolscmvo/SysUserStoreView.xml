@@ -66,4 +66,10 @@
     EntityAttrName="ModifiedDate"
     EntityUsage="SysUserStore"
     AliasName="MODIFIED_DATE"/>
+  <ViewLinkAccessor
+    Name="AllStoresView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresSysUserStoresStoreIdVL"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

@@ -449,4 +449,9 @@
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.AllStoresSoSalesReturnMemoStoreIdLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SysUserStoreView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresSysUserStoresStoreIdVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

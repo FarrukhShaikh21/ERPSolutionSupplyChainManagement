@@ -606,6 +606,13 @@
     AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmassoc.AllStoresSoSalesReturnMemoStoreIdAssoc.AllStores"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SysUserStore"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmeo.AllStoresSysUserStoresStoreIdAsso"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmeo.AllStoresSysUserStoresStoreIdAsso.SysUserStore"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmeo.AllStoresSysUserStoresStoreIdAsso.AllStores"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="XpkallStores"
     PrimaryKey="true">

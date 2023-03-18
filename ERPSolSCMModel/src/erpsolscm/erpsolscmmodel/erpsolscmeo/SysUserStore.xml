@@ -100,6 +100,13 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="SYS_USER_STORE"/>
+  <AccessorAttribute
+    Name="AllStores"
+    Association="erpsolscm.erpsolscmmodel.erpsolscmeo.AllStoresSysUserStoresStoreIdAsso"
+    AssociationEnd="erpsolscm.erpsolscmmodel.erpsolscmeo.AllStoresSysUserStoresStoreIdAsso.AllStores"
+    AssociationOtherEnd="erpsolscm.erpsolscmmodel.erpsolscmeo.AllStoresSysUserStoresStoreIdAsso.SysUserStore"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="SysC0022831"
     PrimaryKey="true">
@@ -109,6 +116,17 @@
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysUserStore.Storeid"/>
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysUserStore.Userid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_SysUserStore">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XPKALL_STORES"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_SYS_USER_STORE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysUserStore.Storeid"/>
     </AttrArray>
   </Key>
 </Entity>
