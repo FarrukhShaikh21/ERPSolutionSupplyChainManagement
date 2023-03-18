@@ -17,6 +17,10 @@
     Name="P_ADF_LOCATION_ID"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_USERID"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="AllStores"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.AllStores"/>
@@ -422,6 +426,67 @@
         Operator="CONTAINS"
         Conjunction="AND"
         Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="AllStoresViewUserWiseVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllStoresView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="AllStoresViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SysUserStoreView"
+        ViewAttribute="SysUserStoreView"
+        Operator="EXISTS"
+        Conjunction="AND"
+        Required="Optional"
+        IsNestedCriteria="true">
+        <ViewCriteria
+          Name="SysUserStoreViewNestedCriteria"
+          ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SysUserStoreView"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="SysUserStoreViewNestedCriteria_row_0"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="Userid"
+              ViewAttribute="Userid"
+              Operator="="
+              Conjunction="AND"
+              Value=":P_ADF_USERID"
+              IsBindVarValue="true"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="SysUserStoreViewNestedCriteria_SysUserStoreViewNestedCriteria_row_0_Acess"
+              ViewAttribute="Acess"
+              Operator="="
+              Conjunction="AND"
+              Value="Y"
+              UpperColumns="0"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor

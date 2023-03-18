@@ -160,7 +160,7 @@ public class ERPSolSCMBean {
         System.out.println("d");
         System.out.println(ERPLocid.getInputValue());//ERPSolGlobalViewBean.
         ResultList= ERPSolGlobalViewBean.doERPSolGetAutoSuggestedValues(pStringValues, "AllStoresAutoSuggestRO",
-                                                            "LOCATIONID='"+ERPLocid.getInputValue()+"' AND UPPER(CONCAT(STOREID,STORE_NAME))", "StoreName", "Storeid", 10,"ERPSolSCMAppModuleDataControl");
+                                                            "LOCATIONID='"+ERPLocid.getInputValue()+"' AND EXISTS(SELECT NULL FROM SYS_USER_STORE SUS WHERE SUS.STOREID=AllStores.STOREID AND SUS.ACESS='Y' AND SUS.USERID='"+ERPSolGlobClassModel.doGetUserCode()+"') AND UPPER(CONCAT(STOREID,STORE_NAME))", "StoreName", "Storeid", 10,"ERPSolSCMAppModuleDataControl");
         return ResultList;
         
     }
