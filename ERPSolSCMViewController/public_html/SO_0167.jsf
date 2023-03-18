@@ -625,7 +625,8 @@
                                       columns="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.tooltip}"
-                                      id="it29" partialTriggers="it28" autoSubmit="true">
+                                      id="it29" partialTriggers="it28" autoSubmit="true"
+                                      readOnly="#{row.bindings.GiftRemaining.inputValue==0}">
                           <f:validator binding="#{row.bindings.GiftQuantity.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesDetCRUD.hints.GiftQuantity.format}"/>
