@@ -58,6 +58,7 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
         txtSalesPersonName,
         txtCustomerName,
         txtErrorMessage,
+        Divid,
         SoRebateDetail,
         SoRebateImei,
         AllCustomers,
@@ -121,6 +122,7 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
     public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
     public static final int TXTCUSTOMERNAME = AttributesEnum.txtCustomerName.index();
     public static final int TXTERRORMESSAGE = AttributesEnum.txtErrorMessage.index();
+    public static final int DIVID = AttributesEnum.Divid.index();
     public static final int SOREBATEDETAIL = AttributesEnum.SoRebateDetail.index();
     public static final int SOREBATEIMEI = AttributesEnum.SoRebateImei.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
@@ -656,6 +658,22 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for Divid, using the alias name Divid.
+     * @return the value of Divid
+     */
+    public String getDivid() {
+        return (String) getAttributeInternal(DIVID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Divid.
+     * @param value value to set the Divid
+     */
+    public void setDivid(String value) {
+        setAttributeInternal(DIVID, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getSoRebateDetail() {
@@ -673,14 +691,14 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
     /**
      * @return the associated entity oracle.jbo.server.EntityImpl.
      */
-    public EntityImpl getAllCustomers() {
-        return (EntityImpl) getAttributeInternal(ALLCUSTOMERS);
+    public AllCustomersImpl getAllCustomers() {
+        return (AllCustomersImpl) getAttributeInternal(ALLCUSTOMERS);
     }
 
     /**
      * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
      */
-    public void setAllCustomers(EntityImpl value) {
+    public void setAllCustomers(AllCustomersImpl value) {
         setAttributeInternal(ALLCUSTOMERS, value);
     }
 
@@ -688,14 +706,14 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
     /**
      * @return the associated entity oracle.jbo.server.EntityImpl.
      */
-    public EntityImpl getSoSalesPersons() {
-        return (EntityImpl) getAttributeInternal(SOSALESPERSONS);
+    public SoSalesPersonsImpl getSoSalesPersons() {
+        return (SoSalesPersonsImpl) getAttributeInternal(SOSALESPERSONS);
     }
 
     /**
      * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
      */
-    public void setSoSalesPersons(EntityImpl value) {
+    public void setSoSalesPersons(SoSalesPersonsImpl value) {
         setAttributeInternal(SOSALESPERSONS, value);
     }
 
@@ -736,6 +754,7 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
     public RowSet getAccVwFuncUserBackDateAllowed() {
         return (RowSet) getAttributeInternal(ACCVWFUNCUSERBACKDATEALLOWED);
     }
+
 
     /**
      * @param rebateseq key constituent

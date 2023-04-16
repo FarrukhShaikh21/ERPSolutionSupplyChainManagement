@@ -17,6 +17,7 @@ import oracle.jbo.server.ViewRowImpl;
 // ---------------------------------------------------------------------
 public class SoRebateViewRowImpl extends ViewRowImpl {
 
+
     public static final int ENTITY_SOREBATE = 0;
 
     /**
@@ -55,6 +56,7 @@ public class SoRebateViewRowImpl extends ViewRowImpl {
         txtStoreName,
         txtSupplierName,
         txtRebateImei,
+        Divid,
         SoRebateDetailView,
         SoRebateImeiView,
         AllCustomersView,
@@ -66,7 +68,9 @@ public class SoRebateViewRowImpl extends ViewRowImpl {
         AccAllStoresView,
         AccPuSuppliersView,
         AccSretCategoryView,
-        AccVWYesNoQVO;
+        AccVWYesNoQVO,
+        AccAllCustomerSalespersonPid,
+        AccSoSalesPersonsDefView;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -90,6 +94,7 @@ public class SoRebateViewRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
 
     public static final int REBATEID = AttributesEnum.RebateId.index();
     public static final int LOCATIONID = AttributesEnum.Locationid.index();
@@ -123,6 +128,7 @@ public class SoRebateViewRowImpl extends ViewRowImpl {
     public static final int TXTSTORENAME = AttributesEnum.txtStoreName.index();
     public static final int TXTSUPPLIERNAME = AttributesEnum.txtSupplierName.index();
     public static final int TXTREBATEIMEI = AttributesEnum.txtRebateImei.index();
+    public static final int DIVID = AttributesEnum.Divid.index();
     public static final int SOREBATEDETAILVIEW = AttributesEnum.SoRebateDetailView.index();
     public static final int SOREBATEIMEIVIEW = AttributesEnum.SoRebateImeiView.index();
     public static final int ALLCUSTOMERSVIEW = AttributesEnum.AllCustomersView.index();
@@ -135,6 +141,8 @@ public class SoRebateViewRowImpl extends ViewRowImpl {
     public static final int ACCPUSUPPLIERSVIEW = AttributesEnum.AccPuSuppliersView.index();
     public static final int ACCSRETCATEGORYVIEW = AttributesEnum.AccSretCategoryView.index();
     public static final int ACCVWYESNOQVO = AttributesEnum.AccVWYesNoQVO.index();
+    public static final int ACCALLCUSTOMERSALESPERSONPID = AttributesEnum.AccAllCustomerSalespersonPid.index();
+    public static final int ACCSOSALESPERSONSDEFVIEW = AttributesEnum.AccSoSalesPersonsDefView.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -308,6 +316,15 @@ public class SoRebateViewRowImpl extends ViewRowImpl {
      */
     public void setCustomerid(String value) {
         setAttributeInternal(CUSTOMERID, value);
+        try {
+            getAccSoSalesPersonsDefView().setNamedWhereClauseParam("P_ADF_CUSTOMERID", (value==null?"-":value));
+            getAccSoSalesPersonsDefView().executeQuery();
+            setSalespersonid(getAccSoSalesPersonsDefView().first().getAttribute("Salespersonid").toString());
+        } catch (Exception e) {
+            setSalespersonid(null);
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -372,6 +389,12 @@ public class SoRebateViewRowImpl extends ViewRowImpl {
      */
     public void setSalespersonid(String value) {
         setAttributeInternal(SALESPERSONID, value);
+        getAccAllCustomerSalespersonPid().setNamedWhereClauseParam("P_ADF_CUSTOMERID", getCustomerid());
+        getAccAllCustomerSalespersonPid().setNamedWhereClauseParam("P_ADF_SALESPERSONID", value);
+        getAccAllCustomerSalespersonPid().executeQuery();
+        setDivid(getAccAllCustomerSalespersonPid().first().getAttribute("Divid").toString());        
+        
+        
     }
 
     /**
@@ -663,6 +686,22 @@ public class SoRebateViewRowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for DIVID using the alias name Divid.
+     * @return the DIVID
+     */
+    public String getDivid() {
+        return (String) getAttributeInternal(DIVID);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIVID using the alias name Divid.
+     * @param value value to set the DIVID
+     */
+    public void setDivid(String value) {
+        setAttributeInternal(DIVID, value);
+    }
+
+    /**
      * Gets the associated <code>RowIterator</code> using master-detail link SoRebateDetailView.
      */
     public RowIterator getSoRebateDetailView() {
@@ -772,6 +811,20 @@ public class SoRebateViewRowImpl extends ViewRowImpl {
      */
     public RowSet getAccVWYesNoQVO() {
         return (RowSet) getAttributeInternal(ACCVWYESNOQVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccAllCustomerSalespersonPid.
+     */
+    public RowSet getAccAllCustomerSalespersonPid() {
+        return (RowSet) getAttributeInternal(ACCALLCUSTOMERSALESPERSONPID);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccSoSalesPersonsDefView.
+     */
+    public RowSet getAccSoSalesPersonsDefView() {
+        return (RowSet) getAttributeInternal(ACCSOSALESPERSONSDEFVIEW);
     }
 
     @Override

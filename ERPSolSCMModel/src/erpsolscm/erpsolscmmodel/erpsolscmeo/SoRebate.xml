@@ -531,6 +531,14 @@ return true;]]></validation:TransientExpression>
     ColumnType="VARCHAR2"
     IsPersistent="false"
     IsQueriable="false"/>
+  <Attribute
+    Name="Divid"
+    Precision="5"
+    ColumnName="DIVID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SO_REBATE"/>
   <AccessorAttribute
     Name="SoRebateDetail"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.FkSoRebatDetRebateseqAssoc"
