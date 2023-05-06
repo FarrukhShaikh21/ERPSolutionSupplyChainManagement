@@ -62,7 +62,20 @@ SELECT  SR.SALESRETID as DOCUMENT_ID,
 FROM    SO_SALES_RETURN SR          
 WHERE   SR.POSTED='Y'          
 AND     SR.LOCATIONID=:P_ADF_LOCATIONID        
-AND     :P_ADF_DOCTYPEID='SRET'       
+AND     :P_ADF_DOCTYPEID='SRET'
+UNION ALL
+SELECT  REB.REBATE_ID as DOCUMENT_ID,          
+        REB.RDATE,          
+        CUSTNAME(REB.CUSTOMERID) CUSTOMER_NAME,          
+        'SRET' DOC_TYPE_ID,          
+        REB.LOCATIONID   ,     
+        CUSTNAME(REB.CUSTOMERID)||' '|| to_char(REB.RDATE,'dd/mm/rrrr') DESCRIPTION     
+FROM    SO_REBATE REB,
+        SYS_PROGRAM SP          
+WHERE   REB.POSTED='Y'          
+AND     SP.DOCTYPEID  IN('SREB','SRIMEI')   
+AND     REB.LOCATIONID=:P_ADF_LOCATIONID 
+AND     :P_ADF_DOCTYPEID IN('SREB','SRIMEI')
 ORDER BY 2 DESC,1 DESC]]></SQLQuery>
   <ViewAttribute
     Name="DocumentId"
