@@ -353,9 +353,25 @@
                           </af:inputComboboxListOfValues>
                         </af:gridCell>
                         <af:gridCell width="15%" id="gc24" halign="center" valign="middle">
-                          <af:outputLabel value="#{bindings.Address.hints.label}" id="ol2"/>
+                          <af:outputLabel value="#{bindings.NtnRegistrationNo.hints.label}" id="ol2"/>
                         </af:gridCell>
                         <af:gridCell width="35%" id="gc25" columnSpan="3" rowSpan="1" halign="stretch">
+                          <af:inputText value="#{bindings.NtnRegistrationNo.inputValue}"
+                                        label="#{bindings.NtnRegistrationNo.hints.label}"
+                                        required="#{bindings.NtnRegistrationNo.hints.mandatory}"
+                                        columns="#{bindings.NtnRegistrationNo.hints.displayWidth}"
+                                        maximumLength="#{bindings.NtnRegistrationNo.hints.precision}"
+                                        shortDesc="#{bindings.NtnRegistrationNo.hints.tooltip}" id="it20" simple="true"
+                                        contentStyle="width:50%">
+                            <f:validator binding="#{bindings.NtnRegistrationNo.validator}"/>
+                          </af:inputText>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow id="gr11">
+                        <af:gridCell id="gc45" width="15%" halign="center" valign="middle">
+                          <af:outputLabel value="#{bindings.Address.hints.label}" id="ol19"/>
+                        </af:gridCell>
+                        <af:gridCell id="gc46" columnSpan="3" halign="stretch" width="85%" rowSpan="1">
                           <af:inputText value="#{bindings.Address.inputValue}" label="#{bindings.Address.hints.label}"
                                         required="#{bindings.Address.hints.mandatory}"
                                         columns="#{bindings.Address.hints.displayWidth}"

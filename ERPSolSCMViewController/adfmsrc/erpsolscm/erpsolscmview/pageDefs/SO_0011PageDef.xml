@@ -139,5 +139,10 @@
             Action="createInsertRow"/>
     <action IterBinding="AllCustomersSalePersonClDetCRUDIterator" id="Delete2" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="NtnRegistrationNo">
+      <AttrNames>
+        <Item Value="NtnRegistrationNo"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
