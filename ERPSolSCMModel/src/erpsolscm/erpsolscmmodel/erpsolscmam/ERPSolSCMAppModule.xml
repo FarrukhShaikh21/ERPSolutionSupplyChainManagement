@@ -129,6 +129,13 @@
   <ViewUsage
     Name="VwImeiTransactionHistoryRO"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwImeiTransactionHistoryQVO"/>
+  <ViewUsage
+    Name="ItemImeiUploadRO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.ItemImeiUploadView">
+    <ViewCriteriaUsage
+      Name="ItemImeiUploadViewByFindVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.ItemImeiUploadView.ItemImeiUploadViewByFindVC"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"

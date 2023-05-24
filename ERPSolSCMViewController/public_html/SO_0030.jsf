@@ -27,8 +27,8 @@
                                           rowSelection="single" fetchSize="#{bindings.ItemImeiUploadRO.rangeSize}"
                                           filterModel="#{bindings.ItemImeiUploadROQuery.queryDescriptor}"
                                           queryListener="#{bindings.ItemImeiUploadROQuery.processQuery}"
-                                          filterVisible="true" varStatus="vs" id="t1" partialTriggers="::b1 :::b1"
-                                          columnStretching="column:c1">
+                                          filterVisible="true" varStatus="vs" id="t1" partialTriggers=":::b1"
+                                          columnStretching="column:c1" autoHeightRows="15" scrollPolicy="page">
                                     <af:column sortProperty="#{bindings.ItemImeiUploadRO.hints.ItemRefId.name}"
                                                filterable="true"
                                                headerText="#{bindings.ItemImeiUploadRO.hints.ItemRefId.label}" id="c1"
