@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0030PageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="ERPSolSCMAppModuleDataControl" Binds="ItemImeiUploadRO.variablesMap.P_ADF_IMEI"
+                     Name="ExecuteWithParams_P_ADF_IMEI" IsQueriable="false"/>
+    </variableIterator>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="ItemImeiUploadRO" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="ItemImeiUploadROIterator"/>
+    <searchRegion Binds="ItemImeiUploadROIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ItemImeiUploadROQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ItemImeiUploadROIterator" id="ItemImeiUploadRO">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.ItemImeiUploadView" Name="ItemImeiUploadRO0">
+        <AttrNames>
+          <Item Value="ItemRefId"/>
+          <Item Value="Sno"/>
+          <Item Value="Color"/>
+          <Item Value="Imei1"/>
+          <Item Value="Imei2"/>
+          <Item Value="Imei3"/>
+          <Item Value="Imei4"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ItemImeiUploadROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="P_ADF_IMEI" NDType="java.lang.String" NDValue="${bindings.ExecuteWithParams_P_ADF_IMEI}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="P_ADF_IMEI">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_P_ADF_IMEI"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

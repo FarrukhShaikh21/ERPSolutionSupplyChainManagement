@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ItemImeiUpload"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="ITEM_IMEI_UPLOAD"
+  AliasName="ItemImeiUpload"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="ItemRefId"
+    Precision="15"
+    ColumnName="ITEM_REF_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ITEM_IMEI_UPLOAD"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Sno"
+    Precision="35"
+    ColumnName="SNO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ITEM_IMEI_UPLOAD"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="35"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Imei1"
+    Precision="15"
+    ColumnName="IMEI_1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ITEM_IMEI_UPLOAD"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Imei2"
+    Precision="15"
+    ColumnName="IMEI_2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ITEM_IMEI_UPLOAD"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Color"
+    Precision="30"
+    ColumnName="COLOR"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ITEM_IMEI_UPLOAD"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Imei3"
+    Precision="15"
+    ColumnName="IMEI_3"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ITEM_IMEI_UPLOAD"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Imei4"
+    Precision="15"
+    ColumnName="IMEI_4"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ITEM_IMEI_UPLOAD"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="ItemimeiuploadPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ITEMIMEIUPLOAD_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.ItemImeiUpload.ItemRefId"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.ItemImeiUpload.Sno"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.ItemImeiUpload.Imei1"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.ItemImeiUpload.Imei2"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.ItemImeiUpload.Color"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.ItemImeiUpload.Imei3"/>
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.ItemImeiUpload.Imei4"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="SO_0030.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="erptempmain">
+                    <af:decorativeBox id="db1">
+                        <f:facet name="center">
+                            <af:panelCollection id="pc1" featuresOff="detach viewMenu">
+                                <f:facet name="menus"/>
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t2">
+                                        <af:button text="Excel" id="b2">
+                                            <af:exportCollectionActionListener type="excelHTML" exportedId="t1"/>
+                                        </af:button>
+                                    </af:toolbar>
+                                </f:facet>
+                                <f:facet name="statusbar"/>
+                                <af:table value="#{bindings.ItemImeiUploadRO.collectionModel}" var="row"
+                                          rows="#{bindings.ItemImeiUploadRO.rangeSize}"
+                                          emptyText="#{bindings.ItemImeiUploadRO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.ItemImeiUploadRO.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.ItemImeiUploadRO.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.ItemImeiUploadRO.rangeSize}"
+                                          filterModel="#{bindings.ItemImeiUploadROQuery.queryDescriptor}"
+                                          queryListener="#{bindings.ItemImeiUploadROQuery.processQuery}"
+                                          filterVisible="true" varStatus="vs" id="t1" partialTriggers="::b1 :::b1"
+                                          columnStretching="column:c1">
+                                    <af:column sortProperty="#{bindings.ItemImeiUploadRO.hints.ItemRefId.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.ItemImeiUploadRO.hints.ItemRefId.label}" id="c1"
+                                               width="150">
+                                        <af:inputText value="#{row.bindings.ItemRefId.inputValue}"
+                                                      label="#{bindings.ItemImeiUploadRO.hints.ItemRefId.label}"
+                                                      required="#{bindings.ItemImeiUploadRO.hints.ItemRefId.mandatory}"
+                                                      columns="#{bindings.ItemImeiUploadRO.hints.ItemRefId.displayWidth}"
+                                                      maximumLength="#{bindings.ItemImeiUploadRO.hints.ItemRefId.precision}"
+                                                      shortDesc="#{bindings.ItemImeiUploadRO.hints.ItemRefId.tooltip}"
+                                                      id="it1" readOnly="true">
+                                            <f:validator binding="#{row.bindings.ItemRefId.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemImeiUploadRO.hints.Sno.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.ItemImeiUploadRO.hints.Sno.label}" id="c2">
+                                        <af:inputText value="#{row.bindings.Sno.inputValue}"
+                                                      label="#{bindings.ItemImeiUploadRO.hints.Sno.label}"
+                                                      required="#{bindings.ItemImeiUploadRO.hints.Sno.mandatory}"
+                                                      columns="#{bindings.ItemImeiUploadRO.hints.Sno.displayWidth}"
+                                                      maximumLength="#{bindings.ItemImeiUploadRO.hints.Sno.precision}"
+                                                      shortDesc="#{bindings.ItemImeiUploadRO.hints.Sno.tooltip}"
+                                                      id="it2" readOnly="true">
+                                            <f:validator binding="#{row.bindings.Sno.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemImeiUploadRO.hints.Color.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.ItemImeiUploadRO.hints.Color.label}" id="c3">
+                                        <af:inputText value="#{row.bindings.Color.inputValue}"
+                                                      label="#{bindings.ItemImeiUploadRO.hints.Color.label}"
+                                                      required="#{bindings.ItemImeiUploadRO.hints.Color.mandatory}"
+                                                      columns="#{bindings.ItemImeiUploadRO.hints.Color.displayWidth}"
+                                                      maximumLength="#{bindings.ItemImeiUploadRO.hints.Color.precision}"
+                                                      shortDesc="#{bindings.ItemImeiUploadRO.hints.Color.tooltip}"
+                                                      id="it3" readOnly="true">
+                                            <f:validator binding="#{row.bindings.Color.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemImeiUploadRO.hints.Imei1.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.ItemImeiUploadRO.hints.Imei1.label}" id="c4"
+                                               width="150" displayIndex="-1">
+                                        <af:inputText value="#{row.bindings.Imei1.inputValue}"
+                                                      label="#{bindings.ItemImeiUploadRO.hints.Imei1.label}"
+                                                      required="#{bindings.ItemImeiUploadRO.hints.Imei1.mandatory}"
+                                                      columns="#{bindings.ItemImeiUploadRO.hints.Imei1.displayWidth}"
+                                                      maximumLength="#{bindings.ItemImeiUploadRO.hints.Imei1.precision}"
+                                                      shortDesc="#{bindings.ItemImeiUploadRO.hints.Imei1.tooltip}"
+                                                      id="it4" readOnly="true">
+                                            <f:validator binding="#{row.bindings.Imei1.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemImeiUploadRO.hints.Imei2.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.ItemImeiUploadRO.hints.Imei2.label}" id="c5"
+                                               width="150" displayIndex="-1">
+                                        <af:inputText value="#{row.bindings.Imei2.inputValue}"
+                                                      label="#{bindings.ItemImeiUploadRO.hints.Imei2.label}"
+                                                      required="#{bindings.ItemImeiUploadRO.hints.Imei2.mandatory}"
+                                                      columns="#{bindings.ItemImeiUploadRO.hints.Imei2.displayWidth}"
+                                                      maximumLength="#{bindings.ItemImeiUploadRO.hints.Imei2.precision}"
+                                                      shortDesc="#{bindings.ItemImeiUploadRO.hints.Imei2.tooltip}"
+                                                      id="it5" readOnly="true">
+                                            <f:validator binding="#{row.bindings.Imei2.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemImeiUploadRO.hints.Imei3.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.ItemImeiUploadRO.hints.Imei3.label}" id="c6"
+                                               width="150" displayIndex="-1">
+                                        <af:inputText value="#{row.bindings.Imei3.inputValue}"
+                                                      label="#{bindings.ItemImeiUploadRO.hints.Imei3.label}"
+                                                      required="#{bindings.ItemImeiUploadRO.hints.Imei3.mandatory}"
+                                                      columns="#{bindings.ItemImeiUploadRO.hints.Imei3.displayWidth}"
+                                                      maximumLength="#{bindings.ItemImeiUploadRO.hints.Imei3.precision}"
+                                                      shortDesc="#{bindings.ItemImeiUploadRO.hints.Imei3.tooltip}"
+                                                      id="it6" readOnly="true">
+                                            <f:validator binding="#{row.bindings.Imei3.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.ItemImeiUploadRO.hints.Imei4.name}"
+                                               filterable="true"
+                                               headerText="#{bindings.ItemImeiUploadRO.hints.Imei4.label}" id="c7"
+                                               width="150" displayIndex="-1">
+                                        <af:inputText value="#{row.bindings.Imei4.inputValue}"
+                                                      label="#{bindings.ItemImeiUploadRO.hints.Imei4.label}"
+                                                      required="#{bindings.ItemImeiUploadRO.hints.Imei4.mandatory}"
+                                                      columns="#{bindings.ItemImeiUploadRO.hints.Imei4.displayWidth}"
+                                                      maximumLength="#{bindings.ItemImeiUploadRO.hints.Imei4.precision}"
+                                                      shortDesc="#{bindings.ItemImeiUploadRO.hints.Imei4.tooltip}"
+                                                      id="it7" readOnly="true">
+                                            <f:validator binding="#{row.bindings.Imei4.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                            </af:panelCollection>
+                        </f:facet>
+                        <f:facet name="top">
+                            <af:panelFormLayout id="pfl1" maxColumns="2" rows="1">
+                                <af:inputText value="#{bindings.P_ADF_IMEI.inputValue}"
+                                              label="Search IMEI"
+                                              required="#{bindings.P_ADF_IMEI.hints.mandatory}"
+                                              columns="#{bindings.P_ADF_IMEI.hints.displayWidth}"
+                                              maximumLength="#{bindings.P_ADF_IMEI.hints.precision}"
+                                              shortDesc="#{bindings.P_ADF_IMEI.hints.tooltip}" id="it8">
+                                    <f:validator binding="#{bindings.P_ADF_IMEI.validator}"/>
+                                </af:inputText>
+                                <af:button actionListener="#{bindings.ExecuteWithParams.execute}"
+                                           text="Search IMEI" disabled="#{!bindings.ExecuteWithParams.enabled}"
+                                           id="b1"/>
+                            </af:panelFormLayout>
+                        </f:facet>
+                    </af:decorativeBox>
+                </f:facet>
+                <f:facet name="erptempleft"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>
