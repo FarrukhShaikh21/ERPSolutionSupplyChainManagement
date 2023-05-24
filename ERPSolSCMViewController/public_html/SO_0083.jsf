@@ -151,6 +151,32 @@
                                     pattern="#{bindings.VwSaleReturnForRateChangeRO.hints.FcurrDefaultDiscountAmount.format}"/>
                 </af:inputText>
               </af:column>
+              <af:column headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.AddDiscountPercent.label}" id="c13"
+                         filterable="true">
+                <af:inputText value="#{row.bindings.AddDiscountPercent.inputValue}"
+                              label="#{bindings.VwSaleReturnForRateChangeRO.hints.AddDiscountPercent.label}"
+                              required="#{bindings.VwSaleReturnForRateChangeRO.hints.AddDiscountPercent.mandatory}"
+                              columns="#{bindings.VwSaleReturnForRateChangeRO.hints.AddDiscountPercent.displayWidth}"
+                              maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.AddDiscountPercent.precision}"
+                              shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.AddDiscountPercent.tooltip}"
+                              id="it12">
+                  <f:validator binding="#{row.bindings.AddDiscountPercent.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.VwSaleReturnForRateChangeRO.hints.AddDiscountPercent.format}"/>
+                </af:inputText>
+              </af:column>
+              <af:column headerText="#{bindings.VwSaleReturnForRateChangeRO.hints.AddDiscount.label}" id="c12">
+                <af:inputText value="#{row.bindings.AddDiscount.inputValue}"
+                              label="#{bindings.VwSaleReturnForRateChangeRO.hints.AddDiscount.label}"
+                              required="#{bindings.VwSaleReturnForRateChangeRO.hints.AddDiscount.mandatory}"
+                              columns="#{bindings.VwSaleReturnForRateChangeRO.hints.AddDiscount.displayWidth}"
+                              maximumLength="#{bindings.VwSaleReturnForRateChangeRO.hints.AddDiscount.precision}"
+                              shortDesc="#{bindings.VwSaleReturnForRateChangeRO.hints.AddDiscount.tooltip}" id="it11">
+                  <f:validator binding="#{row.bindings.AddDiscount.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.VwSaleReturnForRateChangeRO.hints.AddDiscount.format}"/>
+                </af:inputText>
+              </af:column>
               <af:column id="c11">
                 <af:button actionListener="#{bindings.doUpdateSaleReturnProductRate.execute}" text="Update"
                            disabled="#{!bindings.doUpdateSaleReturnProductRate.enabled}" id="b1"/>

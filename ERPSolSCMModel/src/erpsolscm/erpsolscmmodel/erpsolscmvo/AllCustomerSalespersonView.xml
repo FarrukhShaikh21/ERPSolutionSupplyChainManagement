@@ -24,7 +24,17 @@
   <ViewAccessor
     Name="AccSoSalesPersonsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SoSalesPersonsByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView.SoSalesPersonsByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[AllCustomersView?.Locationid==null?"-1":AllCustomersView?.Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccAllDivisionsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllDivisionsView"

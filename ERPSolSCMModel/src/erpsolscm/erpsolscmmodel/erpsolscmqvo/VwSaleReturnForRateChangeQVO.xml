@@ -23,11 +23,13 @@
         ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT SR.SALESRETID, CUSTOMERID,CUSTNAME(CUSTOMERID) CUSTOMER_NAME ,            
-TO_CHAR(RETURN_DATE,'DD/MM/RRRR')||' '||sr.POSTED return_date,srl.productid,productname(srl.productid) product_name,Act_Unit_Price_Bcurr,fcurr_default_discount_amount,     
-nvl(round(ret_discount_amount/decode(Act_Unit_Price_fcurr,0,null,Act_Unit_Price_fcurr)*100),0) discount_percentage     
-from so_Sales_Return sr, so_Sales_return_lines srl          
-where sr.salesretid=srl.salesretid          
+  <SQLQuery><![CDATA[SELECT SR.SALESRETID, CUSTOMERID,CUSTNAME(CUSTOMERID) CUSTOMER_NAME ,               
+TO_CHAR(RETURN_DATE,'DD/MM/RRRR')||' '||sr.POSTED return_date,srl.productid,productname(srl.productid) product_name,Act_Unit_Price_Bcurr,fcurr_default_discount_amount,        
+nvl(round(ret_discount_amount/decode(Act_Unit_Price_fcurr,0,null,Act_Unit_Price_fcurr)*100,2),0) discount_percentage     ,   
+nvl(round(fcurr_add_discount_amount/decode(Act_Unit_Price_fcurr,0,null,Act_Unit_Price_fcurr)*100,2),0) add_discount_percent  , 
+nvl(fcurr_add_discount_amount,0) add_discount   
+from so_Sales_Return sr, so_Sales_return_lines srl             
+where sr.salesretid=srl.salesretid             
 order by return_date]]></SQLQuery>
   <ViewAttribute
     Name="Salesretid"
@@ -211,6 +213,43 @@ order by return_date]]></SQLQuery>
         <LABEL
           ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO.DiscountPercentage_LABEL"/>
         <DISPLAYHEIGHT
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AddDiscountPercent"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="ADD_DISCOUNT_PERCENT"
+    Expression="ADD_DISCOUNT_PERCENT"
+    SQLType="NUMERIC"
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO.AddDiscountPercent_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AddDiscount"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="ADD_DISCOUNT"
+    Expression="ADD_DISCOUNT"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSaleReturnForRateChangeQVO.AddDiscount_LABEL"/>
+        <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
     </Properties>

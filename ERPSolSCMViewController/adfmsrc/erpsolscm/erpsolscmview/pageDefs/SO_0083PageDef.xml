@@ -26,6 +26,8 @@
           <Item Value="FcurrDefaultDiscountAmount"/>
           <Item Value="DiscountPercentage"/>
           <Item Value="txtNewRate"/>
+          <Item Value="AddDiscount"/>
+          <Item Value="AddDiscountPercent"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

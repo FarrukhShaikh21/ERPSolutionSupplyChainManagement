@@ -29,6 +29,8 @@ public class VwSaleReturnForRateChangeQVORowImpl extends ViewRowImpl implements 
         ActUnitPriceBcurr,
         FcurrDefaultDiscountAmount,
         DiscountPercentage,
+        AddDiscountPercent,
+        AddDiscount,
         txtNewRate;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -63,6 +65,8 @@ public class VwSaleReturnForRateChangeQVORowImpl extends ViewRowImpl implements 
     public static final int ACTUNITPRICEBCURR = AttributesEnum.ActUnitPriceBcurr.index();
     public static final int FCURRDEFAULTDISCOUNTAMOUNT = AttributesEnum.FcurrDefaultDiscountAmount.index();
     public static final int DISCOUNTPERCENTAGE = AttributesEnum.DiscountPercentage.index();
+    public static final int ADDDISCOUNTPERCENT = AttributesEnum.AddDiscountPercent.index();
+    public static final int ADDDISCOUNT = AttributesEnum.AddDiscount.index();
     public static final int TXTNEWRATE = AttributesEnum.txtNewRate.index();
 
     /**
@@ -152,6 +156,31 @@ public class VwSaleReturnForRateChangeQVORowImpl extends ViewRowImpl implements 
     }
 
     /**
+     * Gets the attribute value for the calculated attribute AddDiscountPercent.
+     * @return the AddDiscountPercent
+     */
+    public BigDecimal getAddDiscountPercent() {
+        return (BigDecimal) getAttributeInternal(ADDDISCOUNTPERCENT);
+    }
+
+
+    /**
+     * Gets the attribute value for the calculated attribute AddDiscount.
+     * @return the AddDiscount
+     */
+    public BigDecimal getAddDiscount() {
+        return (BigDecimal) getAttributeInternal(ADDDISCOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute AddDiscount.
+     * @param value value to set the  AddDiscount
+     */
+    public void setAddDiscount(BigDecimal value) {
+        setAttributeInternal(ADDDISCOUNT, value);
+    }
+
+    /**
      * Gets the attribute value for the calculated attribute txtNewRate.
      * @return the txtNewRate
      */
@@ -174,9 +203,12 @@ public class VwSaleReturnForRateChangeQVORowImpl extends ViewRowImpl implements 
         plsql+="DEFAULT_DISCOUNT_AMOUNT="+getFcurrDefaultDiscountAmount()+",";
         plsql+="FCURR_DEFAULT_DISCOUNT_AMOUNT="+getFcurrDefaultDiscountAmount()+",";
         plsql+="RET_DISCOUNT_AMOUNT="+getFcurrDefaultDiscountAmount()+",";
+        plsql+="FCURR_ADD_DISCOUNT_AMOUNT="+getAddDiscount()+",";
+        plsql+="ADD_DISCOUNT_AMOUNT="+getAddDiscount()+",";
         plsql+="ACT_UNIT_PRICE_FCURR="+gettxtNewRate()+",";
         plsql+="ACT_UNIT_PRICE_BCURR="+gettxtNewRate();
         plsql+=" WHERE Productid='"+getProductid()+"' AND SALESRETID='"+getSalesretid()+"' ; COMMIT; END;";
+//        System.out.println(plsql);
         CallableStatement erpcs=getDBTransaction().createCallableStatement(plsql, 1);
         try {
             erpcs.executeUpdate();
