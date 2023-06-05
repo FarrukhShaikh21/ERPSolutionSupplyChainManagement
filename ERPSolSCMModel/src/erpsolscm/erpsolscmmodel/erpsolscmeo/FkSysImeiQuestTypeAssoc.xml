@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkSysImeiQuestTypeAssoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="SysQuestionType"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SysQuestionType">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SysQuestionType"/>
+      <Attr Name="_foreignKey" Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysQuestionType.PkSysQuestionType"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysQuestionType.QuestionTypeId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="SysImeiQuestion"
+    Cardinality="-1"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SysImeiQuestion">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SysImeiQuestion"/>
+      <Attr Name="_foreignKey" Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysImeiQuestion.FkSysImeiQuestType"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysImeiQuestion.QuestionTypeId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

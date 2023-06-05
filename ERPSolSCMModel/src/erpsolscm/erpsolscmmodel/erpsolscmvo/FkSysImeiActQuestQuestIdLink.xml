@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkSysImeiActQuestQuestIdLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpsolscm.erpsolscmmodel.erpsolscmeo.FkSysImeiActQuestQuestIdAssoc">
+  <ViewLinkDefEnd
+    Name="SysImeiQuestionView"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiQuestionView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SysImeiQuestionView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiQuestionView.QuestionId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SysImeiActivationQuestionView"
+    Cardinality="-1"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiActivationQuestionView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SysImeiActivationQuestionView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiActivationQuestionView.QuestionId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

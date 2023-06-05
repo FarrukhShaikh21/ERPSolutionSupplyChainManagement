@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysImeiActivationSmsSysImeiActivationQuestionActivationIdLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpsolscm.erpsolscmmodel.erpsolscmassoc.SysImeiActivationSmsSysImeiActivationQuestionActivationIdAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpsolscm.erpsolscmmodel.erpsolscmlink.SysImeiActivationSmsSysImeiActivationQuestionActivationIdLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="SysImeiActivationSmsView"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiActivationSmsView">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="SysImeiActivationSmsView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiActivationSmsView.ActivationId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SysImeiActivationQuestionView"
+    Cardinality="-1"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiActivationQuestionView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SysImeiActivationQuestionView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiActivationQuestionView.ActivationId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

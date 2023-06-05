@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkSysImeiQuestTypeLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpsolscm.erpsolscmmodel.erpsolscmeo.FkSysImeiQuestTypeAssoc">
+  <ViewLinkDefEnd
+    Name="SysQuestionTypeView"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmvo.SysQuestionTypeView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SysQuestionTypeView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmvo.SysQuestionTypeView.QuestionTypeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SysImeiQuestionView"
+    Cardinality="-1"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiQuestionView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SysImeiQuestionView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiQuestionView.QuestionTypeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

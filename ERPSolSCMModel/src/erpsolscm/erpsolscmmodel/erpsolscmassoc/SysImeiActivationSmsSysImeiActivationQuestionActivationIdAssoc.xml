@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysImeiActivationSmsSysImeiActivationQuestionActivationIdAssoc"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="SysImeiActivationSms"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SysImeiActivationSms"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SysImeiActivationSms"/>
+      <Attr Name="_foreignKey"
+        Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysImeiActivationSms.PkSysImeiActivationSms"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysImeiActivationSms.ActivationId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="SysImeiActivationQuestion"
+    Cardinality="-1"
+    Owner="erpsolscm.erpsolscmmodel.erpsolscmeo.SysImeiActivationQuestion">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SysImeiActivationQuestion"/>
+      <Attr Name="_foreignKey"
+        Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysImeiActivationQuestion.fk_SysImeiActivationQuestion"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SysImeiActivationQuestion.ActivationId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>
