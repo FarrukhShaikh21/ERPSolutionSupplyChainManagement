@@ -2,11 +2,281 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
   <af:document title="SO_0072.jsf" id="d1">
+    <af:messages id="m1"/>
     <af:form id="f1">
       <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
-        <f:facet name="erptempmain"/>
+        <f:facet name="erptempmain">
+          <af:panelHeader text="User Feedback" id="ph1">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t2">
+                <af:link id="l1" partialSubmit="true" icon="#{resource['images:imgExitForm.png']}" text="Exit"
+                         action="ACT-ERP-CLOSE-FORM-SCM"/>
+                <af:link actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true" id="l3"
+                         icon="#{resource['images:imgUndo.png']}">
+                  <af:resetActionListener/>
+                </af:link>
+                <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l2" partialSubmit="true"
+                         icon="#{resource['images:imgSave.png']}"/>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelGroupLayout id="pgl1" layout="vertical">
+              <af:inputText value="#{bindings.Imei1.inputValue}" label="#{bindings.Imei1.hints.label}"
+                            required="#{bindings.Imei1.hints.mandatory}" columns="#{bindings.Imei1.hints.displayWidth}"
+                            maximumLength="#{bindings.Imei1.hints.precision}"
+                            shortDesc="#{bindings.Imei1.hints.tooltip}" id="it13" rendered="false">
+                <f:validator binding="#{bindings.Imei1.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Sender.inputValue}" label="#{bindings.Sender.hints.label}"
+                            required="#{bindings.Sender.hints.mandatory}"
+                            columns="#{bindings.Sender.hints.displayWidth}"
+                            maximumLength="#{bindings.Sender.hints.precision}"
+                            shortDesc="#{bindings.Sender.hints.tooltip}" id="it12" rendered="false">
+                <f:validator binding="#{bindings.Sender.validator}"/>
+              </af:inputText>
+              <af:query id="qryId1" headerText="Search" disclosed="true"
+                        value="#{bindings.SysImeiActivationSmsViewFindVCQuery.queryDescriptor}"
+                        model="#{bindings.SysImeiActivationSmsViewFindVCQuery.queryModel}"
+                        queryListener="#{bindings.SysImeiActivationSmsViewFindVCQuery.processQuery}"
+                        queryOperationListener="#{bindings.SysImeiActivationSmsViewFindVCQuery.processQueryOperation}"
+                        resultComponentId="::t1" saveQueryMode="hidden"/>
+              <af:table value="#{bindings.SysImeiActivationSmsCRUD.collectionModel}" var="row"
+                        rows="#{bindings.SysImeiActivationSmsCRUD.rangeSize}"
+                        emptyText="#{bindings.SysImeiActivationSmsCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.SysImeiActivationSmsCRUD.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.SysImeiActivationSmsCRUD.collectionModel.makeCurrent}"
+                        rowSelection="single" fetchSize="#{bindings.SysImeiActivationSmsCRUD.rangeSize}" id="t1"
+                        scrollPolicy="page" autoHeightRows="15" styleClass="AFStretchWidth"
+                        columnStretching="column:c4">
+                <af:column headerText="#{bindings.SysImeiActivationSmsCRUD.hints.ActivationId.label}" id="c1"
+                           rendered="false">
+                  <af:inputText value="#{row.bindings.ActivationId.inputValue}"
+                                label="#{bindings.SysImeiActivationSmsCRUD.hints.ActivationId.label}"
+                                required="#{bindings.SysImeiActivationSmsCRUD.hints.ActivationId.mandatory}"
+                                columns="#{bindings.SysImeiActivationSmsCRUD.hints.ActivationId.displayWidth}"
+                                maximumLength="#{bindings.SysImeiActivationSmsCRUD.hints.ActivationId.precision}"
+                                shortDesc="#{bindings.SysImeiActivationSmsCRUD.hints.ActivationId.tooltip}" id="it1">
+                    <f:validator binding="#{row.bindings.ActivationId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.SysImeiActivationSmsCRUD.hints.ActivationId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.SysImeiActivationSmsCRUD.hints.Sender.label}" id="c2" width="120"
+                           displayIndex="-1">
+                  <af:inputText value="#{row.bindings.Sender.inputValue}"
+                                label="#{bindings.SysImeiActivationSmsCRUD.hints.Sender.label}"
+                                required="#{bindings.SysImeiActivationSmsCRUD.hints.Sender.mandatory}"
+                                columns="#{bindings.SysImeiActivationSmsCRUD.hints.Sender.displayWidth}"
+                                maximumLength="#{bindings.SysImeiActivationSmsCRUD.hints.Sender.precision}"
+                                shortDesc="#{bindings.SysImeiActivationSmsCRUD.hints.Sender.tooltip}" id="it2"
+                                readOnly="true">
+                    <f:validator binding="#{row.bindings.Sender.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.SysImeiActivationSmsCRUD.hints.Receiver.label}" id="c3"
+                           rendered="false">
+                  <af:inputText value="#{row.bindings.Receiver.inputValue}"
+                                label="#{bindings.SysImeiActivationSmsCRUD.hints.Receiver.label}"
+                                required="#{bindings.SysImeiActivationSmsCRUD.hints.Receiver.mandatory}"
+                                columns="#{bindings.SysImeiActivationSmsCRUD.hints.Receiver.displayWidth}"
+                                maximumLength="#{bindings.SysImeiActivationSmsCRUD.hints.Receiver.precision}"
+                                shortDesc="#{bindings.SysImeiActivationSmsCRUD.hints.Receiver.tooltip}" id="it3">
+                    <f:validator binding="#{row.bindings.Receiver.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.SysImeiActivationSmsCRUD.hints.SmsText.label}" id="c4">
+                  <af:inputText value="#{row.bindings.SmsText.inputValue}"
+                                label="#{bindings.SysImeiActivationSmsCRUD.hints.SmsText.label}"
+                                required="#{bindings.SysImeiActivationSmsCRUD.hints.SmsText.mandatory}"
+                                columns="#{bindings.SysImeiActivationSmsCRUD.hints.SmsText.displayWidth}"
+                                maximumLength="#{bindings.SysImeiActivationSmsCRUD.hints.SmsText.precision}"
+                                shortDesc="#{bindings.SysImeiActivationSmsCRUD.hints.SmsText.tooltip}" id="it4"
+                                readOnly="true">
+                    <f:validator binding="#{row.bindings.SmsText.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.SysImeiActivationSmsCRUD.hints.ActivationDate.label}" id="c5">
+                  <af:inputDate value="#{row.bindings.ActivationDate.inputValue}"
+                                label="#{bindings.SysImeiActivationSmsCRUD.hints.ActivationDate.label}"
+                                required="#{bindings.SysImeiActivationSmsCRUD.hints.ActivationDate.mandatory}"
+                                columns="#{bindings.SysImeiActivationSmsCRUD.hints.ActivationDate.displayWidth}"
+                                shortDesc="#{bindings.SysImeiActivationSmsCRUD.hints.ActivationDate.tooltip}" id="id1"
+                                readOnly="true">
+                    <f:validator binding="#{row.bindings.ActivationDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.SysImeiActivationSmsCRUD.hints.ActivationDate.format}"/>
+                  </af:inputDate>
+                </af:column>
+                <af:column headerText="#{bindings.SysImeiActivationSmsCRUD.hints.Imei1.label}" id="c6" width="120">
+                  <af:inputText value="#{row.bindings.Imei1.inputValue}"
+                                label="#{bindings.SysImeiActivationSmsCRUD.hints.Imei1.label}"
+                                required="#{bindings.SysImeiActivationSmsCRUD.hints.Imei1.mandatory}"
+                                columns="#{bindings.SysImeiActivationSmsCRUD.hints.Imei1.displayWidth}"
+                                maximumLength="#{bindings.SysImeiActivationSmsCRUD.hints.Imei1.precision}"
+                                shortDesc="#{bindings.SysImeiActivationSmsCRUD.hints.Imei1.tooltip}" id="it5"
+                                readOnly="true">
+                    <f:validator binding="#{row.bindings.Imei1.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.SysImeiActivationSmsCRUD.hints.FeedbackStatusId.label}" id="c7">
+                  <af:selectOneChoice value="#{row.bindings.FeedbackStatusId.inputValue}"
+                                      label="#{row.bindings.FeedbackStatusId.label}"
+                                      required="#{bindings.SysImeiActivationSmsCRUD.hints.FeedbackStatusId.mandatory}"
+                                      shortDesc="#{bindings.SysImeiActivationSmsCRUD.hints.FeedbackStatusId.tooltip}"
+                                      id="soc1">
+                    <f:selectItems value="#{row.bindings.FeedbackStatusId.items}" id="si1"/>
+                    <f:validator binding="#{row.bindings.FeedbackStatusId.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+                <af:column id="c15">
+                  <af:link text="Question" id="l4">
+                    <af:showPopupBehavior popupId=":::p1"/>
+                  </af:link>
+                </af:column>
+              </af:table>
+            </af:panelGroupLayout>
+          </af:panelHeader>
+        </f:facet>
         <f:facet name="erptempleft"/>
       </af:pageTemplate>
+      <af:popup childCreation="deferred" autoCancel="disabled" id="p1" contentDelivery="lazyUncached">
+        <af:dialog id="d2" contentWidth="800" contentHeight="600" type="ok" title="#{bindings.Sender.inputValue}"
+                   dialogListener="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolDialogQuestion}">
+          <f:facet name="buttonBar"/>
+          <af:table value="#{bindings.SysImeiActivationQuestionDetCRUD.collectionModel}" var="row"
+                    rows="#{bindings.SysImeiActivationQuestionDetCRUD.rangeSize}"
+                    emptyText="#{bindings.SysImeiActivationQuestionDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.SysImeiActivationQuestionDetCRUD.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.SysImeiActivationQuestionDetCRUD.collectionModel.makeCurrent}"
+                    rowSelection="single" fetchSize="#{bindings.SysImeiActivationQuestionDetCRUD.rangeSize}" id="t3"
+                    columnStretching="last" styleClass="AFStretchWidth" varStatus="vs">
+            <af:column id="c16" width="30" headerText="S.No" displayIndex="-1">
+              <af:inputText label="Label 2" id="it14" value="#{vs.index+1}"/>
+            </af:column>
+            <af:column headerText="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ActivationQuestionId.label}"
+                       id="c8" rendered="false">
+              <af:inputText value="#{row.bindings.ActivationQuestionId.inputValue}"
+                            label="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ActivationQuestionId.label}"
+                            required="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ActivationQuestionId.mandatory}"
+                            columns="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ActivationQuestionId.displayWidth}"
+                            maximumLength="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ActivationQuestionId.precision}"
+                            shortDesc="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ActivationQuestionId.tooltip}"
+                            id="it6">
+                <f:validator binding="#{row.bindings.ActivationQuestionId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ActivationQuestionId.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ActivationId.label}" id="c9"
+                       rendered="false">
+              <af:inputText value="#{row.bindings.ActivationId.inputValue}"
+                            label="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ActivationId.label}"
+                            required="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ActivationId.mandatory}"
+                            columns="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ActivationId.displayWidth}"
+                            maximumLength="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ActivationId.precision}"
+                            shortDesc="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ActivationId.tooltip}"
+                            id="it7">
+                <f:validator binding="#{row.bindings.ActivationId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ActivationId.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.SysImeiActivationQuestionDetCRUD.hints.QuestionId.label}" id="c10"
+                       rendered="false">
+              <af:inputText value="#{row.bindings.QuestionId.inputValue}"
+                            label="#{bindings.SysImeiActivationQuestionDetCRUD.hints.QuestionId.label}"
+                            required="#{bindings.SysImeiActivationQuestionDetCRUD.hints.QuestionId.mandatory}"
+                            columns="#{bindings.SysImeiActivationQuestionDetCRUD.hints.QuestionId.displayWidth}"
+                            maximumLength="#{bindings.SysImeiActivationQuestionDetCRUD.hints.QuestionId.precision}"
+                            shortDesc="#{bindings.SysImeiActivationQuestionDetCRUD.hints.QuestionId.tooltip}" id="it8">
+                <f:validator binding="#{row.bindings.QuestionId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SysImeiActivationQuestionDetCRUD.hints.QuestionId.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.SysImeiActivationQuestionDetCRUD.hints.txtQuestionTypeId.label}" id="c13"
+                       rendered="false">
+              <af:inputText value="#{row.bindings.txtQuestionTypeId.inputValue}"
+                            label="#{bindings.SysImeiActivationQuestionDetCRUD.hints.txtQuestionTypeId.label}"
+                            required="#{bindings.SysImeiActivationQuestionDetCRUD.hints.txtQuestionTypeId.mandatory}"
+                            columns="#{bindings.SysImeiActivationQuestionDetCRUD.hints.txtQuestionTypeId.displayWidth}"
+                            maximumLength="#{bindings.SysImeiActivationQuestionDetCRUD.hints.txtQuestionTypeId.precision}"
+                            shortDesc="#{bindings.SysImeiActivationQuestionDetCRUD.hints.txtQuestionTypeId.tooltip}"
+                            id="it10">
+                <f:validator binding="#{row.bindings.txtQuestionTypeId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.SysImeiActivationQuestionDetCRUD.hints.txtQuestionTypeId.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.SysImeiActivationQuestionDetCRUD.hints.txtQuestion.label}" id="c14"
+                       noWrap="false" width="400" displayIndex="-1">
+              <af:inputText value="#{row.bindings.txtQuestion.inputValue}"
+                            label="#{bindings.SysImeiActivationQuestionDetCRUD.hints.txtQuestion.label}"
+                            required="#{bindings.SysImeiActivationQuestionDetCRUD.hints.txtQuestion.mandatory}"
+                            columns="#{bindings.SysImeiActivationQuestionDetCRUD.hints.txtQuestion.displayWidth}"
+                            maximumLength="#{bindings.SysImeiActivationQuestionDetCRUD.hints.txtQuestion.precision}"
+                            shortDesc="#{bindings.SysImeiActivationQuestionDetCRUD.hints.txtQuestion.tooltip}" id="it11"
+                            contentStyle="width:100%" readOnly="true">
+                <f:validator binding="#{row.bindings.txtQuestion.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ResponseDate.label}" id="c11"
+                       rendered="false">
+              <af:inputDate value="#{row.bindings.ResponseDate.inputValue}"
+                            label="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ResponseDate.label}"
+                            required="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ResponseDate.mandatory}"
+                            columns="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ResponseDate.displayWidth}"
+                            shortDesc="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ResponseDate.tooltip}"
+                            id="id2">
+                <f:validator binding="#{row.bindings.ResponseDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.SysImeiActivationQuestionDetCRUD.hints.ResponseDate.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column headerText="#{bindings.SysImeiActivationQuestionDetCRUD.hints.UserFeedback.label}" id="c12"
+                       align="center">
+              <af:inputText value="#{row.bindings.UserFeedback.inputValue}"
+                            label="#{bindings.SysImeiActivationQuestionDetCRUD.hints.UserFeedback.label}"
+                            required="#{bindings.SysImeiActivationQuestionDetCRUD.hints.UserFeedback.mandatory}"
+                            columns="#{bindings.SysImeiActivationQuestionDetCRUD.hints.UserFeedback.displayWidth}"
+                            maximumLength="#{bindings.SysImeiActivationQuestionDetCRUD.hints.UserFeedback.precision}"
+                            shortDesc="#{bindings.SysImeiActivationQuestionDetCRUD.hints.UserFeedback.tooltip}" id="it9"
+                            visible="#{row.bindings.txtQuestionTypeId.inputValue==1}" contentStyle="width:100%">
+                <f:validator binding="#{row.bindings.UserFeedback.validator}"/>
+              </af:inputText>
+              <af:selectOneRadio label="Label 1" value="#{row.bindings.UserFeedback.inputValue}" id="sor1"
+                                 visible="#{row.bindings.txtQuestionTypeId.inputValue==2}" layout="horizontal">
+                <af:selectItem label="Yes" value="Y" id="si2"/>
+                <af:selectItem label="No" value="N" id="si3"/>
+              </af:selectOneRadio>
+              <af:selectOneRadio label="Label 2" id="sor2" value="#{row.bindings.UserFeedback.inputValue}"
+                                 visible="#{row.bindings.txtQuestionTypeId.inputValue==4}" layout="horizontal">
+                <af:selectItem label="Very Unhappy" value="1" id="si4"/>
+                <af:selectItem label="Unhappy" value="2" id="si5"/>
+                <af:selectItem label="Neutral" value="3" id="si6"/>
+                <af:selectItem label="Happy" value="4" id="si7"/>
+                <af:selectItem label="Very Unhappy" value="5" id="si8"/>
+              </af:selectOneRadio>
+              <af:selectOneRadio label="Label 3" value="#{row.bindings.UserFeedback.inputValue}" id="sor3"
+                                 visible="#{row.bindings.txtQuestionTypeId.inputValue==3}" layout="horizontal">
+                <af:selectItem label="1" value="1" id="si9"/>
+                <af:selectItem label="2" value="2" id="si10"/>
+                <af:selectItem label="3" value="3" id="si11"/>
+                <af:selectItem label="4" value="4" id="si12"/>
+                <af:selectItem label="5" value="5" id="si13"/>
+                <af:selectItem label="6" value="6" id="si14"/>
+                <af:selectItem label="7" value="7" id="si15"/>
+                <af:selectItem label="8" value="8" id="si16"/>
+                <af:selectItem label="9" value="9" id="si17"/>
+                <af:selectItem label="10" value="10" id="si18"/>
+              </af:selectOneRadio>
+            </af:column>
+          </af:table>
+        </af:dialog>
+      </af:popup>
     </af:form>
   </af:document>
 </f:view>

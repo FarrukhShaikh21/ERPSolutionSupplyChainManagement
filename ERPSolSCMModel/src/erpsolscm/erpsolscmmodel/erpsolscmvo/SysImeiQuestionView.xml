@@ -59,6 +59,13 @@
     EntityAttrName="IsActive"
     EntityUsage="SysImeiQuestion"
     AliasName="IS_ACTIVE"/>
+  <ViewAttribute
+    Name="Question"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Question"
+    EntityUsage="SysImeiQuestion"
+    AliasName="QUESTION"/>
   <ViewLinkAccessor
     Name="SysImeiActivationQuestionView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.FkSysImeiActQuestQuestIdLink"

@@ -191,6 +191,27 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="txtQuestion"
+    Precision="80"
+    ColumnName="TXT_QUESTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SYS_IMEI_ACTIVATION_QUESTION"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SysImeiQuestion?.Question]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SysImeiActivationQuestion.txtQuestion_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SysImeiQuestion"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.FkSysImeiActQuestQuestIdAssoc"

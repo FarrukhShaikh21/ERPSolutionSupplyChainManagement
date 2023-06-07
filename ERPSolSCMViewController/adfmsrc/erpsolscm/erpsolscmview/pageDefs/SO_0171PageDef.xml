@@ -97,6 +97,8 @@
           <Item Value="ErrorDesc"/>
           <Item Value="IsError"/>
           <Item Value="Itemid"/>
+          <Item Value="GenerateSo"/>
+          <Item Value="ManualRate"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

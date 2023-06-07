@@ -5,6 +5,56 @@
   <executables>
     <variableIterator id="variables"/>
     <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SysImeiActivationSmsCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SysImeiActivationSmsCRUDIterator"/>
+    <searchRegion Criteria="SysImeiActivationSmsViewFindVC"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SysImeiActivationSmsCRUDIterator" id="SysImeiActivationSmsViewFindVCQuery"/>
+    <iterator Binds="SysImeiActivationQuestionDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SysImeiActivationQuestionDetCRUDIterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <tree IterBinding="SysImeiActivationSmsCRUDIterator" id="SysImeiActivationSmsCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiActivationSmsView"
+                      Name="SysImeiActivationSmsCRUD0">
+        <AttrNames>
+          <Item Value="ActivationId"/>
+          <Item Value="Sender"/>
+          <Item Value="Receiver"/>
+          <Item Value="SmsText"/>
+          <Item Value="ActivationDate"/>
+          <Item Value="Imei1"/>
+          <Item Value="FeedbackStatusId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SysImeiActivationQuestionDetCRUDIterator" id="SysImeiActivationQuestionDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiActivationQuestionView"
+                      Name="SysImeiActivationQuestionDetCRUD0">
+        <AttrNames>
+          <Item Value="ActivationQuestionId"/>
+          <Item Value="ActivationId"/>
+          <Item Value="QuestionId"/>
+          <Item Value="ResponseDate"/>
+          <Item Value="UserFeedback"/>
+          <Item Value="txtQuestionTypeId"/>
+          <Item Value="txtQuestion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <attributeValues IterBinding="SysImeiActivationSmsCRUDIterator" id="Sender">
+      <AttrNames>
+        <Item Value="Sender"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SysImeiActivationSmsCRUDIterator" id="Imei1">
+      <AttrNames>
+        <Item Value="Imei1"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
 </pageDefinition>

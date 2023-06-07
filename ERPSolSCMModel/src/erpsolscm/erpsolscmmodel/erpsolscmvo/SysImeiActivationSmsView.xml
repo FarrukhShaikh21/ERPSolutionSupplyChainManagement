@@ -13,6 +13,29 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="AccSysFeedbackStatusView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SysFeedbackStatusView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LovFeedbackStatusId"
+    ListVOName="AccSysFeedbackStatusView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FeedbackStatusId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FeedbackStatusId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FeedbackStatus"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="SysImeiActivationSms"
     Entity="erpsolscm.erpsolscmmodel.erpsolscmeo.SysImeiActivationSms"/>
@@ -70,7 +93,67 @@
     PrecisionRule="true"
     EntityAttrName="FeedbackStatusId"
     EntityUsage="SysImeiActivationSms"
-    AliasName="FEEDBACK_STATUS_ID"/>
+    AliasName="FEEDBACK_STATUS_ID"
+    LOVName="LovFeedbackStatusId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="SysImeiActivationSmsViewFindVC"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiActivationSmsView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="SysImeiActivationSmsViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="SmsText"
+        ViewAttribute="SmsText"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ActivationDate"
+        ViewAttribute="ActivationDate"
+        Operator="BETWEEN"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Imei1"
+        ViewAttribute="Imei1"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="FeedbackStatusId"
+        ViewAttribute="FeedbackStatusId"
+        Operator="="
+        Conjunction="AND"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="SysImeiActivationQuestionView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SysImeiActivationSmsSysImeiActivationQuestionActivationIdLink"

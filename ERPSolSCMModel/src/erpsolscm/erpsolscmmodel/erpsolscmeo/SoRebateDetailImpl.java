@@ -44,6 +44,7 @@ public class SoRebateDetailImpl extends ERPSolGlobalsEntityImpl {
         SaleDate,
         Rebateseq,
         Rebatedetailseq,
+        ManualRate,
         SoRebate;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -91,6 +92,7 @@ public class SoRebateDetailImpl extends ERPSolGlobalsEntityImpl {
     public static final int SALEDATE = AttributesEnum.SaleDate.index();
     public static final int REBATESEQ = AttributesEnum.Rebateseq.index();
     public static final int REBATEDETAILSEQ = AttributesEnum.Rebatedetailseq.index();
+    public static final int MANUALRATE = AttributesEnum.ManualRate.index();
     public static final int SOREBATE = AttributesEnum.SoRebate.index();
 
     /**
@@ -457,6 +459,22 @@ public class SoRebateDetailImpl extends ERPSolGlobalsEntityImpl {
      */
     public void setRebatedetailseq(Integer value) {
         setAttributeInternal(REBATEDETAILSEQ, value);
+    }
+
+    /**
+     * Gets the attribute value for ManualRate, using the alias name ManualRate.
+     * @return the value of ManualRate
+     */
+    public BigDecimal getManualRate() {
+        return (BigDecimal) getAttributeInternal(MANUALRATE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ManualRate.
+     * @param value value to set the ManualRate
+     */
+    public void setManualRate(BigDecimal value) {
+        setAttributeInternal(MANUALRATE, value);
     }
 
     /**

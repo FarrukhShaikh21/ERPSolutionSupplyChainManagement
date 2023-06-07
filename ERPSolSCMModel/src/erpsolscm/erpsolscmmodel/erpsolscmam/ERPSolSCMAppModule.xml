@@ -136,6 +136,12 @@
       Name="ItemImeiUploadViewByFindVC"
       FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.ItemImeiUploadView.ItemImeiUploadViewByFindVC"/>
   </ViewUsage>
+  <ViewUsage
+    Name="SysImeiActivationSmsCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiActivationSmsView"/>
+  <ViewUsage
+    Name="SysImeiActivationQuestionDetCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiActivationQuestionView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
@@ -213,5 +219,11 @@
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SoImeiMasterSoImeiDetailIimeiMasterSnoLink"
     SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoImeiMasterCRUD"
     DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoImeiDetailDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="SysImeiActivationSmsSysImeiActivationQuestionActivationIdLink1"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SysImeiActivationSmsSysImeiActivationQuestionActivationIdLink"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SysImeiActivationSmsCRUD"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SysImeiActivationQuestionDetCRUD"
     Reversed="false"/>
 </AppModule>

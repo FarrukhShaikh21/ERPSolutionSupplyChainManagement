@@ -127,6 +127,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebateDetail.GenerateSo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Itemid"
@@ -260,6 +268,22 @@
     ColumnType="NUMBER"
     TableName="SO_REBATE_DETAIL"
     PrimaryKey="true"/>
+  <Attribute
+    Name="ManualRate"
+    ColumnName="MANUAL_RATE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SO_REBATE_DETAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoRebateDetail.ManualRate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="SoRebate"
     Association="erpsolscm.erpsolscmmodel.erpsolscmeo.FkSoRebatDetRebateseqAssoc"

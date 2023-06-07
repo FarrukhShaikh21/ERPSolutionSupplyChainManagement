@@ -448,7 +448,7 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
             setDiscountPercent(new BigDecimal(0));
             setDiscountAmountOc(new BigDecimal(0));
 //            setDefaultDiscAmount(new BigDecimal(0));
-        exc.printStackTrace();
+//        exc.printStackTrace();
         }
         try{
             getAccVwFuncGetItemAdditionalDiscountQVO().setNamedWhereClauseParam("P_ADF_LOCATIONID", getSoSalesOrderView().getAttribute("Locationid"));
@@ -459,9 +459,9 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
         }
         catch(Exception exc) {
             setDiscountPercent(new BigDecimal(0));
-            setDiscountAmountOc(new BigDecimal(0));
-            setDefaultDiscAmount(new BigDecimal(0));
-        exc.printStackTrace();
+//            setDiscountAmountOc(new BigDecimal(0));
+//            setDefaultDiscAmount(new BigDecimal(0));
+//        exc.printStackTrace();
         }
     }
 

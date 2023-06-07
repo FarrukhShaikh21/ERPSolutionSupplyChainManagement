@@ -181,4 +181,10 @@
     EntityAttrName="Rebatedetailseq"
     EntityUsage="SoRebateDetail"
     AliasName="REBATEDETAILSEQ"/>
+  <ViewAttribute
+    Name="ManualRate"
+    PrecisionRule="true"
+    EntityAttrName="ManualRate"
+    EntityUsage="SoRebateDetail"
+    AliasName="MANUAL_RATE"/>
 </ViewObject>

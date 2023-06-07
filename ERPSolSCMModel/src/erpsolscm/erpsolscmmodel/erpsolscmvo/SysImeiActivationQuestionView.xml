@@ -81,10 +81,22 @@
     EntityAttrName="txtQuestionTypeId"
     EntityUsage="SysImeiActivationQuestion"
     AliasName="TXT_QUESTION_TYPE_ID"/>
+  <ViewAttribute
+    Name="txtQuestion"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtQuestion"
+    EntityUsage="SysImeiActivationQuestion"
+    AliasName="TXT_QUESTION"/>
   <ViewLinkAccessor
     Name="SysImeiActivationSmsView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmlink.SysImeiActivationSmsSysImeiActivationQuestionActivationIdLink"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

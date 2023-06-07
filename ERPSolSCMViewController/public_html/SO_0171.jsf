@@ -137,7 +137,7 @@
                                                         required="#{bindings.txtStoreName.hints.mandatory}"
                                                         columns="#{bindings.txtStoreName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtStoreName.hints.tooltip}"
-                                                        simple="true" readOnly="true">
+                                                        simple="true">
                             <f:validator binding="#{bindings.txtStoreName.validator}"/>
                           </af:inputComboboxListOfValues>
                           <af:spacer width="10" height="10" id="s3"/>
@@ -209,7 +209,8 @@
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc19" valign="middle">
                           <af:selectOneChoice value="#{bindings.Catid.inputValue}" label="#{bindings.Catid.label}"
                                               required="#{bindings.Catid.hints.mandatory}"
-                                              shortDesc="#{bindings.Catid.hints.tooltip}" id="soc2" simple="true">
+                                              shortDesc="#{bindings.Catid.hints.tooltip}" id="soc2" simple="true"
+                                              readOnly="#{bindings.SoRebateDetailCRUDIterator.estimatedRowCount>0}">
                             <f:selectItems value="#{bindings.Catid.items}" id="si3"/>
                             <f:validator binding="#{bindings.Catid.validator}"/>
                           </af:selectOneChoice>
@@ -320,14 +321,15 @@
                         <f:validator binding="#{row.bindings.Itemid.validator}"/>
                       </af:selectOneChoice>
                     </af:column>
-                    <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.Discount.label}" id="c2">
+                    <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.Discount.label}" id="c2" width="90"
+                               displayIndex="-1">
                       <af:inputText value="#{row.bindings.Discount.inputValue}"
                                     label="#{bindings.SoRebateDetailCRUD.hints.Discount.label}"
                                     required="#{bindings.SoRebateDetailCRUD.hints.Discount.mandatory}"
                                     columns="#{bindings.SoRebateDetailCRUD.hints.Discount.displayWidth}"
                                     maximumLength="#{bindings.SoRebateDetailCRUD.hints.Discount.precision}"
                                     shortDesc="#{bindings.SoRebateDetailCRUD.hints.Discount.tooltip}" id="it7"
-                                    readOnly="true">
+                                    readOnly="#{pageFlowScope.ERPSolTempBean.LERPSolAllowEdit=='N'||bindings.Catid.inputValue!='002'}">
                         <f:validator binding="#{row.bindings.Discount.validator}"/>
                         <af:convertNumber groupingUsed="false"
                                           pattern="#{bindings.SoRebateDetailCRUD.hints.Discount.format}"/>
@@ -371,6 +373,36 @@
                         <af:convertNumber groupingUsed="false"
                                           pattern="#{bindings.SoRebateDetailCRUD.hints.CurrentRate.format}"/>
                       </af:inputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.ManualRate.label}" id="c10"
+                               visible="#{pageFlowScope.ERPSolTempBean.LERPSolAllowEdit=='Y'}">
+                      <af:inputText value="#{row.bindings.ManualRate.inputValue}"
+                                    label="#{bindings.SoRebateDetailCRUD.hints.ManualRate.label}"
+                                    required="#{bindings.SoRebateDetailCRUD.hints.ManualRate.mandatory}"
+                                    columns="#{bindings.SoRebateDetailCRUD.hints.ManualRate.displayWidth}"
+                                    maximumLength="#{bindings.SoRebateDetailCRUD.hints.ManualRate.precision}"
+                                    shortDesc="#{bindings.SoRebateDetailCRUD.hints.ManualRate.tooltip}" id="it15">
+                        <f:validator binding="#{row.bindings.ManualRate.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.SoRebateDetailCRUD.hints.ManualRate.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.GenerateSo.label}" id="c9"
+                               visible="#{pageFlowScope.ERPSolTempBean.LERPSolAllowEdit=='Y'}">
+                      <af:inputText value="#{row.bindings.GenerateSo.inputValue}"
+                                    label="#{bindings.SoRebateDetailCRUD.hints.GenerateSo.label}"
+                                    required="#{bindings.SoRebateDetailCRUD.hints.GenerateSo.mandatory}"
+                                    columns="#{bindings.SoRebateDetailCRUD.hints.GenerateSo.displayWidth}"
+                                    maximumLength="#{bindings.SoRebateDetailCRUD.hints.GenerateSo.precision}"
+                                    shortDesc="#{bindings.SoRebateDetailCRUD.hints.GenerateSo.tooltip}" id="it14"
+                                    rendered="false">
+                        <f:validator binding="#{row.bindings.GenerateSo.validator}"/>
+                      </af:inputText>
+                      <af:selectOneChoice label="Label 1" value="#{row.bindings.GenerateSo.inputValue}" id="soc3"
+                                          readOnly="#{bindings.Catid.inputValue!='002'}">
+                        <af:selectItem label="Yes" value="Y" id="si2"/>
+                        <af:selectItem label="No" value="N" id="si4"/>
+                      </af:selectOneChoice>
                     </af:column>
                     <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.ErrorDesc.label}" id="c6" width="200">
                       <af:inputText value="#{row.bindings.ErrorDesc.inputValue}"

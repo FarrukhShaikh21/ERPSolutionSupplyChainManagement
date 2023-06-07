@@ -1096,4 +1096,11 @@ public class ERPSolSCMBean {
         return ResultList;
         
     }    
+    public void doERPSolDialogQuestion(DialogEvent erpsolde) {
+        if (erpsolde.getOutcome()==DialogEvent.Outcome.yes) {
+            OperationBinding binding = ERPSolGlobalViewBean.doIsERPSolGerOperationBinding("Commit");
+            binding.execute();
+            
+        }
+    }
 }
