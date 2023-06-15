@@ -247,21 +247,19 @@
                             visible="#{row.bindings.txtQuestionTypeId.inputValue==1}" contentStyle="width:100%">
                 <f:validator binding="#{row.bindings.UserFeedback.validator}"/>
               </af:inputText>
-              <af:selectOneRadio label="Label 1" value="#{row.bindings.UserFeedback.inputValue}" id="sor1"
-                                 visible="#{row.bindings.txtQuestionTypeId.inputValue==2}" layout="horizontal">
+              <af:selectOneChoice label="Label 3" id="soc4" visible="#{row.bindings.txtQuestionTypeId.inputValue==2}">
                 <af:selectItem label="Yes" value="Y" id="si2"/>
                 <af:selectItem label="No" value="N" id="si3"/>
-              </af:selectOneRadio>
-              <af:selectOneRadio label="Label 2" id="sor2" value="#{row.bindings.UserFeedback.inputValue}"
-                                 visible="#{row.bindings.txtQuestionTypeId.inputValue==4}" layout="horizontal">
+              </af:selectOneChoice>
+              <af:selectOneChoice label="Label 1" id="soc2" value="#{row.bindings.UserFeedback.inputValue}"
+                                  visible="#{row.bindings.txtQuestionTypeId.inputValue==4}">
                 <af:selectItem label="Very Unhappy" value="1" id="si4"/>
                 <af:selectItem label="Unhappy" value="2" id="si5"/>
                 <af:selectItem label="Neutral" value="3" id="si6"/>
                 <af:selectItem label="Happy" value="4" id="si7"/>
-                <af:selectItem label="Very Unhappy" value="5" id="si8"/>
-              </af:selectOneRadio>
-              <af:selectOneRadio label="Label 3" value="#{row.bindings.UserFeedback.inputValue}" id="sor3"
-                                 visible="#{row.bindings.txtQuestionTypeId.inputValue==3}" layout="horizontal">
+                <af:selectItem label="Very Happy" value="5" id="si8"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice label="Label 2" id="soc3" visible="#{row.bindings.txtQuestionTypeId.inputValue==3}">
                 <af:selectItem label="1" value="1" id="si9"/>
                 <af:selectItem label="2" value="2" id="si10"/>
                 <af:selectItem label="3" value="3" id="si11"/>
@@ -272,7 +270,7 @@
                 <af:selectItem label="8" value="8" id="si16"/>
                 <af:selectItem label="9" value="9" id="si17"/>
                 <af:selectItem label="10" value="10" id="si18"/>
-              </af:selectOneRadio>
+              </af:selectOneChoice>
             </af:column>
           </af:table>
         </af:dialog>

@@ -12,7 +12,12 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="erpsolscm.erpsolscmmodel.erpsolscmvo.SoRebateDetailViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewAccessor
     Name="AccInItemsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InItemsView"
@@ -187,4 +192,10 @@
     EntityAttrName="ManualRate"
     EntityUsage="SoRebateDetail"
     AliasName="MANUAL_RATE"/>
+  <ViewLinkAccessor
+    Name="SoRebateView"
+    ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.FkSoRebatDetRebateseqLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>
