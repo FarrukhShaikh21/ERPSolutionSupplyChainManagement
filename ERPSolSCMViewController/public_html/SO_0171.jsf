@@ -103,7 +103,8 @@
                           <af:inputDate value="#{bindings.Rdate.inputValue}"
                                         required="#{bindings.Rdate.hints.mandatory}"
                                         columns="#{bindings.Rdate.hints.displayWidth}"
-                                        shortDesc="#{bindings.Rdate.hints.tooltip}" id="id1">
+                                        shortDesc="#{bindings.Rdate.hints.tooltip}" id="id1"
+                                        disabled="#{bindings.RebateId.inputValue!=null}">
                             <f:validator binding="#{bindings.Rdate.validator}"/>
                             <af:convertDateTime pattern="#{bindings.Rdate.format}"/>
                           </af:inputDate>
