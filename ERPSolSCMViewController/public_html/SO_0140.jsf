@@ -107,7 +107,7 @@
                             <f:validator binding="#{bindings.newSalespersonid.validator}"/>
                         </af:inputText>
                         <af:button
-                                   text="doUpdateSalesPerson"
+                                   text="Update Sales Person"
                                    disabled="#{!bindings.doUpdateSalesPerson.enabled}" id="b1"
                                    actionListener="#{bindings.doUpdateSalesPerson.execute}"/>
                     </af:panelFormLayout>
