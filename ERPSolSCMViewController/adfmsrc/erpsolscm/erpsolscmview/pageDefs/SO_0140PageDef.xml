@@ -41,14 +41,14 @@
         <Item Value="Salespersonid"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtSalesTerritoryId"
-          id="txtSalesTerritoryId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="VwSoSalesReportROIterator" id="newSalespersonid">
       <AttrNames>
         <Item Value="newSalespersonid"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtNewSalesTerritoryId"
-          id="txtNewSalesTerritoryId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <methodAction id="doUpdateSalesPerson" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doUpdateSalesPerson" IsViewObjectMethod="true" DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.VwSoSalesReportRO"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doUpdateSalesPerson_ERPSolSCMAppModuleDataControl_VwSoSalesReportRO_doUpdateSalesPerson_result"/>
   </bindings>
 </pageDefinition>

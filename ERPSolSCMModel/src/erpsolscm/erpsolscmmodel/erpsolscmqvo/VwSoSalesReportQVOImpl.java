@@ -69,5 +69,36 @@ public class VwSoSalesReportQVOImpl extends ViewObjectImpl implements VwSoSalesR
 
         
     }
+    
+    public void doUpdateSalesPerson() {
+        String plsql="begin ?:=PKG_SALE_ORDER.FUNC_UPDATE_SALESPERSON('"+this.first().getAttribute("Customerid")+"','"+this.first().getAttribute("Salespersonid")+"','"+this.first().getAttribute("newSalespersonid")+"'); END;";
+        System.out.println(plsql);
+        CallableStatement cs=this.getDBTransaction().createCallableStatement(plsql, 1);
+        try {
+            cs.registerOutParameter(1, Types.VARCHAR);
+            cs.executeUpdate();
+            
+    //            if (!cs.getString(1).equals("ERPSOLSUCCESS")) {
+                JboException jboex=new JboException(cs.getString(1));
+                jboex.setSeverity(JboException.SEVERITY_WARNING); 
+                throw new JboException(jboex);
+    //           }
+    //            this.getDBTransaction().commit();
+        } catch (SQLException e) {
+        //            this.getCurrentRow().setAttribute("Submit", "N");
+            this.getDBTransaction().commit();
+            System.out.println(e.getMessage()+ "this is message");
+            throw new JboException("Unable to supervise ");
+        }
+        finally{
+            try {
+                cs.close();
+                System.out.println("closing----");
+            } catch (SQLException e) {
+            }
+        }
+
+        
+    }
 }
 

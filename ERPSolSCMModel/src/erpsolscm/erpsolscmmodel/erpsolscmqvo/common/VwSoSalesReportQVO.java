@@ -9,5 +9,7 @@ public interface VwSoSalesReportQVO extends ViewObject {
     void doSetERPSolSCMReportDefault();
 
     void doSetERPSolSODocumentUnsubmit();
+
+    void doUpdateSalesPerson();
 }
 

@@ -11,7 +11,7 @@
                                       required="#{bindings.Pk.hints.mandatory}"
                                       columns="#{bindings.Pk.hints.displayWidth}"
                                       maximumLength="#{bindings.Pk.hints.precision}"
-                                      shortDesc="#{bindings.Pk.hints.tooltip}" id="it1">
+                                      shortDesc="#{bindings.Pk.hints.tooltip}" id="it1" rendered="false">
                             <f:validator binding="#{bindings.Pk.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.Pk.format}"/>
                         </af:inputText>
@@ -23,57 +23,10 @@
                         </af:selectOneChoice>
                         <af:selectOneChoice value="#{bindings.Regionid.inputValue}" label="#{bindings.Regionid.label}"
                                             required="#{bindings.Regionid.hints.mandatory}"
-                                            shortDesc="#{bindings.Regionid.hints.tooltip}" id="soc2">
+                                            shortDesc="#{bindings.Regionid.hints.tooltip}" id="soc2" rendered="false">
                             <f:selectItems value="#{bindings.Regionid.items}" id="si2"/>
                             <f:validator binding="#{bindings.Regionid.validator}"/>
                         </af:selectOneChoice>
-                        <af:inputText value="#{bindings.Locationid.inputValue}"
-                                      label="#{bindings.Locationid.hints.label}"
-                                      required="#{bindings.Locationid.hints.mandatory}"
-                                      columns="#{bindings.Locationid.hints.displayWidth}"
-                                      maximumLength="#{bindings.Locationid.hints.precision}"
-                                      shortDesc="#{bindings.Locationid.hints.tooltip}"
-                                      partialTriggers="txtLocationNameId" id="it2">
-                            <f:validator binding="#{bindings.Locationid.validator}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.Customerid.inputValue}"
-                                      label="#{bindings.Customerid.hints.label}"
-                                      required="#{bindings.Customerid.hints.mandatory}"
-                                      columns="#{bindings.Customerid.hints.displayWidth}"
-                                      maximumLength="#{bindings.Customerid.hints.precision}"
-                                      shortDesc="#{bindings.Customerid.hints.tooltip}"
-                                      partialTriggers="txtCustomerNameId" id="it3">
-                            <f:validator binding="#{bindings.Customerid.validator}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.Salespersonid.inputValue}"
-                                      label="#{bindings.Salespersonid.hints.label}"
-                                      required="#{bindings.Salespersonid.hints.mandatory}"
-                                      columns="#{bindings.Salespersonid.hints.displayWidth}"
-                                      maximumLength="#{bindings.Salespersonid.hints.precision}"
-                                      shortDesc="#{bindings.Salespersonid.hints.tooltip}"
-                                      partialTriggers="txtSalespersonNameId newSalespersonNameId" id="it4">
-                            <f:validator binding="#{bindings.Salespersonid.validator}"/>
-                        </af:inputText>
-                        <af:inputComboboxListOfValues id="txtCustomerNameId"
-                                                      popupTitle="Search and Select: #{bindings.txtCustomerName.hints.label}"
-                                                      value="#{bindings.txtCustomerName.inputValue}"
-                                                      label="#{bindings.txtCustomerName.hints.label}"
-                                                      model="#{bindings.txtCustomerName.listOfValuesModel}"
-                                                      required="#{bindings.txtCustomerName.hints.mandatory}"
-                                                      columns="#{bindings.txtCustomerName.hints.displayWidth}"
-                                                      shortDesc="#{bindings.txtCustomerName.hints.tooltip}">
-                            <f:validator binding="#{bindings.txtCustomerName.validator}"/>
-                        </af:inputComboboxListOfValues>
-                        <af:inputComboboxListOfValues id="txtSalespersonNameId"
-                                                      popupTitle="Search and Select: #{bindings.txtSalespersonName.hints.label}"
-                                                      value="#{bindings.txtSalespersonName.inputValue}"
-                                                      label="#{bindings.txtSalespersonName.hints.label}"
-                                                      model="#{bindings.txtSalespersonName.listOfValuesModel}"
-                                                      required="#{bindings.txtSalespersonName.hints.mandatory}"
-                                                      columns="#{bindings.txtSalespersonName.hints.displayWidth}"
-                                                      shortDesc="#{bindings.txtSalespersonName.hints.tooltip}">
-                            <f:validator binding="#{bindings.txtSalespersonName.validator}"/>
-                        </af:inputComboboxListOfValues>
                         <af:inputComboboxListOfValues id="txtLocationNameId"
                                                       popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
                                                       value="#{bindings.txtLocationName.inputValue}"
@@ -84,20 +37,54 @@
                                                       shortDesc="#{bindings.txtLocationName.hints.tooltip}">
                             <f:validator binding="#{bindings.txtLocationName.validator}"/>
                         </af:inputComboboxListOfValues>
-                        <af:selectOneChoice value="#{bindings.txtSalesTerritoryId.inputValue}"
-                                            label="#{bindings.txtSalesTerritoryId.label}"
-                                            required="#{bindings.txtSalesTerritoryId.hints.mandatory}"
-                                            shortDesc="#{bindings.txtSalesTerritoryId.hints.tooltip}" id="soc3">
-                            <f:selectItems value="#{bindings.txtSalesTerritoryId.items}" id="si3"/>
-                            <f:validator binding="#{bindings.txtSalesTerritoryId.validator}"/>
-                        </af:selectOneChoice>
-                        <af:inputText value="#{bindings.newSalespersonid.inputValue}"
-                                      label="#{bindings.newSalespersonid.hints.label}"
-                                      required="#{bindings.newSalespersonid.hints.mandatory}"
-                                      columns="#{bindings.newSalespersonid.hints.displayWidth}"
-                                      maximumLength="#{bindings.newSalespersonid.hints.precision}"
-                                      shortDesc="#{bindings.newSalespersonid.hints.tooltip}" id="it5">
-                            <f:validator binding="#{bindings.newSalespersonid.validator}"/>
+                        <af:inputText value="#{bindings.Locationid.inputValue}"
+                                      label="#{bindings.Locationid.hints.label}"
+                                      required="#{bindings.Locationid.hints.mandatory}"
+                                      columns="#{bindings.Locationid.hints.displayWidth}"
+                                      maximumLength="#{bindings.Locationid.hints.precision}"
+                                      shortDesc="#{bindings.Locationid.hints.tooltip}"
+                                      partialTriggers="txtLocationNameId" id="it2" disabled="true">
+                            <f:validator binding="#{bindings.Locationid.validator}"/>
+                        </af:inputText>
+                        <af:inputComboboxListOfValues id="txtCustomerNameId"
+                                                      popupTitle="Search and Select: #{bindings.txtCustomerName.hints.label}"
+                                                      value="#{bindings.txtCustomerName.inputValue}"
+                                                      label="#{bindings.txtCustomerName.hints.label}"
+                                                      model="#{bindings.txtCustomerName.listOfValuesModel}"
+                                                      required="#{bindings.txtCustomerName.hints.mandatory}"
+                                                      columns="#{bindings.txtCustomerName.hints.displayWidth}"
+                                                      shortDesc="#{bindings.txtCustomerName.hints.tooltip}">
+                            <f:validator binding="#{bindings.txtCustomerName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedCustomerValues}"/>
+                        </af:inputComboboxListOfValues>
+                        <af:inputText value="#{bindings.Customerid.inputValue}"
+                                      label="#{bindings.Customerid.hints.label}"
+                                      required="#{bindings.Customerid.hints.mandatory}"
+                                      columns="#{bindings.Customerid.hints.displayWidth}"
+                                      maximumLength="#{bindings.Customerid.hints.precision}"
+                                      shortDesc="#{bindings.Customerid.hints.tooltip}"
+                                      partialTriggers="txtCustomerNameId" id="it3" disabled="true">
+                            <f:validator binding="#{bindings.Customerid.validator}"/>
+                        </af:inputText>
+                        <af:inputComboboxListOfValues id="txtSalespersonNameId"
+                                                      popupTitle="Search and Select: #{bindings.txtSalespersonName.hints.label}"
+                                                      value="#{bindings.txtSalespersonName.inputValue}"
+                                                      label="#{bindings.txtSalespersonName.hints.label}"
+                                                      model="#{bindings.txtSalespersonName.listOfValuesModel}"
+                                                      required="#{bindings.txtSalespersonName.hints.mandatory}"
+                                                      columns="#{bindings.txtSalespersonName.hints.displayWidth}"
+                                                      shortDesc="#{bindings.txtSalespersonName.hints.tooltip}">
+                            <f:validator binding="#{bindings.txtSalespersonName.validator}"/>
+                        </af:inputComboboxListOfValues>
+                        <af:inputText value="#{bindings.Salespersonid.inputValue}"
+                                      label="#{bindings.Salespersonid.hints.label}"
+                                      required="#{bindings.Salespersonid.hints.mandatory}"
+                                      columns="#{bindings.Salespersonid.hints.displayWidth}"
+                                      maximumLength="#{bindings.Salespersonid.hints.precision}"
+                                      shortDesc="#{bindings.Salespersonid.hints.tooltip}"
+                                      partialTriggers="txtSalespersonNameId newSalespersonNameId" id="it4"
+                                      rendered="false">
+                            <f:validator binding="#{bindings.Salespersonid.validator}"/>
                         </af:inputText>
                         <af:inputComboboxListOfValues id="newSalespersonNameId"
                                                       popupTitle="Search and Select: #{bindings.newSalespersonName.hints.label}"
@@ -106,16 +93,23 @@
                                                       model="#{bindings.newSalespersonName.listOfValuesModel}"
                                                       required="#{bindings.newSalespersonName.hints.mandatory}"
                                                       columns="#{bindings.newSalespersonName.hints.displayWidth}"
-                                                      shortDesc="#{bindings.newSalespersonName.hints.tooltip}">
+                                                      shortDesc="#{bindings.newSalespersonName.hints.tooltip}"
+                                                      autoSubmit="true">
                             <f:validator binding="#{bindings.newSalespersonName.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedSalesPersonByLoc}"/>
                         </af:inputComboboxListOfValues>
-                        <af:selectOneChoice value="#{bindings.txtNewSalesTerritoryId.inputValue}"
-                                            label="#{bindings.txtNewSalesTerritoryId.label}"
-                                            required="#{bindings.txtNewSalesTerritoryId.hints.mandatory}"
-                                            shortDesc="#{bindings.txtNewSalesTerritoryId.hints.tooltip}" id="soc4">
-                            <f:selectItems value="#{bindings.txtNewSalesTerritoryId.items}" id="si4"/>
-                            <f:validator binding="#{bindings.txtNewSalesTerritoryId.validator}"/>
-                        </af:selectOneChoice>
+                        <af:inputText value="#{bindings.newSalespersonid.inputValue}"
+                                      label="#{bindings.newSalespersonid.hints.label}"
+                                      required="#{bindings.newSalespersonid.hints.mandatory}"
+                                      columns="#{bindings.newSalespersonid.hints.displayWidth}"
+                                      maximumLength="#{bindings.newSalespersonid.hints.precision}"
+                                      shortDesc="#{bindings.newSalespersonid.hints.tooltip}" id="it5" rendered="false">
+                            <f:validator binding="#{bindings.newSalespersonid.validator}"/>
+                        </af:inputText>
+                        <af:button
+                                   text="doUpdateSalesPerson"
+                                   disabled="#{!bindings.doUpdateSalesPerson.enabled}" id="b1"
+                                   actionListener="#{bindings.doUpdateSalesPerson.execute}"/>
                     </af:panelFormLayout>
                 </f:facet>
                 <f:facet name="erptempleft"/>

@@ -100,7 +100,8 @@
   <ViewAccessor
     Name="AccSoSalesTerritoryView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesTerritoryView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true"
+    OrderBy="SoSalesTerritory.DESCRIPTION"/>
   <ViewAccessor
     Name="AccInStockItemGroupView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InStockItemGroupView"
@@ -139,6 +140,20 @@
     Name="AccAllDivisionsView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllDivisionsView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSoSalesPersonsNewView"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SoSalesPersonsByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView.SoSalesPersonsByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?0:Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LovCompanyid"
     ListVOName="AccAllCompanyView"
@@ -425,7 +440,7 @@
   </ListBinding>
   <ListBinding
     Name="LovnewSalespersonName"
-    ListVOName="AccSoSalesPersonsView"
+    ListVOName="AccSoSalesPersonsNewView"
     ListRangeSize="-1"
     ComboRowCountHint="10"
     NullValueFlag="none"
@@ -435,7 +450,7 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="DerivedAttrNames">
-      <Item Value="Salespersonid"/>
+      <Item Value="newSalespersonid"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="Name"/>
@@ -684,12 +699,12 @@
     LOVName="LovtxtSalespersonName">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="combo_lov"/>
         <LABEL
           ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.txtSalespersonName_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+        <CONTROLTYPE
+          Value="combo_lov"/>
       </SchemaBasedProperties>
     </Properties>
     <Dependencies>
@@ -928,7 +943,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="newSalespersonid"
-    IsUpdateable="false"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
@@ -936,10 +950,18 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"/>
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.newSalespersonid_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="newSalespersonName"
-    IsUpdateable="false"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
@@ -951,6 +973,10 @@
     LOVName="LovnewSalespersonName">
     <Properties>
       <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.newSalespersonName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
         <CONTROLTYPE
           Value="combo_lov"/>
       </SchemaBasedProperties>
@@ -958,7 +984,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="txtNewSalesTerritoryId"
-    IsUpdateable="false"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
@@ -972,6 +997,10 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwSoSalesReportQVO.txtNewSalesTerritoryId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -990,6 +1019,13 @@
     <Method
       Name="doSetERPSolSODocumentUnsubmit"
       MethodName="doSetERPSolSODocumentUnsubmit">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+    <Method
+      Name="doUpdateSalesPerson"
+      MethodName="doUpdateSalesPerson">
       <Return
         Name="_return_type_"
         Type="void"/>

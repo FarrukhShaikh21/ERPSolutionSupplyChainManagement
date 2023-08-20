@@ -232,6 +232,12 @@
     <view id="SO_0140">
       <page>/SO_0140.jsf</page>
     </view>
+    <method-call id="doSetERPSolSCMReportDefault">
+      <method>#{bindings.doSetERPSolSCMReportDefault.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-ACT-SO-0140</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -299,7 +305,7 @@
       </control-flow-case>
       <control-flow-case id="__101">
         <from-outcome>ERP-ACT-SO-0140</from-outcome>
-        <to-activity-id>SO_0140</to-activity-id>
+        <to-activity-id>doSetERPSolSCMReportDefault</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__11">
@@ -564,6 +570,13 @@
       <control-flow-case id="__88">
         <from-outcome>ERP-ACT-SO-0012-IMEI</from-outcome>
         <to-activity-id>SO_0012_IMEI</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__99">
+      <from-activity-id>doSetERPSolSCMReportDefault</from-activity-id>
+      <control-flow-case id="__100">
+        <from-outcome>ERP-ACT-SO-0140</from-outcome>
+        <to-activity-id>SO_0140</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>
