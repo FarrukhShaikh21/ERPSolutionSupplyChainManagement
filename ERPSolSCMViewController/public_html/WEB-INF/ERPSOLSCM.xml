@@ -229,6 +229,9 @@
     <view id="SO_0072">
       <page>/SO_0072.jsf</page>
     </view>
+    <view id="SO_0140">
+      <page>/SO_0140.jsf</page>
+    </view>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -293,6 +296,10 @@
       <control-flow-case id="__98">
         <from-outcome>ERP-ACT-SO-0072</from-outcome>
         <to-activity-id>SO_0072</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__101">
+        <from-outcome>ERP-ACT-SO-0140</from-outcome>
+        <to-activity-id>SO_0140</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__11">
