@@ -209,6 +209,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ApplyCreditLimit"
+    PrecisionRule="true"
+    EntityAttrName="ApplyCreditLimit"
+    EntityUsage="AllCustomerSalesperson"
+    AliasName="APPLY_CREDIT_LIMIT"/>
   <ViewCriteria
     Name="AllCustomerSalespersonByCustomerVC"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomerSalespersonView"

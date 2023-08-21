@@ -98,6 +98,7 @@
           <Item Value="Id"/>
           <Item Value="Divid"/>
           <Item Value="DefaultPerson"/>
+          <Item Value="ApplyCreditLimit"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

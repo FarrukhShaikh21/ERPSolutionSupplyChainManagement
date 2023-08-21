@@ -389,7 +389,7 @@
             </af:panelGridLayout>
             <af:panelGridLayout id="pgl1">
               <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr10">
-                <af:gridCell marginStart="5px" width="40%" marginEnd="5px" id="gc26" halign="stretch">
+                <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc26" halign="stretch">
                   <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                     <f:facet name="menus"/>
                     <f:facet name="toolbar">
@@ -448,6 +448,14 @@
                           <f:validator binding="#{row.bindings.Salesterritoryid.validator}"/>
                         </af:inputText>
                       </af:column>
+                      <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.ApplyCreditLimit.label}"
+                                 id="c15">
+                        <af:selectOneChoice label="Label 2" value="#{row.bindings.ApplyCreditLimit.inputValue}"
+                                            id="soc10">
+                          <af:selectItem label="Yes" value="Y" id="si13"/>
+                          <af:selectItem label="No" value="N" id="si14"/>
+                        </af:selectOneChoice>
+                      </af:column>
                       <af:column headerText="#{bindings.AllCustomerSalespersonDetCRUD.hints.Id.label}" id="c5"
                                  width="40" displayIndex="-1">
                         <af:inputText value="#{row.bindings.Id.inputValue}"
@@ -481,7 +489,7 @@
                     </af:table>
                   </af:panelCollection>
                 </af:gridCell>
-                <af:gridCell id="gc44" width="60%">
+                <af:gridCell id="gc44" width="50%">
                   <af:panelBox text="Credit Limit" id="pb2" showDisclosure="false">
                     <f:facet name="toolbar"/>
                     <af:panelCollection id="pc2" styleClass="AFStretchWidth">
@@ -519,7 +527,7 @@
                           </af:inputText>
                         </af:column>
                         <af:column headerText="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedBy.label}"
-                                   id="c8">
+                                   id="c8" width="80">
                           <af:inputText value="#{row.bindings.ApprovedBy.inputValue}"
                                         label="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedBy.label}"
                                         required="#{bindings.AllCustomersSalePersonClDetCRUD.hints.ApprovedBy.mandatory}"
@@ -543,7 +551,7 @@
                           </af:inputDate>
                         </af:column>
                         <af:column headerText="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterBy.label}"
-                                   id="c10">
+                                   id="c10" width="80">
                           <af:inputText value="#{row.bindings.EnterBy.inputValue}"
                                         label="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterBy.label}"
                                         required="#{bindings.AllCustomersSalePersonClDetCRUD.hints.EnterBy.mandatory}"

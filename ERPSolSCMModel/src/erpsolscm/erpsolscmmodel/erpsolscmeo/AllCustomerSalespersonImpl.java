@@ -39,6 +39,7 @@ public class AllCustomerSalespersonImpl extends ERPSolGlobalsEntityImpl {
         CustOldid,
         Customerseq,
         txtSalesPersonName,
+        ApplyCreditLimit,
         SoSalesPersons,
         AllCustomers,
         AllCustomersSalePersonCl;
@@ -83,6 +84,7 @@ public class AllCustomerSalespersonImpl extends ERPSolGlobalsEntityImpl {
     public static final int CUSTOLDID = AttributesEnum.CustOldid.index();
     public static final int CUSTOMERSEQ = AttributesEnum.Customerseq.index();
     public static final int TXTSALESPERSONNAME = AttributesEnum.txtSalesPersonName.index();
+    public static final int APPLYCREDITLIMIT = AttributesEnum.ApplyCreditLimit.index();
     public static final int SOSALESPERSONS = AttributesEnum.SoSalesPersons.index();
     public static final int ALLCUSTOMERS = AttributesEnum.AllCustomers.index();
     public static final int ALLCUSTOMERSSALEPERSONCL = AttributesEnum.AllCustomersSalePersonCl.index();
@@ -371,6 +373,22 @@ public class AllCustomerSalespersonImpl extends ERPSolGlobalsEntityImpl {
      */
     public void settxtSalesPersonName(String value) {
         setAttributeInternal(TXTSALESPERSONNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for ApplyCreditLimit, using the alias name ApplyCreditLimit.
+     * @return the value of ApplyCreditLimit
+     */
+    public String getApplyCreditLimit() {
+        return (String) getAttributeInternal(APPLYCREDITLIMIT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ApplyCreditLimit.
+     * @param value value to set the ApplyCreditLimit
+     */
+    public void setApplyCreditLimit(String value) {
+        setAttributeInternal(APPLYCREDITLIMIT, value);
     }
 
     /**

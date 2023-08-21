@@ -196,6 +196,19 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="ApplyCreditLimit"
+    Precision="1"
+    ColumnName="APPLY_CREDIT_LIMIT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ALL_CUSTOMER_SALESPERSON"
+    DefaultValue="Y">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="SoSalesPersons"
     Association="erpsolscm.erpsolscmmodel.erpsolscmassoc.SoSalesPersonAllCustomerSalesPersonSalespersonIdAsso"
