@@ -53,7 +53,8 @@
                                                       model="#{bindings.txtCustomerName.listOfValuesModel}"
                                                       required="#{bindings.txtCustomerName.hints.mandatory}"
                                                       columns="#{bindings.txtCustomerName.hints.displayWidth}"
-                                                      shortDesc="#{bindings.txtCustomerName.hints.tooltip}">
+                                                      shortDesc="#{bindings.txtCustomerName.hints.tooltip}"
+                                                      autoSubmit="true">
                             <f:validator binding="#{bindings.txtCustomerName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedCustomerValues}"/>
                         </af:inputComboboxListOfValues>
@@ -73,7 +74,8 @@
                                                       model="#{bindings.txtSalespersonName.listOfValuesModel}"
                                                       required="#{bindings.txtSalespersonName.hints.mandatory}"
                                                       columns="#{bindings.txtSalespersonName.hints.displayWidth}"
-                                                      shortDesc="#{bindings.txtSalespersonName.hints.tooltip}">
+                                                      shortDesc="#{bindings.txtSalespersonName.hints.tooltip}"
+                                                      autoSubmit="true">
                             <f:validator binding="#{bindings.txtSalespersonName.validator}"/>
                         </af:inputComboboxListOfValues>
                         <af:inputText value="#{bindings.Salespersonid.inputValue}"
@@ -82,8 +84,7 @@
                                       columns="#{bindings.Salespersonid.hints.displayWidth}"
                                       maximumLength="#{bindings.Salespersonid.hints.precision}"
                                       shortDesc="#{bindings.Salespersonid.hints.tooltip}"
-                                      partialTriggers="txtSalespersonNameId newSalespersonNameId" id="it4"
-                                      rendered="false">
+                                      partialTriggers="txtSalespersonNameId newSalespersonNameId" id="it4" disabled="true">
                             <f:validator binding="#{bindings.Salespersonid.validator}"/>
                         </af:inputText>
                         <af:inputComboboxListOfValues id="newSalespersonNameId"
@@ -103,7 +104,7 @@
                                       required="#{bindings.newSalespersonid.hints.mandatory}"
                                       columns="#{bindings.newSalespersonid.hints.displayWidth}"
                                       maximumLength="#{bindings.newSalespersonid.hints.precision}"
-                                      shortDesc="#{bindings.newSalespersonid.hints.tooltip}" id="it5" rendered="false">
+                                      shortDesc="#{bindings.newSalespersonid.hints.tooltip}" id="it5" disabled="true">
                             <f:validator binding="#{bindings.newSalespersonid.validator}"/>
                         </af:inputText>
                         <af:button
