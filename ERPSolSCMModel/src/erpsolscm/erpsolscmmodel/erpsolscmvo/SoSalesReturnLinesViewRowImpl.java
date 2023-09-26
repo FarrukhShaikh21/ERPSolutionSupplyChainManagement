@@ -73,6 +73,7 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
         txtNetAmount,
         txtRetDiscountAmount,
         txtAddDiscountAmount,
+        txtTotalDiscount,
         SrimeiView,
         InItemsView,
         SoSalesReturnView,
@@ -154,6 +155,7 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
     public static final int TXTNETAMOUNT = AttributesEnum.txtNetAmount.index();
     public static final int TXTRETDISCOUNTAMOUNT = AttributesEnum.txtRetDiscountAmount.index();
     public static final int TXTADDDISCOUNTAMOUNT = AttributesEnum.txtAddDiscountAmount.index();
+    public static final int TXTTOTALDISCOUNT = AttributesEnum.txtTotalDiscount.index();
     public static final int SRIMEIVIEW = AttributesEnum.SrimeiView.index();
     public static final int INITEMSVIEW = AttributesEnum.InItemsView.index();
     public static final int SOSALESRETURNVIEW = AttributesEnum.SoSalesReturnView.index();
@@ -1017,6 +1019,22 @@ public class SoSalesReturnLinesViewRowImpl extends ViewRowImpl {
      */
     public void settxtAddDiscountAmount(Integer value) {
         setAttributeInternal(TXTADDDISCOUNTAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for TXT_TOTAL_DISCOUNT using the alias name txtTotalDiscount.
+     * @return the TXT_TOTAL_DISCOUNT
+     */
+    public BigDecimal gettxtTotalDiscount() {
+        return (BigDecimal) getAttributeInternal(TXTTOTALDISCOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for TXT_TOTAL_DISCOUNT using the alias name txtTotalDiscount.
+     * @param value value to set the TXT_TOTAL_DISCOUNT
+     */
+    public void settxtTotalDiscount(BigDecimal value) {
+        setAttributeInternal(TXTTOTALDISCOUNT, value);
     }
 
     /**

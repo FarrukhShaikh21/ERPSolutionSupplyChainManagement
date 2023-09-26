@@ -400,6 +400,14 @@
     AliasName="TXT_ADD_DISCOUNT_AMOUNT"
     IsQueriable="false"
     IsPersistent="false"/>
+  <ViewAttribute
+    Name="txtTotalDiscount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtTotalDiscount"
+    EntityUsage="SoSalesReturnLines"
+    AliasName="TXT_TOTAL_DISCOUNT"/>
   <ViewLinkAccessor
     Name="SrimeiView"
     ViewLink="erpsolscm.erpsolscmmodel.erpsolscmvo.SysC0017022Link"

@@ -485,7 +485,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtRetDiscountAmount.label}"
-                                 id="c8">
+                                 id="c8" rendered="false">
                         <af:inputText value="#{row.bindings.txtRetDiscountAmount.inputValue}"
                                       label="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtRetDiscountAmount.label}"
                                       required="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtRetDiscountAmount.mandatory}"
@@ -496,6 +496,20 @@
                           <f:validator binding="#{row.bindings.txtRetDiscountAmount.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtRetDiscountAmount.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtTotalDiscount.label}"
+                                 id="c12">
+                        <af:inputText value="#{row.bindings.txtTotalDiscount.inputValue}"
+                                      label="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtTotalDiscount.label}"
+                                      required="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtTotalDiscount.mandatory}"
+                                      columns="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtTotalDiscount.displayWidth}"
+                                      maximumLength="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtTotalDiscount.precision}"
+                                      shortDesc="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtTotalDiscount.tooltip}"
+                                      id="it18" readOnly="true">
+                          <f:validator binding="#{row.bindings.txtTotalDiscount.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtTotalDiscount.format}"/>
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.SoSalesReturnLinesDetCRUD.hints.txtNetAmount.label}" id="c9">

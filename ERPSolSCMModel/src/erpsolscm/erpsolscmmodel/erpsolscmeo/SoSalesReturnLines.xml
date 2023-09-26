@@ -609,7 +609,6 @@
     SQLType="NUMERIC"
     Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SO_SALES_RETURN_LINES"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression
@@ -624,6 +623,38 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLines.txtAddDiscountAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="txtTotalDiscount"
+    ColumnName="TXT_TOTAL_DISCOUNT"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="SO_SALES_RETURN_LINES"
+    IsPersistent="false"
+    IsQueriable="false">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[(txtAddDiscountAmount + txtRetDiscountAmount)]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="ActUnitPriceBcurr"/>
+      <Item
+        Value="ActUnitPriceFcurr"/>
+      <Item
+        Value="FcurrAddDiscountAmount"/>
+      <Item
+        Value="Productid"/>
+      <Item
+        Value="RetQty"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesReturnLines.txtTotalDiscount_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
       </SchemaBasedProperties>
