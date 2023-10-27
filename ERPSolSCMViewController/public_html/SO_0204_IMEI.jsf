@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:document title="SO_0167_IMEI.jsf" id="d1">
+    <af:messages id="m1"/>
+    <af:form id="f1">
+      <af:panelHeader text="Scan Sales OrderIMEI/BOX (#{bindings.Salesorderid.inputValue} (#{bindings.ModelNo.inputValue})) " id="ph1">
+        <f:facet name="context"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="toolbar">
+          <af:toolbar id="t3">
+            <af:button text="Back To Online Order" id="b4"
+                       action="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolGoToBack}"/>
+          </af:toolbar>
+        </f:facet>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+        <af:panelGridLayout id="pgl1">
+          <af:gridRow id="gr3">
+            <af:gridCell id="gc3">
+              <af:inputText value="#{bindings.ModelNo.inputValue}" label="#{bindings.ModelNo.hints.label}"
+                            required="#{bindings.ModelNo.hints.mandatory}"
+                            columns="#{bindings.ModelNo.hints.displayWidth}"
+                            maximumLength="#{bindings.ModelNo.hints.precision}"
+                            shortDesc="#{bindings.ModelNo.hints.tooltip}" id="it7" rendered="false">
+                <f:validator binding="#{bindings.ModelNo.validator}"/>
+              </af:inputText>
+              <af:inputText value="#{bindings.Salesorderid.inputValue}" simple="true"
+                            required="#{bindings.Salesorderid.hints.mandatory}"
+                            columns="#{bindings.Salesorderid.hints.displayWidth}"
+                            maximumLength="#{bindings.Salesorderid.hints.precision}"
+                            shortDesc="#{bindings.Salesorderid.hints.tooltip}" id="it6" rendered="false">
+                <f:validator binding="#{bindings.Salesorderid.validator}"/>
+              </af:inputText>
+            </af:gridCell>
+          </af:gridRow>
+          <af:gridRow marginTop="5px" height="auto" id="gr1">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+              <af:panelGroupLayout id="pgl2" layout="horizontal">
+                <af:inputText value="#{bindings.txtPosted.inputValue}" simple="true"
+                              required="#{bindings.txtPosted.hints.mandatory}"
+                              columns="#{bindings.txtPosted.hints.displayWidth}"
+                              maximumLength="#{bindings.txtPosted.hints.precision}"
+                              shortDesc="#{bindings.txtPosted.hints.tooltip}" id="it8" rendered="false">
+                  <f:validator binding="#{bindings.txtPosted.validator}"/>
+                </af:inputText>
+                <af:inputText label="Label 1" id="it1" simple="true" placeholder="Scan Box Here" autoSubmit="true"
+                              clientComponent="true"
+                              disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N' || bindings.txtPosted.inputValue=='Y'}"
+                              contentStyle="text-transform:uppercase">
+                  <af:clientListener type="keyPress" method="handleEnterEventBox"/>
+                  <af:serverListener type="EnterEventBox"
+                                     method="#{pageFlowScope.ERPSolSCMPageFlowBean.handleEnterEventBox}"/>
+                </af:inputText>
+                <af:spacer width="10" height="10" id="s1"/>
+                <af:inputText id="it5" simple="true" placeholder="Scan IME Here" autoSubmit="true" label="dw"
+                              maximumLength="15"
+                              disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N' || bindings.txtPosted.inputValue=='Y'}">
+                                            <af:clientListener method="handleEnterEvent" type="keyPress"/>
+                            <af:serverListener type="EnterEvent"
+                                               method="#{pageFlowScope.ERPSolSCMPageFlowBean.handleEnterEventIMEI}"/>
+                  <af:convertNumber groupingUsed="false"/>
+                </af:inputText>
+              </af:panelGroupLayout>
+            </af:gridCell>
+          </af:gridRow>
+          <af:gridRow marginTop="5px" marginBottom="5px" id="gr2">
+            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
+              <af:panelCollection id="pc1" styleClass="AFStretchWidth" featuresOff="viewMenu detach">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t2">
+                    <af:button actionListener="#{bindings.Rollback.execute}" text="Undo Changes" immediate="true" id="b3"
+                               icon="#{resource['images:imgUndo.png']}" iconPosition="top">
+                      <af:resetActionListener/>
+                    </af:button>
+                    <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" id="b2" icon="#{resource['images:imgSave.png']}"
+                               iconPosition="top"/>
+                    <af:button actionListener="#{bindings.doERPSolRemoveBox.execute}" text="Delete Selected Box IMEI"
+                               disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowDelete=='N' || bindings.txtPosted.inputValue=='Y'}" id="b5"
+                               icon="#{resource['images:imgDelete.png']}"/>
+                    <af:button actionListener="#{bindings.Delete.execute}" text="Delete Single IMEI"
+                               disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowDelete=='N' || bindings.txtPosted.inputValue=='Y'}" id="b1"
+                               icon="#{resource['images:imgDelete.png']}"/>
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.SoSalesOrderImeiDetCRUD.collectionModel}" var="row"
+                          rows="#{bindings.SoSalesOrderImeiDetCRUD.rangeSize}"
+                          emptyText="#{bindings.SoSalesOrderImeiDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.SoSalesOrderImeiDetCRUD.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.SoSalesOrderImeiDetCRUD.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.SoSalesOrderImeiDetCRUD.rangeSize}"
+                          filterModel="#{bindings.SoSalesOrderImeiDetCRUDQuery.queryDescriptor}"
+                          queryListener="#{bindings.SoSalesOrderImeiDetCRUDQuery.processQuery}" filterVisible="true"
+                          varStatus="vs" id="t1" partialTriggers="::b1" styleClass="AFStretchWidth" scrollPolicy="page"
+                          autoHeightRows="8">
+                  <af:column sortProperty="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.name}" filterable="true"
+                             headerText="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.label}" id="c2" width="150"
+                             displayIndex="-1">
+                    <af:inputText value="#{row.bindings.ItemRefId.inputValue}"
+                                  label="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.label}"
+                                  required="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.mandatory}"
+                                  columns="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.displayWidth}"
+                                  maximumLength="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.precision}"
+                                  shortDesc="#{bindings.SoSalesOrderImeiDetCRUD.hints.ItemRefId.tooltip}" id="it2"
+                                  disabled="true">
+                      <f:validator binding="#{row.bindings.ItemRefId.validator}"/>
+                    </af:inputText>
+                    <f:facet name="footer"/>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.name}" filterable="true"
+                             headerText="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.label}" id="c3" width="200">
+                    <af:inputText value="#{row.bindings.TempBoxNo.inputValue}"
+                                  label="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.label}"
+                                  required="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.mandatory}"
+                                  columns="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.displayWidth}"
+                                  maximumLength="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.precision}"
+                                  shortDesc="#{bindings.SoSalesOrderImeiDetCRUD.hints.TempBoxNo.tooltip}" id="it3"
+                                  disabled="true">
+                      <f:validator binding="#{row.bindings.TempBoxNo.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.SoSalesOrderImeiDetCRUD.hints.ImeiNo.name}" filterable="true"
+                             headerText="#{bindings.SoSalesOrderImeiDetCRUD.hints.ImeiNo.label}" id="c4" width="200"
+                             displayIndex="-1">
+                    <af:inputText value="#{row.bindings.ImeiNo.inputValue}"
+                                  label="#{bindings.SoSalesOrderImeiDetCRUD.hints.ImeiNo.label}"
+                                  required="#{bindings.SoSalesOrderImeiDetCRUD.hints.ImeiNo.mandatory}"
+                                  columns="#{bindings.SoSalesOrderImeiDetCRUD.hints.ImeiNo.displayWidth}"
+                                  maximumLength="#{bindings.SoSalesOrderImeiDetCRUD.hints.ImeiNo.precision}"
+                                  shortDesc="#{bindings.SoSalesOrderImeiDetCRUD.hints.ImeiNo.tooltip}" id="it4"
+                                  disabled="true">
+                      <f:validator binding="#{row.bindings.ImeiNo.validator}"/>
+                    </af:inputText>
+                    <f:facet name="footer">
+                      <af:outputText value="Count : #{bindings.txtCountRecord.inputValue}"
+                                     shortDesc="#{bindings.txtCountRecord.hints.tooltip}" id="ot1"
+                                     inlineStyle="font-weight:bold">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.txtCountRecord.format}"/>
+                      </af:outputText>
+                    </f:facet>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+            </af:gridCell>
+          </af:gridRow>
+        </af:panelGridLayout>
+      </af:panelHeader>
+    </af:form>
+    <f:facet name="metaContainer">
+      <af:resource type="javascript">
+          function jserpKeyNextItemLOV(erpevt) {
+      var _keyCode = erpevt.getKeyCode();
+      //check for Enter Key
+      if (_keyCode == AdfKeyStroke.ENTER_KEY ){    
+        comp = AdfPage.PAGE.findComponent('pt1:it100');
+        comp.focus();          
+        erpevt.cancel();
+    }
+    }
+   function jserpKeyNextItemBoxNo(erpevt) {
+      var _keyCode = erpevt.getKeyCode();
+         sum=AdfPage.PAGE.findComponent('pt1:ot7').getValue();
+        perbox=AdfPage.PAGE.findComponent('pt1:ot8').getValue();
+      //check for Enter Key
+      if (_keyCode == AdfKeyStroke.ENTER_KEY ){    
+     
+     
+//        alert(sum+1 +' '+perbox)
+        
+    if(sum+1==perbox){
+        comp = AdfPage.PAGE.findComponent('pt1:it5');
+        comp.focus();          
+        erpevt.cancel();
+        }
+    }
+      }
+
+function handleEnterEvent(evt) {
+
+      var _keyCode = evt.getKeyCode();
+
+      //check for Enter Key
+
+      if(_keyCode == AdfKeyStroke.ENTER_KEY ){    
+
+          var comp = evt.getSource();
+
+          AdfCustomEvent.queue(comp, "EnterEvent", {fvalue:comp.getSubmittedValue()}, false);
+
+          evt.cancel();
+          comp.setValue(null);
+
+      }
+
+   }
+   
+function handleEnterEventBox(evt) {
+
+      var _keyCode = evt.getKeyCode();
+
+      //check for Enter Key
+      if(_keyCode == AdfKeyStroke.ENTER_KEY ){    
+
+          var comp = evt.getSource();
+
+          AdfCustomEvent.queue(comp, "EnterEventBox", {fvalue:comp.getSubmittedValue()}, false);
+
+          evt.cancel();
+          comp.setValue(null);
+
+      }
+
+   }
+
+      </af:resource>
+    </f:facet>
+  </af:document>
+</f:view>

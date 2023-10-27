@@ -948,7 +948,14 @@
     ColumnType="NUMBER"
     IsPersistent="false"
     IsQueriable="false">
-    <TransientExpression><![CDATA[(txtGrossAmount==null?0:txtGrossAmount) - (DiscountAmountOc==null?0:DiscountAmountOc)]]></TransientExpression>
+    <TransientExpression><![CDATA[if (SoSalesOrder?.SoType=='006')
+(txtGrossAmount==null?0:txtGrossAmount) - (((DiscountAmountOc==null?0:DiscountAmountOc) +(AddDiscountTotal==null?0:AddDiscountTotal)))
+else
+{
+(txtGrossAmount==null?0:txtGrossAmount) - (DiscountAmountOc==null?0:DiscountAmountOc)
+}]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
     <Dependencies>
       <Item
         Value="ActUnitPriceBcurr"/>

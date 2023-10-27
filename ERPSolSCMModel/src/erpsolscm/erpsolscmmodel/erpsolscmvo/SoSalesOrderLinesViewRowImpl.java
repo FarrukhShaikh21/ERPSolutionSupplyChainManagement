@@ -426,6 +426,9 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
      */
     public void setQuantity(BigDecimal value) {
         setAttributeInternal(QUANTITY, value);
+        
+
+
         try{
             getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_USERID",ERPSolGlobClassModel.doGetUserCode());
             getAccVwFuncGetItemDiscountByLocDate().setNamedWhereClauseParam("P_ADF_SALESORDERID","");
@@ -450,19 +453,25 @@ public class SoSalesOrderLinesViewRowImpl extends ViewRowImpl {
 //            setDefaultDiscAmount(new BigDecimal(0));
 //        exc.printStackTrace();
         }
+        if (getSoSalesOrderView().getAttribute("SoType").equals("006") ) {
+         return;               
+        }
         try{
             getAccVwFuncGetItemAdditionalDiscountQVO().setNamedWhereClauseParam("P_ADF_LOCATIONID", getSoSalesOrderView().getAttribute("Locationid"));
             getAccVwFuncGetItemAdditionalDiscountQVO().setNamedWhereClauseParam("P_ADF_DATE", getSoSalesOrderView().getAttribute("ConfirmDate"));
             getAccVwFuncGetItemAdditionalDiscountQVO().setNamedWhereClauseParam("P_ADF_ITEMID", getProductid());
             getAccVwFuncGetItemAdditionalDiscountQVO().executeQuery();
             setAddDiscountUnit((BigDecimal)getAccVwFuncGetItemAdditionalDiscountQVO().first().getAttribute("AdditionalDisAmount"));
+            
         }
         catch(Exception exc) {
             setDiscountPercent(new BigDecimal(0));
+            setAddDiscountUnit(new BigDecimal(0));
 //            setDiscountAmountOc(new BigDecimal(0));
 //            setDefaultDiscAmount(new BigDecimal(0));
 //        exc.printStackTrace();
         }
+        
     }
 
     /**

@@ -9,7 +9,11 @@
   ClearCacheOnRollback="true">
   <ViewUsage
     Name="SoSalesOrderViewCRUD"
-    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderView"/>
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderView">
+    <ViewCriteriaUsage
+      Name="SoSalesOrderViewWithoutOnlineVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderView.SoSalesOrderViewWithoutOnlineVC"/>
+  </ViewUsage>
   <ViewUsage
     Name="SoSalesOrderLinesDetCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesView"/>
@@ -142,6 +146,19 @@
   <ViewUsage
     Name="SysImeiActivationQuestionDetCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SysImeiActivationQuestionView"/>
+  <ViewUsage
+    Name="SoSalesOrderOnlineCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderView">
+    <ViewCriteriaUsage
+      Name="SoSalesOrderViewOnlineOnlyVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderView.SoSalesOrderViewOnlineOnlyVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="SoSalesOrderLinesOnlineDetCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesView"/>
+  <ViewUsage
+    Name="SoSalesOrderImeiOnlineCRUD"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderImeiView"/>
   <ViewLinkUsage
     Name="SalesOrderSaleOrderLinesSalesOrderSeqLink1"
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
@@ -225,5 +242,17 @@
     ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SysImeiActivationSmsSysImeiActivationQuestionActivationIdLink"
     SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SysImeiActivationSmsCRUD"
     DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SysImeiActivationQuestionDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="SalesOrderSaleOrderLinesSalesOrderSeqLink2"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SalesOrderSaleOrderLinesSalesOrderSeqLink"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderOnlineCRUD"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderLinesOnlineDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="SoSalesOrderLineSaleOrderImeiSalesorderlineseqLink3"
+    ViewLinkObjectName="erpsolscm.erpsolscmmodel.erpsolscmlink.SoSalesOrderLineSaleOrderImeiSalesorderlineseqLink"
+    SrcViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderLinesOnlineDetCRUD"
+    DstViewUsageName="erpsolscm.erpsolscmmodel.erpsolscmam.ERPSolSCMAppModule.SoSalesOrderImeiOnlineCRUD"
     Reversed="false"/>
 </AppModule>

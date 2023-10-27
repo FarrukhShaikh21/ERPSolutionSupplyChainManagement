@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0204_IMEIPageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SoSalesOrderImeiSCANCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesOrderImeiDetCRUDIterator">
+      <sortCriteria>
+        <sort attribute="SalesOrderImeiSno" ascending="false"/>
+      </sortCriteria>
+    </iterator>
+    <searchRegion Binds="SoSalesOrderImeiDetCRUDIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SoSalesOrderImeiDetCRUDQuery"/>
+    <iterator Binds="SoSalesOrderLinesBySOIDRO" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesOrderLinesBySOIDROIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SoSalesOrderImeiDetCRUDIterator" id="SoSalesOrderImeiDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderImeiView"
+                      Name="SoSalesOrderImeiDetCRUD0">
+        <AttrNames>
+          <Item Value="Salesorderlineseq"/>
+          <Item Value="ItemRefId"/>
+          <Item Value="TempBoxNo"/>
+          <Item Value="ImeiNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SoSalesOrderImeiDetCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <attributeValues IterBinding="SoSalesOrderImeiDetCRUDIterator" id="txtCountRecord">
+      <AttrNames>
+        <Item Value="txtCountRecord"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderLinesBySOIDROIterator" id="Salesorderid">
+      <AttrNames>
+        <Item Value="Salesorderid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderLinesBySOIDROIterator" id="ModelNo">
+      <AttrNames>
+        <Item Value="ModelNo"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doERPSolRemoveBox" RequiresUpdateModel="true" Action="invokeMethod" MethodName="doERPSolRemoveBox"
+                  IsViewObjectMethod="true" DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesOrderImeiSCANCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doERPSolRemoveBox_ERPSolSCMAppModuleDataControl_SoSalesOrderImeiSCANCRUD_doERPSolRemoveBox_result"/>
+    <attributeValues IterBinding="SoSalesOrderLinesBySOIDROIterator" id="txtPosted">
+      <AttrNames>
+        <Item Value="txtPosted"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

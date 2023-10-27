@@ -238,6 +238,18 @@
         <fixed-outcome>ERP-ACT-SO-0140</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SO_0204">
+      <page>/SO_0204.jsf</page>
+    </view>
+    <view id="SO_0204_IMEI">
+      <page>/SO_0204_IMEI.jsf</page>
+    </view>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERP-SO-0204-IMEI-SCAN</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -306,6 +318,10 @@
       <control-flow-case id="__101">
         <from-outcome>ERP-ACT-SO-0140</from-outcome>
         <to-activity-id>doSetERPSolSCMReportDefault</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__104">
+        <from-outcome>ERP-ACT-SO-0204</from-outcome>
+        <to-activity-id>SO_0204</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__11">
@@ -577,6 +593,27 @@
       <control-flow-case id="__100">
         <from-outcome>ERP-ACT-SO-0140</from-outcome>
         <to-activity-id>SO_0140</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__102">
+      <from-activity-id>SO_0204</from-activity-id>
+      <control-flow-case id="__103">
+        <from-outcome>ACT-ERP-SO-0204-IMEI-SCAN</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__105">
+      <from-activity-id>SO_0204_IMEI</from-activity-id>
+      <control-flow-case id="__106">
+        <from-outcome>ERPSOLBACK</from-outcome>
+        <to-activity-id>SO_0204</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__107">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__108">
+        <from-outcome>ACT-ERP-SO-0204-IMEI-SCAN</from-outcome>
+        <to-activity-id>SO_0204_IMEI</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

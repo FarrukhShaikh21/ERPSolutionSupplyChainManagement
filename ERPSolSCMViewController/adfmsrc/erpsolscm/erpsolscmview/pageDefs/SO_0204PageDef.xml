@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0167PageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SoSalesOrderOnlineCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesOrderOnlineCRUDIterator"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SoSalesOrderLinesOnlineDetCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesOrderLinesOnlineDetCRUDIterator" ChangeEventPolicy="none"/>
+    <iterator Binds="SoSalesOrderImeiOnlineCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="SoSalesOrderImeiOnlineCRUDIterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="SoSalesOrderOnlineCRUDIterator" StaticList="false" Uses="LovtxtCustomerName"
+                  id="txtCustomerName"/>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="Salesorderid">
+      <AttrNames>
+        <Item Value="Salesorderid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="Customerid">
+      <AttrNames>
+        <Item Value="Customerid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="ConfirmDate">
+      <AttrNames>
+        <Item Value="ConfirmDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="Storeid">
+      <AttrNames>
+        <Item Value="Storeid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="RemainingCreditLimit">
+      <AttrNames>
+        <Item Value="RemainingCreditLimit"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="SoSalesOrderOnlineCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createWithParams" InstanceName="ERPSolSCMAppModuleDataControl.SoSalesOrderOnlineCRUD"
+            DataControl="ERPSolSCMAppModuleDataControl">
+      <NamedData NDName="SoType" NDValue="#{'006'}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="SoSalesOrderOnlineCRUDIterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="SoSalesOrderOnlineCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="SoSalesOrderOnlineCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <listOfValues IterBinding="SoSalesOrderOnlineCRUDIterator" StaticList="false" Uses="LovtxtStoreName"
+                  id="txtStoreName"/>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="Salespersonid">
+      <AttrNames>
+        <Item Value="Salespersonid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="CustomerDocRef">
+      <AttrNames>
+        <Item Value="CustomerDocRef"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="Flexfield1">
+      <AttrNames>
+        <Item Value="Flexfield1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="SoSalesOrderOnlineCRUDIterator" StaticList="false" Uses="LovtxtSalesPersonName"
+                  id="txtSalesPersonName"/>
+    <listOfValues IterBinding="SoSalesOrderOnlineCRUDIterator" StaticList="false" Uses="LovtxtSupplierName"
+                  id="txtSupplierName"/>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="Supplierid">
+      <AttrNames>
+        <Item Value="Supplierid"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SoSalesOrderLinesOnlineDetCRUDIterator" id="SoSalesOrderLinesOnlineDetCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderLinesView"
+                      Name="SoSalesOrderLinesOnlineDetCRUD0">
+        <AttrNames>
+          <Item Value="Lineno"/>
+          <Item Value="txtModelNo"/>
+          <Item Value="Productid"/>
+          <Item Value="AvailQty"/>
+          <Item Value="CurrQty"/>
+          <Item Value="SoQuantity"/>
+          <Item Value="TotSchemeSale"/>
+          <Item Value="TotalGift"/>
+          <Item Value="GiftDelivered"/>
+          <Item Value="GiftRemaining"/>
+          <Item Value="GiftQuantity"/>
+          <Item Value="Quantity"/>
+          <Item Value="ActUnitPriceOcurr"/>
+          <Item Value="txtGrossAmount"/>
+          <Item Value="txtDefaultDiscountAmount"/>
+          <Item Value="DiscountPercent"/>
+          <Item Value="txtAddDiscountTotal"/>
+          <Item Value="txtDiscountAmount"/>
+          <Item Value="txtNetAmount"/>
+          <Item Value="AddDiscountTotal"/>
+          <Item Value="DiscountAmountOc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SoSalesOrderLinesOnlineDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SoSalesOrderLinesOnlineDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="doSuperviseSaleOrder" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doSuperviseSaleOrder" IsViewObjectMethod="true"
+                  DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesOrderViewCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSuperviseSaleOrder_ERPSolSCMAppModuleDataControl_SoSalesOrderViewCRUD_doSuperviseSaleOrder_result"/>
+    <tree IterBinding="SoSalesOrderImeiOnlineCRUDIterator" id="SoSalesOrderImeiOnlineCRUD">
+      <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderImeiView"
+                      Name="SoSalesOrderImeiDetCRUD0">
+        <AttrNames>
+          <Item Value="ItemRefId"/>
+          <Item Value="ImeiNo"/>
+          <Item Value="TempBoxNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="Posted">
+      <AttrNames>
+        <Item Value="Posted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="ReadyForIssue">
+      <AttrNames>
+        <Item Value="ReadyForIssue"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="doReadyForWarehouse" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="doReadyForWarehouse" IsViewObjectMethod="true" DataControl="ERPSolSCMAppModuleDataControl"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesOrderViewCRUD"
+                  ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doReadyForWarehouse_ERPSolSCMAppModuleDataControl_SoSalesOrderViewCRUD_doReadyForWarehouse_result"/>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="Companyid">
+      <AttrNames>
+        <Item Value="Companyid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderLinesOnlineDetCRUDIterator" id="Productid">
+      <AttrNames>
+        <Item Value="Productid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="txtSumQuantity">
+      <AttrNames>
+        <Item Value="txtSumQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="txtSumNetAmount">
+      <AttrNames>
+        <Item Value="txtSumNetAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="txtSumGross">
+      <AttrNames>
+        <Item Value="txtSumGross"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="txtSumDiscount">
+      <AttrNames>
+        <Item Value="txtSumDiscount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="Divid">
+      <AttrNames>
+        <Item Value="Divid"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
