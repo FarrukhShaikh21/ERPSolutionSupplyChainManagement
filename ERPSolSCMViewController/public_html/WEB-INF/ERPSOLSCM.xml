@@ -250,6 +250,9 @@
         <fixed-outcome>ACT-ERP-SO-0204-IMEI-SCAN</fixed-outcome>
       </outcome>
     </method-call>
+    <view id="SO_0204_SEARCH">
+      <page>/SO_0204_SEARCH.jsf</page>
+    </view>
     <control-flow-rule id="__6">
       <from-activity-id>*</from-activity-id>
       <control-flow-case id="__7">
@@ -601,6 +604,10 @@
         <from-outcome>ACT-ERP-SO-0204-IMEI-SCAN</from-outcome>
         <to-activity-id>ExecuteWithParams</to-activity-id>
       </control-flow-case>
+      <control-flow-case id="__109">
+        <from-outcome>ACTPGOTO-SO_0204_SEARCH</from-outcome>
+        <to-activity-id>SO_0204_SEARCH</to-activity-id>
+      </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__105">
       <from-activity-id>SO_0204_IMEI</from-activity-id>
@@ -614,6 +621,13 @@
       <control-flow-case id="__108">
         <from-outcome>ACT-ERP-SO-0204-IMEI-SCAN</from-outcome>
         <to-activity-id>SO_0204_IMEI</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__111">
+      <from-activity-id>SO_0204_SEARCH</from-activity-id>
+      <control-flow-case id="__112">
+        <from-outcome>ACTPGOTO-SO_0204_SEARCH_BACK</from-outcome>
+        <to-activity-id>SO_0204</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <visibility>

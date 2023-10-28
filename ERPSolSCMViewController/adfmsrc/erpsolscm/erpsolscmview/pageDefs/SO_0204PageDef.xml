@@ -124,7 +124,7 @@
     <methodAction id="doSuperviseSaleOrder" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="doSuperviseSaleOrder" IsViewObjectMethod="true"
                   DataControl="ERPSolSCMAppModuleDataControl"
-                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesOrderViewCRUD"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesOrderOnlineCRUD"
                   ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doSuperviseSaleOrder_ERPSolSCMAppModuleDataControl_SoSalesOrderViewCRUD_doSuperviseSaleOrder_result"/>
     <tree IterBinding="SoSalesOrderImeiOnlineCRUDIterator" id="SoSalesOrderImeiOnlineCRUD">
       <nodeDefinition DefName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesOrderImeiView"
@@ -148,7 +148,7 @@
     </attributeValues>
     <methodAction id="doReadyForWarehouse" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="doReadyForWarehouse" IsViewObjectMethod="true" DataControl="ERPSolSCMAppModuleDataControl"
-                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesOrderViewCRUD"
+                  InstanceName="data.ERPSolSCMAppModuleDataControl.SoSalesOrderOnlineCRUD"
                   ReturnName="data.ERPSolSCMAppModuleDataControl.methodResults.doReadyForWarehouse_ERPSolSCMAppModuleDataControl_SoSalesOrderViewCRUD_doReadyForWarehouse_result"/>
     <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="Companyid">
       <AttrNames>
