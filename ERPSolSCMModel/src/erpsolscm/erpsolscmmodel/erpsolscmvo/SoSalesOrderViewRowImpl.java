@@ -583,15 +583,15 @@ public class SoSalesOrderViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for DEPOSIT_AMOUNT using the alias name DepositAmount.
      * @return the DEPOSIT_AMOUNT
      */
-    public Double getDepositAmount() {
-        return (Double) getAttributeInternal(DEPOSITAMOUNT);
+    public Integer getDepositAmount() {
+        return (Integer) getAttributeInternal(DEPOSITAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as attribute value for DEPOSIT_AMOUNT using the alias name DepositAmount.
      * @param value value to set the DEPOSIT_AMOUNT
      */
-    public void setDepositAmount(Double value) {
+    public void setDepositAmount(Integer value) {
         setAttributeInternal(DEPOSITAMOUNT, value);
     }
 

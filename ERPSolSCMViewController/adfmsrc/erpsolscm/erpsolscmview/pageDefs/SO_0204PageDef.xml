@@ -185,5 +185,10 @@
         <Item Value="Divid"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SoSalesOrderOnlineCRUDIterator" id="DepositAmount">
+      <AttrNames>
+        <Item Value="DepositAmount"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -304,22 +304,23 @@
                           </af:inputText>
                         </af:gridCell>
                       </af:gridRow>
-                      <af:gridRow height="30px" marginBottom="5px" id="gr9">
-                        <af:gridCell marginStart="5px" width="15%" id="gc24" valign="middle">
-                          <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol2"/>
+                      <af:gridRow id="gr13" height="30px">
+                        <af:gridCell id="gc29" width="15%" valign="middle">
+                          <af:outputLabel value="#{bindings.DepositAmount.hints.label}" id="ol12"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" id="gc25" columnSpan="1" rowSpan="1"
-                                     halign="stretch" valign="middle">
-                          <af:inputText value="#{bindings.Remarks.inputValue}" label="#{bindings.Remarks.hints.label}"
-                                        required="#{bindings.Remarks.hints.mandatory}"
-                                        columns="#{bindings.Remarks.hints.displayWidth}"
-                                        maximumLength="#{bindings.Remarks.hints.precision}"
-                                        shortDesc="#{bindings.Remarks.hints.tooltip}" id="it8" simple="true"
-                                        contentStyle="width:100%">
-                            <f:validator binding="#{bindings.Remarks.validator}"/>
+                        <af:gridCell id="gc30" width="35%">
+                          <af:inputText value="#{bindings.DepositAmount.inputValue}"
+                                        label="#{bindings.DepositAmount.hints.label}"
+                                        required="#{bindings.DepositAmount.hints.mandatory}"
+                                        columns="#{bindings.DepositAmount.hints.displayWidth}"
+                                        maximumLength="#{bindings.DepositAmount.hints.precision}"
+                                        shortDesc="#{bindings.DepositAmount.hints.tooltip}" id="it16" simple="true"
+                                        contentStyle="width:90%">
+                            <f:validator binding="#{bindings.DepositAmount.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.DepositAmount.format}"/>
                           </af:inputText>
                         </af:gridCell>
-                        <af:gridCell id="gc32" width="50%" columnSpan="2" rowSpan="1" halign="stretch">
+                        <af:gridCell id="gc33" width="50%" columnSpan="2" rowSpan="1">
                           <af:panelGroupLayout id="pgl8" halign="end" layout="horizontal">
                             <af:button text="Warehouse" id="b18"
                                        action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecuteWarehouse}"
@@ -334,6 +335,22 @@
                               <af:spacer width="10" height="10" id="s1"/>
                             </f:facet>
                           </af:panelGroupLayout>
+                        </af:gridCell>
+                      </af:gridRow>
+                      <af:gridRow height="30px" marginBottom="5px" id="gr9">
+                        <af:gridCell marginStart="5px" width="15%" id="gc24" valign="middle">
+                          <af:outputLabel value="#{bindings.Remarks.hints.label}" id="ol2"/>
+                        </af:gridCell>
+                        <af:gridCell marginStart="5px" width="85%" id="gc25" columnSpan="3" rowSpan="1"
+                                     halign="stretch" valign="middle">
+                          <af:inputText value="#{bindings.Remarks.inputValue}" label="#{bindings.Remarks.hints.label}"
+                                        required="#{bindings.Remarks.hints.mandatory}"
+                                        columns="#{bindings.Remarks.hints.displayWidth}"
+                                        maximumLength="#{bindings.Remarks.hints.precision}"
+                                        shortDesc="#{bindings.Remarks.hints.tooltip}" id="it8" simple="true"
+                                        contentStyle="width:100%">
+                            <f:validator binding="#{bindings.Remarks.validator}"/>
+                          </af:inputText>
                         </af:gridCell>
                       </af:gridRow>
                     </af:panelGridLayout>

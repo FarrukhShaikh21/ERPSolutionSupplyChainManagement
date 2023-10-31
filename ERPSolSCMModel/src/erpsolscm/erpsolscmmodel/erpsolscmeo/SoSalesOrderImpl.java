@@ -536,15 +536,15 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
      * Gets the attribute value for DepositAmount, using the alias name DepositAmount.
      * @return the value of DepositAmount
      */
-    public Double getDepositAmount() {
-        return (Double) getAttributeInternal(DEPOSITAMOUNT);
+    public Integer getDepositAmount() {
+        return (Integer) getAttributeInternal(DEPOSITAMOUNT);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for DepositAmount.
      * @param value value to set the DepositAmount
      */
-    public void setDepositAmount(Double value) {
+    public void setDepositAmount(Integer value) {
         setAttributeInternal(DEPOSITAMOUNT, value);
     }
 
@@ -1745,14 +1745,14 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     /**
      * @return the associated entity oracle.jbo.server.EntityImpl.
      */
-    public EntityImpl getAllCustomers() {
-        return (EntityImpl) getAttributeInternal(ALLCUSTOMERS);
+    public AllCustomersImpl getAllCustomers() {
+        return (AllCustomersImpl) getAttributeInternal(ALLCUSTOMERS);
     }
 
     /**
      * Sets <code>value</code> as the associated entity oracle.jbo.server.EntityImpl.
      */
-    public void setAllCustomers(EntityImpl value) {
+    public void setAllCustomers(AllCustomersImpl value) {
         setAttributeInternal(ALLCUSTOMERS, value);
     }
 

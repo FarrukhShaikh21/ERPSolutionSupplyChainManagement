@@ -429,9 +429,18 @@ return true;]]></validation:TransientExpression>
     Name="DepositAmount"
     ColumnName="DEPOSIT_AMOUNT"
     SQLType="NUMERIC"
-    Type="java.lang.Double"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="SO_SALES_ORDER"/>
+    TableName="SO_SALES_ORDER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.DepositAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="DepositAmountStatus"
     Precision="20"
@@ -1419,7 +1428,6 @@ return true;]]></validation:TransientExpression>
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SO_SALES_ORDER"
     IsPersistent="false"
     IsQueriable="false">
     <TransientExpression

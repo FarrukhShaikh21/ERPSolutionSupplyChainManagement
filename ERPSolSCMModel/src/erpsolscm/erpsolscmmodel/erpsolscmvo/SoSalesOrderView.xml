@@ -1200,7 +1200,7 @@
         ViewAttribute="SoType"
         Operator="&lt;>"
         Conjunction="AND"
-        Value="005"
+        Value="006"
         UpperColumns="0"
         Required="Optional"/>
     </ViewCriteriaRow>
