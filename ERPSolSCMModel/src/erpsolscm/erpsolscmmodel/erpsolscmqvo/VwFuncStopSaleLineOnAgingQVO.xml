@@ -34,6 +34,10 @@
     Name="P_ADF_PRODUCTID"
     Kind="where"
     Type="java.lang.String"/>
+  <Variable
+    Name="P_ADF_MODULEID"
+    Kind="where"
+    Type="java.lang.String"/>
   <SQLQuery><![CDATA[SELECT 1 AS PK,  
 PKG_SALE_ORDER.FUNC_SHOW_AGING_ALERT(:P_ADF_CUSTOMERID,:P_ADF_CONFIRM_DATE,:P_ADF_MODULEID,:P_ADF_SALESPERSONID,:P_ADF_PRODUCTID) STATUS  
 FROM DUAL]]></SQLQuery>
@@ -46,7 +50,7 @@ FROM DUAL]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="PK"
     Expression="PK"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="Status"
     IsUpdateable="false"

@@ -132,7 +132,8 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         AccVwFuncCheckCustomerCancelCheque,
         AccVwFuncCheckCustomerDBCQVO,
         AccVwFuncShowAgingAlert,
-        AccVwFuncUserBackDateAllowed;
+        AccVwFuncUserBackDateAllowed,
+        AccVwFuncStopSaleLineOnAgingQVO;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -261,6 +262,7 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
     public static final int ACCVWFUNCCHECKCUSTOMERDBCQVO = AttributesEnum.AccVwFuncCheckCustomerDBCQVO.index();
     public static final int ACCVWFUNCSHOWAGINGALERT = AttributesEnum.AccVwFuncShowAgingAlert.index();
     public static final int ACCVWFUNCUSERBACKDATEALLOWED = AttributesEnum.AccVwFuncUserBackDateAllowed.index();
+    public static final int ACCVWFUNCSTOPSALELINEONAGINGQVO = AttributesEnum.AccVwFuncStopSaleLineOnAgingQVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1859,6 +1861,13 @@ public class SoSalesOrderImpl extends ERPSolGlobalsEntityImpl {
         return (RowSet) getAttributeInternal(ACCVWFUNCUSERBACKDATEALLOWED);
     }
 
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccVwFuncStopSaleLineOnAgingQVO.
+     */
+    public RowSet getAccVwFuncStopSaleLineOnAgingQVO() {
+        return (RowSet) getAttributeInternal(ACCVWFUNCSTOPSALELINEONAGINGQVO);
+    }
 
     /**
      * @param salesorderseq key constituent

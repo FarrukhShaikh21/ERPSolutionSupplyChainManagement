@@ -41,6 +41,25 @@
     Name="AccVwFuncUserBackDateAllowed"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncUserBackDateAllowedQVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVwFuncStopSaleLineOnAgingQVO"
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwFuncStopSaleLineOnAgingQVO"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="P_ADF_CONFIRM_DATE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[ConfirmDate]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_CUSTOMERID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Customerid==null?"-1":Customerid]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_SALESPERSONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Salespersonid==null?"-1":Salespersonid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <Attribute
     Name="Salesorderseq"
     IsNotNull="true"
@@ -1554,6 +1573,38 @@ return true;]]></validation:TransientExpression>
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SoSalesOrder.Locationid"/>
     </AttrArray>
   </Key>
+  <validation:ExpressionValidationBean
+    Name="SoSalesOrderStopOnAgeing"
+    OperandType="EXPR"
+    Inverse="false">
+    <validation:OnCondition
+      trustMode="trusted"
+      Name="OnConditionExpr"><![CDATA[Customerid!=null]]></validation:OnCondition>
+    <validation:MsgIds>
+      <validation:Item
+        Value="ERP_SOL_ERR_AGING"/>
+    </validation:MsgIds>
+    <validation:ResExpressions
+      Name="SoSalesOrderStopOnAgeing_ResExprList">
+      <validation:Expression
+        trustMode="trusted"
+        Name="0"><![CDATA[txtErrorMessage]]></validation:Expression>
+    </validation:ResExpressions>
+    <validation:TransientExpression
+      trustMode="trusted"><![CDATA[AccVwFuncStopSaleLineOnAgingQVO.setNamedWhereClauseParam("P_ADF_CUSTOMERID", (Customerid==null?"-":Customerid));
+AccVwFuncStopSaleLineOnAgingQVO.setNamedWhereClauseParam("P_ADF_MODULEID", "SO-0167");
+AccVwFuncStopSaleLineOnAgingQVO.setNamedWhereClauseParam("P_ADF_CONFIRM_DATE", ConfirmDate);
+AccVwFuncStopSaleLineOnAgingQVO.setNamedWhereClauseParam("P_ADF_SALESPERSONID", Salespersonid==null?"-1":Salespersonid);
+AccVwFuncStopSaleLineOnAgingQVO.executeQuery();
+if(!AccVwFuncStopSaleLineOnAgingQVO.first().getAttribute("Status").toString().equals("ERPSOLSUCCESS"))
+{
+settxtErrorMessage(AccVwFuncStopSaleLineOnAgingQVO.first().getAttribute("Status").toString());
+adf.error.raise("ERP_SOL_ERR_AGING");
+return true;
+}
+
+return true;]]></validation:TransientExpression>
+  </validation:ExpressionValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
