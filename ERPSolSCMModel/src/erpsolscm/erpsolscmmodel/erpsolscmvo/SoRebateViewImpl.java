@@ -25,7 +25,7 @@ public class SoRebateViewImpl extends ViewObjectImpl implements SoRebateView {
     }
     
     public void doSuperviseSalesRebate() {
-        
+        getDBTransaction().commit();
         CallableStatement cs=this.getDBTransaction().createCallableStatement("begin ?:=Pkg_Sales_Rebate.FUNC_SUBMIT_SO_REBATE('"+this.getCurrentRow().getAttribute("RebateId")+"','"+ERPSolGlobClassModel.doGetUserCode()+"'); END;", 1);
         System.out.println("begin ?:=Pkg_Sales_Rebate.FUNC_SUBMIT_SO_REBATE('"+this.getCurrentRow().getAttribute("RebateId")+"'); END;");
         try {
