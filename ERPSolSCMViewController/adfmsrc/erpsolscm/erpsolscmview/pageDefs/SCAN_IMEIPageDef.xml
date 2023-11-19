@@ -31,5 +31,8 @@
         <Item Value="txtRebateImei"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="SoRebateImeDetCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
   </bindings>
 </pageDefinition>

@@ -39,7 +39,15 @@
                         <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2" halign="stretch"
                                      valign="stretch">
                             <af:panelBox text="Scanned IMEI" id="pb1" showDisclosure="false">
-                                <f:facet name="toolbar"/>
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t3">
+                                        <af:link actionListener="#{bindings.Commit.execute}" text="Save" id="l2"
+                                                 icon="#{resource['images:imgSave.png']}"/>
+                                        <af:link id="l1" icon="#{resource['images:imgDelete.png']}"
+                                                 actionListener="#{bindings.Delete.execute}"
+                                                 text="Delete Selected IMEI"/>
+                                    </af:toolbar>
+                                </f:facet>
                                 <af:table value="#{bindings.SoRebateImeDetCRUD.collectionModel}" var="row"
                                           rows="#{bindings.SoRebateImeDetCRUD.rangeSize}"
                                           emptyText="#{bindings.SoRebateImeDetCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -50,7 +58,8 @@
                                           filterModel="#{bindings.SoRebateImeDetCRUDQuery.queryDescriptor}"
                                           queryListener="#{bindings.SoRebateImeDetCRUDQuery.processQuery}"
                                           filterVisible="true" varStatus="vs" id="t2" columnStretching="column:c5"
-                                          scrollPolicy="page" autoHeightRows="20" styleClass="AFStretchWidth">
+                                          scrollPolicy="page" autoHeightRows="20" styleClass="AFStretchWidth"
+                                          partialTriggers="::l1">
                                     <af:column sortProperty="#{bindings.SoRebateImeDetCRUD.hints.Imei.name}"
                                                filterable="true"
                                                headerText="#{bindings.SoRebateImeDetCRUD.hints.Imei.label}" id="c1"
