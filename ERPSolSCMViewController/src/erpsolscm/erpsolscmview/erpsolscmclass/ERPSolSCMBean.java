@@ -69,6 +69,7 @@ public class ERPSolSCMBean {
     String ERPSolImeiString;
     String ERPSolReportName;
     String ERPSolSaleretid;
+    String ERPIteratorName;
     
     public void doSetERPSolSCMSessionGlobals() {
         System.out.println("glob user code"+getERPSolStrUserCode());
@@ -691,7 +692,8 @@ public class ERPSolSCMBean {
 
     public String doERPSolExecuteSalesInvoice() {
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
-        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");
+//        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get(getERPIteratorName());
         ApplicationModule am=ib.getViewObject().getApplicationModule();
         ViewObject vo=am.findViewObject("QVOSaleInvoice");
         if (vo!=null) {
@@ -738,7 +740,9 @@ public class ERPSolSCMBean {
 
     public String doERPSolExecuteDeliveryOrder() {
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
-        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");
+//        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get(getERPIteratorName());
+
         ApplicationModule am=ib.getViewObject().getApplicationModule();
         ViewObject vo=am.findViewObject("QVOSaleInvoice");
         if (vo!=null) {
@@ -785,7 +789,8 @@ public class ERPSolSCMBean {
   
     public String doERPSolExecuteWarehouse() {
         BindingContainer bc = ERPSolGlobalViewBean.doGetERPBindings();
-        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");
+//        DCIteratorBinding ib=(DCIteratorBinding)bc.get("SoSalesOrderViewCRUDIterator");
+        DCIteratorBinding ib=(DCIteratorBinding)bc.get(getERPIteratorName());
         ApplicationModule am=ib.getViewObject().getApplicationModule();
         ViewObject vo=am.findViewObject("QVOSaleInvoice");
         if (vo!=null) {
@@ -1102,5 +1107,14 @@ public class ERPSolSCMBean {
             binding.execute();
             
         }
+    }
+
+
+    public void setERPIteratorName(String ERPIteratorName) {
+        this.ERPIteratorName = ERPIteratorName;
+    }
+
+    public String getERPIteratorName() {
+        return ERPIteratorName;
     }
 }

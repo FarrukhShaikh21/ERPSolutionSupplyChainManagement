@@ -324,13 +324,22 @@
                           <af:panelGroupLayout id="pgl8" halign="end" layout="horizontal">
                             <af:button text="Warehouse" id="b18"
                                        action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecuteWarehouse}"
-                                       disabled="#{bindings.Salesorderid.inputValue==null}"/>
+                                       disabled="#{bindings.Salesorderid.inputValue==null}">
+                              <af:setActionListener from="#{'SoSalesOrderOnlineCRUDIterator'}"
+                                                    to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPIteratorName}"/>
+                            </af:button>
                             <af:button text="Delivery Order" id="b17"
                                        action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecuteDeliveryOrder}"
-                                       disabled="#{bindings.Posted.inputValue=='N'}"/>
+                                       disabled="#{bindings.Posted.inputValue=='N'}">
+                               <af:setActionListener from="#{'SoSalesOrderOnlineCRUDIterator'}"
+                                                    to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPIteratorName}"/>          
+                            </af:button>
                             <af:button text="Sales Invoice" id="b16"
                                        action="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolExecuteSalesInvoice}"
-                                       disabled="#{bindings.Posted.inputValue=='N'}"/>
+                                       disabled="#{bindings.Posted.inputValue=='N'}">
+                                <af:setActionListener from="#{'SoSalesOrderOnlineCRUDIterator'}"
+                                                    to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPIteratorName}"/>          
+                              </af:button>       
                             <f:facet name="separator">
                               <af:spacer width="10" height="10" id="s1"/>
                             </f:facet>
