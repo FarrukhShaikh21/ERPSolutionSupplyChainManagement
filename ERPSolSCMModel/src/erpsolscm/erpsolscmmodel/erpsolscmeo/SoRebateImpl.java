@@ -799,11 +799,18 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
      * @param e the transaction event
      */
     protected void doDML(int operation, TransactionEvent e) {
-            if (operation==DML_INSERT) {
-                String pkValue=" salesrebate_id('"+ERPSolGlobClassModel.doGetUserCompanyCode()+"','"+ERPSolGlobClassModel.doGetUserLocationCode()+"',TO_DATE('"+getRdate()+"','YYYY-MM-DD'))";
-                String result= ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
-                populateAttributeAsChanged(REBATEID, result);
+        if (operation == DML_INSERT) {
+            String pkValue =
+                " salesrebate_id('" + ERPSolGlobClassModel.doGetUserCompanyCode() + "','" +
+                ERPSolGlobClassModel.doGetUserLocationCode() + "',TO_DATE('" + getRdate() + "','YYYY-MM-DD'))";
+            String result =
+                ERPSolGlobClassModel.doGetERPSolPrimaryKeyValueModel(getDBTransaction(), pkValue, "dual", null, null);
+
+            if (ERPSolGlobClassModel.doGetModuleId().equals("SO-0171")) {
+                populateAttributeAsChanged(ISSAMERATE, "Y");
             }
+            populateAttributeAsChanged(REBATEID, result);
+        }
         super.doDML(operation, e);
     }
 }
