@@ -28,15 +28,35 @@
                                                 <f:selectItems value="#{bindings.Regionid.items}" id="si2"/>
                                                 <f:validator binding="#{bindings.Regionid.validator}"/>
                                             </af:selectOneChoice>
-                                            <af:selectOneChoice value="#{bindings.txtSalesTerritoryId.inputValue}"
-                                                                label="#{bindings.txtSalesTerritoryId.label}"
-                                                                required="#{bindings.txtSalesTerritoryId.hints.mandatory}"
-                                                                shortDesc="#{bindings.txtSalesTerritoryId.hints.tooltip}"
-                                                                id="soc4" contentStyle="width:185px">
-                                                <f:selectItems value="#{bindings.txtSalesTerritoryId.items}" id="si4"/>
-                                                <f:validator binding="#{bindings.txtSalesTerritoryId.validator}"/>
-                                            </af:selectOneChoice>
-                                            <af:panelLabelAndMessage label="#{bindings.txtStoreName.hints.label}" id="plam3">
+                                            <af:panelLabelAndMessage label="#{bindings.txtLocationName.hints.label}"
+                                                                     id="plam5">
+                                                <af:panelGroupLayout id="pgl6" layout="horizontal">
+                                                    <af:inputComboboxListOfValues id="txtLocationNameId"
+                                                                                  popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
+                                                                                  value="#{bindings.txtLocationName.inputValue}"
+                                                                                  label="#{bindings.txtLocationName.hints.label}"
+                                                                                  model="#{bindings.txtLocationName.listOfValuesModel}"
+                                                                                  required="#{bindings.txtLocationName.hints.mandatory}"
+                                                                                  columns="#{bindings.txtLocationName.hints.displayWidth}"
+                                                                                  shortDesc="#{bindings.txtLocationName.hints.tooltip}"
+                                                                                  simple="true" autoSubmit="true">
+                                                        <f:validator binding="#{bindings.txtLocationName.validator}"/>
+                                                        <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
+                                                    </af:inputComboboxListOfValues>
+                                                    <af:spacer width="10" height="10" id="s5"/>
+                                                    <af:inputText value="#{bindings.Locationid.inputValue}"
+                                                                  label="#{bindings.Locationid.hints.label}"
+                                                                  required="#{bindings.Locationid.hints.mandatory}"
+                                                                  columns="#{bindings.Locationid.hints.displayWidth}"
+                                                                  maximumLength="#{bindings.Locationid.hints.precision}"
+                                                                  shortDesc="#{bindings.Locationid.hints.tooltip}"
+                                                                  id="it5" simple="true" readOnly="true">
+                                                        <f:validator binding="#{bindings.Locationid.validator}"/>
+                                                    </af:inputText>
+                                                </af:panelGroupLayout>
+                                            </af:panelLabelAndMessage>
+                                            <af:panelLabelAndMessage label="#{bindings.txtStoreName.hints.label}"
+                                                                     id="plam3">
                                                 <af:panelGroupLayout id="pgl4" layout="horizontal">
                                                     <af:inputComboboxListOfValues id="txtStoreNameId"
                                                                                   popupTitle="Search and Select: #{bindings.txtStoreName.hints.label}"
@@ -58,20 +78,12 @@
                                                                   columns="#{bindings.Storeid.hints.displayWidth}"
                                                                   maximumLength="#{bindings.Storeid.hints.precision}"
                                                                   shortDesc="#{bindings.Storeid.hints.tooltip}"
-                                                                  partialTriggers="txtStoreNameId txtLocationNameId" id="it6"
-                                                                  simple="true" readOnly="true">
+                                                                  partialTriggers="txtStoreNameId txtLocationNameId"
+                                                                  id="it6" simple="true" readOnly="true">
                                                         <f:validator binding="#{bindings.Storeid.validator}"/>
                                                     </af:inputText>
                                                 </af:panelGroupLayout>
                                             </af:panelLabelAndMessage>
-                                            <af:selectOneChoice value="#{bindings.Divid.inputValue}"
-                                                                label="#{bindings.Divid.label}"
-                                                                required="#{bindings.Divid.hints.mandatory}"
-                                                                shortDesc="#{bindings.Divid.hints.tooltip}" id="soc6" autoSubmit="true"
-                                                                contentStyle="width:185px">
-                                                <f:selectItems value="#{bindings.Divid.items}" id="si6"/>
-                                                <f:validator binding="#{bindings.Divid.validator}"/>
-                                            </af:selectOneChoice>
                                             <af:panelLabelAndMessage label="#{bindings.txtCustomerName.hints.label}"
                                                                      id="plam1">
                                                 <af:panelGroupLayout id="pgl2" layout="horizontal">
@@ -103,6 +115,23 @@
                                                     </af:inputText>
                                                 </af:panelGroupLayout>
                                             </af:panelLabelAndMessage>
+                                            <af:selectOneChoice value="#{bindings.txtSalesTerritoryId.inputValue}"
+                                                                label="#{bindings.txtSalesTerritoryId.label}"
+                                                                required="#{bindings.txtSalesTerritoryId.hints.mandatory}"
+                                                                shortDesc="#{bindings.txtSalesTerritoryId.hints.tooltip}"
+                                                                id="soc4" contentStyle="width:185px"
+                                                                partialTriggers="txtLocationNameId">
+                                                <f:selectItems value="#{bindings.txtSalesTerritoryId.items}" id="si4"/>
+                                                <f:validator binding="#{bindings.txtSalesTerritoryId.validator}"/>
+                                            </af:selectOneChoice>
+                                            <af:selectOneChoice value="#{bindings.Divid.inputValue}"
+                                                                label="#{bindings.Divid.label}"
+                                                                required="#{bindings.Divid.hints.mandatory}"
+                                                                shortDesc="#{bindings.Divid.hints.tooltip}" id="soc6" autoSubmit="true"
+                                                                contentStyle="width:185px">
+                                                <f:selectItems value="#{bindings.Divid.items}" id="si6"/>
+                                                <f:validator binding="#{bindings.Divid.validator}"/>
+                                            </af:selectOneChoice>
                                             <af:panelLabelAndMessage label="#{bindings.txtSalespersonName.hints.label}"
                                                                      id="plam2" partialTriggers="soc6">
                                                 <af:panelGroupLayout id="pgl3" layout="horizontal">
@@ -157,33 +186,6 @@
                                                                   id="it4" simple="true" partialTriggers="txtModelNoId"
                                                                   readOnly="true">
                                                         <f:validator binding="#{bindings.Productid.validator}"/>
-                                                    </af:inputText>
-                                                </af:panelGroupLayout>
-                                            </af:panelLabelAndMessage>
-                                            <af:panelLabelAndMessage label="#{bindings.txtLocationName.hints.label}"
-                                                                     id="plam5">
-                                                <af:panelGroupLayout id="pgl6" layout="horizontal">
-                                                    <af:inputComboboxListOfValues id="txtLocationNameId"
-                                                                                  popupTitle="Search and Select: #{bindings.txtLocationName.hints.label}"
-                                                                                  value="#{bindings.txtLocationName.inputValue}"
-                                                                                  label="#{bindings.txtLocationName.hints.label}"
-                                                                                  model="#{bindings.txtLocationName.listOfValuesModel}"
-                                                                                  required="#{bindings.txtLocationName.hints.mandatory}"
-                                                                                  columns="#{bindings.txtLocationName.hints.displayWidth}"
-                                                                                  shortDesc="#{bindings.txtLocationName.hints.tooltip}"
-                                                                                  simple="true" autoSubmit="true">
-                                                        <f:validator binding="#{bindings.txtLocationName.validator}"/>
-                                                        <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedLocationValues}"/>
-                                                    </af:inputComboboxListOfValues>
-                                                    <af:spacer width="10" height="10" id="s5"/>
-                                                    <af:inputText value="#{bindings.Locationid.inputValue}"
-                                                                  label="#{bindings.Locationid.hints.label}"
-                                                                  required="#{bindings.Locationid.hints.mandatory}"
-                                                                  columns="#{bindings.Locationid.hints.displayWidth}"
-                                                                  maximumLength="#{bindings.Locationid.hints.precision}"
-                                                                  shortDesc="#{bindings.Locationid.hints.tooltip}"
-                                                                  id="it5" simple="true" readOnly="true">
-                                                        <f:validator binding="#{bindings.Locationid.validator}"/>
                                                     </af:inputText>
                                                 </af:panelGroupLayout>
                                             </af:panelLabelAndMessage>

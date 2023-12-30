@@ -68,14 +68,21 @@
     <ViewCriteriaUsage
       Name="SoSalesPersonsByCustomerVC"
       FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView.SoSalesPersonsByCustomerVC"/>
+    <ViewCriteriaUsage
+      Name="SoSalesPersonsByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesPersonsView.SoSalesPersonsByLocationVC"/>
     <ParameterMap>
       <PIMap Variable="P_ADF_CUSTOMERID">
         <TransientExpression
-          trustMode="untrusted"><![CDATA[Customerid==null?"0":Customerid]]></TransientExpression>
+          trustMode="untrusted"><![CDATA[Customerid]]></TransientExpression>
       </PIMap>
       <PIMap Variable="P_ADF_DIVID">
         <TransientExpression
           trustMode="untrusted"><![CDATA[Divid]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"0":Locationid]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
@@ -101,7 +108,17 @@
     Name="AccSoSalesTerritoryView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesTerritoryView"
     RowLevelBinds="true"
-    OrderBy="SoSalesTerritory.DESCRIPTION"/>
+    OrderBy="SoSalesTerritory.DESCRIPTION">
+    <ViewCriteriaUsage
+      Name="SoSalesTerritoryViewByLocationVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesTerritoryView.SoSalesTerritoryViewByLocationVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_LOCATIONID">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[Locationid==null?"0":Locationid]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccInStockItemGroupView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.InStockItemGroupView"
