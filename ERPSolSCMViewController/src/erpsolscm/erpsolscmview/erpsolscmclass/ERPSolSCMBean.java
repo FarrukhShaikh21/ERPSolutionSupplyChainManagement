@@ -666,6 +666,7 @@ public class ERPSolSCMBean {
         AttributeBinding ERPProductid       =(AttributeBinding)ERPSolbc.getControlBinding("Productid");
         AttributeBinding ERPFromDate        =(AttributeBinding)ERPSolbc.getControlBinding("txtFromDate");
         AttributeBinding ERPToDate          =(AttributeBinding)ERPSolbc.getControlBinding("txtToDate");
+        AttributeBinding ERPTerritoryId     =(AttributeBinding)ERPSolbc.getControlBinding("txtSalesTerritoryId");
         String reportParameter="";
         reportParameter="COMPANY="+ (ERPCompanyid.getInputValue()==null?"":ERPCompanyid.getInputValue());
         reportParameter+="&P_REGID="+(ERPRegionid.getInputValue()==null?"":ERPRegionid.getInputValue());
@@ -678,6 +679,7 @@ public class ERPSolSCMBean {
         reportParameter+="&p_productid="+(ERPProductid.getInputValue()==null?"":ERPProductid.getInputValue());
         reportParameter+="&FROM_DATE="+(ERPFromDate.getInputValue()==null?"":doERPSolGetFormatDate(""+ERPFromDate.getInputValue() ) );
         reportParameter+="&TO_DATE="+(ERPToDate.getInputValue()==null?"":doERPSolGetFormatDate(""+ERPToDate.getInputValue())  );
+        reportParameter+="&P_Territory_Id="+(ERPTerritoryId.getInputValue()==null?"":ERPTerritoryId.getInputValue() );
         reportParameter+="&USER="+ERPSolGlobClassModel.doGetUserCode();
         pReportUrl=pReportUrl.replace("<P_REPORT_PATH>", pReportPath);
         pReportUrl=pReportUrl.replace("<P_REPORT_PARAMETERS>", reportParameter);

@@ -120,7 +120,7 @@
                                                                 required="#{bindings.txtSalesTerritoryId.hints.mandatory}"
                                                                 shortDesc="#{bindings.txtSalesTerritoryId.hints.tooltip}"
                                                                 id="soc4" contentStyle="width:185px"
-                                                                partialTriggers="txtLocationNameId">
+                                                                partialTriggers="txtLocationNameId" autoSubmit="true">
                                                 <f:selectItems value="#{bindings.txtSalesTerritoryId.items}" id="si4"/>
                                                 <f:validator binding="#{bindings.txtSalesTerritoryId.validator}"/>
                                             </af:selectOneChoice>

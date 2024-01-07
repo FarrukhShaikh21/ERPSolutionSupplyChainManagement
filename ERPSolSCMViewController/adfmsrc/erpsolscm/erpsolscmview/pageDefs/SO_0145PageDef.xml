@@ -21,8 +21,6 @@
         <Item Value="Locationid"/>
       </AttrNames>
     </attributeValues>
-    <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtDocumentID"
-                  id="txtDocumentID"/>
     <attributeValues IterBinding="VwSoSalesReportROIterator" id="Description">
       <AttrNames>
         <Item Value="Description"/>
@@ -32,5 +30,7 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtLocationName"
                   id="txtLocationName"/>
+    <listOfValues IterBinding="VwSoSalesReportROIterator" StaticList="false" Uses="LovtxtDocumentID"
+                  id="txtDocumentID"/>
   </bindings>
 </pageDefinition>

@@ -371,9 +371,9 @@
                         <af:gridCell id="gc47" width="15%" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.ApplyImei.hints.label}" id="ol20"/>
                         </af:gridCell>
-                        <af:gridCell id="gc48" width="35%">
+                        <af:gridCell id="gc48" width="35%" halign="stretch">
                           <af:selectOneChoice label="Label 3" value="#{bindings.ApplyImei.inputValue}" id="soc11"
-                                              simple="true">
+                                              simple="true" contentStyle="width:50%">
                             <af:selectItem label="Yes" value="Y" id="si15"/>
                             <af:selectItem label="No" value="N" id="si16"/>
                           </af:selectOneChoice>
@@ -381,9 +381,9 @@
                         <af:gridCell id="gc49" width="15%" valign="middle" halign="center">
                           <af:outputLabel value="#{bindings.AllowSoOnAging.hints.label}" id="ol21"/>
                         </af:gridCell>
-                        <af:gridCell id="gc50" width="35%">
+                        <af:gridCell id="gc50" width="35%" halign="stretch">
                           <af:selectOneChoice label="Label 4" id="soc12" value="#{bindings.AllowSoOnAging.inputValue}"
-                                              simple="true">
+                                              simple="true" contentStyle="width:50%">
                             <af:selectItem label="Yes" value="Y" id="si17"/>
                             <af:selectItem label="No" value="N" id="si18"/>
                           </af:selectOneChoice>

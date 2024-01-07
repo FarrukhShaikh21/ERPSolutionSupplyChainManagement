@@ -33,20 +33,6 @@
                             <f:selectItems value="#{bindings.txtDoctypeId.items}" id="si1"/>
                             <f:validator binding="#{bindings.txtDoctypeId.validator}"/>
                         </af:selectOneChoice>
-                        <af:inputComboboxListOfValues id="txtDocumentIDId"
-                                                      popupTitle="Search and Select: #{bindings.txtDocumentID.hints.label}"
-                                                      value="#{bindings.txtDocumentID.inputValue}"
-                                                      label="#{bindings.txtDocumentID.hints.label}"
-                                                      model="#{bindings.txtDocumentID.listOfValuesModel}"
-                                                      required="#{bindings.txtDocumentID.hints.mandatory}"
-                                                      columns="#{bindings.txtDocumentID.hints.displayWidth}"
-                                                      shortDesc="#{bindings.txtDocumentID.hints.tooltip}"
-                                                      partialTriggers="soc1" autoSubmit="true"
-                                                      contentStyle="width:200px">
-                            <f:validator binding="#{bindings.txtDocumentID.validator}"/>
-                            <af:autoSuggestBehavior/>
-                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedSOUnsubmitDoc}"/>
-                        </af:inputComboboxListOfValues>
                         <af:inputText value="#{bindings.Locationid.inputValue}"
                                       label="#{bindings.Locationid.hints.label}"
                                       required="#{bindings.Locationid.hints.mandatory}"
@@ -55,6 +41,18 @@
                                       shortDesc="#{bindings.Locationid.hints.tooltip}" id="it1" rendered="false">
                             <f:validator binding="#{bindings.Locationid.validator}"/>
                         </af:inputText>
+                        <af:inputListOfValues id="txtDocumentIDId"
+                                              popupTitle="Search and Select: #{bindings.txtDocumentID.hints.label}"
+                                              value="#{bindings.txtDocumentID.inputValue}"
+                                              label="#{bindings.txtDocumentID.hints.label}"
+                                              model="#{bindings.txtDocumentID.listOfValuesModel}"
+                                              required="#{bindings.txtDocumentID.hints.mandatory}"
+                                              columns="#{bindings.txtDocumentID.hints.displayWidth}"
+                                              shortDesc="#{bindings.txtDocumentID.hints.tooltip}"
+                                              contentStyle="width:220px" partialTriggers="soc1">
+                            <f:validator binding="#{bindings.txtDocumentID.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedSOUnsubmitDoc}"/>
+                        </af:inputListOfValues>
                         <af:inputText value="#{bindings.Description.inputValue}"
                                       label="#{bindings.Description.hints.label}"
                                       required="#{bindings.Description.hints.mandatory}"

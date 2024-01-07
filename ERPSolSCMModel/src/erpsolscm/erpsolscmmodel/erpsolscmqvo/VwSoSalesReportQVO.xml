@@ -907,7 +907,7 @@
         <DISPLAYWIDTH
           Value="20"/>
         <CONTROLTYPE
-          Value="combo_lov"/>
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
