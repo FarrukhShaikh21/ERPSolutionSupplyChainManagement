@@ -35,6 +35,7 @@
           <Item Value="ImeiNo"/>
           <Item Value="BoxNo"/>
           <Item Value="Customerid"/>
+          <Item Value="CustomerName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -145,5 +145,15 @@
         <Item Value="NtnRegistrationNo"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="ApplyImei">
+      <AttrNames>
+        <Item Value="ApplyImei"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="AllowSoOnAging">
+      <AttrNames>
+        <Item Value="AllowSoOnAging"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

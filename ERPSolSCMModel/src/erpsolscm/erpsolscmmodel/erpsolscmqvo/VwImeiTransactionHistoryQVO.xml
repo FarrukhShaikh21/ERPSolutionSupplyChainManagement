@@ -24,8 +24,8 @@
     Name="P_ADF_IMEI_NO"
     Kind="where"
     Type="java.lang.String"/>
-  <SQLQuery><![CDATA[select transaction_type AS transaction_type,transaction_no,tran_date,imei_no,BOX_NO,customerid    
-from Vw_Imei_Transaction_History   
+  <SQLQuery><![CDATA[select transaction_type AS transaction_type,transaction_no,tran_date,imei_no,BOX_NO,customerid,customer_name     
+from Vw_Imei_Transaction_History    
 where   imei_no=:P_ADF_IMEI_NO]]></SQLQuery>
   <ViewAttribute
     Name="TransactionType"
@@ -78,7 +78,7 @@ where   imei_no=:P_ADF_IMEI_NO]]></SQLQuery>
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
     AliasName="TRAN_DATE"
     Expression="TRAN_DATE"
@@ -158,6 +158,29 @@ where   imei_no=:P_ADF_IMEI_NO]]></SQLQuery>
           ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwImeiTransactionHistoryQVO.Customerid_LABEL"/>
         <DISPLAYWIDTH
           Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustomerName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CUSTOMER_NAME"
+    Expression="CUSTOMER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+        <LABEL
+          ResId="erpsolscm.erpsolscmmodel.erpsolscmqvo.VwImeiTransactionHistoryQVO.CustomerName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
