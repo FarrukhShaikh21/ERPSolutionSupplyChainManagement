@@ -67,7 +67,7 @@ UNION ALL
 SELECT  REB.REBATE_ID as DOCUMENT_ID,          
         REB.RDATE,          
         CUSTNAME(REB.CUSTOMERID) CUSTOMER_NAME,          
-        'SRET' DOC_TYPE_ID,          
+        SP.DOCTYPEID DOC_TYPE_ID,          
         REB.LOCATIONID   ,     
         CUSTNAME(REB.CUSTOMERID)||' '|| to_char(REB.RDATE,'dd/mm/rrrr') DESCRIPTION     
 FROM    SO_REBATE REB,
