@@ -11,7 +11,7 @@
     <action IterBinding="SoSalesOrderLinesBySOIDROIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
             Action="executeWithParams">
       <NamedData NDName="P_ADF_SALESORDERID"
-                 NDValue="#{data.erpsolscm_erpsolscmview_SO_0204PageDef.Salespersonid.inputValue}"
+                 NDValue="#{data.erpsolscm_erpsolscmview_SO_0204PageDef.Salesorderid.inputValue}"
                  NDType="java.lang.String"/>
       <NamedData NDName="P_ADF_PRODUCTID" NDValue="#{data.erpsolscm_erpsolscmview_SO_0204PageDef.Productid.inputValue}"
                  NDType="java.lang.String"/>
