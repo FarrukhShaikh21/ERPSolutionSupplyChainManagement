@@ -3,19 +3,24 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="ERPSolSCMException.jsf" id="d1">
         <af:form id="f1">
-            <af:panelHeader text="Message" id="ph1">
-                <f:facet name="context"/>
-                <f:facet name="menuBar"/>
-                <f:facet name="toolbar">
-                    <af:toolbar id="t1">
-                        <af:button text="Back" id="b1" icon="#{resource['images:imgExitForm.png']}"/>
-                    </af:toolbar>
+            <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="erptempmain">
+                    <af:panelHeader text="Message" id="ph1">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t1">
+                                <af:button text="Back" id="b1" icon="#{resource['images:imgExitForm.png']}"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:outputText value="#{controllerContext.currentViewPort.exceptionData.message}" id="ot1"
+                                       inlineStyle="font-size:large;color:red"/>
+                    </af:panelHeader>
                 </f:facet>
-                <f:facet name="legend"/>
-                <f:facet name="info"/>
-                <af:outputText value="#{controllerContext.currentViewPort.exceptionData.message}" id="ot1"
-                               inlineStyle="font-size:large;color:red"/>
-            </af:panelHeader>
+                <f:facet name="erptempleft"/>
+            </af:pageTemplate>
         </af:form>
     </af:document>
 </f:view>
