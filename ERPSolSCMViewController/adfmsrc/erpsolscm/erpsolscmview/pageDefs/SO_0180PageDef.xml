@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SO_0011PageDef"
+                Package="erpsolscm.erpsolscmview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AllCustomersCRUD" RangeSize="25" DataControl="ERPSolSCMAppModuleDataControl"
+              id="AllCustomersCRUDIterator"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <searchRegion Criteria="AllCustomersViewFindVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="AllCustomersCRUDIterator" id="AllCustomersViewFindVCQuery"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="Customerid">
+      <AttrNames>
+        <Item Value="Customerid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="AcOpeningDate">
+      <AttrNames>
+        <Item Value="AcOpeningDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="CustomerName">
+      <AttrNames>
+        <Item Value="CustomerName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="AllCustomersCRUDIterator" StaticList="false" Uses="LOV_txtLocationName"
+                  id="txtLocationName"/>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="Locationid">
+      <AttrNames>
+        <Item Value="Locationid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="ContactPerson">
+      <AttrNames>
+        <Item Value="ContactPerson"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="TelNo">
+      <AttrNames>
+        <Item Value="TelNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="MobileNo">
+      <AttrNames>
+        <Item Value="MobileNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="Audited">
+      <AttrNames>
+        <Item Value="Audited"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="Address">
+      <AttrNames>
+        <Item Value="Address"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolSCMAppModuleDataControl"/>
+    <action IterBinding="AllCustomersCRUDIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="AllCustomersCRUDIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="AllCustomersCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="AllCustomersCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createWithParams" InstanceName="ERPSolSCMAppModuleDataControl.AllCustomersCRUD"
+            DataControl="ERPSolSCMAppModuleDataControl">
+      <NamedData NDName="Email" NDValue="#{''}" NDType="java.lang.String"/>
+    </action>
+    <list IterBinding="AllCustomersCRUDIterator" StaticList="false" Uses="LovCustypeid" id="Custypeid"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="ApplyImei">
+      <AttrNames>
+        <Item Value="ApplyImei"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="AllowSoOnAging">
+      <AttrNames>
+        <Item Value="AllowSoOnAging"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="RetQtyExempted">
+      <AttrNames>
+        <Item Value="RetQtyExempted"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AllCustomersCRUDIterator" id="RebateDaysCat">
+      <AttrNames>
+        <Item Value="RebateDaysCat"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
