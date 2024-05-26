@@ -809,6 +809,9 @@ public class SoRebateImpl extends ERPSolGlobalsEntityImpl {
             if (ERPSolGlobClassModel.doGetModuleId().equals("SO-0171")) {
                 populateAttributeAsChanged(ISSAMERATE, "Y");
             }
+            else if (ERPSolGlobClassModel.doGetModuleId().equals("SO-0216")) {
+                populateAttributeAsChanged(ISSAMERATE, "C");
+            }
             populateAttributeAsChanged(REBATEID, result);
         }
         super.doDML(operation, e);

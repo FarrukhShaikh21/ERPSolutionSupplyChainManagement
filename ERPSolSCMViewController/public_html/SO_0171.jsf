@@ -126,7 +126,8 @@
                           </af:inputText>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc10" valign="middle">
-                          <af:outputLabel value="#{bindings.txtStoreName.hints.label}" id="ol11"/>
+                          <af:outputLabel value="#{bindings.txtStoreName.hints.label}" id="ol11"
+                                          visible="#{pageFlowScope.ERPSolTempBean.LERPSolModuleId!='SO-0216' }"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc11" halign="stretch"
                                      valign="middle">
@@ -138,12 +139,15 @@
                                                         required="#{bindings.txtStoreName.hints.mandatory}"
                                                         columns="#{bindings.txtStoreName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtStoreName.hints.tooltip}"
-                                                        simple="true">
+                                                        simple="true"
+                                                        visible="#{pageFlowScope.ERPSolTempBean.LERPSolModuleId!='SO-0216' }">
                             <f:validator binding="#{bindings.txtStoreName.validator}"/>
                           </af:inputComboboxListOfValues>
                           <af:spacer width="10" height="10" id="s3"/>
                           <af:outputText value="#{bindings.Storeid.inputValue}" id="ot3" noWrap="true"
-                                         partialTriggers="txtStoreNameId"/>
+                                         partialTriggers="txtStoreNameId"
+                                         visible="#{pageFlowScope.ERPSolTempBean.LERPSolModuleId!='SO-0216' }"
+                                         inlineStyle="voice-rate:normal;"/>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr6">
@@ -169,6 +173,7 @@
                                          partialTriggers="txtCustomerNameId"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc14" valign="middle">
+                          <af:spacer width="10" height="10" id="s9"/>
                           <af:outputLabel value="#{bindings.txtSalesPersonName.hints.label}" id="ol6"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc15" valign="middle"
@@ -205,13 +210,15 @@
                           </af:inputText>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc18" valign="middle">
-                          <af:outputLabel value="#{bindings.Catid.label}" id="ol8"/>
+                          <af:outputLabel value="#{bindings.Catid.label}" id="ol8"
+                                          visible="#{pageFlowScope.ERPSolTempBean.LERPSolModuleId!='SO-0216' }"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc19" valign="middle">
                           <af:selectOneChoice value="#{bindings.Catid.inputValue}" label="#{bindings.Catid.label}"
                                               required="#{bindings.Catid.hints.mandatory}"
                                               shortDesc="#{bindings.Catid.hints.tooltip}" id="soc2" simple="true"
-                                              readOnly="#{bindings.SoRebateDetailCRUDIterator.estimatedRowCount>0}">
+                                              readOnly="#{bindings.SoRebateDetailCRUDIterator.estimatedRowCount>0}"
+                                              visible="#{pageFlowScope.ERPSolTempBean.LERPSolModuleId!='SO-0216' }">
                             <f:selectItems value="#{bindings.Catid.items}" id="si3"/>
                             <f:validator binding="#{bindings.Catid.validator}"/>
                           </af:selectOneChoice>
@@ -219,7 +226,9 @@
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" id="gr8">
                         <af:gridCell marginStart="5px" width="15%" id="gc20" valign="middle">
-                          <af:outputLabel value="#{bindings.txtSupplierName.hints.label}" id="ol3"/>
+                          <af:outputLabel value="#{bindings.txtSupplierName.hints.label}" id="ol3"
+                                          visible="#{pageFlowScope.ERPSolTempBean.LERPSolModuleId!='SO-0216'}"
+                                          inlineStyle="voice-range:medium;"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc21" halign="stretch" valign="middle">
                           <af:inputComboboxListOfValues id="txtSupplierNameId"
@@ -230,7 +239,8 @@
                                                         required="#{bindings.txtSupplierName.hints.mandatory}"
                                                         columns="#{bindings.txtSupplierName.hints.displayWidth}"
                                                         shortDesc="#{bindings.txtSupplierName.hints.tooltip}"
-                                                        simple="true" autoSubmit="true">
+                                                        simple="true" autoSubmit="true"
+                                                        visible="#{pageFlowScope.ERPSolTempBean.LERPSolModuleId!='SO-0216'}">
                             <f:validator binding="#{bindings.txtSupplierName.validator}"/>
                             <af:autoSuggestBehavior suggestedItems="#{pageFlowScope.ERPSolSCMPageFlowBean.doERPSolGetAutoSuggestedSupplierValues}"/>
                           </af:inputComboboxListOfValues>
@@ -240,22 +250,27 @@
                                          partialTriggers="txtSupplierNameId"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="15%" id="gc22" valign="middle">
-                          <af:outputLabel value="#{bindings.ConsignmentNo.hints.label}" id="ol7"/>
+                          <af:spacer width="10" height="10" id="s7"/>
+                          <af:outputLabel value="#{bindings.ConsignmentNo.hints.label}" id="ol7"
+                                          visible="#{pageFlowScope.ERPSolTempBean.LERPSolModuleId!='SO-0216'}"/>
                         </af:gridCell>
-                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc23" valign="middle">
-                          <af:inputText value="#{bindings.ConsignmentNo.inputValue}" simple="true"
-                                        required="#{bindings.ConsignmentNo.hints.mandatory}"
-                                        columns="#{bindings.ConsignmentNo.hints.displayWidth}"
-                                        maximumLength="#{bindings.ConsignmentNo.hints.precision}"
-                                        shortDesc="#{bindings.ConsignmentNo.hints.tooltip}" id="it5"
-                                        contentStyle="width:100%">
-                            <f:validator binding="#{bindings.ConsignmentNo.validator}"/>
-                          </af:inputText>
+                        <af:gridCell marginStart="5px" width="35%" marginEnd="5px" id="gc23" valign="middle"
+                                     halign="stretch">
                           <af:button text="IMEI" id="b8" disabled="#{bindings.RebateId.inputValue==null}"
                                      action="ACT-SCAN-REBATE-IMEI">
                             <af:setActionListener from="#{bindings.RebateId.inputValue}"
                                                   to="#{pageFlowScope.ERPSolSCMPageFlowBean.ERPSolSalesOrderId}"/>
                           </af:button>
+                          <af:inputText value="#{bindings.ConsignmentNo.inputValue}" simple="true"
+                                        required="#{bindings.ConsignmentNo.hints.mandatory}"
+                                        columns="#{bindings.ConsignmentNo.hints.displayWidth}"
+                                        maximumLength="#{bindings.ConsignmentNo.hints.precision}"
+                                        shortDesc="#{bindings.ConsignmentNo.hints.tooltip}" id="it5"
+                                        contentStyle="width:100%"
+                                        visible="#{pageFlowScope.ERPSolTempBean.LERPSolModuleId!='SO-0216'}">
+                            <f:validator binding="#{bindings.ConsignmentNo.validator}"/>
+                          </af:inputText>
+                          <af:spacer width="10" height="10" id="s8"/>
                         </af:gridCell>
                       </af:gridRow>
                       <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr9">
@@ -376,7 +391,7 @@
                       </af:inputText>
                     </af:column>
                     <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.ManualRate.label}" id="c10"
-                               visible="#{pageFlowScope.ERPSolTempBean.LERPSolAllowEdit=='Y'}">
+                               visible="#{pageFlowScope.ERPSolTempBean.LERPSolAllowEdit=='Y' &amp;&amp; pageFlowScope.ERPSolTempBean.LERPSolModuleId!='SO-0216' }">
                       <af:inputText value="#{row.bindings.ManualRate.inputValue}"
                                     label="#{bindings.SoRebateDetailCRUD.hints.ManualRate.label}"
                                     required="#{bindings.SoRebateDetailCRUD.hints.ManualRate.mandatory}"
@@ -389,7 +404,7 @@
                       </af:inputText>
                     </af:column>
                     <af:column headerText="#{bindings.SoRebateDetailCRUD.hints.GenerateSo.label}" id="c9"
-                               visible="#{pageFlowScope.ERPSolTempBean.LERPSolAllowEdit=='Y'}">
+                               visible="#{pageFlowScope.ERPSolTempBean.LERPSolAllowEdit=='Y' &amp;&amp; pageFlowScope.ERPSolTempBean.LERPSolModuleId!='SO-0216' }">
                       <af:inputText value="#{row.bindings.GenerateSo.inputValue}"
                                     label="#{bindings.SoRebateDetailCRUD.hints.GenerateSo.label}"
                                     required="#{bindings.SoRebateDetailCRUD.hints.GenerateSo.mandatory}"

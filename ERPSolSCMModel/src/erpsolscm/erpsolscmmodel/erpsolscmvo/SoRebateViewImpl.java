@@ -53,6 +53,22 @@ public class SoRebateViewImpl extends ViewObjectImpl implements SoRebateView {
             } catch (SQLException e) {
             }
         }
-    }   
+    }
+
+    /**
+     * Returns the variable value for P_ADF_SAME_RATE.
+     * @return variable value for P_ADF_SAME_RATE
+     */
+    public String getP_ADF_SAME_RATE() {
+        return (String) ensureVariableManager().getVariableValue("P_ADF_SAME_RATE");
+    }
+
+    /**
+     * Sets <code>value</code> for variable P_ADF_SAME_RATE.
+     * @param value value to bind as P_ADF_SAME_RATE
+     */
+    public void setP_ADF_SAME_RATE(String value) {
+        ensureVariableManager().setVariableValue("P_ADF_SAME_RATE", value);
+    }
 }
 

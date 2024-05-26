@@ -52,7 +52,17 @@
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoSalesReturnLinesView"/>
   <ViewUsage
     Name="SoRebateCRUD"
-    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoRebateView"/>
+    ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoRebateView">
+    <ViewCriteriaUsage
+      Name="SoRebateViewSameRateWiseVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoRebateView.SoRebateViewSameRateWiseVC"/>
+    <ParameterMap>
+      <PIMap Variable="P_ADF_SAME_RATE">
+        <TransientExpression
+          trustMode="untrusted"><![CDATA[erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetModuleId().equals("SO-0216")?"C":erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobClassModel.doGetModuleId().equals("SO-0171")?"Y":"N"]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
   <ViewUsage
     Name="SoRebateDetailCRUD"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SoRebateDetailView"/>
