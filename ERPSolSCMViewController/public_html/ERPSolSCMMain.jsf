@@ -12,7 +12,7 @@
                                          icon="#{resource['images:imgHome.png']}"/>
                             </af:toolbar>
                         </f:facet>
-                        <af:image source="#{resource['images:imgSupplyChain.jpg']}" id="i1"/>
+                        <af:image id="i1" source="#{resource['images:imgSupplyChain.png']}"/>
                     </af:panelBox>
                 </f:facet>
                 <f:facet name="erptempleft"/>
