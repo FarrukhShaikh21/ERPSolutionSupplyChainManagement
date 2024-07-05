@@ -727,4 +727,8 @@
     <PropertiesBundle
       PropertiesFile="erpsolscm.erpsolscmmodel.ERPSolSCMModelBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="RebateId"/>
+  </SortCriteria>
 </ViewObject>

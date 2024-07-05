@@ -613,7 +613,7 @@
                                       columns="#{bindings.SoSalesOrderLinesOnlineDetCRUD.hints.DiscountAmountOc.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesOnlineDetCRUD.hints.DiscountAmountOc.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesOnlineDetCRUD.hints.DiscountAmountOc.tooltip}"
-                                      id="it17" partialTriggers="it11">
+                                      id="it17" partialTriggers="it11" autoSubmit="true">
                           <f:validator binding="#{row.bindings.DiscountAmountOc.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesOnlineDetCRUD.hints.DiscountAmountOc.format}"/>
@@ -640,7 +640,7 @@
                                       columns="#{bindings.SoSalesOrderLinesOnlineDetCRUD.hints.txtNetAmount.displayWidth}"
                                       maximumLength="#{bindings.SoSalesOrderLinesOnlineDetCRUD.hints.txtNetAmount.precision}"
                                       shortDesc="#{bindings.SoSalesOrderLinesOnlineDetCRUD.hints.txtNetAmount.tooltip}"
-                                      id="it13" readOnly="true" partialTriggers="it15 txtModelNoId it10 it11 it12">
+                                      id="it13" readOnly="true" partialTriggers="it15 txtModelNoId it10 it11 it12 it17">
                           <f:validator binding="#{row.bindings.txtNetAmount.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.SoSalesOrderLinesOnlineDetCRUD.hints.txtNetAmount.format}"/>
