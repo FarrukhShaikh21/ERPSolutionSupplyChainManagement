@@ -695,6 +695,12 @@
         UpperColumns="0"
         Required="Optional"/>
       <ViewCriteriaItem
+        Name="RebateId"
+        ViewAttribute="RebateId"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"/>
+      <ViewCriteriaItem
         Name="AllCustomersView"
         ViewAttribute="AllCustomersView"
         Operator="EXISTS"

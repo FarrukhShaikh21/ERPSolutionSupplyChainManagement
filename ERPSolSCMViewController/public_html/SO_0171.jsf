@@ -78,7 +78,7 @@
                     <af:panelGridLayout id="pgl5">
                       <af:gridRow marginTop="5px" height="auto" id="gr4">
                         <af:gridCell marginStart="5px" width="15%" id="gc2" valign="middle">
-                          <af:outputLabel value="#{bindings.RebateId.hints.label}" id="ol5"/>
+                          <af:outputLabel value="#{pageFlowScope.ERPSolTempBean.LERPSolModuleId=='SO-0201'?'IMEI Rebate ID': bindings.RebateId.hints.label}" id="ol5"/>
                         </af:gridCell>
                         <af:gridCell marginStart="5px" width="35%" id="gc3" valign="middle">
                           <af:inputText value="#{bindings.RebateId.inputValue}" simple="true"
