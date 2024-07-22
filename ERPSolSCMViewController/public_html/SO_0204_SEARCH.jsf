@@ -26,7 +26,7 @@
                             <af:column headerText="#{bindings.SoSalesOrderOnlineCRUD.hints.Salesorderid.label}"
                                        id="resId1c1">
                                 <af:link text="#{row.Salesorderid}" id="l1" partialSubmit="true"
-                                         action="ACT-BACK-TO-SO_0167"/>
+                                         action="ACTPGOTO-SO_0204_SEARCH_BACK"/>
                                 <af:outputText value="#{row.Salesorderid}"
                                                shortDesc="#{bindings.SoSalesOrderOnlineCRUD.hints.Salesorderid.tooltip}"
                                                id="ot1" rendered="false"/>
