@@ -24,7 +24,11 @@
   <ViewAccessor
     Name="AccSretCategoryView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.SretCategoryView"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SretCategoryViewActiveVC"
+      FullName="erpsolscm.erpsolscmmodel.erpsolscmvo.SretCategoryView.SretCategoryViewActiveVC"/>
+  </ViewAccessor>
   <ViewAccessor
     Name="AccAllCustomersView"
     ViewObjectName="erpsolscm.erpsolscmmodel.erpsolscmvo.AllCustomersView"

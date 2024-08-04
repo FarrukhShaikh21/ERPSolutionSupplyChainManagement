@@ -30,8 +30,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRET_CATEGORY"
-    PrimaryKey="true">
+    TableName="SRET_CATEGORY">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
@@ -43,8 +42,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SRET_CATEGORY"
-    PrimaryKey="true">
+    TableName="SRET_CATEGORY">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
@@ -55,10 +53,22 @@
     Scale="0"
     ColumnName="DAYS"
     SQLType="NUMERIC"
-    Type="java.lang.Long"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="SRET_CATEGORY"
     PrimaryKey="true"/>
+  <Attribute
+    Name="IsActive"
+    Precision="1"
+    ColumnName="IS_ACTIVE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SRET_CATEGORY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="SretcategoryPrimaryKey"
     PrimaryKey="true">
@@ -67,8 +77,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SretCategory.Catid"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SretCategory.CatDesc"/>
-      <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SretCategory.CatType"/>
       <Item Value="erpsolscm.erpsolscmmodel.erpsolscmeo.SretCategory.Days"/>
     </AttrArray>
   </Key>
